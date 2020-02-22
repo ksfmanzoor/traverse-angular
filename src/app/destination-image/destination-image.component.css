@@ -1,0 +1,30 @@
+.image-box {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.image-box > img {
+    transition: all 2.0s;
+}
+
+.image-box:hover > img {
+    transform: scale(1.2);
+    opacity: 0.4;
+}
+
+
+.img-property {
+    height: 40vh;
+    width: 100%;
+}
+
+.caption {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+#subtitle {
+    opacity: 0.6;
+}

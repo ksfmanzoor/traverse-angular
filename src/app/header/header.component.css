@@ -1,5 +1,4 @@
 
-
 .header {
     background-image: url('src/assets/header.jpg');
     background-size: cover;
@@ -29,7 +28,7 @@
 }
 
 
-.intro-lead-in{
+.intro-lead-in {
     color: inherit;
     font-size: 60px;
 }
