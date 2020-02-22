@@ -1,0 +1,44 @@
+
+
+.header {
+    background-image: url('src/assets/header.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay {
+    height: inherit;
+    min-height: initial;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+#logoImg {
+    height: 40px;
+    width: 75px;
+}
+
+.intro-text {
+    text-align: center;
+    color: white;
+    padding-top: 120px;
+    padding-bottom: 200px;
+}
+
+
+.intro-lead-in{
+    color: inherit;
+    font-size: 60px;
+}
+
+.search-bar {
+    padding: 20px 0 20px 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
