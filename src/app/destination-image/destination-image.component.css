@@ -1,7 +1,6 @@
 .image-box {
     position: relative;
     overflow: hidden;
-    background-color: black;
 }
 
 .image-box > img {
@@ -10,7 +9,7 @@
 
 .image-box:hover > img {
     transform: scale(1.2);
-    opacity: 0.4;
+    filter: brightness(0.4);
 }
 
 
