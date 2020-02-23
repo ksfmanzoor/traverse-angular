@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { DestinationImageComponent } from './destination-image/destination-image.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
+import { BestTripsComponent } from './best-trips/best-trips.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ExperiencesComponent } from './experiences/experiences.component';
     HeaderComponent,
     DestinationsComponent,
     DestinationImageComponent,
-    ExperiencesComponent
+    ExperiencesComponent,
+    BestTripsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
