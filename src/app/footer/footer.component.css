@@ -6,6 +6,12 @@
 #footer-text {
     color: #b3b3b3;
     margin: 0;
+    font-size: 13px;
+}
+
+#footer-text > a {
+    color: white;
+    text-decoration: none !important;
 }
 
 .social-icons {
@@ -19,9 +25,22 @@
     display: inline-block;
     margin-left: 15px;
 }
-.social-icons >li > a {
+
+.social-icons > li > a {
     color: #fff;
     opacity: 0.75;
     text-decoration: none !important;
-    transition: 0.3s;
+}
+
+
+@media (max-width: 992px) {
+    #footer-text {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .social-icons {
+        text-align: center;
+        margin-top: 5px;
+    }
 }
