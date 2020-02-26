@@ -15,9 +15,14 @@
 }
 
 
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+
 #logoImg {
-    height: 40px;
-    width: 75px;
+    width: 80px;
 }
 
 .intro-text {
@@ -41,3 +46,18 @@
     box-shadow: none;
 }
 
+
+@media (max-width: 992px) {
+    #nav-color {
+        background-color: #333;
+    }
+
+    .dropdown-menu {
+        background-color: #333333;
+        border: none;
+    }
+
+    .dropdown-menu > a {
+        color: #777;
+    }
+}
