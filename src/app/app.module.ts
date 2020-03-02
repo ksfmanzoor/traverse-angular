@@ -14,6 +14,7 @@ import { AboutUsComponent } from './Trip Page/about-us/about-us.component';
 import { PlacesComponent } from './Trip Page/places/places.component';
 import { GalleryComponent } from './Trip Page/gallery/gallery.component';
 import { GalleryImageComponent } from './Trip Page/gallery-image/gallery-image.component';
+import { HomePageComponent } from './Home Page/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GalleryImageComponent } from './Trip Page/gallery-image/gallery-image.c
     AboutUsComponent,
     PlacesComponent,
     GalleryComponent,
-    GalleryImageComponent
+    GalleryImageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
