@@ -1,6 +1,6 @@
 
 .header {
-    background-image: url('src/assets/header.jpg');
+    background-image: url('../../assets/header.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -15,15 +15,6 @@
 }
 
 
-.navbar-toggler {
-    border: none;
-    outline: none;
-}
-
-
-#logoImg {
-    width: 80px;
-}
 
 .intro-text {
     text-align: center;
@@ -47,17 +38,3 @@
 }
 
 
-@media (max-width: 992px) {
-    #nav-color {
-        background-color: #333;
-    }
-
-    .dropdown-menu {
-        background-color: #333333;
-        border: none;
-    }
-
-    .dropdown-menu > a {
-        color: #777;
-    }
-}

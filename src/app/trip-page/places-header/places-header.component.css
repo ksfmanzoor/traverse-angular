@@ -1,0 +1,39 @@
+
+.header {
+    background-image: url('src/assets/header.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay {
+    height: inherit;
+    min-height: initial;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.intro-text {
+    text-align: center;
+    color: white;
+    padding-top: 160px;
+    padding-bottom: 180px;
+}
+
+
+.intro-lead-in {
+    color: inherit;
+    font-size: 120px;
+    letter-spacing: 5px;
+    font-weight: 100;
+    line-height: 1em;
+    text-transform: uppercase !important;
+    font-family: 'Roboto', helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: x-large;
+    opacity: 0.65;
+}

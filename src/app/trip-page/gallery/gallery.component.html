@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div
+            class="col-sm-12 col-md-12 col-lg-4 col-xl-4 order-lg-2 d-flex flex-column justify-content-center"
+            id="gallery-text">
+            <h1 class="display-4">Photos</h1>
+            <p id="places-subtitle">Feel the serenity of Hunza</p>
+        </div>
+        <div class="col" >
+            <ng-container *ngFor="let x of rows;let i=index">
+                <div class="row">
+                <div class="col p-0" *ngFor="let y of columns;let j = index">
+                    <img class="img-fluid" src="{{images[j]}}" alt=""
+                         [ngStyle]="{height: height}"/>
+                </div>
+                </div>
+            </ng-container>
+            <div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,0 @@
-.gallery-image {
-    height: 150px;
-}
-
-@media (max-width: 568px) {
-    .gallery-image {
-        height: 78px;
-    }
-}

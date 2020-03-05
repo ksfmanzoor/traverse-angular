@@ -9,13 +9,14 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
 export class PlacesComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     freeDrag: true,
     navSpeed: 700,
+    dots: false,
     autoplay: true,
+    rtl: true,
     responsive: {
       0: {
         items: 1
@@ -30,7 +31,6 @@ export class PlacesComponent implements OnInit {
         items: 4
       }
     },
-    rtl: true
   };
 
   constructor() { }

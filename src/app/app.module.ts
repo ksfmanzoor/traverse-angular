@@ -3,20 +3,22 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './Home Page/header/header.component';
-import {DestinationsComponent} from './Home Page/destinations/destinations.component';
-import {DestinationImageComponent} from './Home Page/destination-image/destination-image.component';
-import {ExperiencesComponent} from './Home Page/experiences/experiences.component';
-import {BestTripsComponent} from './Home Page/best-trips/best-trips.component';
-import {FooterComponent} from './footer/footer.component';
-import {TripPageComponent} from './Trip Page/trip-page/trip-page.component';
-import {AboutUsComponent} from './Trip Page/about-us/about-us.component';
-import {PlacesComponent} from './Trip Page/places/places.component';
-import {GalleryComponent} from './Trip Page/gallery/gallery.component';
-import {GalleryImageComponent} from './Trip Page/gallery-image/gallery-image.component';
-import {HomePageComponent} from './Home Page/home-page/home-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CarouselModule} from 'ngx-owl-carousel-o';
+import {HeaderComponent} from './header/header.component';
+import {DestinationsComponent} from './home-page/destinations/destinations.component';
+import {DestinationImageComponent} from './home-page/destination-image/destination-image.component';
+import {ExperiencesComponent} from './home-page/experiences/experiences.component';
+import {BestTripsComponent} from './home-page/best-trips/best-trips.component';
+import {FooterComponent} from './footer/footer.component';
+import {GalleryComponent} from './trip-page/gallery/gallery.component';
+import {TripPageComponent} from './trip-page/trip-page.component';
+import {AboutUsComponent} from './trip-page/about-us/about-us.component';
+import {PlacesComponent} from './trip-page/places/places.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import { SearchPageComponent } from './search-page/search-page.component';
+import { PlacesHeaderComponent } from './trip-page/places-header/places-header.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
     declarations: [
@@ -31,8 +33,10 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
         AboutUsComponent,
         PlacesComponent,
         GalleryComponent,
-        GalleryImageComponent,
-        HomePageComponent
+        HomePageComponent,
+        SearchPageComponent,
+        PlacesHeaderComponent,
+        NavBarComponent
     ],
     imports: [
         BrowserModule,
