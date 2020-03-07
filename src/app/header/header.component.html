@@ -1,11 +1,11 @@
 <header>
     <div class="overlay"></div>
-    <video playsinline autoplay loop>
-        <source src="../assets/homepage-video.mp4" type="video/mp4">
+    <video playsinline autoplay loop muted>
+        <source src="assets/homepage-video.mp4" type="video/mp4">
     </video>
     <div class="container-fluid h-100 p-0 m-0">
         <app-nav-bar></app-nav-bar>
-        <div class="d-flex h-100 w-100 text-center align-items-center justify-content-center">
+        <div class="d-flex h-100 text-center align-items-center justify-content-center">
             <div class="intro-text">
                 <div class="intro-lead-in"><strong>Lorem ipsum dolor sit amet</strong></div>
                 <div class="row search-bar">
@@ -13,8 +13,9 @@
                         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                                <span class="btn btn-link text-success"><i
-                                                    class="fa fa-search"></i></span>
+                                                <span class="btn btn-link text-success">
+                                                    <i class="fa fa-search"></i>
+                                                </span>
                                 </div>
                                 <input type="search" placeholder="What're you searching for?"
                                        class="form-control border-0 bg-light rounded-pill">
@@ -22,7 +23,8 @@
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-success btn-xl text-uppercase" role="button">Search</a></div>
+                <a class="btn btn-success btn-xl text-uppercase" role="button">Search</a>
+            </div>
         </div>
     </div>
 </header>

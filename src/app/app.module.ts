@@ -16,9 +16,9 @@ import {TripPageComponent} from './trip-page/trip-page.component';
 import {AboutUsComponent} from './trip-page/about-us/about-us.component';
 import {PlacesComponent} from './trip-page/places/places.component';
 import {HomePageComponent} from './home-page/home-page.component';
-import { SearchPageComponent } from './search-page/search-page.component';
-import { PlacesHeaderComponent } from './trip-page/places-header/places-header.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {SearchPageComponent} from './search-page/search-page.component';
+import {PlacesHeaderComponent} from './trip-page/places-header/places-header.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
 
 @NgModule({
     declarations: [

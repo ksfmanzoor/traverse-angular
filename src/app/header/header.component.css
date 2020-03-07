@@ -59,7 +59,7 @@ header .overlay {
 
 
 
-@media (pointer: coarse) and (hover: none) {
+@media (max-width: 992px) {
     header {
         background: url('src/assets/header.jpg') black no-repeat center center scroll;
     }
