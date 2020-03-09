@@ -42,7 +42,6 @@ header .overlay {
     padding-bottom: 80px;
 }
 
-
 .intro-lead-in {
     color: inherit;
     font-size: 60px;
@@ -55,8 +54,6 @@ header .overlay {
 .form-control:focus {
     box-shadow: none;
 }
-
-
 
 
 @media (max-width: 992px) {

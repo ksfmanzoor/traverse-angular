@@ -19,6 +19,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {PlacesHeaderComponent} from './trip-page/places-header/places-header.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
+import { SearchHeaderComponent } from './search-page/search-header/search-header.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
         HomePageComponent,
         SearchPageComponent,
         PlacesHeaderComponent,
-        NavBarComponent
+        NavBarComponent,
+        SearchHeaderComponent
     ],
     imports: [
         BrowserModule,
