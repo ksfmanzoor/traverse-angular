@@ -1,0 +1,12 @@
+.row-image {
+    margin: 20px 0;
+}
+
+@media (max-width: 992px) {
+    .col-image {
+        margin: 15px 0;
+    }
+    .row-image{
+        margin: 0;
+    }
+}

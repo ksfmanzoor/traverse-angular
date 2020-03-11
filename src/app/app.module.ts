@@ -20,6 +20,7 @@ import {SearchPageComponent} from './search-page/search-page.component';
 import {PlacesHeaderComponent} from './trip-page/places-header/places-header.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import { SearchHeaderComponent } from './search-page/search-header/search-header.component';
+import { DestinationPageComponent } from './destination-page/destination-page.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { SearchHeaderComponent } from './search-page/search-header/search-header
         SearchPageComponent,
         PlacesHeaderComponent,
         NavBarComponent,
-        SearchHeaderComponent
+        SearchHeaderComponent,
+        DestinationPageComponent
     ],
     imports: [
         BrowserModule,
