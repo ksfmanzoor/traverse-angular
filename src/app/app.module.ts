@@ -21,6 +21,8 @@ import {PlacesHeaderComponent} from './trip-page/places-header/places-header.com
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import { SearchHeaderComponent } from './search-page/search-header/search-header.component';
 import { DestinationPageComponent } from './destination-page/destination-page.component';
+import { BlogCarouselComponent } from './home-page/blog-carousel/blog-carousel.component';
+import { BlogPageComponent } from './blog-page/blog-page.component';
 
 @NgModule({
     declarations: [
@@ -40,7 +42,9 @@ import { DestinationPageComponent } from './destination-page/destination-page.co
         PlacesHeaderComponent,
         NavBarComponent,
         SearchHeaderComponent,
-        DestinationPageComponent
+        DestinationPageComponent,
+        BlogCarouselComponent,
+        BlogPageComponent
     ],
     imports: [
         BrowserModule,

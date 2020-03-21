@@ -4,12 +4,14 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {TripPageComponent} from './trip-page/trip-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {DestinationPageComponent} from './destination-page/destination-page.component';
+import {BlogPageComponent} from './blog-page/blog-page.component';
 
 
 const routes: Routes = [
     {path: '', component: HomePageComponent},
     {path: 'search', component: SearchPageComponent},
-    {path: 'places', component: TripPageComponent},
+    {path: 'place', component: TripPageComponent},
+    {path: 'blog', component: BlogPageComponent},
     {path: 'destinations', component: DestinationPageComponent}
 ];
 
