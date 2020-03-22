@@ -13,3 +13,13 @@
 #places-text {
     padding: 60px;
 }
+
+#places-image {
+    height: 269px;
+}
+
+#next-button {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+}

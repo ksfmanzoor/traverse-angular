@@ -5,16 +5,11 @@
             <p id="places-subtitle">Explore Hunza&#39;s most visited attractions</p>
         </div>
         <div class="col-lg-9 position-relative">
-            <owl-carousel-o [options]="customOptions">
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
-                <ng-template carouselSlide><img src="header.jpg" style="height: 269px"></ng-template>
+            <owl-carousel-o [options]="customOptions" #owl>
+                <ng-template carouselSlide *ngFor="let x of [].constructor(7)"><img src="header.jpg" id="places-image">
+                </ng-template>
             </owl-carousel-o>
+            <div (click)="owl.next()" id="next-button"><</div>
         </div>
     </div>
 </div>
