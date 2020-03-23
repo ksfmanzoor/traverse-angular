@@ -1,4 +1,5 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {GalleryImage} from '../../models/place';
 
 @Component({
     selector: 'app-gallery',
@@ -7,18 +8,17 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
     height = '158px';
-    path = 'header.jpg';
+    @Input() galleryInfo: {title: string, images: GalleryImage[]};
     screenWidth;
-    rows;
-    columns = new Array(5);
-    images = [this.path, this.path, this.path, this.path, this.path, this.path, this.path, this.path, this.path, this.path,
-      this.path, this.path, this.path, this.path, this.path];
+    noOfRows;
 
-    constructor() {}
+    constructor() {
+    }
 
     ngOnInit(): void {
         this.screenWidth = window.innerWidth;
         this.heightDecider();
+        console.log('j');
         this.rowDecider();
     }
 
@@ -29,22 +29,23 @@ export class GalleryComponent implements OnInit {
     }
 
     heightDecider() {
-        if (this.images.length === 5 && this.screenWidth > 568) {
-            this.height = '316px';
-        } else if (this.images.length === 5 && this.screenWidth <= 568) {
+        if (this.galleryInfo.images.length <= 5 && this.screenWidth > 568) {
+            this.height = '280px';
+        } else if (this.galleryInfo.images.length === 5 && this.screenWidth <= 568) {
             this.height = '156px';
         } else {
             this.height = '156px';
         }
+        this.rowDecider();
     }
 
     rowDecider() {
-        if (this.images.length === 5) {
-            this.rows = new Array(1);
-        } else if ((this.images.length > 5) && (this.images.length <= 10)) {
-            this.rows = new Array(2);
+        if (this.galleryInfo.images.length <= 5) {
+            this.noOfRows = new Array(1);
+        } else if ((this.galleryInfo.images.length > 5) && (this.galleryInfo.images.length <= 10)) {
+            this.noOfRows = new Array(2);
         } else {
-            this.rows = new Array(3);
+            this.noOfRows = new Array(3);
         }
     }
 

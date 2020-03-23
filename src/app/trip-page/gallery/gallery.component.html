@@ -4,13 +4,13 @@
             class="col-sm-12 col-md-12 col-lg-4 col-xl-4 order-lg-2 d-flex flex-column justify-content-center"
             id="gallery-text">
             <h1 class="display-4">Photos</h1>
-            <p id="places-subtitle">Feel the serenity of Hunza</p>
+            <p id="places-subtitle">Feel the serenity of {{galleryInfo.title}}</p>
         </div>
-        <div class="col" >
-            <ng-container *ngFor="let x of rows;let i=index">
+        <div class="col">
+            <ng-container *ngFor="let x of [].constructor(1);let i=index">
                 <div class="row">
-                <div class="col p-0" *ngFor="let y of columns;let j = index">
-                    <img class="img-fluid" src="{{images[j]}}" alt=""
+                <div class="col p-0" *ngFor="let y of [].constructor(5);let j = index">
+                    <img class="img-fluid" src="{{galleryInfo.images[j].image}}" alt=""
                          [ngStyle]="{height: height}"/>
                 </div>
                 </div>

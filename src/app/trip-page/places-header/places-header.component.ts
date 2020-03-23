@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-places-header',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./places-header.component.css']
 })
 export class PlacesHeaderComponent implements OnInit {
+  @Input() headerInfo: {title: string, subtitle: string, imageUrl: string};
 
   constructor() { }
 

@@ -1,6 +1,5 @@
 
 .header {
-    background-image: url('src/assets/header.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -17,8 +16,11 @@
 .intro-text {
     text-align: center;
     color: white;
-    padding-top: 160px;
-    padding-bottom: 180px;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -36,4 +38,10 @@
 .subtitle {
     font-size: x-large;
     opacity: 0.65;
+}
+
+@media (max-width: 568px) {
+    .intro-lead-in {
+        font-size: 60px;
+    }
 }

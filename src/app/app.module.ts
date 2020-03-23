@@ -23,6 +23,7 @@ import { SearchHeaderComponent } from './search-page/search-header/search-header
 import { DestinationPageComponent } from './destination-page/destination-page.component';
 import { BlogCarouselComponent } from './home-page/blog-carousel/blog-carousel.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        CarouselModule
+        CarouselModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

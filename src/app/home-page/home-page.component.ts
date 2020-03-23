@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {OwlOptions} from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +10,5 @@ export class HomePageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

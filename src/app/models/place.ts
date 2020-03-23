@@ -1,48 +1,34 @@
-
-export class Place {
-    public readonly id: string;
-    public readonly slug: string;
-    public readonly name: string;
-    public readonly coverImage: string;
-    public readonly about: string;
-    public readonly aboutImage: string;
-    public readonly location: string;
-    public readonly tags: TagsEntity[] | null;
-    public readonly galleryImages: GalleryImages[] | null;
-    public readonly region: TagsEntity;
-    public readonly isFeatured: boolean;
-
-    private constructor(d: any) {
-        this.id = d.id;
-        this.slug = d.slug;
-        this.name = d.name;
-        this.coverImage = d.coverImage;
-        this.about = d.about;
-        this.aboutImage = d.aboutImage;
-        this.location = d.location;
-        this.tags = d.tags;
-        this.galleryImages = d.galleryImages;
-        this.region = d.region;
-        this.isFeatured = d.isFeatured;
-    }
+export interface Place {
+    id: string;
+    slug: string;
+    name: string;
+    cover_image: string;
+    about: string;
+    about_image: string;
+    location: string;
+    tags: Region[];
+    gallery_images: GalleryImage[];
+    region: Region;
+    is_featured: boolean;
 }
 
-export class TagsEntity {
-    public readonly id: string;
-    public readonly name: string;
-
-    private constructor(d: any) {
-        this.id = d.id;
-        this.name = d.name;
-    }
+export interface GalleryImage {
+    id: string;
+    image: string;
 }
 
-export class GalleryImages {
-    public readonly id: string;
-    public readonly image: string;
+export interface Region {
+    id: string;
+    name: string;
+}
 
-    private constructor(d: any) {
-        this.id = d.id;
-        this.image = d.image;
+// Converts JSON strings to/from your types
+export class Convert {
+    public static toPlace(json: string): Place[] {
+        return JSON.parse(json);
+    }
+
+    public static placeToJson(value: Place[]): string {
+        return JSON.stringify(value);
     }
 }

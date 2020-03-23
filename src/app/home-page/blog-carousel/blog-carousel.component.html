@@ -4,7 +4,7 @@
         <h6 class="text-center text-muted">Lorem Ipsum Gysum</h6>
     </div>
     <div class="position-relative">
-        <div (click)="owl.prev()" id="pre-button"><</div>
+        <div (click)="owl.prev()" id="pre-button"><i class="fa fa-angle-left"></i></div>
         <owl-carousel-o [options]="customOptions" #owl>
             <ng-template carouselSlide *ngFor="let x of [].constructor(7)">
                 <div class="p-2">
@@ -12,6 +12,6 @@
                 </div>
             </ng-template>
         </owl-carousel-o>
-        <div (click)="owl.next()" id="next-button">></div>
+        <div (click)="owl.next()" id="next-button"><i class="fa fa-angle-right"></i></div>
     </div>
 </div>
