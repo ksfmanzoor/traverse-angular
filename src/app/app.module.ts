@@ -24,6 +24,7 @@ import { DestinationPageComponent } from './destination-page/destination-page.co
 import { BlogCarouselComponent } from './home-page/blog-carousel/blog-carousel.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
     declarations: [
@@ -45,14 +46,15 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
         SearchHeaderComponent,
         DestinationPageComponent,
         BlogCarouselComponent,
-        BlogPageComponent
+        BlogPageComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         CarouselModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent]
