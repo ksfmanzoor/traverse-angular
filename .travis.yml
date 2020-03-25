@@ -30,7 +30,7 @@ deploy:
     region: "ap-south-1"
     app: "traverse_angular"
     env: "traversepk"
-    bucket_name: "<S3_BUCKET_NAME>"
+    bucket_name: "elasticbeanstalk-ap-south-1-202999161102"
     on:
       branch: master
 
