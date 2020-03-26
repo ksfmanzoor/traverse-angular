@@ -9,3 +9,9 @@
     top: 50%;
     right: -20px;
 }
+
+@media (max-width: 568px) {
+    #next-button, #pre-button {
+        display: none;
+    }
+}

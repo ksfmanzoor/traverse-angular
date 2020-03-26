@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 
 @Component({
@@ -7,6 +7,7 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
   styleUrls: ['./blog-carousel.component.css']
 })
 export class BlogCarouselComponent implements OnInit {
+  screenWidth;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -35,6 +36,10 @@ export class BlogCarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth <= 568) {
+      this.customOptions.dots = true;
+    }
   }
 
 }

@@ -15,7 +15,14 @@
     padding: 60px;
 }
 
-.img-fluid {
+.gallery-img {
     width: 100%;
     height: 166px;
+}
+
+@media (max-width: 568px) {
+    .gallery-img {
+        width: 100%;
+        height: 78px;
+    }
 }

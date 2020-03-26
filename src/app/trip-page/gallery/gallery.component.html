@@ -7,10 +7,10 @@
             <p id="places-subtitle">Feel the serenity of {{galleryInfo.title}}</p>
         </div>
         <div class="col">
-            <ng-container *ngFor="let x of [].constructor(galleryInfo.images.length / 5);let i=index">
+            <ng-container *ngFor="let x of [].constructor(galleryInfo.images.length / 5); let i=index">
                 <div class="row">
                 <div class="col p-0" *ngFor="let y of [].constructor(5);let j = index">
-                    <img class="img-fluid" data-src="{{galleryInfo.images[j].image}}" alt=""/>
+                    <img class="gallery-img" data-src="{{galleryInfo.images[i*5+j].image}}" alt=""/>
                 </div>
                 </div>
             </ng-container>
