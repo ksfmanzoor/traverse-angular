@@ -19,12 +19,14 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {PlacesHeaderComponent} from './trip-page/places-header/places-header.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import { SearchHeaderComponent } from './search-page/search-header/search-header.component';
-import { DestinationPageComponent } from './destination-page/destination-page.component';
-import { BlogCarouselComponent } from './home-page/blog-carousel/blog-carousel.component';
-import { BlogPageComponent } from './blog-page/blog-page.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
+import {DestinationPageComponent} from './destination-page/destination-page.component';
+import {BlogCarouselComponent} from './home-page/blog-carousel/blog-carousel.component';
+import {BlogPageComponent} from './blog-page/blog-page.component';
+import {HttpClientModule} from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {GalleryModule} from '@ngx-gallery/core';
+import {LightboxModule} from '@ngx-gallery/lightbox';
 
 @NgModule({
     declarations: [
@@ -54,7 +56,11 @@ import {NgxSpinnerModule} from 'ngx-spinner';
         BrowserAnimationsModule,
         CarouselModule,
         HttpClientModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        GalleryModule,
+        LightboxModule.withConfig({
+            panelClass: 'fullscreen'
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
