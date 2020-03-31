@@ -9,7 +9,7 @@
         <div class="col">
             <ng-container *ngFor="let x of [].constructor(items.length / 5); let i=index">
                 <div class="row">
-                    <div class="col p-0" *ngFor="let y of [].constructor(5);let j = index">
+                    <div class="col p-0 img-container" *ngFor="let y of [].constructor(5);let j = index">
                         <img class="gallery-img" [src]="items[i*5 + j].data.src" alt="" [lightbox]="i*5+j"/>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GalleryImage} from '../../models/place';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
 
@@ -17,10 +17,10 @@ export class GalleryComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this.galleryInfo.images.map(item => new ImageItem({src: item.image, thumb: item.image}));
-        this.basicLightBoxExample();
+        this.loadLightBox();
     }
 
-    basicLightBoxExample() {
+    loadLightBox() {
         this.gallery.ref().load(this.items);
     }
 

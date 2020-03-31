@@ -1,6 +1,7 @@
 .image-box {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .image-box > img {

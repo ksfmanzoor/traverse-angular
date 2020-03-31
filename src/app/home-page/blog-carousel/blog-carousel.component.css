@@ -2,12 +2,14 @@
     position: absolute;
     top: 50%;
     left: -20px;
+    cursor: pointer;
 }
 
 #next-button{
     position: absolute;
     top: 50%;
     right: -20px;
+    cursor: pointer;
 }
 
 @media (max-width: 568px) {
