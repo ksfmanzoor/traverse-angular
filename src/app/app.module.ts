@@ -27,7 +27,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {GalleryModule} from '@ngx-gallery/core';
 import {LightboxModule} from '@ngx-gallery/lightbox';
-import {AngularFittextModule} from 'angular-fittext';
 
 @NgModule({
     declarations: [
@@ -58,7 +57,6 @@ import {AngularFittextModule} from 'angular-fittext';
         CarouselModule,
         HttpClientModule,
         NgxSpinnerModule,
-        AngularFittextModule,
         GalleryModule,
         LightboxModule.withConfig({
             panelClass: 'fullscreen'
