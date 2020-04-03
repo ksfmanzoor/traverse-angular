@@ -9,12 +9,14 @@ export interface Place {
     tags: Region[];
     gallery_images: GalleryImage[];
     region: Region;
+    subtitle: string;
     is_featured: boolean;
 }
 
 export interface GalleryImage {
     id: string;
     image: string;
+    alt_text: string;
 }
 
 export interface Region {
@@ -22,13 +24,13 @@ export interface Region {
     name: string;
 }
 
-// Converts JSON strings to/from your types
+
 export class Convert {
-    public static toPlace(json: string): Place[] {
+    public static toPlace(json: string): Place {
         return JSON.parse(json);
     }
 
-    public static placeToJson(value: Place[]): string {
+    public static placeToJson(value: Place): string {
         return JSON.stringify(value);
     }
 }
