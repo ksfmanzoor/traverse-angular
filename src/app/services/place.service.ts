@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ export class PlaceService {
   place;
   constructor(private  http: HttpClient) { }
 
-  fetchPlace() {
+  fetchPlace(): Observable<any> {
     return this.http.get(this.placeUrl);
   }
 }

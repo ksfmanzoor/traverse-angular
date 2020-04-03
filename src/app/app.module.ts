@@ -24,9 +24,10 @@ import {DestinationPageComponent} from './destination-page/destination-page.comp
 import {BlogCarouselComponent} from './home-page/blog-carousel/blog-carousel.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import {NgxSpinnerModule} from 'ngx-spinner';
 import {GalleryModule} from '@ngx-gallery/core';
 import {LightboxModule} from '@ngx-gallery/lightbox';
+import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
+
 
 @NgModule({
     declarations: [
@@ -56,7 +57,7 @@ import {LightboxModule} from '@ngx-gallery/lightbox';
         BrowserAnimationsModule,
         CarouselModule,
         HttpClientModule,
-        NgxSpinnerModule,
+        LoadingBarRouterModule,
         GalleryModule,
         LightboxModule.withConfig({
             panelClass: 'fullscreen'

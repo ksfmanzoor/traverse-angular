@@ -1,9 +1,8 @@
-<ngx-spinner *ngIf="loader, else elseBlock"></ngx-spinner>
-<ng-template #elseBlock>
-    <app-places-header [headerInfo]="headerInfo"></app-places-header>
-    <app-about-us [aboutUS]="aboutUS"></app-about-us>
-    <!--<app-places></app-places>-->
-    <app-gallery [galleryInfo]="galleryInfo"></app-gallery>
-    <!--<app-places></app-places>-->
-    <app-footer></app-footer>
-</ng-template>
+<!--<ngx-loading-bar></ngx-loading-bar>-->
+<app-places-header [headerInfo]="headerInfo"></app-places-header>
+<app-about-us [aboutUS]="aboutUS"></app-about-us>
+<!--<app-places></app-places>-->
+<app-gallery [galleryInfo]="galleryInfo"></app-gallery>
+<!--<app-places></app-places>-->
+<app-footer></app-footer>
+
