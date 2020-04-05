@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Blog} from '../models/blog';
 
 @Component({
   selector: 'app-blog-page',
@@ -8,6 +9,7 @@ import {DomSanitizer} from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None,
 })
 export class BlogPageComponent implements OnInit {
+  blog: Blog;
   blogText = '<h1>Each day through Hunza is like living through a painting with pastel colours. Hunza bursts with colors during spring, whether the pink and white blossoms or the green, gold, yellow acting as accents, against the bright blue sky, almost magnifying the beauty of the mountains.&nbsp;</h1>\n' +
       '\n' +
       '<h1><img alt="" src="https://traverse-bucket.s3.amazonaws.com/19238218_863464060478506_2145975569244836147_o.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS6Q5RMEHJCXVWXBE%2F20200401%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20200401T180645Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=495e6f1515853eb5bca1a874b83f08b638d3d0bf6e0428b5c19b3c9931721d33" style="height:1344px; width:2013px" />Each day through Hunza is like living through a painting with pastel colours. Hunza bursts with colors during spring, whether the pink and white blossoms or the green, gold, yellow acting as accents, against the bright blue sky, almost magnifying the beauty of the mountains.&nbsp;</h1>\n' +

@@ -6,9 +6,9 @@
     <div class="position-relative">
         <div (click)="owl.prev()" id="pre-button"><i class="fa fa-angle-left"></i></div>
         <owl-carousel-o [options]="customOptions" #owl>
-            <ng-template carouselSlide *ngFor="let x of [].constructor(7)">
+            <ng-template carouselSlide *ngFor="let x of blogs">
                 <div class="p-2">
-                    <app-destination-image></app-destination-image>
+                    <app-destination-image [path]="'blog'"></app-destination-image>
                 </div>
             </ng-template>
         </owl-carousel-o>

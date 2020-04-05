@@ -1,25 +1,28 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {LoadingBarService} from '@ngx-loading-bar/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-destination-image',
-  templateUrl: './destination-image.component.html',
-  styleUrls: ['./destination-image.component.css']
+    selector: 'app-destination-image',
+    templateUrl: './destination-image.component.html',
+    styleUrls: ['./destination-image.component.css']
 })
-export class DestinationImageComponent implements OnInit , OnDestroy {
+export class DestinationImageComponent implements OnInit, OnDestroy {
+    @Input() path;
 
-  constructor(private loadingBar: LoadingBarService, private router: Router) { }
+    constructor(private loadingBar: LoadingBarService, private router: Router) {
+    }
 
-  ngOnInit(): void {
-  }
-  navigate() {
-    this.loadingBar.start();
-    this.router.navigate(['place']).then();
-  }
+    ngOnInit(): void {
+    }
 
-  ngOnDestroy(): void {
-    this.loadingBar.stop();
-  }
+    navigate() {
+        this.loadingBar.start();
+        this.router.navigate([this.path]).then();
+    }
+
+    ngOnDestroy(): void {
+        this.loadingBar.stop();
+    }
 
 }

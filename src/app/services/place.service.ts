@@ -8,7 +8,6 @@ import {Observable} from 'rxjs';
 })
 export class PlaceService {
   placeUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/';
-  place;
   constructor(private  http: HttpClient) { }
 
   fetchPlace(): Observable<any> {

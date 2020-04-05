@@ -29,34 +29,27 @@
 }
 
 .description-container {
+    padding-top: 15px;
     position: absolute;
-    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background: black;
     color: #fff;
-    visibility: hidden;
     opacity: 0;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity .2s, visibility .2s;
 }
 
-.img-container:hover .description-container {
-    visibility: visible;
-    opacity: 0.8;
-}
 
 .description {
     transition: .2s;
     transform: translateY(1em);
 }
 
-.img-container:hover .description {
-    transform: translateY(0);
-}
 
 
 @media (max-width: 568px) {
@@ -70,4 +63,15 @@
         height: 100px;
         object-fit: cover;
     }
+}
+
+@media not all and (pointer: coarse) {
+    .img-container:hover .description {
+        transform: translateY(0);
+    }
+
+    .img-container:hover .description-container {
+        opacity: 0.8;
+    }
+
 }

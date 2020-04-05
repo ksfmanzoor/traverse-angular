@@ -6,6 +6,7 @@ import {SearchPageComponent} from './search-page/search-page.component';
 import {DestinationPageComponent} from './destination-page/destination-page.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {PlaceResolverService} from './services/place-resolver.service';
+import {BlogResolverService} from './services/blog-resolver.service';
 
 
 const routes: Routes = [
