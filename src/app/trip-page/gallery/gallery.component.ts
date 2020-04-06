@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {GalleryImage} from '../../models/place';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
 
@@ -8,7 +8,7 @@ import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
     styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-
+    @ViewChild('itemTemplate', {static: true}) itemTemplate: TemplateRef<any>;
     @Input() galleryInfo: { title: string, images: GalleryImage[] };
     items: GalleryItem[];
 
@@ -16,11 +16,15 @@ export class GalleryComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.items = this.galleryInfo.images.map(item => new ImageItem({src: item.image, thumb: item.image}));
+        this.items = this.galleryInfo.images.map(item => new ImageItem(
+            {src: item.image, thumb: item.image, text: item.alt_text}
+            ),
+        );
         this.loadLightBox();
     }
 
     loadLightBox() {
+        this.gallery.ref().setConfig({itemTemplate: this.itemTemplate});
         this.gallery.ref().load(this.items);
     }
 
