@@ -1,7 +1,8 @@
-<div class="container">
-    <div class="row row-image" *ngFor="let i of [].constructor(5)">
-        <div class="col-sm-12 col-lg-4 col-image" *ngFor="let j of [].constructor(3)">
-            <app-destination-image></app-destination-image>
-        </div>
-    </div>
-</div>
+<!--<ngx-loading-bar></ngx-loading-bar>-->
+<app-places-header [headerInfo]="headerInfo"></app-places-header>
+<app-about-us [aboutUS]="aboutUS"></app-about-us>
+<!--<app-places></app-places>-->
+<app-gallery [galleryInfo]="galleryInfo"></app-gallery>
+<!--<app-places></app-places>-->
+<app-footer></app-footer>
+

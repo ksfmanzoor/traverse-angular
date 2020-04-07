@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {GalleryImage} from '../../models/place';
+import {GalleryImage} from '../../models/destination';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
 
 @Component({

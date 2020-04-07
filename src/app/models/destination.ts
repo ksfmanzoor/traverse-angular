@@ -1,4 +1,4 @@
-export interface Place {
+export interface Destination {
     id: string;
     slug: string;
     name: string;
@@ -26,11 +26,11 @@ export interface Region {
 
 
 export class Convert {
-    public static toPlace(json: string): Place {
+    public static toPlace(json: string): Destination {
         return JSON.parse(json);
     }
 
-    public static placeToJson(value: Place): string {
+    public static placeToJson(value: Destination): string {
         return JSON.stringify(value);
     }
 }

@@ -10,23 +10,15 @@ import {DestinationsComponent} from './home-page/destinations/destinations.compo
 import {DestinationImageComponent} from './home-page/destination-image/destination-image.component';
 import {ExperiencesComponent} from './home-page/experiences/experiences.component';
 import {BestTripsComponent} from './home-page/best-trips/best-trips.component';
-import {FooterComponent} from './footer/footer.component';
-import {GalleryComponent} from './trip-page/gallery/gallery.component';
-import {TripPageComponent} from './trip-page/trip-page.component';
-import {AboutUsComponent} from './trip-page/about-us/about-us.component';
-import {PlacesComponent} from './trip-page/places/places.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
-import {PlacesHeaderComponent} from './trip-page/places-header/places-header.component';
-import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
-import {DestinationPageComponent} from './destination-page/destination-page.component';
 import {BlogCarouselComponent} from './home-page/blog-carousel/blog-carousel.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import {GalleryModule} from '@ngx-gallery/core';
-import {LightboxModule} from '@ngx-gallery/lightbox';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
+import { AllDestinationsPageComponent } from './all-destinations-page/all-destinations-page.component';
+import {SharedModule} from './shared-module/shared.module';
 
 
 @NgModule({
@@ -37,19 +29,12 @@ import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
         DestinationImageComponent,
         ExperiencesComponent,
         BestTripsComponent,
-        FooterComponent,
-        TripPageComponent,
-        AboutUsComponent,
-        PlacesComponent,
-        GalleryComponent,
         HomePageComponent,
         SearchPageComponent,
-        PlacesHeaderComponent,
-        NavBarComponent,
         SearchHeaderComponent,
-        DestinationPageComponent,
         BlogCarouselComponent,
         BlogPageComponent,
+        AllDestinationsPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -58,13 +43,13 @@ import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
         CarouselModule,
         HttpClientModule,
         LoadingBarRouterModule,
-        GalleryModule,
-        LightboxModule.withConfig({
-            panelClass: 'fullscreen'
-        })
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    constructor() {
+        console.log('Appmodule');
+    }
 }
