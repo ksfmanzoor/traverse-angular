@@ -9,6 +9,12 @@ import {Router} from '@angular/router';
 })
 export class DestinationImageComponent implements OnInit, OnDestroy {
     @Input() path;
+    @Input() minifiedData: {
+        id: string,
+        title: string,
+        subtitle: string,
+        thumbnail: string
+    };
 
     constructor(private loadingBar: LoadingBarService, private router: Router) {
     }

@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class BlogService {
-  blogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?limit=10';
+  private blogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?limit=10';
 
   constructor(private http: HttpClient) { }
 

@@ -17,7 +17,7 @@ import {BlogCarouselComponent} from './home-page/blog-carousel/blog-carousel.com
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
-import { AllDestinationsPageComponent } from './all-destinations-page/all-destinations-page.component';
+import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {SharedModule} from './shared-module/shared.module';
 
 
@@ -46,10 +46,8 @@ import {SharedModule} from './shared-module/shared.module';
         SharedModule
     ],
     providers: [],
+    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor() {
-        console.log('Appmodule');
-    }
 }

@@ -23,14 +23,3 @@ export interface Region {
     id: string;
     name: string;
 }
-
-
-export class Convert {
-    public static toPlace(json: string): Destination {
-        return JSON.parse(json);
-    }
-
-    public static placeToJson(value: Destination): string {
-        return JSON.stringify(value);
-    }
-}

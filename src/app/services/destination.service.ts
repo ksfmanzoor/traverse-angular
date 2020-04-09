@@ -6,8 +6,8 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PlaceService {
-  placeUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/';
+export class DestinationService {
+  private placeUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/';
   constructor(private  http: HttpClient) { }
 
   fetchPlace(): Observable<any> {

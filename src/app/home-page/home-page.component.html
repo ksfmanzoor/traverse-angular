@@ -1,5 +1,8 @@
 <app-header></app-header>
-<app-destinations></app-destinations>
+<div *ngIf="loading; else elseBlock">Loading indicator will come here</div>
+<ng-template #elseBlock>
+    <app-destinations [minifiedDestinationData]="destinationData"></app-destinations>
 <div class="text-center"><a href="#">See all destinations</a></div>
-<app-blog-carousel [blogs]="blogs"></app-blog-carousel>
+<!--<app-blog-carousel [blogs]="blogs"></app-blog-carousel>-->
+</ng-template>
 <app-footer></app-footer>

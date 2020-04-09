@@ -4,13 +4,11 @@
     cursor: pointer;
 }
 
-.image-box > img {
-    transition: all 1.0s;
-}
-
 .img-property {
     height: 40vh;
     width: 100%;
+    transition: all 1.0s;
+    filter: brightness(0.7);
 }
 
 .caption {
@@ -20,7 +18,7 @@
 }
 
 #subtitle {
-    opacity: 0.6;
+    opacity: 0.66;
 }
 
 @media not all and (pointer: coarse) {
