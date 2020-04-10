@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HomepageDataService} from '../../services/homepage-data.service';
-import {MinifiedDestination} from '../../models/minified-destination';
+import {MinifiedHomeData} from '../../models/minified-home-data';
 
 @Component({
     selector: 'app-destinations',
@@ -8,14 +7,13 @@ import {MinifiedDestination} from '../../models/minified-destination';
     styleUrls: ['./destinations.component.css']
 })
 export class DestinationsComponent implements OnInit {
-    @Input() minifiedDestinationData: MinifiedDestination[];
+    @Input() minifiedDestinationData: MinifiedHomeData[];
 
 
     constructor() {
     }
 
     ngOnInit(): void {
-        console.log(this.minifiedDestinationData[0]);
     }
 
 }

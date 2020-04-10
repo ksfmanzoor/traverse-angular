@@ -14,7 +14,6 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
 import {BlogCarouselComponent} from './home-page/blog-carousel/blog-carousel.component';
-import {BlogPageComponent} from './blog-page/blog-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
@@ -33,7 +32,6 @@ import {SharedModule} from './shared-module/shared.module';
         SearchPageComponent,
         SearchHeaderComponent,
         BlogCarouselComponent,
-        BlogPageComponent,
         AllDestinationsPageComponent,
     ],
     imports: [

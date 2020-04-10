@@ -24,7 +24,7 @@ export class DestinationImageComponent implements OnInit, OnDestroy {
 
     navigate() {
         this.loadingBar.start();
-        this.router.navigate([this.path]).then();
+        this.router.navigate([this.path, this.minifiedData.id]).then();
     }
 
     ngOnDestroy(): void {

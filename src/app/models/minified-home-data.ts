@@ -1,4 +1,4 @@
-export interface MinifiedDestination {
+export interface MinifiedHomeData {
     id: string;
     title: string;
     subtitle: string;

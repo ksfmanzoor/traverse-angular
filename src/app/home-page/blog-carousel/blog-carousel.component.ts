@@ -1,5 +1,6 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {MinifiedHomeData} from '../../models/minified-home-data';
 
 @Component({
   selector: 'app-blog-carousel',
@@ -7,7 +8,7 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
   styleUrls: ['./blog-carousel.component.css']
 })
 export class BlogCarouselComponent implements OnInit {
-  @Input() blogs: [];
+  @Input() minifiedBlogs: MinifiedHomeData[];
   screenWidth;
   customOptions: OwlOptions = {
     loop: true,
@@ -26,7 +27,7 @@ export class BlogCarouselComponent implements OnInit {
         items: 1
       },
       740: {
-        items: 1
+        items: 2
       },
       940: {
         items: 3

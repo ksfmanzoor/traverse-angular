@@ -6,11 +6,11 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class BlogService {
-  private blogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?limit=10';
+  private blogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/';
 
   constructor(private http: HttpClient) { }
 
-  fetchBlogs(): Observable<any> {
-    return this.http.get(this.blogUrl);
+  fetchBlog(id): Observable<any> {
+    return this.http.get(this.blogUrl + id);
   }
 }

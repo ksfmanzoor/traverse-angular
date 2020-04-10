@@ -10,11 +10,15 @@ import {HomepageDataService} from '../services/homepage-data.service';
 export class HomePageComponent implements OnInit {
   loading = true;
   destinationData: any;
+  blogData: any;
   constructor(private homepageDataService: HomepageDataService) { }
 
   ngOnInit(): void {
     this.homepageDataService.fetchHomePlaces().subscribe(data => {
       this.destinationData = data;
+    });
+    this.homepageDataService.fetchHomeBlogs().subscribe(data => {
+      this.blogData = data;
       this.loading = false;
     });
   }

@@ -10,7 +10,7 @@ export class DestinationService {
   private placeUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/';
   constructor(private  http: HttpClient) { }
 
-  fetchPlace(): Observable<any> {
-    return this.http.get(this.placeUrl);
+  fetchPlace(id): Observable<any> {
+    return this.http.get(this.placeUrl + id);
   }
 }
