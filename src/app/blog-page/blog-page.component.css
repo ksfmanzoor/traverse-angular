@@ -1,4 +1,10 @@
-img{
+.blog h1 img,
+.blog h2 img,
+.blog h3 img,
+.blog h4 img,
+.blog h5 img,
+.blog h6 img,
+.blog p img{
     width: 100%;
     height: auto;
 }
