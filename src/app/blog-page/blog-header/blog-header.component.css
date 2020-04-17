@@ -41,6 +41,11 @@
     opacity: 0.65;
 }
 
+@media (max-width: 768px) {
+    .intro-lead-in {
+        font-size: 70px;
+    }
+}
 @media (max-width: 568px) {
     .intro-lead-in {
         font-size: 60px;

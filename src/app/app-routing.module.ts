@@ -6,6 +6,7 @@ import {BlogPageComponent} from './blog-page/blog-page.component';
 import {DestinationResolverService} from './services/destination-resolver.service';
 import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {BlogResolverService} from './services/blog-resolver.service';
+import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 
 
 const routes: Routes = [
@@ -21,7 +22,11 @@ const routes: Routes = [
             import('./blog-module/blog.module').then(m => m.BlogModule),
         resolve: {blog: BlogResolverService}
     },
-    {path: 'destinations', component: AllDestinationsPageComponent}
+    {
+        path: 'destinations', component: AllDestinationsPageComponent, resolve: {
+            destinations: AllDestinationsResolverService
+        }
+    }
 ];
 
 @NgModule({

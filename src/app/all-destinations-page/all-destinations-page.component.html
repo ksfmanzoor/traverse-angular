@@ -1,7 +1,22 @@
-<div class="container">
-    <div class="row row-image" *ngFor="let i of [].constructor(5)">
-        <div class="col-sm-12 col-lg-4 col-image" *ngFor="let j of [].constructor(3)">
-            <app-destination-image></app-destination-image>
+<div class="header" [ngStyle]="{'background-image': 'url('+'assets/header.jpg'+')'}">
+    <div class="overlay">
+        <app-nav-bar></app-nav-bar>
+        <div class="intro-text">
+            <div class="intro-lead-in"><strong>Lorem Ipsum</strong></div>
         </div>
     </div>
 </div>
+<div class="container p-3">
+    <div class="p-5">
+        <h3 class="text-center">Our Destinations</h3>
+        <h6 class="text-center text-muted">Lorem Ipsum Gypsum Sit</h6>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-image" *ngFor="let x of [].constructor(allDestinationList.length / 3); let i=index">
+        <div class="col-sm-12 col-lg-4 col-image" *ngFor="let y of [].constructor(3); let j=index">
+            <app-destination-image [minifiedData]="allDestinationList[i*3+j]" [path]="'/destination'"></app-destination-image>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

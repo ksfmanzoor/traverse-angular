@@ -8,7 +8,7 @@
         <owl-carousel-o [options]="customOptions" #owl>
             <ng-template carouselSlide *ngFor="let x of minifiedBlogs;let i = index">
                 <div class="p-2">
-                    <app-destination-image [path]="'blog'" [minifiedData]="minifiedBlogs[i]">
+                    <app-destination-image [path]="'/blog'" [minifiedData]="minifiedBlogs[i]">
                     </app-destination-image>
                 </div>
             </ng-template>
