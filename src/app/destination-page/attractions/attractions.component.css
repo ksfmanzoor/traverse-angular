@@ -15,11 +15,13 @@
 }
 
 #places-image {
-    height: 269px;
+    height: 60vh;
+    object-fit: cover;
 }
 
 #next-button {
     position: absolute;
     left: -20px;
     top: 50%;
+    cursor: pointer;
 }

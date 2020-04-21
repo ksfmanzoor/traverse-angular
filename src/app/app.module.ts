@@ -20,6 +20,7 @@ import {AllDestinationsPageComponent} from './all-destinations-page/all-destinat
 import {SharedModule} from './shared-module/shared.module';
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -32,7 +33,7 @@ import {SharedModule} from './shared-module/shared.module';
         SearchPageComponent,
         SearchHeaderComponent,
         BlogCarouselComponent,
-        AllDestinationsPageComponent,
+        AllDestinationsPageComponent
     ],
     imports: [
         BrowserModule,
@@ -44,7 +45,6 @@ import {SharedModule} from './shared-module/shared.module';
         SharedModule
     ],
     providers: [],
-    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

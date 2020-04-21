@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {GalleryImage} from '../../models/destination';
 
 @Component({
-    selector: 'app-places',
-    templateUrl: './places.component.html',
-    styleUrls: ['./places.component.css']
+    selector: 'app-attractions',
+    templateUrl: './attractions.component.html',
+    styleUrls: ['./attractions.component.css']
 })
-export class PlacesComponent implements OnInit {
+export class AttractionsComponent implements OnInit {
     customOptions: OwlOptions = {
         loop: true,
         mouseDrag: true,
@@ -27,10 +28,11 @@ export class PlacesComponent implements OnInit {
                 items: 3
             },
             940: {
-                items: 4
+                items: 3
             }
         },
     };
+    @Input() attractionsInfo: { title: string, images: GalleryImage[] };
 
     constructor() {
     }
