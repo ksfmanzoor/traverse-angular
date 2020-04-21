@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {SharedModule} from './shared-module/shared.module';
+import { AttractionPageComponent } from './attraction-page/attraction-page.component';
 
 
 
@@ -33,7 +34,8 @@ import {SharedModule} from './shared-module/shared.module';
         SearchPageComponent,
         SearchHeaderComponent,
         BlogCarouselComponent,
-        AllDestinationsPageComponent
+        AllDestinationsPageComponent,
+        AttractionPageComponent
     ],
     imports: [
         BrowserModule,
