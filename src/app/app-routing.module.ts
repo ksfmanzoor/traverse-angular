@@ -7,6 +7,7 @@ import {DestinationResolverService} from './services/destination-resolver.servic
 import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {BlogResolverService} from './services/blog-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
+import {AttractionPageComponent} from './attraction-page/attraction-page.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,9 @@ const routes: Routes = [
         path: 'destinations', component: AllDestinationsPageComponent, resolve: {
             destinations: AllDestinationsResolverService
         }
+    },
+    {
+        path: 'attraction', component: AttractionPageComponent
     }
 ];
 

@@ -35,7 +35,7 @@ import { AttractionPageComponent } from './attraction-page/attraction-page.compo
         SearchHeaderComponent,
         BlogCarouselComponent,
         AllDestinationsPageComponent,
-        AttractionPageComponent
+        AttractionPageComponent,
     ],
     imports: [
         BrowserModule,

@@ -9,13 +9,11 @@ import {GalleryModule} from '@ngx-gallery/core';
 import {LightboxModule} from '@ngx-gallery/lightbox';
 import {SharedModule} from '../shared-module/shared.module';
 import {CarouselModule} from 'ngx-owl-carousel-o';
-import {DestinationHeaderComponent} from '../destination-page/destination-header/destination-header.component';
 import {AttractionsComponent} from '../destination-page/attractions/attractions.component';
 
 
 @NgModule({
     declarations: [
-        DestinationHeaderComponent,
         AboutUsComponent,
         GalleryComponent,
         AttractionsComponent,
