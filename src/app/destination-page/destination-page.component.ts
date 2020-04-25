@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GalleryImage} from '../models/destination';
+import {Attraction, GalleryImage} from '../models/destination';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class DestinationPageComponent implements OnInit {
     headerInfo: { title, subtitle: string, imageUrl: string };
     aboutUS: { description: string, imageUrl: string };
-    galleryInfo: { title: string, images: GalleryImage[] };
+    galleryInfo: { title: string, galleryImages: GalleryImage[] };
+    attractionsInfo: { title: string, attractions: Attraction[] };
 
     constructor(private route: ActivatedRoute) {
     }
@@ -20,7 +21,8 @@ export class DestinationPageComponent implements OnInit {
             const result = data.destination;
             this.headerInfo = {title: result.name, subtitle: result.subtitle, imageUrl: result.cover_image};
             this.aboutUS = {description: result.about, imageUrl: result.about_image};
-            this.galleryInfo = {title: result.name, images: result.gallery_images};
+            this.attractionsInfo = {title: result.title, attractions: result.attractions};
+            this.galleryInfo = {title: result.name, galleryImages: result.gallery_images};
         });
     }
 
