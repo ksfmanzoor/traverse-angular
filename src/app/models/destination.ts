@@ -11,6 +11,13 @@ export interface Destination {
     region: Region;
     subtitle: string;
     is_featured: boolean;
+    attractions: Attraction[];
+}
+
+export interface Attraction {
+    id: string;
+    name: string;
+    subtitle: string;
 }
 
 export interface GalleryImage {
