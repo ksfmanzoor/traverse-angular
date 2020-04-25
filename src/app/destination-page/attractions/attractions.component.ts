@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
-import {GalleryImage} from '../../models/destination';
+import {Attraction, GalleryImage} from '../../models/destination';
 
 @Component({
     selector: 'app-attractions',
@@ -32,12 +32,13 @@ export class AttractionsComponent implements OnInit {
             }
         },
     };
-    @Input() attractionsInfo: { title: string, images: GalleryImage[] };
+    @Input() attractionsInfo: { title: string, attractions: Attraction[] };
 
     constructor() {
     }
 
     ngOnInit(): void {
+        console.log(this.attractionsInfo.attractions[0].id);
     }
 
 }

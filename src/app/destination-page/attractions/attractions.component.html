@@ -6,12 +6,13 @@
         </div>
         <div class="col-lg-9 position-relative">
             <owl-carousel-o [options]="customOptions" #owl>
-                <ng-template carouselSlide *ngFor="let x of attractionsInfo.images">
-                    <img src="{{x.image}}" id="places-image" alt="">
+                <ng-template carouselSlide *ngFor="let x of attractionsInfo.attractions">
+                    <h5>{{x.name}}</h5>
+                    <p>{{x.subtitle}}</p>
                 </ng-template>
             </owl-carousel-o>
             <div (click)="owl.next()" id="next-button"
-                 [ngStyle]="{display: attractionsInfo.images.length > 2 ? '':'none'}">
+                 [ngStyle]="{display: attractionsInfo.attractions.length > 2 ? '':'none'}">
                 <i class="fa fa-angle-left"></i></div>
         </div>
     </div>
