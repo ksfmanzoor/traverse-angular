@@ -2,12 +2,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
-import {BlogPageComponent} from './blog-page/blog-page.component';
 import {DestinationResolverService} from './services/destination-resolver.service';
 import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {BlogResolverService} from './services/blog-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
-import {AttractionPageComponent} from './attraction-page/attraction-page.component';
+import {AttractionResolverService} from './services/attraction-resolver.service';
 
 
 const routes: Routes = [
@@ -29,7 +28,12 @@ const routes: Routes = [
         }
     },
     {
-        path: 'attraction', component: AttractionPageComponent
+        path: 'attraction/:id',
+        loadChildren: () =>
+            import('./attraction-module/attraction-routing.module').then(m => m.AttractionRoutingModule),
+        resolve: {
+            attraction: AttractionResolverService
+        }
     }
 ];
 

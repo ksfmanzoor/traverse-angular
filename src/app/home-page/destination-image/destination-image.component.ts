@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LoadingBarService} from '@ngx-loading-bar/core';
 import {Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
     templateUrl: './destination-image.component.html',
     styleUrls: ['./destination-image.component.css']
 })
-export class DestinationImageComponent implements OnInit, OnDestroy {
+export class DestinationImageComponent implements OnInit {
     @Input() path;
     @Input() minifiedData: {
         id: string,
@@ -23,12 +23,7 @@ export class DestinationImageComponent implements OnInit, OnDestroy {
     }
 
     navigate() {
-        this.loadingBar.start();
         this.router.navigate([this.path, this.minifiedData.id]).then();
-    }
-
-    ngOnDestroy(): void {
-        this.loadingBar.stop();
     }
 
 }

@@ -18,6 +18,7 @@ export interface Attraction {
     id: string;
     name: string;
     subtitle: string;
+    thumbnail: string;
 }
 
 export interface GalleryImage {

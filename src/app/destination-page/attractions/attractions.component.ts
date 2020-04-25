@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
-import {Attraction, GalleryImage} from '../../models/destination';
+import {Attraction} from '../../models/destination';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-attractions',
@@ -34,11 +35,14 @@ export class AttractionsComponent implements OnInit {
     };
     @Input() attractionsInfo: { title: string, attractions: Attraction[] };
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit(): void {
-        console.log(this.attractionsInfo.attractions[0].id);
+    }
+
+    navigate(id) {
+        this.router.navigate(['/attraction', id]).then();
     }
 
 }

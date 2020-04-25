@@ -6,9 +6,10 @@
         </div>
         <div class="col-lg-9 position-relative">
             <owl-carousel-o [options]="customOptions" #owl>
-                <ng-template carouselSlide *ngFor="let x of attractionsInfo.attractions">
-                    <h5>{{x.name}}</h5>
-                    <p>{{x.subtitle}}</p>
+                <ng-template carouselSlide *ngFor="let i of attractionsInfo.attractions" >
+                    <div (click)="navigate(i.id)">
+                        <img src="{{i.thumbnail}}" id="places-image" alt="">
+                    </div>
                 </ng-template>
             </owl-carousel-o>
             <div (click)="owl.next()" id="next-button"

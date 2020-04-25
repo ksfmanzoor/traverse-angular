@@ -8,7 +8,7 @@ header {
     overflow: hidden;
 }
 
-header video {
+header > video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,12 +20,12 @@ header video {
     transform: translateX(-50%) translateY(-50%);
 }
 
-header .container-fluid {
+header > .container-fluid {
     position: relative;
     z-index: 2;
 }
 
-header .overlay {
+header > .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@ header .overlay {
 
 @media (max-width: 992px) {
     header {
-        background: url('src/assets/header.jpg') black no-repeat center center scroll;
+        background: url('../../../assets/header.jpg') no-repeat center center;
     }
     header video {
         display: none;

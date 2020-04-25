@@ -9,6 +9,7 @@ export interface Attraction {
     location: string;
     tags: Tag[];
     place: Place;
+    gallery_images: any[];
 }
 
 export interface Place {
