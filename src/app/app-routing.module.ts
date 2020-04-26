@@ -30,7 +30,7 @@ const routes: Routes = [
     {
         path: 'attraction/:id',
         loadChildren: () =>
-            import('./attraction-module/attraction-routing.module').then(m => m.AttractionRoutingModule),
+            import('./attraction-module/attraction.module').then(m => m.AttractionModule),
         resolve: {
             attraction: AttractionResolverService
         }

@@ -11,6 +11,8 @@ export class GalleryComponent implements OnInit {
     @ViewChild('itemTemplate', {static: true}) itemTemplate: TemplateRef<any>;
     @Input() galleryInfo: { title: string, galleryImages: GalleryImage[] };
     items: GalleryItem[];
+    rowNumber: number;
+
 
     constructor(private gallery: Gallery) {
     }
@@ -20,6 +22,7 @@ export class GalleryComponent implements OnInit {
             {src: item.image, thumb: item.image, text: item.alt_text}
             ),
         );
+        this.rowNumber = Math.floor(this.items.length / 5);
         this.loadLightBox();
     }
 

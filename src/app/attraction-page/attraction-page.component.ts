@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {GalleryImage} from '../models/attraction';
 
 @Component({
   selector: 'app-attraction-page',
@@ -9,7 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 export class AttractionPageComponent implements OnInit {
   headerInfo: {title: string, subtitle: string, imageUrl: string};
   aboutDescription: string;
-  aboutImages: [];
+  aboutImages: GalleryImage[];
+  rowNumber: number;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -18,6 +20,7 @@ export class AttractionPageComponent implements OnInit {
       this.headerInfo = {title: result.name, subtitle: result.subtitle, imageUrl: result.cover_image};
       this.aboutDescription = result.about;
       this.aboutImages = result.gallery_images;
+      this.rowNumber = Math.ceil(this.aboutImages.length / 4);
     });
   }
 

@@ -9,7 +9,13 @@ export interface Attraction {
     location: string;
     tags: Tag[];
     place: Place;
-    gallery_images: any[];
+    gallery_images: GalleryImage[];
+}
+
+export interface GalleryImage {
+    id: string;
+    image: string;
+    alt_text: string;
 }
 
 export interface Place {
