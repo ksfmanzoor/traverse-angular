@@ -6,7 +6,8 @@ header {
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
-    background: url('../../../assets/header.jpg') no-repeat center center;
+    background: url('../../../assets/header.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 header > video {
