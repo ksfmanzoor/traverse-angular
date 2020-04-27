@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GalleryImage} from '../models/attraction';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
-import {HelperService} from '../services/helper.service';
 
 @Component({
     selector: 'app-attraction-page',
@@ -17,7 +16,7 @@ export class AttractionPageComponent implements OnInit {
     rowNumber: number;
     galleryId = 'attractionPhotos';
 
-    constructor(private route: ActivatedRoute, private gallery: Gallery, private helper: HelperService) {
+    constructor(private route: ActivatedRoute, private gallery: Gallery) {
     }
 
     ngOnInit(): void {
@@ -30,7 +29,7 @@ export class AttractionPageComponent implements OnInit {
                 {src: item.image, thumb: item.image, text: item.alt_text}
                 ),
             );
-            this.rowNumber = this.helper.rowDecider(this.aboutImages.length, 4);
+            this.rowNumber = Math.ceil(this.aboutImages.length / 4);
             this.loadLightBox();
         });
     }

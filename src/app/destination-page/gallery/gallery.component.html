@@ -10,12 +10,12 @@
             <ng-container *ngFor="let x of [].constructor(rowNumber); let i=index">
                 <div class="row">
                     <div class="col p-0 img-container" *ngFor="let y of [].constructor(5);let j = index"
-                         [lightbox]="i*rowNumber+j" [gallery]="galleryId">
-                        <div *ngIf="galleryInfo.galleryImages[i*rowNumber+j]!=null">
-                            <img class="gallery-img" [src]="items[i*rowNumber + j].data.src"
-                                  alt="{{galleryInfo.galleryImages[i*rowNumber+j].alt_text}}"/>
+                         [lightbox]="i*5+j" [gallery]="galleryId">
+                        <div *ngIf="galleryInfo.galleryImages[i*5+j]!=null">
+                            <img class="gallery-img" [src]="items[i*5 + j].data.src"
+                                  alt="{{galleryInfo.galleryImages[i*5+j].alt_text}}"/>
                             <div class="description-container">
-                                <p class="description">{{galleryInfo.galleryImages[i * rowNumber + j].alt_text}}</p>
+                                <p class="description">{{galleryInfo.galleryImages[i * 5 + j].alt_text}}</p>
                             </div>
                         </div>
                     </div>
