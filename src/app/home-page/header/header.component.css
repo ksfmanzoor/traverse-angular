@@ -1,11 +1,12 @@
 
 header {
     position: relative;
-    background-color: black;
+    /*background-color: black;*/
     height: 100vh;
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
+    background: url('../../../assets/header.jpg') no-repeat center center;
 }
 
 header > video {
@@ -48,7 +49,7 @@ header > .overlay {
 }
 
 .search-bar {
-    padding: 20px 0 20px 0;
+    padding: 20px;
 }
 
 .form-control:focus {
@@ -56,11 +57,11 @@ header > .overlay {
 }
 
 
-@media (max-width: 992px) {
-    header {
-        background: url('../../../assets/header.jpg') no-repeat center center;
-    }
-    header video {
-        display: none;
-    }
-}
+/*@media (max-width: 992px) {*/
+/*    header {*/
+/*        background: url('../../../assets/header.jpg') no-repeat center center;*/
+/*    }*/
+/*    header video {*/
+/*        display: none;*/
+/*    }*/
+/*}*/

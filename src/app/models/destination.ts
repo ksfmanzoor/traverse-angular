@@ -16,7 +16,7 @@ export interface Destination {
 
 export interface Attraction {
     id: string;
-    name: string;
+    title: string;
     subtitle: string;
     thumbnail: string;
 }

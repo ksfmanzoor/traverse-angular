@@ -39,6 +39,7 @@ export class AttractionsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(this.attractionsInfo);
     }
 
     navigate(id) {

@@ -9,8 +9,9 @@
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8" id="about-images">
                 <ng-container *ngFor="let x of [].constructor(rowNumber);let i=index">
                     <div class="row">
-                        <div class="col img-padding" *ngFor="let y of [].constructor(4);let j=index">
-                            <img src="{{aboutImages[i*rowNumber+j].image}}" class="attraction-img"
+                        <div class="col img-padding" *ngFor="let y of [].constructor(4);let j=index"
+                             [lightbox]="i*rowNumber+j">
+                            <img [src]="items[i*rowNumber+j].data.src" class="attraction-img"
                                  alt="{{aboutImages[i*rowNumber+j].alt_text}}"
                                  *ngIf="aboutImages[i*rowNumber+j]!=null">
                         </div>

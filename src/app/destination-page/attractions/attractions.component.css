@@ -4,6 +4,7 @@
 
 #places-subtitle {
     font-size: 20px;
+    color: grey;
 }
 
 .display-4 {
@@ -13,11 +14,25 @@
 #places-text {
     padding: 60px;
 }
+.attraction-block {
+    position: relative;
+    cursor: pointer;
+}
 
-#places-image {
+
+.attraction-image {
     height: 60vh;
     object-fit: cover;
-    cursor: pointer;
+}
+
+.caption {
+    position: absolute;
+    padding: 90px 30px 10px 30px;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.75));
 }
 
 #next-button {
@@ -26,3 +41,4 @@
     top: 50%;
     cursor: pointer;
 }
+

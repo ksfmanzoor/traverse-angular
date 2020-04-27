@@ -1,14 +1,18 @@
 <div class="container-fluid">
     <div class="row no-gutters">
         <div class="col-lg-3 d-flex flex-column justify-content-center" id="places-text">
-            <h1 class="display-4">Places</h1>
+            <h1 class="display-4">Attractions</h1>
             <p id="places-subtitle">Explore {{attractionsInfo.title}}&#39;s most visited attractions</p>
         </div>
         <div class="col-lg-9 position-relative">
             <owl-carousel-o [options]="customOptions" #owl>
                 <ng-template carouselSlide *ngFor="let i of attractionsInfo.attractions" >
-                    <div (click)="navigate(i.id)">
-                        <img src="{{i.thumbnail}}" id="places-image" alt="">
+                    <div class="attraction-block" (click)="navigate(i.id)">
+                        <img src="{{i.thumbnail}}" class="attraction-image" alt="">
+                        <div class="caption text-white">
+                            <h6>{{i.title}}</h6>
+                            <p id="subtitle">{{i.subtitle}}</p>
+                        </div>
                     </div>
                 </ng-template>
             </owl-carousel-o>

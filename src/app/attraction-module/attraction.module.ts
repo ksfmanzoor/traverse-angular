@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {AttractionRoutingModule} from './attraction-routing.module';
 import {AttractionPageComponent} from '../attraction-page/attraction-page.component';
 import {SharedModule} from '../shared-module/shared.module';
+import {LightboxModule} from '@ngx-gallery/lightbox';
 
 
 @NgModule({
@@ -13,7 +14,10 @@ import {SharedModule} from '../shared-module/shared.module';
     imports: [
         CommonModule,
         AttractionRoutingModule,
-        SharedModule
+        SharedModule,
+        LightboxModule.withConfig({
+            panelClass: 'fullscreen'
+        })
     ]
 })
 export class AttractionModule {
