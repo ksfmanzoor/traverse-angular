@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {GalleryImage} from '../../models/destination';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
+import {HelperService} from '../../services/helper.service';
 
 @Component({
     selector: 'app-gallery',
@@ -12,10 +13,10 @@ export class GalleryComponent implements OnInit {
     @Input() galleryInfo: { title: string, galleryImages: GalleryImage[] };
     items: GalleryItem[];
     rowNumber: number;
-    private galleryId = 'placePhotos';
+    galleryId = 'placePhotos';
 
 
-    constructor(private gallery: Gallery) {
+    constructor(private gallery: Gallery, private helper: HelperService) {
     }
 
     ngOnInit(): void {
@@ -23,7 +24,7 @@ export class GalleryComponent implements OnInit {
             {src: item.image, thumb: item.image, text: item.alt_text}
             ),
         );
-        this.rowNumber = Math.floor(this.items.length / 5);
+        this.rowNumber = this.helper.rowDecider(this.items.length, 5);
         this.loadLightBox();
     }
 
