@@ -12,6 +12,7 @@ export class GalleryComponent implements OnInit {
     @Input() galleryInfo: { title: string, galleryImages: GalleryImage[] };
     items: GalleryItem[];
     rowNumber: number;
+    private galleryId = 'placePhotos';
 
 
     constructor(private gallery: Gallery) {
@@ -27,8 +28,8 @@ export class GalleryComponent implements OnInit {
     }
 
     loadLightBox() {
-        this.gallery.ref().setConfig({itemTemplate: this.itemTemplate});
-        this.gallery.ref().load(this.items);
+        this.gallery.ref(this.galleryId).setConfig({itemTemplate: this.itemTemplate});
+        this.gallery.ref(this.galleryId).load(this.items);
     }
 
 }

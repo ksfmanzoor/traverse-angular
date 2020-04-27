@@ -14,6 +14,7 @@ export class AttractionPageComponent implements OnInit {
     aboutImages: GalleryImage[];
     items: GalleryItem[];
     rowNumber: number;
+    private galleryId = 'attractionPhotos';
 
     constructor(private route: ActivatedRoute, private gallery: Gallery) {
     }
@@ -34,7 +35,7 @@ export class AttractionPageComponent implements OnInit {
     }
 
     loadLightBox() {
-        this.gallery.ref().load(this.items);
+        this.gallery.ref(this.galleryId).load(this.items);
     }
 
 }

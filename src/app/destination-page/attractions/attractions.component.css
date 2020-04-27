@@ -14,8 +14,8 @@
 #places-text {
     padding: 60px;
 }
+
 .attraction-block {
-    position: relative;
     cursor: pointer;
 }
 
@@ -23,6 +23,7 @@
 .attraction-image {
     height: 60vh;
     object-fit: cover;
+
 }
 
 .caption {
@@ -41,4 +42,3 @@
     top: 50%;
     cursor: pointer;
 }
-
