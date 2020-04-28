@@ -1,16 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomePageComponent} from './home-page/home-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {DestinationResolverService} from './services/destination-resolver.service';
-import {AllDestinationsPageComponent} from './all-destinations-page/all-destinations-page.component';
 import {BlogResolverService} from './services/blog-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
 
 
 const routes: Routes = [
-    {path: '', component: HomePageComponent},
+    {path: '', loadChildren: () => import('./home-module/home.module').then(m => m.HomeModule)},
     {path: 'search', component: SearchPageComponent},
     {
         path: 'destination/:id', loadChildren: () =>
@@ -23,7 +21,8 @@ const routes: Routes = [
         resolve: {blog: BlogResolverService}
     },
     {
-        path: 'destinations', component: AllDestinationsPageComponent, resolve: {
+        path: 'destinations', loadChildren: () =>
+            import('./all-data-module/all-data.module').then(m => m.AllDataModule), resolve: {
             destinations: AllDestinationsResolverService
         }
     },

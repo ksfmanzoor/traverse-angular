@@ -3,11 +3,11 @@ import {LoadingBarService} from '@ngx-loading-bar/core';
 import {Router} from '@angular/router';
 
 @Component({
-    selector: 'app-destination-image',
-    templateUrl: './destination-image.component.html',
-    styleUrls: ['./destination-image.component.css']
+    selector: 'app-image-box',
+    templateUrl: './image-box.component.html',
+    styleUrls: ['./image-box.component.css']
 })
-export class DestinationImageComponent implements OnInit {
+export class ImageBoxComponent implements OnInit {
     @Input() path;
     @Input() minifiedData: {
         id: string,
@@ -25,5 +25,5 @@ export class DestinationImageComponent implements OnInit {
     navigate() {
         this.router.navigate([this.path, this.minifiedData.id]).then();
     }
-
 }
+
