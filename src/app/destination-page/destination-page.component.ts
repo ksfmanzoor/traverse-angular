@@ -19,7 +19,6 @@ export class DestinationPageComponent implements OnInit {
     ngOnInit(): void {
         this.route.data.subscribe((data) => {
             const result = data.destination;
-            console.log(result);
             this.headerInfo = {title: result.name, subtitle: result.subtitle, imageUrl: result.cover_image};
             this.aboutUS = {description: result.about, imageUrl: result.about_image};
             this.attractionsInfo = {title: result.name, attractions: result.attractions};

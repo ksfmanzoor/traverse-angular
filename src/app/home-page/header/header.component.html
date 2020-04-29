@@ -1,4 +1,4 @@
-<header>
+<header [ngStyle]="{'background-image': 'url('+ headerData.coverImage+')'}">
     <div class="overlay"></div>
 <!--    <video [autoplay]="true" [loop]="true" [muted]="true">-->
 <!--        <source src="assets/homepage-video.mp4" type="video/mp4">-->
@@ -8,7 +8,7 @@
         <app-nav-bar></app-nav-bar>
         <div class="d-flex h-100 text-center align-items-center justify-content-center">
             <div class="intro-text">
-                <div class="intro-lead-in"><strong>Like Never Before</strong></div>
+                <div class="intro-lead-in"><strong>{{headerData.tagLine}}</strong></div>
                 <div class="row search-bar">
                     <div class="col">
                         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">

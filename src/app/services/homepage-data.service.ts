@@ -1,21 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {forkJoin} from 'rxjs';
+import {MinifiedHomeData} from '../models/minified-home-data';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomepageDataService {
-    private minifiedDestination = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/?minified=true&?limit=5';
-    private minifiedBlog = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=5';
+    private headerDataURl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/home/';
+    private minifiedDestinationUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/?minified=true&?limit=5';
+    private minifiedBlogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=5';
 
     constructor(private httpClient: HttpClient) {
     }
 
-    fetchHomePlaces() {
-        return this.httpClient.get(this.minifiedDestination);
-    }
-
-    fetchHomeBlogs() {
-        return this.httpClient.get(this.minifiedBlog);
+    getHomePageData() {
+        const headerData = this.httpClient.get<any>(this.headerDataURl);
+        const homeDestinations = this.httpClient.get<MinifiedHomeData>(this.minifiedDestinationUrl);
+        const homeBlogs = this.httpClient.get<MinifiedHomeData>(this.minifiedBlogUrl);
+        return forkJoin([headerData, homeDestinations, homeBlogs]);
     }
 }
