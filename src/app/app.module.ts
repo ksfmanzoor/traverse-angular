@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import {SharedModule} from './shared-module/shared.module';
 import {CarouselModule} from 'ngx-owl-carousel-o';
+import {RouteReuseStrategy} from '@angular/router';
+import {CustomReuseStrategy} from './custom-reuse-strategy';
 
 
 
@@ -28,7 +30,10 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
         CarouselModule,
         SharedModule,
     ],
-    providers: [],
+    providers: [{
+        provide: RouteReuseStrategy,
+        useClass: CustomReuseStrategy
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

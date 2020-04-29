@@ -18,7 +18,6 @@ export class BlogPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
-      console.log(data);
       const result = data.blog;
       this.headerInfo = {title: result.title, subtitle: result.subtitle, imageUrl: result.thumbnail};
       this.blogText = result.content;

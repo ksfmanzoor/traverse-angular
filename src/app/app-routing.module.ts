@@ -8,12 +8,15 @@ import {AttractionResolverService} from './services/attraction-resolver.service'
 
 
 const routes: Routes = [
-    {path: '', loadChildren: () => import('./home-module/home.module').then(m => m.HomeModule)},
+    {
+        path: '', loadChildren: () => import('./home-module/home.module').then(m => m.HomeModule),
+        data: {key: 'home'}
+    },
     {path: 'search', component: SearchPageComponent},
     {
         path: 'destination/:id', loadChildren: () =>
             import('./destination-module/destination.module').then(m => m.DestinationModule),
-        resolve: {destination: DestinationResolverService}
+        resolve: {destination: DestinationResolverService},
     },
     {
         path: 'blog/:id', loadChildren: () =>
