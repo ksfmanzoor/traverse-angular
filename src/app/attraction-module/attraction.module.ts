@@ -15,7 +15,9 @@ import {LightboxModule} from '@ngx-gallery/lightbox';
         CommonModule,
         AttractionRoutingModule,
         SharedModule,
-        LightboxModule
+        LightboxModule.withConfig({
+            panelClass: 'fullscreen'
+        })
     ]
 })
 export class AttractionModule {

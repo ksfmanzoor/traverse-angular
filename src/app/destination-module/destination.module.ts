@@ -25,7 +25,9 @@ import {AttractionsComponent} from '../destination-page/attractions/attractions.
         SharedModule,
         CarouselModule,
         GalleryModule,
-        LightboxModule
+        LightboxModule.withConfig({
+            panelClass: 'fullscreen'
+        })
     ],
 })
 export class DestinationModule {
