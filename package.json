@@ -23,7 +23,7 @@
     "@ngx-gallery/core": "^5.0.0-beta.0",
     "@ngx-gallery/lightbox": "^5.0.0-beta.0",
     "@ngx-loading-bar/core": "^4.2.0",
-    "@ngx-loading-bar/router": "^4.2.0",
+    "@ngx-loading-bar/http-client": "^4.2.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
