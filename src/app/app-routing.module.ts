@@ -26,7 +26,7 @@ const routes: Routes = [
     {
         path: 'destinations', loadChildren: () =>
             import('./all-data-module/all-data.module').then(m => m.AllDataModule), resolve: {
-            destinations: AllDestinationsResolverService, data: {key: 'destinations'}
+            destinations: AllDestinationsResolverService
         }
     },
     {
