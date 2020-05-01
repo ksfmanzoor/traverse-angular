@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./attractions.component.css']
 })
 export class AttractionsComponent implements OnInit {
+    screenWidth;
     customOptions: OwlOptions = {
         loop: true,
         mouseDrag: true,
@@ -39,6 +40,10 @@ export class AttractionsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.screenWidth = window.innerWidth;
+        if (this.screenWidth <= 768) {
+            this.customOptions.dots = true;
+        }
     }
 
     navigate(id) {

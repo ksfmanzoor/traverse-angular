@@ -9,11 +9,15 @@
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8" id="about-images">
                 <ng-container *ngFor="let x of [].constructor(rowNumber);let i=index">
                     <div class="row">
-                        <div class="col img-padding" *ngFor="let y of [].constructor(4);let j=index"
+                        <div class="col img-container" *ngFor="let y of [].constructor(4);let j=index"
                              [lightbox]="i*4+j" [gallery]="galleryId">
-                            <img [src]="items[i*4+j].data.src" class="attraction-img"
-                                 alt="{{aboutImages[i*4+j].alt_text}}"
-                                 *ngIf="aboutImages[i*4+j]!=null">
+                            <div *ngIf="aboutImages[i*4+j]!=null">
+                                <img [src]="items[i*4+j].data.src" class="attraction-img"
+                                     alt="{{aboutImages[i*4+j].alt_text}}">
+                                <div class="description-container">
+                                    <p class="description">{{aboutImages[i * 4 + j].alt_text}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </ng-container>
@@ -21,4 +25,11 @@
         </div>
     </div>
 </div>
+<ng-template #itemTemplate
+             let-data="data">
+  <span
+      class="item-text">
+    {{data.text}}
+  </span>
+</ng-template>
 <app-footer></app-footer>

@@ -46,7 +46,7 @@
         font-size: 70px;
     }
 }
-@media (max-width: 568px) {
+@media (max-width: 576px) {
     .intro-lead-in {
         font-size: 60px;
     }

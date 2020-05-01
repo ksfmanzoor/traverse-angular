@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GalleryImage} from '../models/attraction';
 import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
@@ -9,6 +9,7 @@ import {Gallery, GalleryItem, ImageItem} from '@ngx-gallery/core';
     styleUrls: ['./attraction-page.component.css']
 })
 export class AttractionPageComponent implements OnInit {
+    @ViewChild('itemTemplate', {static: true}) itemTemplate: TemplateRef<any>;
     headerInfo: { title: string, subtitle: string, imageUrl: string };
     aboutDescription: string;
     aboutImages: GalleryImage[];
@@ -35,6 +36,7 @@ export class AttractionPageComponent implements OnInit {
     }
 
     loadLightBox() {
+        this.gallery.ref(this.galleryId).setConfig({itemTemplate: this.itemTemplate});
         this.gallery.ref(this.galleryId).load(this.items);
     }
 
