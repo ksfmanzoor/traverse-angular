@@ -4,27 +4,9 @@
         <h6 class="text-center text-muted">Most Visited Locations of Last Year</h6>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 p-2">
-            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[0]">
-            </app-image-box>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 p-2">
-            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[1]">
-            </app-image-box>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 p-2">
-            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[2]">
-            </app-image-box>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 p-2">
-            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[3]">
-
-            </app-image-box>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 p-2">
-            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[4]">
+        <div class="col-sm-12 col-md-12 p-2" [ngClass]="classes[i]"
+             *ngFor="let x of [].constructor(5);let i = index">
+            <app-image-box [path]="'/destination'" [minifiedData]="minifiedDestinationData[i]">
             </app-image-box>
         </div>
     </div>

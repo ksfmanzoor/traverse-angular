@@ -8,7 +8,7 @@ import {MinifiedHomeData} from '../../models/minified-home-data';
 })
 export class DestinationsComponent implements OnInit {
     @Input() minifiedDestinationData: MinifiedHomeData[];
-
+    classes = ['col-lg-5 col-xl-5', 'col-lg-7 col-xl-7', 'col-lg-4 col-xl-4', 'col-lg-4 col-xl-4', 'col-lg-4 col-xl-4'];
 
     constructor() {
     }

@@ -38,15 +38,15 @@ header > .overlay {
     z-index: 1;
 }
 
-.intro-text {
+.intro-box {
     text-align: center;
-    color: white;
     padding-bottom: 80px;
 }
 
 .intro-lead-in {
-    color: inherit;
+    color: white;
     font-size: 55px;
+    font-family: 'Roboto', helvetica, Arial, sans-serif;
 }
 
 .search-bar {
