@@ -1,8 +1,8 @@
-<div class="header" [ngStyle]="{'background-image': 'url('+'assets/header.jpg'+')'}">
+<div class="header" [ngStyle]="{'background-image': 'url('+ headerInfo.backgroundImage +')'}">
     <div class="overlay">
         <app-nav-bar></app-nav-bar>
         <div class="intro-text">
-            <div class="intro-lead-in"><strong>Embrace the Experience</strong></div>
+            <div class="intro-lead-in"><strong>{{headerInfo.title}}</strong></div>
         </div>
     </div>
 </div>

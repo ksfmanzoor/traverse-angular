@@ -7,7 +7,9 @@ import {MinifiedHomeData} from '../models/minified-home-data';
   templateUrl: './all-data-page.component.html',
   styleUrls: ['./all-data-page.component.css']
 })
+
 export class AllDataPageComponent implements OnInit {
+  headerInfo = {title: 'Embrace The Experience', backgroundImage: 'assets/header.jpg'};
   destinationTitle = {title: 'Our Destinations', subtitle: 'Browse through the Bounteous Realm'};
   allDestinationList: MinifiedHomeData[];
   attractionTitle = {title: 'Our Attractions', subtitle: 'Lorem Ipsum Gypsum Sit'};

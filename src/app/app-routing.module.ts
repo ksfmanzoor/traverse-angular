@@ -5,6 +5,7 @@ import {DestinationResolverService} from './services/destination-resolver.servic
 import {BlogResolverService} from './services/blog-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
+import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,9 @@ const routes: Routes = [
         resolve: {
             attraction: AttractionResolverService
         }
+    },
+    {
+        path: 'blogs', component: AllBlogPageComponent
     }
 ];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-small-header',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./small-header.component.css']
 })
 export class SmallHeaderComponent implements OnInit {
-
+  @Input() headerInfo: {title: string, backgroundImage: string};
   constructor() { }
 
   ngOnInit(): void {
