@@ -13,8 +13,9 @@ import {RouteReuseStrategy} from '@angular/router';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
+import {ImageFormat, NgxPictureModule} from 'ngx-picture';
 
-export function srcInterpolator(url: string, breakpoint: string, breakpointValue: number) {
+export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoint: string, breakpointValue: number) {
     const imageBucket = 'traverse-bucket';
     const baseUrl = ' https://d1mmsd446qaauk.cloudfront.net/';
     const imageKey = url.split('.com/')[1];
