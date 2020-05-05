@@ -8,7 +8,10 @@ import {MinifiedHomeData} from '../models/minified-home-data';
   styleUrls: ['./all-data-page.component.css']
 })
 export class AllDataPageComponent implements OnInit {
+  destinationTitle = {title: 'Our Destinations', subtitle: 'Browse through the Bounteous Realm'};
   allDestinationList: MinifiedHomeData[];
+  attractionTitle = {title: 'Our Attractions', subtitle: 'Lorem Ipsum Gypsum Sit'};
+  allAttractionList: MinifiedHomeData[];
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {

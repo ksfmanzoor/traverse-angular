@@ -4,6 +4,8 @@ import {NavBarComponent} from '../shared-components/nav-bar/nav-bar.component';
 import {FooterComponent} from '../shared-components/footer/footer.component';
 import {DefaultHeaderComponent} from '../shared-components/default-header/default-header.component';
 import {ImageBoxComponent} from '../shared-components/image-box/image-box.component';
+import {SmallHeaderComponent} from '../shared-components/small-header/small-header.component';
+import {AllDataDisplayComponent} from '../shared-components/all-data-display/all-data-display.component';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import {ImageBoxComponent} from '../shared-components/image-box/image-box.compon
         NavBarComponent,
         FooterComponent,
         DefaultHeaderComponent,
-        ImageBoxComponent
+        ImageBoxComponent,
+        SmallHeaderComponent,
+        AllDataDisplayComponent
     ],
     imports: [
         CommonModule,
@@ -20,7 +24,9 @@ import {ImageBoxComponent} from '../shared-components/image-box/image-box.compon
         NavBarComponent,
         FooterComponent,
         DefaultHeaderComponent,
-        ImageBoxComponent
+        ImageBoxComponent,
+        SmallHeaderComponent,
+        AllDataDisplayComponent
     ]
 })
 export class SharedModule {
