@@ -30,6 +30,7 @@
     "jquery": "^3.4.1",
     "ng-loading-bar": "0.0.10",
     "ngx-owl-carousel-o": "^2.0.3",
+    "ngx-picture": "^2.0.4",
     "path": "^0.12.7",
     "popper": "^1.0.1",
     "rxjs": "~6.5.4",

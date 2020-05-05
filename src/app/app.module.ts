@@ -12,8 +12,21 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
 import {RouteReuseStrategy} from '@angular/router';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
-import { AllBlogPageComponent } from './all-blog-page/all-blog-page.component';
+import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 
+export function srcInterpolator(url: string, breakpoint: string, breakpointValue: number) {
+    const imageBucket = 'traverse-bucket';
+    const baseUrl = ' https://d1mmsd446qaauk.cloudfront.net/';
+    const imageKey = url.split('.com/')[1];
+    const jsonObject = {bucket: imageBucket, key: imageKey, edits: {
+            resize: {
+                width: breakpointValue,
+                fit: 'cover',
+            }
+        }};
+    const stringify = btoa(JSON.stringify(jsonObject));
+    return baseUrl + stringify;
+}
 
 @NgModule({
     declarations: [
