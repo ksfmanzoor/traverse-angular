@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, SecurityContext} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavBarComponent} from '../shared-components/nav-bar/nav-bar.component';
 import {FooterComponent} from '../shared-components/footer/footer.component';
@@ -9,20 +9,6 @@ import {AllDataDisplayComponent} from '../shared-components/all-data-display/all
 import {DEFAULT_BREAKPOINTS, ImageFormat, NgxPictureModule} from 'ngx-picture';
 
 
-export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoint: string, breakpointValue: number) {
-    const imageBucket = 'traverse-bucket';
-    const baseUrl = ' https://d1mmsd446qaauk.cloudfront.net/';
-    const imageKey = url.split('.com/')[1];
-    const jsonObject = {bucket: imageBucket, key: imageKey, edits: {
-            resize: {
-                width: breakpointValue,
-                fit: 'cover',
-            }
-        }};
-    const stringify = btoa(JSON.stringify(jsonObject));
-    return baseUrl + stringify;
-}
-
 
 @NgModule({
     declarations: [
@@ -31,7 +17,7 @@ export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoin
         DefaultHeaderComponent,
         ImageBoxComponent,
         SmallHeaderComponent,
-        AllDataDisplayComponent
+        AllDataDisplayComponent,
     ],
     imports: [
         CommonModule,
@@ -51,4 +37,18 @@ export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoin
     ]
 })
 export class SharedModule {
+}
+
+export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoint: string, breakpointValue: number) {
+    const imageBucket = 'traverse-bucket';
+    const baseUrl = 'https://d1mmsd446qaauk.cloudfront.net/';
+    const imageKey = url.split('.com/')[1];
+    const jsonObject = {bucket: imageBucket, key: imageKey, edits: {
+            resize: {
+                width: breakpointValue,
+                height: 240,
+                fit: 'cover',
+            }
+        }};
+    return baseUrl + btoa(JSON.stringify(jsonObject));
 }

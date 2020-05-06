@@ -13,7 +13,8 @@ import {RouteReuseStrategy} from '@angular/router';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
-import {ImageFormat, NgxPictureModule} from 'ngx-picture';
+
+
 
 @NgModule({
     declarations: [
