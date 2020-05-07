@@ -4,7 +4,7 @@
         <div class="text-center"><a routerLink="/blogs">Read all Travel Stories</a></div>
     </div>
     <div class="position-relative">
-        <div (click)="owl.prev()" id="pre-button"><i class="fa fa-angle-left"></i></div>
+        <div (click)="owl.prev()" id="pre-button"><fa-icon [icon]="backButton"></fa-icon></div>
         <owl-carousel-o [options]="customOptions" #owl>
             <ng-template carouselSlide *ngFor="let x of minifiedBlogs;let i = index">
                 <div class="p-2">
@@ -13,6 +13,6 @@
                 </div>
             </ng-template>
         </owl-carousel-o>
-        <div (click)="owl.next()" id="next-button"><i class="fa fa-angle-right"></i></div>
+        <div (click)="owl.next()" id="next-button"><fa-icon [icon]="nextButton"></fa-icon></div>
     </div>
 </div>

@@ -8,6 +8,7 @@ import {SmallHeaderComponent} from '../shared-components/small-header/small-head
 import {AllDataDisplayComponent} from '../shared-components/all-data-display/all-data-display.component';
 import {NgxPictureModule} from 'ngx-picture';
 import {ngxPictureConfig} from './picture-manuplation';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 
@@ -22,7 +23,8 @@ import {ngxPictureConfig} from './picture-manuplation';
     ],
     imports: [
         CommonModule,
-        NgxPictureModule.forRoot(ngxPictureConfig)
+        NgxPictureModule.forRoot(ngxPictureConfig),
+        FontAwesomeModule
     ],
     exports: [
         NavBarComponent,
@@ -30,7 +32,8 @@ import {ngxPictureConfig} from './picture-manuplation';
         DefaultHeaderComponent,
         ImageBoxComponent,
         SmallHeaderComponent,
-        AllDataDisplayComponent
+        AllDataDisplayComponent,
+        FontAwesomeModule
     ]
 })
 export class SharedModule {

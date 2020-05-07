@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {Attraction} from '../../models/destination';
 import {Router} from '@angular/router';
+import {faAngleLeft} from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 
 @Component({
     selector: 'app-attractions',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class AttractionsComponent implements OnInit {
     screenWidth;
+    backButton = faAngleLeft;
     customOptions: OwlOptions = {
         loop: true,
         mouseDrag: true,

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {MinifiedHomeData} from '../../models/minified-home-data';
+import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-blog-carousel',
@@ -9,6 +10,8 @@ import {MinifiedHomeData} from '../../models/minified-home-data';
 })
 export class BlogCarouselComponent implements OnInit {
   @Input() minifiedBlogs: MinifiedHomeData[];
+  nextButton = faAngleRight;
+  backButton = faAngleLeft;
   screenWidth;
   customOptions: OwlOptions = {
     loop: true,
