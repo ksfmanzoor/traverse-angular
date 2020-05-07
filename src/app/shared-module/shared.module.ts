@@ -1,4 +1,4 @@
-import {NgModule, SecurityContext} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavBarComponent} from '../shared-components/nav-bar/nav-bar.component';
 import {FooterComponent} from '../shared-components/footer/footer.component';
@@ -6,7 +6,8 @@ import {DefaultHeaderComponent} from '../shared-components/default-header/defaul
 import {ImageBoxComponent} from '../shared-components/image-box/image-box.component';
 import {SmallHeaderComponent} from '../shared-components/small-header/small-header.component';
 import {AllDataDisplayComponent} from '../shared-components/all-data-display/all-data-display.component';
-import {DEFAULT_BREAKPOINTS, ImageFormat, NgxPictureModule} from 'ngx-picture';
+import {NgxPictureModule} from 'ngx-picture';
+import {ngxPictureConfig} from './picture-manuplation';
 
 
 
@@ -21,11 +22,7 @@ import {DEFAULT_BREAKPOINTS, ImageFormat, NgxPictureModule} from 'ngx-picture';
     ],
     imports: [
         CommonModule,
-        NgxPictureModule.forRoot({
-            breakpoints: DEFAULT_BREAKPOINTS,
-            imageFormats: ['webp', 'jpeg'],
-            srcInterpolator
-        })
+        NgxPictureModule.forRoot(ngxPictureConfig)
     ],
     exports: [
         NavBarComponent,
@@ -37,18 +34,4 @@ import {DEFAULT_BREAKPOINTS, ImageFormat, NgxPictureModule} from 'ngx-picture';
     ]
 })
 export class SharedModule {
-}
-
-export function srcInterpolator(url: string, imageFormat: ImageFormat, breakpoint: string, breakpointValue: number) {
-    const imageBucket = 'traverse-bucket';
-    const baseUrl = 'https://d1mmsd446qaauk.cloudfront.net/';
-    const imageKey = url.split('.com/')[1];
-    const jsonObject = {bucket: imageBucket, key: imageKey, edits: {
-            resize: {
-                width: breakpointValue,
-                height: 240,
-                fit: 'cover',
-            }
-        }};
-    return baseUrl + btoa(JSON.stringify(jsonObject));
 }
