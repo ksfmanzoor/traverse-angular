@@ -4,6 +4,7 @@
 
 .display-4 {
     font-size: 50px;
+    margin-bottom: 15px;
 }
 
 #about-text {
@@ -14,8 +15,9 @@
 }
 
 #about-text > p {
-    font-size: 19px;
+    font-size: 18px;
     color: gray;
+    line-height: 1.6em;
 }
 
 #about-images {
@@ -38,9 +40,11 @@
 
 .description-container {
     padding-top: 10px;
+    padding-left: 5px;
     position: absolute;
     bottom: 0;
     left: 0;
+    padding-right: 5px;
     right: 0;
     background: black;
     color: #fff;
@@ -85,6 +89,13 @@
 
 }
 
+@media (min-width: 992px) {
+    .row {
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+
+}
 
 @media (max-width: 768px) {
     .attraction-img {

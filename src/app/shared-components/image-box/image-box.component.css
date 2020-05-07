@@ -23,7 +23,7 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.75));
 }
 
-#subtitle {
+.subtitle {
     opacity: 0.66;
     font-weight: bold;
     font-size: 13px;

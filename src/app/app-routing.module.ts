@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {DestinationResolverService} from './services/destination-resolver.service';
 import {BlogResolverService} from './services/blog-resolver.service';
@@ -46,6 +46,7 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forRoot(routes, {
         scrollPositionRestoration: 'enabled',
+        preloadingStrategy: PreloadAllModules
     }),
     ],
     exports: [RouterModule]
