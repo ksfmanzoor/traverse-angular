@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-blog-page.component.css']
 })
 export class AllBlogPageComponent implements OnInit {
-  headerInfo = {title: 'Lorem Ipsum Sit', backgroundImage: 'assets/header.jpg'};
+  headerInfo: {title: 'Lorem Ipsum Sit', coverImage: 'assets/header.jpg'};
   blogTitle = {title: 'Our Blogs', subtitle: 'Lorem Ipsum Gypsum Sit'};
   constructor() { }
 
