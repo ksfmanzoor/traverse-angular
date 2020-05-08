@@ -13,7 +13,7 @@ export class AllDestinationsResolverService implements Resolve<[MinifiedHomeData
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<[MinifiedHomeData]> |
       Promise<[MinifiedHomeData]> | [MinifiedHomeData] {
-    return this.allDestinationsService.fetchAllDestinations();
+    return this.allDestinationsService.getAllDestinationData();
   }
 
 }

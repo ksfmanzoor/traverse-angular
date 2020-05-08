@@ -7,7 +7,7 @@ import {MinifiedHomeData} from '../models/minified-home-data';
     providedIn: 'root'
 })
 export class HomepageDataService {
-    private headerDataURl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/home/';
+    private headerDataURl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=home';
     private minifiedDestinationUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/?minified=true&?limit=5';
     private minifiedBlogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=5';
 

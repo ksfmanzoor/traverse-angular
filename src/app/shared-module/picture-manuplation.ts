@@ -8,10 +8,10 @@ export interface Dimensions {
 
 export const ngxPictureConfig: NgxPictureConfig<Dimensions> = {
     breakpoints: {
-        [Breakpoints.Small]: {h: 254, w: 350},
-        [Breakpoints.Medium]: {h: 254, w: 700},
-        [Breakpoints.Large]: {h: 254, w: 400},
-        [Breakpoints.XLarge]: {h: 450, w: 450},
+        [Breakpoints.XSmall]: {h: 254, w: 576},
+        [Breakpoints.Small]: {h: 254, w: 768},
+        [Breakpoints.Medium]: {h: 254, w: 992},
+        [Breakpoints.Large]: {h: 450, w: 1200},
     },
     imageFormats: ['webp', 'jpg'],
     srcInterpolator: (url: string, imageFormat: ImageFormat, breakpoint: string, breakpointValue: Dimensions) => {
@@ -23,11 +23,9 @@ export const ngxPictureConfig: NgxPictureConfig<Dimensions> = {
                 resize: {
                     width: breakpointValue.w,
                     height: breakpointValue.h,
-                    fit: 'cover',
                 }
             }
         };
         return baseUrl + btoa(JSON.stringify(jsonObject));
-
     }
 };

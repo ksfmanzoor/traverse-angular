@@ -1,5 +1,15 @@
 <div class="image-box rounded-sm" (click)="navigate()">
-    <ngx-picture src="{{minifiedData.thumbnail}}" alt="" class="img-property" [lazyLoad]="true"></ngx-picture>
+    <ngx-picture
+        src="{{minifiedData.thumbnail}}"
+        alt=""
+        [lazyLoad]="true"
+        #picture
+    >
+        <ng-template #imgTemplate let-imageData>
+            <img class="img-property" [src]="imageData.src" [alt]="imageData.alt" />
+        </ng-template>
+    </ngx-picture>
+<!--    <ngx-picture src="{{minifiedData.thumbnail}}" alt="" class="img-property" [lazyLoad]="true"></ngx-picture>-->
     <div class="banner-mask"></div>
     <div class="caption text-white">
         <h5>{{minifiedData.title}}</h5>

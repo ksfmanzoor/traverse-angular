@@ -9,6 +9,7 @@ import {AllDataDisplayComponent} from '../shared-components/all-data-display/all
 import {NgxPictureModule} from 'ngx-picture';
 import {ngxPictureConfig} from './picture-manuplation';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {DestinationImageComponent} from '../shared-components/destination-image/destination-image.component';
 
 
 
@@ -20,6 +21,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
         ImageBoxComponent,
         SmallHeaderComponent,
         AllDataDisplayComponent,
+        DestinationImageComponent
     ],
     imports: [
         CommonModule,
@@ -33,7 +35,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
         ImageBoxComponent,
         SmallHeaderComponent,
         AllDataDisplayComponent,
-        FontAwesomeModule
+        FontAwesomeModule,
+        DestinationImageComponent,
     ]
 })
 export class SharedModule {
