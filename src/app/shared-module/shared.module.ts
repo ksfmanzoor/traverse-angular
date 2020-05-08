@@ -9,8 +9,6 @@ import {AllDataDisplayComponent} from '../shared-components/all-data-display/all
 import {NgxPictureModule} from 'ngx-picture';
 import {ngxPictureConfig} from './picture-manuplation';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {DestinationImageComponent} from '../shared-components/destination-image/destination-image.component';
-
 
 
 @NgModule({
@@ -21,7 +19,6 @@ import {DestinationImageComponent} from '../shared-components/destination-image/
         ImageBoxComponent,
         SmallHeaderComponent,
         AllDataDisplayComponent,
-        DestinationImageComponent
     ],
     imports: [
         CommonModule,
@@ -35,8 +32,7 @@ import {DestinationImageComponent} from '../shared-components/destination-image/
         ImageBoxComponent,
         SmallHeaderComponent,
         AllDataDisplayComponent,
-        FontAwesomeModule,
-        DestinationImageComponent,
+        FontAwesomeModule
     ]
 })
 export class SharedModule {
