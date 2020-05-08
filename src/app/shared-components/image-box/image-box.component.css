@@ -4,11 +4,12 @@
     cursor: pointer;
 }
 
-
+.ngx-picture__picture{
+    transition: all 1.0s;
+}
 .img-property {
     height: 40vh;
     width: 100%;
-    transition: all 1.0s;
     object-fit: cover;
 }
 
@@ -29,8 +30,9 @@
     font-size: 13px;
 }
 
+
 @media not all and (pointer: coarse) {
-    .image-box:hover > img {
+    .image-box:hover > .ngx-picture__picture  {
         transform: scale(1.2);
         filter: brightness(0.4);
     }

@@ -4,12 +4,12 @@
         alt=""
         [lazyLoad]="true"
         #picture
+        class="ngx-picture__picture"
     >
         <ng-template #imgTemplate let-imageData>
             <img class="img-property" [src]="imageData.src" [alt]="imageData.alt" />
         </ng-template>
     </ngx-picture>
-<!--    <ngx-picture src="{{minifiedData.thumbnail}}" alt="" class="img-property" [lazyLoad]="true"></ngx-picture>-->
     <div class="banner-mask"></div>
     <div class="caption text-white">
         <h5>{{minifiedData.title}}</h5>
