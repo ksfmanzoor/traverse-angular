@@ -8,9 +8,9 @@ export interface Dimensions {
 
 export const ngxPictureConfig: NgxPictureConfig<Dimensions> = {
     breakpoints: {
-        [Breakpoints.XSmall]: {h: 254, w: 576},
-        [Breakpoints.Small]: {h: 254, w: 768},
-        [Breakpoints.Medium]: {h: 254, w: 992},
+        [Breakpoints.XSmall]: {h: 270, w: 576},
+        [Breakpoints.Small]: {h: 270, w: 768},
+        [Breakpoints.Medium]: {h: 270, w: 992},
         [Breakpoints.Large]: {h: 450, w: 1200},
     },
     imageFormats: ['webp', 'jpg'],

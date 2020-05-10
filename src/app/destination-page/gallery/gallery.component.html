@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
             <ng-container *ngFor="let x of [].constructor(rowNumber); let i=index">
-                <div class="row">
+                <div class="row p-remover">
                     <div class="col p-0 img-container" *ngFor="let y of [].constructor(5);let j = index"
                          [lightbox]="i*5+j" [gallery]="galleryId">
                         <div *ngIf="galleryInfo.galleryImages[i*5+j]!=null">

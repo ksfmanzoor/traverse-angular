@@ -11,7 +11,9 @@
 .display-4 {
     font-size: 50px;
 }
-
+.p-remover{
+    margin-left: 0;
+}
 #gallery-text {
     padding: 60px;
 }
@@ -30,7 +32,7 @@
 }
 
 .description-container {
-    padding-top: 10px;
+    padding: 10px 5px 0 5px;
     position: absolute;
     bottom: 0;
     left: 0;
