@@ -9,6 +9,7 @@ import {MinifiedHomeData} from '../../models/minified-home-data';
 export class AllDataDisplayComponent implements OnInit {
   @Input() titleInfo: {title: string, subtitle: string};
   @Input() dataList: MinifiedHomeData[];
+  @Input() path: string;
   rowNumber: number;
   constructor() { }
 

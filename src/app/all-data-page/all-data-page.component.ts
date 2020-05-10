@@ -19,8 +19,10 @@ export class AllDataPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       const result = data.destinations;
+      console.log(result);
       this.headerInfo = {title: result[0].tag_line, coverImage: result[0].cover_image};
       this.allDestinationList = result[1];
+      this.allAttractionList = result[2];
     });
   }
 

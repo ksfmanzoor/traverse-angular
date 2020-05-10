@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row row-image" *ngFor="let x of [].constructor(rowNumber); let i=index">
         <div class="col-sm-12 col-lg-4 col-image p-2" *ngFor="let y of [].constructor(3); let j=index">
-            <app-image-box [minifiedData]="dataList[i*3+j]" [path]="'/destination'"
+            <app-image-box [minifiedData]="dataList[i*3+j]" [path]="path"
                            *ngIf="dataList[i*3+j]!=null"></app-image-box>
         </div>
     </div>
