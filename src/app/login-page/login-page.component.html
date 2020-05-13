@@ -7,29 +7,34 @@
                     <h1 class="heading">Sign In</h1>
                     <p class="subtitle">Login into your account<br/></p>
                     <div class="card">
-                        <form>
-                            <div class="form-group input-field"><input type="email" class="form-control"
-                                                                       placeholder="Email Address"/></div>
-                            <div class="form-grou input-field"><input type="tel" class="form-control"
-                                                                      placeholder="Password"/>
+                        <div class="form-box">
+                            <form>
+                                <div class="form-group input-field"><input type="email" class="form-control"
+                                                                           placeholder="Email Address"/></div>
+                                <div class="form-grou input-field"><input type="tel" class="form-control"
+                                                                          placeholder="Password"/>
+                                </div>
+                                <div class="form-check m-3"><input type="checkbox"
+                                                                   class="form-check-input"
+                                                                   id="formCheck-1"/><label
+                                    class="form-check-label" for="formCheck-1">Keep me logged in</label></div>
+                                <button class="btn btn-dark btn-block btn-lg text-uppercase">Sign In</button>
+                            </form>
+                            <div class="social-separator">or sign in with social media</div>
+                            <div role="group" class="btn-group">
+                                <button class="btn facebook text-white social-button" type="button">
+                                    <fa-icon [icon]="facebook"></fa-icon>
+                                    Login with Facebook
+                                </button>
+                                <button class="btn google text-white social-button"
+                                        type="button">
+                                    <fa-icon [icon]="google"></fa-icon>
+                                    Login with Google
+                                </button>
                             </div>
-                            <div class="form-check m-3"><input type="checkbox"
-                                                               class="form-check-input"
-                                                               id="formCheck-1"/><label
-                                class="form-check-label" for="formCheck-1">Keep me logged in</label></div>
-                            <button class="btn btn-dark btn-block btn-lg text-uppercase">Sign In</button>
-                        </form>
-                        <div class="social-separator">or sign in with social media</div>
-                        <div role="group" class="btn-group">
-                            <button class="btn facebook text-white social-button" type="button">
-                                <fa-icon [icon]="facebook"></fa-icon>
-                                Login with Facebook
-                            </button>
-                            <button class="btn google text-white social-button"
-                                    type="button">
-                                <fa-icon [icon]="google"></fa-icon>
-                                Login with Google
-                            </button>
+                        </div>
+                        <div class="alt-block">
+                            <p>Don't have an account? &nbsp;<a routerLink="/login">Sign Up</a></p>
                         </div>
                     </div>
                 </div>

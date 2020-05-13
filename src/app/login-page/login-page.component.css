@@ -1,8 +1,7 @@
 .header {
     background-size: cover;
-    background-position: center;
-    height: 100vh;
-    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .overlay {
@@ -12,6 +11,9 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.container {
+    padding: 50px 15px;
+}
 
 .heading {
     font-family: 'Roboto', helvetica, Arial, sans-serif;
@@ -30,7 +32,10 @@
 }
 .card {
     margin-top: 15px;
-    padding: 35px 30px;
+}
+
+.form-box {
+    padding: 35px 30px 20px 30px;
 }
 
 .input-field {
@@ -45,6 +50,9 @@
     border-color: #dedede;
 }
 
+.btn-group {
+    width: 100%;
+}
 .social-separator {
     display: flex;
     align-items: center;
@@ -94,6 +102,18 @@
     border: 0;
 }
 
+
+.alt-block {
+    display: flex;
+    padding: 20px 30px;
+    border-top: 1px solid #e6e6e6;
+    background: #f9f9f9;
+}
+.alt-block > p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #6a6a6a;
+}
 @media (max-width: 576px) {
     .social-button {
         flex-direction: column;
