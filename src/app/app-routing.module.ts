@@ -6,6 +6,7 @@ import {BlogResolverService} from './services/blog-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
+import {LoginPageComponent} from './login-page/login-page.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,9 @@ const routes: Routes = [
     },
     {
         path: 'blogs', component: AllBlogPageComponent
+    },
+    {
+        path: 'login', component: LoginPageComponent
     }
 ];
 

@@ -13,6 +13,7 @@ import {RouteReuseStrategy} from '@angular/router';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 
@@ -22,6 +23,7 @@ import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
         SearchPageComponent,
         SearchHeaderComponent,
         AllBlogPageComponent,
+        LoginPageComponent,
     ],
     imports: [
         BrowserModule,
