@@ -1,0 +1,28 @@
+<app-login-skeleton [requiredInfo]="requiredInfo">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="form-group input-field"><input type="email" class="form-control"
+                                                   placeholder="Username" formControlName="username"
+                                                   [ngClass]="{'is-invalid': formControl.username.errors &&  formControl.username.touched}"/>
+            <div *ngIf="formControl.username.errors &&  formControl.username.touched" class="invalid-feedback">
+                <div *ngIf="formControl.email.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="form-group input-field"><input type="email" class="form-control"
+                                                   placeholder="Email Address" formControlName="email"
+                                                   [ngClass]="{'is-invalid': formControl.email.errors &&  formControl.email.touched}"/>
+            <div *ngIf="formControl.email.errors &&  formControl.email.touched" class="invalid-feedback">
+                <div *ngIf="formControl.email.errors.required">Email is required</div>
+                <div *ngIf="formControl.email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+        <div class="form-group input-field"><input type="tel" class="form-control"
+                                                   placeholder="Password" formControlName="password"
+                                                   [ngClass]="{ 'is-invalid': formControl.password.errors && formControl.password.touched }"/>
+            <div *ngIf="formControl.password.errors && formControl.password.touched" class="invalid-feedback">
+                <div *ngIf="formControl.password.errors.required">Password is required</div>
+                <div *ngIf="formControl.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <button class="btn btn-dark btn-block btn-lg text-uppercase">Sign Up</button>
+    </form>
+</app-login-skeleton>
