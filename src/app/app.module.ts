@@ -14,6 +14,10 @@ import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SocialLoginComponent } from './login-page/social-login/social-login.component';
+import { LoginSkeletonComponent } from './login-page/login-skeleton/login-skeleton.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -24,6 +28,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
         SearchHeaderComponent,
         AllBlogPageComponent,
         LoginPageComponent,
+        SocialLoginComponent,
+        LoginSkeletonComponent,
+        SignupPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -33,6 +40,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
         LoadingBarHttpClientModule,
         CarouselModule,
         SharedModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: [{
         provide: RouteReuseStrategy,

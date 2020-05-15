@@ -7,6 +7,7 @@ import {AllDestinationsResolverService} from './services/all-destinations-resolv
 import {AttractionResolverService} from './services/attraction-resolver.service';
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
+import {SignupPageComponent} from './signup-page/signup-page.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,9 @@ const routes: Routes = [
     },
     {
         path: 'login', component: LoginPageComponent
+    },
+    {
+        path: 'signup', component: SignupPageComponent
     }
 ];
 

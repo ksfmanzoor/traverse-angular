@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {faFacebookSquare, faGooglePlusSquare} from '@fortawesome/free-brands-svg-icons';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+    selector: 'app-login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  headerInfo = { title: '', subtitle: '', imageUrl: 'assets/header.jpg'};
-  facebook = faFacebookSquare;
-  google = faGooglePlusSquare;
+    requiredInfo = {heading: 'Sign In', subtitle: 'Log in to your account', altText: 'Don\'t', route: '/signup', keyWord: 'Sign Up'};
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }
