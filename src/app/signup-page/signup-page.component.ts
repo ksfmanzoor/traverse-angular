@@ -29,7 +29,7 @@ export class SignupPageComponent implements OnInit {
 
     onSubmit() {
         if (this.isPhone) {
-            this.authService.signUpThroughPhone(this.formControl.phoneNumber.value).subscribe(data => {
+            this.authService.signUpThroughPhone(this.formControl.phoneNumber.value, this.formControl.password.value).subscribe(data => {
                 console.log(data);
             }, error => {
                 console.log(error);
