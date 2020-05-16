@@ -13,3 +13,14 @@
 .input-field > .is-invalid {
     border-color: #dc3545;
 }
+
+.alt-signup {
+    color: #007bff;
+    cursor: pointer;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.alt-signup:hover {
+    text-decoration: underline;
+}
