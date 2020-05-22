@@ -13,7 +13,7 @@ export class LoginPageComponent implements OnInit {
     loginData = {};
     isPhone = false;
 
-    constructor(private authService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService) {
     }
 
     ngOnInit(): void {
@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
             this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
 
         }
-        this.authService.login(this.loginData);
+        this.authenticationService.login(this.loginData);
     }
 
     onEmailClick() {

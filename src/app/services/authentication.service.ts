@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {map, mergeMap} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
+import {AuthService, GoogleLoginProvider} from 'angularx-social-login';
 
 export interface Token {
     token: string;
@@ -17,17 +18,13 @@ export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<any>;
     public currentUser: Observable<User>;
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private authService: AuthService) {
         this.currentUserSubject = new BehaviorSubject(null);
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
     signUp(signUpData) {
         return this.httpClient.post(this.baseUrl + 'user/', signUpData);
-    }
-
-    signUpThroughPhone(phoneNumber: string, passwordKey: string) {
-        return this.httpClient.post(this.baseUrl + 'user/', {phone_number: phoneNumber, password: passwordKey});
     }
 
     login(loginData) {
@@ -41,6 +38,18 @@ export class AuthenticationService {
 
     logout() {
         this.currentUserSubject.next(null);
+    }
+
+    signInWithGoogle() {
+        this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
+            this.httpClient.post(this.baseUrl + 'user/', {name: data.name, google_token: data.idToken, is_google_auth: true}).subscribe(user => {
+               console.log(user);
+            }, error => {
+                alert(error.error.detail);
+            });
+        }).catch(error => {
+            alert(error);
+        });
     }
 
     resetPasswordRequest(emailAddress: string) {

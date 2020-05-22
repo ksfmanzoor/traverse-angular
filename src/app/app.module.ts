@@ -22,10 +22,19 @@ import { ResetPageComponent } from './reset-page/reset-page.component';
 import { ResetPasswordRequestComponent } from './reset-page/reset-password-request/reset-password-request.component';
 import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confirm/reset-password-confirm.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {AuthenticationService} from './services/authentication.service';
 import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
+import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 
+const config = new AuthServiceConfig([
+    {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('522226866097-8pclmu5udp6pa5pqsubjadm5s98m0dtj.apps.googleusercontent.com')
+    },
+]);
 
+export function provideConfig() {
+    return config;
+}
 
 @NgModule({
     declarations: [
@@ -51,13 +60,17 @@ import {AuthenticationInterceptorService} from './services/authentication-interc
         CarouselModule,
         SharedModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        SocialLoginModule
     ],
     providers: [{
         provide: RouteReuseStrategy,
         useClass: CustomReuseStrategy
     }, {
         provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true
+    }, {
+        provide: AuthServiceConfig,
+        useFactory: provideConfig
     }],
     bootstrap: [AppComponent]
 })

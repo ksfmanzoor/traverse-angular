@@ -10,11 +10,11 @@ export class NavBarComponent implements OnInit {
     title = 'My Account';
     dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
 
-    constructor(private authService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService) {
     }
 
     ngOnInit(): void {
-        this.authService.currentUser.subscribe(data => {
+        this.authenticationService.currentUser.subscribe(data => {
             if (data) {
                 this.title = data.name;
                 this.dropdownItems = [{routerLink: '/', label: 'Profile'}, {routerLink: '/', label: 'Logout'}];
@@ -26,7 +26,7 @@ export class NavBarComponent implements OnInit {
     }
 
     logout() {
-        this.authService.logout();
+        this.authenticationService.logout();
     }
 
 }

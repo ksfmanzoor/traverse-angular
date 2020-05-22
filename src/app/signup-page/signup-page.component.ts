@@ -13,7 +13,7 @@ export class SignupPageComponent implements OnInit {
     signUpData = {};
     isPhone = false;
 
-    constructor(private authService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService) {
     }
 
     ngOnInit(): void {
@@ -35,7 +35,7 @@ export class SignupPageComponent implements OnInit {
             this.signUpData = {email: this.formControl.email.value, password: this.formControl.password.value, is_social_auth: false};
 
         }
-        this.authService.signUp(this.signUpData).subscribe(user => {
+        this.authenticationService.signUp(this.signUpData).subscribe(user => {
             console.log(user);
         }, error => {
             console.log(error);
