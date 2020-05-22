@@ -10,6 +10,7 @@ import {AuthenticationService} from '../services/authentication.service';
 export class SignupPageComponent implements OnInit {
     requiredInfo = {heading: 'Sign Up', subtitle: 'Create a new account', altText: 'Already', route: '/login', keyWord: 'Sign In'};
     signUpForm: FormGroup;
+    signUpData = {};
     isPhone = false;
 
     constructor(private authService: AuthenticationService) {
@@ -29,18 +30,17 @@ export class SignupPageComponent implements OnInit {
 
     onSubmit() {
         if (this.isPhone) {
-            this.authService.signUpThroughPhone(this.formControl.phoneNumber.value, this.formControl.password.value).subscribe(data => {
-                console.log(data);
-            }, error => {
-                console.log(error);
-            });
+            this.signUpData = {phone_number: this.formControl.phoneNumber.value, password: this.formControl.password.value, is_social_auth: false};
         } else {
-            this.authService.signUpThroughEmail(this.formControl.email.value, this.formControl.password.value).subscribe(data => {
-                console.log(data);
-            }, error => {
-                console.log(error);
-            });
+            this.signUpData = {email: this.formControl.email.value, password: this.formControl.password.value, is_social_auth: false};
+
         }
+        this.authService.signUp(this.signUpData).subscribe(user => {
+            console.log(user);
+        }, error => {
+            console.log(error);
+            alert(error.error.detail);
+        });
     }
 
     onEmailClick() {

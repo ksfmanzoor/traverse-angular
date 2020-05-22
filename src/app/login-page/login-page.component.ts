@@ -10,6 +10,7 @@ import {AuthenticationService} from '../services/authentication.service';
 export class LoginPageComponent implements OnInit {
     requiredInfo = {heading: 'Sign In', subtitle: 'Log in to your account', altText: 'Don\'t', route: '/signup', keyWord: 'Sign Up'};
     loginForm: FormGroup;
+    loginData = {};
     isPhone = false;
 
     constructor(private authService: AuthenticationService) {
@@ -26,8 +27,13 @@ export class LoginPageComponent implements OnInit {
     get formControl() { return this.loginForm.controls; }
 
     onSubmit() {
-        console.log(this.loginForm.value);
-        this.authService.login(this.formControl.email.value, this.formControl.password.value);
+        if (this.isPhone) {
+            this.loginData = {phone_number: this.formControl.phoneNumber.value, password: this.formControl.password.value};
+        } else {
+            this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
+
+        }
+        this.authService.login(this.loginData);
     }
 
     onEmailClick() {

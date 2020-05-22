@@ -22,16 +22,16 @@ export class AuthenticationService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    signUpThroughEmail(emailAddress: string, passwordKey: string) {
-        return this.httpClient.post(this.baseUrl + 'user/', {email: emailAddress, password: passwordKey});
+    signUp(signUpData) {
+        return this.httpClient.post(this.baseUrl + 'user/', signUpData);
     }
 
     signUpThroughPhone(phoneNumber: string, passwordKey: string) {
         return this.httpClient.post(this.baseUrl + 'user/', {phone_number: phoneNumber, password: passwordKey});
     }
 
-    login(emailAddress: string, passwordKey: string) {
-        return this.httpClient.post(this.baseUrl + 'token/', {email: emailAddress, password: passwordKey}).pipe(map((tokenObject: Token) => {
+    login(loginData) {
+        return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
             this.token = tokenObject.token;
         }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
             this.currentUserSubject.next(user);
