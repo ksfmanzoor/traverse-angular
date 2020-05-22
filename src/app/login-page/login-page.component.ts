@@ -9,12 +9,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class LoginPageComponent implements OnInit {
     requiredInfo = {heading: 'Sign In', subtitle: 'Log in to your account', altText: 'Don\'t', route: '/signup', keyWord: 'Sign Up'};
     loginForm: FormGroup;
+    isPhone = false;
 
     constructor() {
     }
 
     ngOnInit(): void {
         this.loginForm = new FormGroup({
+            phoneNumber: new FormControl(null, [Validators.required]),
             email: new FormControl(null, [Validators.required, Validators.email]),
             password: new FormControl(null, [Validators.required, Validators.minLength(6)])
         });
@@ -24,5 +26,13 @@ export class LoginPageComponent implements OnInit {
 
     onSubmit() {
         console.log(this.loginForm.value);
+    }
+
+    onEmailClick() {
+        this.isPhone = false;
+    }
+
+    onPhoneClick() {
+        this.isPhone = true;
     }
 }

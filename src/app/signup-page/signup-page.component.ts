@@ -8,7 +8,7 @@ import {AuthService} from '../services/auth.service';
     styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent implements OnInit {
-    requiredInfo = {heading: 'Sign UP', subtitle: 'Create a new account', altText: 'Already', route: '/login', keyWord: 'Sign In'};
+    requiredInfo = {heading: 'Sign Up', subtitle: 'Create a new account', altText: 'Already', route: '/login', keyWord: 'Sign In'};
     signUpForm: FormGroup;
     isPhone = false;
 

@@ -7,12 +7,11 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#">
-                        My Account
+                        {{title}}
                     </a>
                     <div role="menu" class="dropdown-menu">
-                        <a role="presentation" class="dropdown-item" href="#">First Item</a>
-                        <a role="presentation" class="dropdown-item" href="#">Second Item</a>
-                        <a role="presentation" class="dropdown-item" href="#">Third Item</a>
+                        <a role="presentation" class="dropdown-item" routerLink="{{dropdownItems[0].routerLink}}">{{dropdownItems[0].label}}</a>
+                        <a role="presentation" class="dropdown-item" routerLink="{{dropdownItems[1].routerLink}}">{{dropdownItems[1].label}}</a>
                     </div>
                 </li>
             </ul>
