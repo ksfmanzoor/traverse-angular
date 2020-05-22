@@ -21,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResetPageComponent } from './reset-page/reset-page.component';
 import { ResetPasswordRequestComponent } from './reset-page/reset-password-request/reset-password-request.component';
 import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confirm/reset-password-confirm.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
 
 
 
@@ -29,6 +30,7 @@ import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confi
         AppComponent,
         SearchPageComponent,
         SearchHeaderComponent,
+        NavBarComponent,
         AllBlogPageComponent,
         LoginPageComponent,
         SocialLoginComponent,

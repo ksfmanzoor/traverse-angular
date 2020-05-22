@@ -8,7 +8,7 @@ import {AttractionResolverService} from './services/attraction-resolver.service'
 import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {SignupPageComponent} from './signup-page/signup-page.component';
-import {ResetPageComponent} from "./reset-page/reset-page.component";
+import {ResetPageComponent} from './reset-page/reset-page.component';
 
 
 const routes: Routes = [

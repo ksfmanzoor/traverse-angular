@@ -40,7 +40,7 @@ header > .overlay {
 
 .intro-box {
     text-align: center;
-    padding-bottom: 80px;
+    padding-top: 80px;
 }
 
 .intro-lead-in {
@@ -58,11 +58,16 @@ header > .overlay {
 }
 
 
-/*@media (max-width: 992px) {*/
-/*    header {*/
-/*        background: url('../../../assets/header.jpg') no-repeat center center;*/
-/*    }*/
-/*    header video {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
+@media (max-width: 992px) {
+    /*header {*/
+    /*    background: url('../../../assets/header.jpg') no-repeat center center;*/
+    /*}*/
+    /*header video {*/
+    /*    display: none;*/
+    /*}*/
+
+    .intro-box {
+        padding-top: 0;
+        padding-bottom: 80px;
+    }
+}
