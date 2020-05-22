@@ -32,8 +32,7 @@ export class SignupPageComponent implements OnInit {
         if (this.isPhone) {
             this.signUpData = {phone_number: this.formControl.phoneNumber.value, password: this.formControl.password.value, is_social_auth: false};
         } else {
-            this.signUpData = {email: this.formControl.email.value, password: this.formControl.password.value, is_social_auth: false};
-
+            this.signUpData = {email: this.formControl.email.value, password: this.formControl.password.value, is_google_auth: false};
         }
         this.authenticationService.signUp(this.signUpData).subscribe(user => {
             console.log(user);

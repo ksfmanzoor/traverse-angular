@@ -19,7 +19,7 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
 
     constructor(private httpClient: HttpClient, private authService: AuthService) {
-        this.currentUserSubject = new BehaviorSubject(null);
+        this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -31,19 +31,27 @@ export class AuthenticationService {
         return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
             this.token = tokenObject.token;
         }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
+            localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
             return user;
         });
     }
 
     logout() {
+        localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
 
     signInWithGoogle() {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
-            this.httpClient.post(this.baseUrl + 'user/', {name: data.name, google_token: data.idToken, is_google_auth: true}).subscribe(user => {
-               console.log(user);
+            this.httpClient.post(this.baseUrl + 'user/', {
+                email: data.email,
+                password: data.idToken.substring(0, 30),
+                name: data.name,
+                google_token: data.idToken,
+                is_google_auth: true
+            }).subscribe(user => {
+                this.login({email: data.email, password: data.idToken.substring(0, 30)});
             }, error => {
                 alert(error.error.detail);
             });
