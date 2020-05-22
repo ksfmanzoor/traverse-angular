@@ -1,16 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  title = 'My Account';
-  dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
-  constructor() { }
+    title = 'My Account';
+    dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
 
-  ngOnInit(): void {
-  }
+    constructor(private authService: AuthenticationService) {
+    }
+
+    ngOnInit(): void {
+        this.authService.currentUser.subscribe(data => {
+            if (data) {
+                this.title = data.name;
+                this.dropdownItems = [{routerLink: '/', label: 'Profile'}, {routerLink: '/', label: 'Logout'}];
+            } else {
+                this.title = 'My Account';
+                this.dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
+            }
+        });
+    }
+
+    logout() {
+        this.authService.logout();
+    }
 
 }

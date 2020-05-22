@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../services/auth.service';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
     selector: 'app-signup-page',
@@ -12,7 +12,7 @@ export class SignupPageComponent implements OnInit {
     signUpForm: FormGroup;
     isPhone = false;
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthenticationService) {
     }
 
     ngOnInit(): void {

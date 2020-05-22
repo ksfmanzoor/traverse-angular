@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared-module/shared.module';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {RouteReuseStrategy} from '@angular/router';
@@ -22,6 +22,8 @@ import { ResetPageComponent } from './reset-page/reset-page.component';
 import { ResetPasswordRequestComponent } from './reset-page/reset-password-request/reset-password-request.component';
 import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confirm/reset-password-confirm.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {AuthenticationService} from './services/authentication.service';
+import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
 
 
 
@@ -54,6 +56,8 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
     providers: [{
         provide: RouteReuseStrategy,
         useClass: CustomReuseStrategy
+    }, {
+        provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true
     }],
     bootstrap: [AppComponent]
 })

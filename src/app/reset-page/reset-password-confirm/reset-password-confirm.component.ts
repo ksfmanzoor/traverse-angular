@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-reset-password-confirm',
@@ -14,7 +14,7 @@ export class ResetPasswordConfirmComponent implements OnInit {
   hasReset = false;
   msg = '';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthenticationService) {
   }
 
   ngOnInit(): void {
