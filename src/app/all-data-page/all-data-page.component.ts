@@ -12,7 +12,7 @@ export class AllDataPageComponent implements OnInit {
   headerInfo: {title: string, coverImage: string};
   destinationTitle = {title: 'Our Destinations', subtitle: 'Browse through the Bounteous Realm'};
   allDestinationList: MinifiedHomeData[];
-  attractionTitle = {title: 'Our Attractions', subtitle: 'Lorem Ipsum Gypsum Sit'};
+  attractionTitle = {title: 'Our Attractions', subtitle: 'Browse through the Bounteous Realm'};
   allAttractionList: MinifiedHomeData[];
   constructor(private route: ActivatedRoute) { }
 
