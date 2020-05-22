@@ -18,6 +18,9 @@ import { SocialLoginComponent } from './login-page/social-login/social-login.com
 import { LoginSkeletonComponent } from './login-page/login-skeleton/login-skeleton.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ResetPageComponent } from './reset-page/reset-page.component';
+import { ResetPasswordRequestComponent } from './reset-page/reset-password-request/reset-password-request.component';
+import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confirm/reset-password-confirm.component';
 
 
 
@@ -31,6 +34,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         SocialLoginComponent,
         LoginSkeletonComponent,
         SignupPageComponent,
+        ResetPageComponent,
+        ResetPasswordRequestComponent,
+        ResetPasswordConfirmComponent,
     ],
     imports: [
         BrowserModule,

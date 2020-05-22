@@ -1,0 +1,2 @@
+<app-reset-password-request *ngIf="isRequest"></app-reset-password-request>
+<app-reset-password-confirm *ngIf="!isRequest" [resetToken]="resetToken"></app-reset-password-confirm>
