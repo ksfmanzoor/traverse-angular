@@ -4,6 +4,7 @@ import {map, mergeMap} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
 import {AuthService, GoogleLoginProvider} from 'angularx-social-login';
+import {Router} from '@angular/router';
 
 export interface Token {
     token: string;
@@ -18,7 +19,7 @@ export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<any>;
     public currentUser: Observable<User>;
 
-    constructor(private httpClient: HttpClient, private authService: AuthService) {
+    constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
         this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -33,6 +34,7 @@ export class AuthenticationService {
         }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
+            this.router.navigate(['/']).then();
             return user;
         });
     }
@@ -53,7 +55,9 @@ export class AuthenticationService {
             }).subscribe(user => {
                 this.login({email: data.email, password: data.idToken.substring(0, 30)});
             }, error => {
-                alert(error.error.detail);
+                if (error.error.detail === 'User with the same credentials already exists!') {
+                    this.login({email: data.email, password: data.idToken.substring(0, 30)});
+                }
             });
         }).catch(error => {
             alert(error);

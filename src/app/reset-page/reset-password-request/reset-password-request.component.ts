@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../../services/authentication.service";
+import {AuthenticationService} from '../../services/authentication.service';
+
 
 @Component({
   selector: 'app-reset-password-request',
@@ -17,6 +18,10 @@ export class ResetPasswordRequestComponent implements OnInit {
   constructor(private authService: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    this.requestPasswordToken();
   }
 
   requestPasswordToken() {
