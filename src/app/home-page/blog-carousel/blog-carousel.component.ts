@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {MinifiedHomeData} from '../../models/minified-home-data';
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-blog-carousel',
@@ -38,13 +39,16 @@ export class BlogCarouselComponent implements OnInit {
     },
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 568) {
       this.customOptions.dots = true;
     }
+  }
+  navigate(id) {
+    this.router.navigate(['/blog', id]).then();
   }
 
 }
