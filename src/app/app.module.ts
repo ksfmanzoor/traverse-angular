@@ -23,13 +23,19 @@ import { ResetPasswordRequestComponent } from './reset-page/reset-password-reque
 import { ResetPasswordConfirmComponent } from './reset-page/reset-password-confirm/reset-password-confirm.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
-import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
+import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
+import { PrivacyComponent } from './legal-pages/privacy/privacy.component';
+import { TermsofserviceComponent } from './legal-pages/termsofservice/termsofservice.component';
 
 const config = new AuthServiceConfig([
     {
         id: GoogleLoginProvider.PROVIDER_ID,
         provider: new GoogleLoginProvider('522226866097-8pclmu5udp6pa5pqsubjadm5s98m0dtj.apps.googleusercontent.com')
     },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('2708016946148277')
+  }
 ]);
 
 export function provideConfig() {
@@ -50,6 +56,8 @@ export function provideConfig() {
         ResetPageComponent,
         ResetPasswordRequestComponent,
         ResetPasswordConfirmComponent,
+        PrivacyComponent,
+        TermsofserviceComponent,
     ],
     imports: [
         BrowserModule,

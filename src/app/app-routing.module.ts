@@ -9,6 +9,8 @@ import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {SignupPageComponent} from './signup-page/signup-page.component';
 import {ResetPageComponent} from './reset-page/reset-page.component';
+import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
+import {TermsofserviceComponent} from './legal-pages/termsofservice/termsofservice.component';
 
 
 const routes: Routes = [
@@ -55,7 +57,13 @@ const routes: Routes = [
   },
   {
     path: 'reset/password/:resetToken', component: ResetPageComponent
-  }
+  },
+  {
+    path: 'privacy', component: PrivacyComponent
+  },
+  {
+    path: 'termsofservice', component: TermsofserviceComponent
+  },
 ];
 
 @NgModule({
