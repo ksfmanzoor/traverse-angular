@@ -1,3 +1,24 @@
+.blog-section {
+  background-color: black;
+  padding-bottom: 80px;
+  margin-top: 54px;
+}
+
+.info-section {
+  padding: 48px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row {
+  margin-right: 0;
+}
+
+.col {
+  padding-right: 0;
+}
+
 .blog-box {
   border-radius: 12px;
   cursor: pointer;
@@ -16,7 +37,7 @@
   border-radius: 0 0 12px 12px;
 }
 
-.blog-info > p{
+.blog-info > p {
   margin-bottom: 0;
 }
 
@@ -52,6 +73,7 @@
     display: none;
   }
 }
+
 @media (max-width: 768px) {
   .container {
     overflow-x: auto;

@@ -17,6 +17,9 @@ export class SocialLoginComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    facebookSignIn() {
+      this.authenticationService.signInWithFacebook();
+    }
     googleSignIn() {
         this.authenticationService.signInWithGoogle();
     }

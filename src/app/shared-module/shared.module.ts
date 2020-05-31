@@ -11,26 +11,27 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
-    declarations: [
-        FooterComponent,
-        DefaultHeaderComponent,
-        ImageBoxComponent,
-        SmallHeaderComponent,
-        AllDataDisplayComponent,
-    ],
-    imports: [
-        CommonModule,
-        NgxPictureModule.forRoot(ngxPictureConfig),
-        FontAwesomeModule
-    ],
-    exports: [
-        FooterComponent,
-        DefaultHeaderComponent,
-        ImageBoxComponent,
-        SmallHeaderComponent,
-        AllDataDisplayComponent,
-        FontAwesomeModule
-    ]
+  declarations: [
+    FooterComponent,
+    DefaultHeaderComponent,
+    ImageBoxComponent,
+    SmallHeaderComponent,
+    AllDataDisplayComponent,
+  ],
+  imports: [
+    CommonModule,
+    NgxPictureModule.forRoot(ngxPictureConfig),
+    FontAwesomeModule
+  ],
+  exports: [
+    FooterComponent,
+    DefaultHeaderComponent,
+    ImageBoxComponent,
+    SmallHeaderComponent,
+    AllDataDisplayComponent,
+    FontAwesomeModule,
+    NgxPictureModule
+  ]
 })
 export class SharedModule {
 }

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {map, mergeMap} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
-import {AuthService, GoogleLoginProvider} from 'angularx-social-login';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {Router} from '@angular/router';
 
 export interface Token {
@@ -51,12 +51,34 @@ export class AuthenticationService {
         password: data.idToken.substring(0, 30),
         name: data.name,
         google_token: data.idToken,
-        is_google_auth: true
+        is_google_auth: true,
+        is_facebook_auth: false
       }).subscribe(user => {
         this.login({email: data.email, password: data.idToken.substring(0, 30)});
       }, error => {
         if (error.error.detail === 'User with the same credentials already exists!') {
           this.login({email: data.email, password: data.idToken.substring(0, 30)});
+        }
+      });
+    }).catch(error => {
+      alert(error);
+    });
+  }
+
+  signInWithFacebook() {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
+      this.httpClient.post(this.baseUrl + 'user/', {
+        email: data.email,
+        password: data.id,
+        name: data.name,
+        facebook_token: data.id,
+        is_facebook_auth: true,
+        is_google_auth: false
+      }).subscribe(user => {
+        this.login({email: data.email, password: data.id});
+      }, error => {
+        if (error.error.detail === 'User with the same credentials already exists!') {
+          this.login({email: data.email, password: data.id});
         }
       });
     }).catch(error => {
