@@ -11,6 +11,7 @@ import {SignupPageComponent} from './signup-page/signup-page.component';
 import {ResetPageComponent} from './reset-page/reset-page.component';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {TermsofserviceComponent} from './legal-pages/termsofservice/termsofservice.component';
+import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 
 
 const routes: Routes = [
@@ -44,7 +45,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'blogs', component: AllBlogPageComponent
+    path: 'blogs', component: AllBlogPageComponent, resolve: { blogs: AllBlogsResolverService}
   },
   {
     path: 'login', component: LoginPageComponent

@@ -9,17 +9,18 @@ import {MinifiedHomeData} from '../models/minified-home-data';
 })
 
 export class AllDataPageComponent implements OnInit {
-  headerInfo: {title: string, coverImage: string};
+  headerInfo: { title: string, coverImage: string };
   destinationTitle = {title: 'Our Destinations', subtitle: 'Browse through the Bounteous Realm'};
   allDestinationList: MinifiedHomeData[];
   attractionTitle = {title: 'Our Attractions', subtitle: 'Browse through the Bounteous Realm'};
   allAttractionList: MinifiedHomeData[];
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       const result = data.destinations;
-      console.log(result);
       this.headerInfo = {title: result[0].tag_line, coverImage: result[0].cover_image};
       this.allDestinationList = result[1];
       this.allAttractionList = result[2];
