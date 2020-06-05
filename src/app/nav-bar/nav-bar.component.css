@@ -30,3 +30,9 @@
         color: #777;
     }
 }
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 0 80px;
+  }
+}

@@ -8,9 +8,9 @@ import {NavBarService} from '../services/nav-bar.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  title = 'My Account';
+  name = '';
+  isLoggedIn = false;
   isShown: boolean;
-  dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
 
   constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService) {
   }
@@ -21,11 +21,8 @@ export class NavBarComponent implements OnInit {
     });
     this.authenticationService.currentUser.subscribe(data => {
       if (data) {
-        this.title = data.name;
-        this.dropdownItems = [{routerLink: '/', label: 'Profile'}, {routerLink: '/', label: 'Logout'}];
-      } else {
-        this.title = 'My Account';
-        this.dropdownItems = [{routerLink: '/login', label: 'Login'}, {routerLink: '/signup', label: 'Sign Up'}];
+        this.isLoggedIn = true;
+        this.name = data.name;
       }
     });
   }

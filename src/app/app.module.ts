@@ -25,16 +25,16 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import { PrivacyComponent } from './legal-pages/privacy/privacy.component';
-import { TermsofserviceComponent } from './legal-pages/termsofservice/termsofservice.component';
+import { TermsAndConditionsComponent } from './legal-pages/terms-and-conditions/terms-and-conditions.component';
 
 const config = new AuthServiceConfig([
     {
         id: GoogleLoginProvider.PROVIDER_ID,
-        provider: new GoogleLoginProvider('522226866097-8pclmu5udp6pa5pqsubjadm5s98m0dtj.apps.googleusercontent.com')
+        provider: new GoogleLoginProvider('766271108501-0ua5neplagq5pib3ra2o2pbp3bmk8ji0.apps.googleusercontent.com')
     },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('2708016946148277')
+    provider: new FacebookLoginProvider('2898965933491614')
   }
 ]);
 
@@ -57,7 +57,7 @@ export function provideConfig() {
         ResetPasswordRequestComponent,
         ResetPasswordConfirmComponent,
         PrivacyComponent,
-        TermsofserviceComponent,
+        TermsAndConditionsComponent,
     ],
     imports: [
         BrowserModule,

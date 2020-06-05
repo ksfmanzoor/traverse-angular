@@ -1,20 +1,24 @@
-<nav class="navbar navbar-dark navbar-expand-md" id="nav-property" *ngIf="isShown">
-    <div class="container"><a class="navbar-brand" routerLink="/"><img src="assets/logo.png" id="logoImg" alt=""></a>
-        <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#">
-                        {{title}}
-                    </a>
-                    <div role="menu" class="dropdown-menu">
-                        <a role="presentation" class="dropdown-item" routerLink="{{dropdownItems[0].routerLink}}">{{dropdownItems[0].label}}</a>
-                        <a role="presentation" class="dropdown-item" routerLink="{{dropdownItems[1].routerLink}}" (click)="logout()">{{dropdownItems[1].label}}</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="nav-property" *ngIf="isShown">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/"><img src="assets/logo.png" id="logoImg" alt="">
+    </a>
+    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="nav navbar-nav ml-auto">
+        <ng-container *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup">Sign up</a>
+          </li>
+        </ng-container>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/">{{name}}</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
