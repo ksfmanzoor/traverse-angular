@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div class="row p-3">
+      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
+        <h5 class="p-1">Title</h5>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="form-group input-field"><input type="text" class="form-control"
+                                                   placeholder="Title" formControlName="title"/>
+        </div>
+      </div>
+    </div>
+    <div class="row p-3">
+      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
+        <h5 class="p-1">Subtitle</h5>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="form-group input-field"><input type="text" class="form-control"
+                                                   placeholder="Subtitle" formControlName="subtitle"/>
+        </div>
+      </div>
+    </div>
+    <div class="editor-padding">
+      <div><h5>Blog Editor</h5></div>
+      <ckeditor [config]="editorConfig" [editor]="blogEditor" formControlName="blogHtml" data=""></ckeditor>
+    </div>
+    <button class="btn btn-dark btn-block btn-lg text-uppercase col-4" type="submit">Add</button>
+    <div [innerHTML]="this.blogForm.controls.blogHtml.value"></div>
+  </form>
+</div>

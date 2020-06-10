@@ -1,0 +1,30 @@
+.heading-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.input-field {
+  margin-bottom: 0;
+}
+.input-field > .form-control {
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 16px;
+  margin-bottom: 0;
+  border-color: #dedede;
+}
+
+.editor-padding {
+  padding: 70px 50px;
+}
+@media (max-width: 768px) {
+  .heading-display {
+    justify-content: start;
+  }
+  .editor-padding {
+    padding: 16px;
+  }
+}

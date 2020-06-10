@@ -12,6 +12,7 @@ import {ResetPageComponent} from './reset-page/reset-page.component';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
+import {AddBlogPageComponent} from './add-blog-page/add-blog-page.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,9 @@ const routes: Routes = [
   },
   {
     path: 'termsandconditions', component: TermsAndConditionsComponent
+  },
+  {
+    path: 'add-blog', component: AddBlogPageComponent
   },
 ];
 
