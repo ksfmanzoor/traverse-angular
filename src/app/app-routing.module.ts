@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {SearchPageComponent} from './search-page/search-page.component';
 import {DestinationResolverService} from './services/destination-resolver.service';
 import {BlogResolverService} from './services/blog-resolver.service';
@@ -12,7 +12,6 @@ import {ResetPageComponent} from './reset-page/reset-page.component';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
-import {AddBlogPageComponent} from './add-blog-page/add-blog-page.component';
 
 
 const routes: Routes = [
@@ -46,7 +45,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'blogs', component: AllBlogPageComponent, resolve: { blogs: AllBlogsResolverService}
+    path: 'blogs', component: AllBlogPageComponent, resolve: {blogs: AllBlogsResolverService}
   },
   {
     path: 'login', component: LoginPageComponent
@@ -67,7 +66,8 @@ const routes: Routes = [
     path: 'termsandconditions', component: TermsAndConditionsComponent
   },
   {
-    path: 'add-blog', component: AddBlogPageComponent
+    path: 'add-blog',
+    loadChildren: () => import('./add-blog-module/add-blog-module.module').then(m => m.AddBlogModuleModule),
   },
 ];
 

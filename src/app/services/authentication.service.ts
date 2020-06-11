@@ -15,7 +15,7 @@ export interface Token {
 })
 export class AuthenticationService {
   private baseUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/';
-  token = '';
+  token = '44e4fcc67eb2f14cd64e0fbdbb2ce7a1b6ec242f';
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<User>;
 
@@ -31,6 +31,7 @@ export class AuthenticationService {
   login(loginData) {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
       this.token = tokenObject.token;
+      console.log(this.token);
     }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

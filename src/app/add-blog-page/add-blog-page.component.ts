@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {CustomUploadAdapter} from './custom-upload-adapter';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -8,25 +10,31 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   templateUrl: './add-blog-page.component.html',
   styleUrls: ['./add-blog-page.component.css']
 })
-export class AddBlogPageComponent  implements OnInit {
+export class AddBlogPageComponent implements OnInit {
   blogEditor = ClassicEditor;
   blogForm: FormGroup;
   editorConfig = {
     placeholder: 'Start writing blog!',
     mediaEmbed: {
       previewsInData: true,
-    }
+    },
   };
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
     this.blogForm = new FormGroup({
-      title: new FormControl(null, [Validators.required]),
-      subtitle: new FormControl(null, [Validators.required, Validators.email]),
-      blogHtml: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      title: new FormControl(null),
+      subtitle: new FormControl(null),
+      blogHtml: new FormControl(null)
     });
+  }
+
+  onReady($event) {
+    $event.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+      return new CustomUploadAdapter(loader, this.httpClient);
+    };
   }
 
   get formControl() {
@@ -37,5 +45,6 @@ export class AddBlogPageComponent  implements OnInit {
     console.log(this.formControl.blogHtml.value);
   }
 
-
 }
+
+

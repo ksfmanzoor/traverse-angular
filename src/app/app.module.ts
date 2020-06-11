@@ -26,8 +26,8 @@ import {AuthenticationInterceptorService} from './services/authentication-interc
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
-import {AddBlogPageComponent} from './add-blog-page/add-blog-page.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+
 
 const config = new AuthServiceConfig([
   {
@@ -60,7 +60,6 @@ export function provideConfig() {
     ResetPasswordConfirmComponent,
     PrivacyComponent,
     TermsAndConditionsComponent,
-    AddBlogPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +72,6 @@ export function provideConfig() {
     ReactiveFormsModule,
     FormsModule,
     SocialLoginModule,
-    CKEditorModule
   ],
   providers: [{
     provide: RouteReuseStrategy,
