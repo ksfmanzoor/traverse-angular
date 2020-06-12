@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {Router} from '@angular/router';
+import {kebabToCamelCase} from 'codelyzer/util/utils';
 
 export interface Token {
   token: string;
@@ -15,23 +16,33 @@ export interface Token {
 })
 export class AuthenticationService {
   private baseUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/';
-  token = '44e4fcc67eb2f14cd64e0fbdbb2ce7a1b6ec242f';
+  private tokenSubject: BehaviorSubject<any>;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<User>;
 
   constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
     this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
+    this.tokenSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('token')));
   }
 
   signUp(signUpData) {
     return this.httpClient.post(this.baseUrl + 'user/', signUpData);
   }
 
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  public get tokenValue(): Token {
+    return this.tokenSubject.value;
+  }
+
   login(loginData) {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
-      this.token = tokenObject.token;
-      console.log(this.token);
+      localStorage.setItem('token', JSON.stringify(tokenObject.token));
+      this.tokenSubject.next(tokenObject);
+      console.log(this.tokenValue);
     }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
@@ -42,7 +53,10 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
     this.currentUserSubject.next(null);
+    this.tokenSubject.next(null);
+    this.router.navigate(['/']).then();
   }
 
   signInWithGoogle() {

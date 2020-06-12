@@ -26,7 +26,6 @@ import {AuthenticationInterceptorService} from './services/authentication-interc
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
-import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 
 const config = new AuthServiceConfig([

@@ -23,12 +23,10 @@ export class NavBarComponent implements OnInit {
       if (data) {
         this.isLoggedIn = true;
         this.name = data.name;
+      } else {
+        this.isLoggedIn = false;
       }
     });
-  }
-
-  logout() {
-    this.authenticationService.logout();
   }
 
 }

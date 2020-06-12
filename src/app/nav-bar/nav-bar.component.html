@@ -16,13 +16,7 @@
           </li>
         </ng-container>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/">{{name}}</a>
-        </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
-        <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/add-blog">Logout</a>
+          <a class="nav-link" routerLink="/profile">{{name}}</a>
         </li>
       </ul>
     </div>
