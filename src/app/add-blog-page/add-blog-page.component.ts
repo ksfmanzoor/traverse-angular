@@ -42,6 +42,10 @@ export class AddBlogPageComponent implements OnInit {
     return this.blogForm.controls;
   }
 
+  onChange(event) {
+    console.log(event);
+  }
+
   onSubmit() {
   }
 
