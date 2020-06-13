@@ -31,8 +31,12 @@
 }
 
 .blog-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 11vh;
   background-color: #222222;
-  padding: 13px 16px;
+  padding: 0 16px;
   border-radius: 0 0 6px 6px;
 }
 
@@ -41,7 +45,7 @@
 }
 
 #first-image {
-  height: 74.5vh;
+  height: 74vh;
 }
 
 #second-image {
@@ -57,7 +61,7 @@
 }
 
 .spacing {
-  padding-top: 2.4vh;
+  padding-top: 3vh;
 }
 
 
