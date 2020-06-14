@@ -31,13 +31,17 @@
 }
 
 .blog-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 11vh;
   background-color: #222222;
-  padding: 0 16px;
+  padding: 13px 16px;
   border-radius: 0 0 6px 6px;
+}
+
+#first-blog-box {
+  height: calc(74vh + 77px);
+}
+
+#second-blog-box {
+  height: calc(74vh + 77px);
 }
 
 .blog-info > p {
@@ -59,11 +63,6 @@
 #fourth-image {
   height: 30vh;
 }
-
-.spacing {
-  padding-top: 3vh;
-}
-
 
 @media (max-width: 992px) {
   #third-blog {
