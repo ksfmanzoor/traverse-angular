@@ -8,7 +8,7 @@
   <div class="web">
     <div class="container-fluid">
       <div class="row">
-        <div class="col blog-box" (click)="navigate(minifiedBlogs[0].id)" id="first-blog-box">
+        <div class="col blog-box blog-box-height" (click)="navigate(minifiedBlogs[0].id)">
           <ngx-picture
             src="{{minifiedBlogs[0].thumbnail}}"
             alt=""
@@ -25,62 +25,60 @@
             </ng-template>
           </ngx-picture>
         </div>
-        <div class="col d-flex" id="second-blog-box">
-          <div class="d-flex flex-column justify-content-between">
-            <div class="row">
-              <div class="col blog-box" (click)="navigate(minifiedBlogs[1].id)">
-                <ngx-picture
-                  src="{{minifiedBlogs[1].thumbnail}}"
-                  alt=""
-                  #picture
-                  [lazyLoad]="true"
-                  class="ngx-picture__picture"
-                >
-                  <ng-template #imgTemplate let-imageData>
-                    <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="second-image"/>
-                    <div class="blog-info text-white">
-                      <h6>{{minifiedBlogs[1].title}}</h6>
-                      <p>{{minifiedBlogs[1].subtitle}}</p>
-                    </div>
-                  </ng-template>
-                </ngx-picture>
-              </div>
-              <div class="col blog-box" id="third-blog" (click)="navigate(minifiedBlogs[2].id)">
-                <ngx-picture
-                  src="{{minifiedBlogs[2].thumbnail}}"
-                  alt=""
-                  #picture
-                  [lazyLoad]="true"
-                  class="ngx-picture__picture"
-                >
-                  <ng-template #imgTemplate let-imageData>
-                    <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="third-image"/>
-                    <div class="blog-info text-white">
-                      <h6>{{minifiedBlogs[2].title}}</h6>
-                      <p>{{minifiedBlogs[2].subtitle}}</p>
-                    </div>
-                  </ng-template>
-                </ngx-picture>
-              </div>
+        <div class="col d-flex flex-column justify-content-between blog-box-height">
+          <div class="row">
+            <div class="col blog-box" (click)="navigate(minifiedBlogs[1].id)">
+              <ngx-picture
+                src="{{minifiedBlogs[1].thumbnail}}"
+                alt=""
+                #picture
+                [lazyLoad]="true"
+                class="ngx-picture__picture"
+              >
+                <ng-template #imgTemplate let-imageData>
+                  <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="second-image"/>
+                  <div class="blog-info text-white">
+                    <h6>{{minifiedBlogs[1].title}}</h6>
+                    <p>{{minifiedBlogs[1].subtitle}}</p>
+                  </div>
+                </ng-template>
+              </ngx-picture>
             </div>
-            <div class="row spacing">
-              <div class="col blog-box" (click)="navigate(minifiedBlogs[3].id)" id="fourth-blog">
-                <ngx-picture
-                  src="{{minifiedBlogs[3].thumbnail}}"
-                  alt=""
-                  #picture
-                  [lazyLoad]="true"
-                  class="ngx-picture__picture"
-                >
-                  <ng-template #imgTemplate let-imageData>
-                    <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="fourth-image"/>
-                    <div class="blog-info text-white">
-                      <h6>{{minifiedBlogs[3].title}}</h6>
-                      <p>{{minifiedBlogs[3].subtitle}}</p>
-                    </div>
-                  </ng-template>
-                </ngx-picture>
-              </div>
+            <div class="col blog-box" id="third-blog" (click)="navigate(minifiedBlogs[2].id)">
+              <ngx-picture
+                src="{{minifiedBlogs[2].thumbnail}}"
+                alt=""
+                #picture
+                [lazyLoad]="true"
+                class="ngx-picture__picture"
+              >
+                <ng-template #imgTemplate let-imageData>
+                  <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="third-image"/>
+                  <div class="blog-info text-white">
+                    <h6>{{minifiedBlogs[2].title}}</h6>
+                    <p>{{minifiedBlogs[2].subtitle}}</p>
+                  </div>
+                </ng-template>
+              </ngx-picture>
+            </div>
+          </div>
+          <div class="row spacing">
+            <div class="col blog-box" (click)="navigate(minifiedBlogs[3].id)">
+              <ngx-picture
+                src="{{minifiedBlogs[3].thumbnail}}"
+                alt=""
+                #picture
+                [lazyLoad]="true"
+                class="ngx-picture__picture"
+              >
+                <ng-template #imgTemplate let-imageData>
+                  <img class="blog-thumbnail" [src]="imageData.src" [alt]="imageData.alt" id="fourth-image"/>
+                  <div class="blog-info text-white">
+                    <h6>{{minifiedBlogs[3].title}}</h6>
+                    <p>{{minifiedBlogs[3].subtitle}}</p>
+                  </div>
+                </ng-template>
+              </ngx-picture>
             </div>
           </div>
         </div>

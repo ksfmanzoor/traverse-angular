@@ -36,11 +36,7 @@
   border-radius: 0 0 6px 6px;
 }
 
-#first-blog-box {
-  height: calc(74vh + 77px);
-}
-
-#second-blog-box {
+.blog-box-height {
   height: calc(74vh + 77px);
 }
 
