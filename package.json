@@ -36,6 +36,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "ng-loading-bar": "0.0.10",
+    "ngx-chips": "^2.1.0",
     "ngx-owl-carousel-o": "^2.0.3",
     "ngx-picture": "^2.0.4",
     "path": "^0.12.7",

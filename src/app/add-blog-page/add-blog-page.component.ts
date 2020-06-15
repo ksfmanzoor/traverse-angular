@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CustomUploadAdapter} from './custom-upload-adapter';
 import {HttpClient} from '@angular/common/http';
+import {AddBlogService} from '../services/add-blog.service';
 
 
 @Component({
@@ -19,14 +20,21 @@ export class AddBlogPageComponent implements OnInit {
       previewsInData: true,
     },
   };
+  errorMessage = {
+    onlyAlphabetsCharacters: 'Only alphabets are allowed',
+  };
 
-  constructor(private httpClient: HttpClient) {
+  tagValidator = [this.onlyAlphabets];
+  tagValues = [];
+
+  constructor(private httpClient: HttpClient, private addBlogService: AddBlogService) {
   }
 
   ngOnInit(): void {
     this.blogForm = new FormGroup({
       title: new FormControl(null),
       subtitle: new FormControl(null),
+      tags: new FormControl([], [Validators.maxLength(3)]),
       thumbnail: new FormControl(null),
       blogHtml: new FormControl(null)
     });
@@ -47,6 +55,42 @@ export class AddBlogPageComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.formControl.tags.value.length) {
+      this.formControl.tags.value.map(e => {
+        this.tagValues.push(e.value);
+      });
+    }
+    const formData = new FormData();
+    formData.append('thumbnail', this.formControl.thumbnail.value);
+    this.addBlogService.addBlog({
+      title: this.formControl.title.value,
+      content: this.formControl.blogHtml.value,
+      tags: this.tagValues,
+      thumbnail: formData,
+      subtitle: this.formControl.subtitle.value
+    }).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  onlyAlphabets(control: FormControl) {
+    const regExp = RegExp('^[A-Za-z]+$');
+    if (!regExp.test(control.value)) {
+      return {
+        onlyAlphabetsCharacters: true
+      };
+    }
+    return null;
+  }
+
+  onFileChange(event) {
+
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.blogForm.patchValue({
+        thumbnail: file
+      });
+    }
   }
 
 }

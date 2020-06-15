@@ -5,6 +5,7 @@ import {AddBlogRoutingModule} from './add-blog-routing.module';
 import {AddBlogPageComponent} from '../add-blog-page/add-blog-page.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TagInputModule} from 'ngx-chips';
 
 export let InjectorInstance: Injector;
 
@@ -17,7 +18,8 @@ export let InjectorInstance: Injector;
     AddBlogRoutingModule,
     CKEditorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TagInputModule,
   ]
 })
 export class AddBlogModule {

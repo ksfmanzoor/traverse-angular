@@ -21,7 +21,6 @@ export class CustomUploadAdapter {
     return new Promise((resolve, reject) => {
       this.loader.file.then(
         (data) => {
-          console.log(data);
           this.uploadFile(data)
             .subscribe(
               (result: BlogEditorImage) => {
