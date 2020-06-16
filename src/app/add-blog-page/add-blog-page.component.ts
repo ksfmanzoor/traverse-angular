@@ -34,7 +34,7 @@ export class AddBlogPageComponent implements OnInit {
     this.blogForm = new FormGroup({
       title: new FormControl(null),
       subtitle: new FormControl(null),
-      tags: new FormControl([], [Validators.maxLength(3)]),
+      tags: new FormControl([]),
       thumbnail: new FormControl(null),
       blogHtml: new FormControl(null)
     });
@@ -50,22 +50,20 @@ export class AddBlogPageComponent implements OnInit {
     return this.blogForm.controls;
   }
 
-  onChange(event) {
-    console.log(event);
-  }
-
   onSubmit() {
-    if (this.formControl.tags.value.length) {
-      this.formControl.tags.value.map(e => {
-        this.tagValues.push(e.value);
-      });
-    }
+    // if (this.formControl.tags.value.length) {
+    //   this.formControl.tags.value.map(e => {
+    //     this.tagValues.push(e.value);
+    //   });
+    // }
     const formData = new FormData();
     formData.append('thumbnail', this.formControl.thumbnail.value);
+    console.log(this.formControl.thumbnail.value);
+    console.log(formData.get('thumbnail'));
     this.addBlogService.addBlog({
       title: this.formControl.title.value,
       content: this.formControl.blogHtml.value,
-      tags: this.tagValues,
+      // tags: this.tagValues,
       thumbnail: formData,
       subtitle: this.formControl.subtitle.value
     }).subscribe(data => {
@@ -84,7 +82,6 @@ export class AddBlogPageComponent implements OnInit {
   }
 
   onFileChange(event) {
-
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.blogForm.patchValue({
