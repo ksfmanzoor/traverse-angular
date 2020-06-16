@@ -4,6 +4,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CustomUploadAdapter} from './custom-upload-adapter';
 import {HttpClient} from '@angular/common/http';
 import {AddBlogService} from '../services/add-blog.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class AddBlogPageComponent implements OnInit {
   tagValidator = [this.onlyAlphabets];
   tagValues = [];
 
-  constructor(private httpClient: HttpClient, private addBlogService: AddBlogService) {
+  constructor(private httpClient: HttpClient, private addBlogService: AddBlogService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -56,18 +57,14 @@ export class AddBlogPageComponent implements OnInit {
     //     this.tagValues.push(e.value);
     //   });
     // }
-    const formData = new FormData();
+    const formData: FormData = new FormData();
+    formData.append('title', this.formControl.title.value);
+    formData.append('subtitle', this.formControl.subtitle.value);
     formData.append('thumbnail', this.formControl.thumbnail.value);
-    console.log(this.formControl.thumbnail.value);
-    console.log(formData.get('thumbnail'));
-    this.addBlogService.addBlog({
-      title: this.formControl.title.value,
-      content: this.formControl.blogHtml.value,
-      // tags: this.tagValues,
-      thumbnail: formData,
-      subtitle: this.formControl.subtitle.value
-    }).subscribe(data => {
-      console.log(data);
+    formData.append('content', this.formControl.blogHtml.value);
+    console.log(this.blogForm.value);
+    this.addBlogService.addBlog(formData).subscribe(data => {
+      this.router.navigate(['/']).then();
     });
   }
 
