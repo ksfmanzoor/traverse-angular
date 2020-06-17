@@ -39,9 +39,8 @@ export class AuthenticationService {
 
   login(loginData) {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
-      localStorage.setItem('token', JSON.stringify(tokenObject.token));
+      localStorage.setItem('token', JSON.stringify(tokenObject));
       this.tokenSubject.next(tokenObject);
-      console.log(this.tokenValue.token);
     }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

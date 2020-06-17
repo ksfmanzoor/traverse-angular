@@ -1,6 +1,4 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {Blog} from '../models/blog';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
