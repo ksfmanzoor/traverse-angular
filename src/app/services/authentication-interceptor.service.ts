@@ -14,7 +14,7 @@ export class AuthenticationInterceptorService implements HttpInterceptor {
     if (!!this.authenticationService.tokenValue) {
       const request = req.clone({
         setHeaders: {
-          Authorization: `Token ${this.authenticationService.tokenValue}`
+          Authorization: `Token ${this.authenticationService.tokenValue.token}`
         }
       });
       return next.handle(request);

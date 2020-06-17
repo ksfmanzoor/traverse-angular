@@ -5,7 +5,6 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {Router} from '@angular/router';
-import {kebabToCamelCase} from 'codelyzer/util/utils';
 
 export interface Token {
   token: string;
@@ -42,7 +41,7 @@ export class AuthenticationService {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
       localStorage.setItem('token', JSON.stringify(tokenObject.token));
       this.tokenSubject.next(tokenObject);
-      console.log(this.tokenValue);
+      console.log(this.tokenValue.token);
     }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

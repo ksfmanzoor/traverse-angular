@@ -5,8 +5,8 @@
 .blog h5 img,
 .blog h6 img,
 .blog p img{
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 .blog {

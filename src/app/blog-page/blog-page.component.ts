@@ -12,8 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class BlogPageComponent implements OnInit {
   headerInfo: { title, subtitle: string, imageUrl: string };
   blogText = '';
-  constructor(private dom: DomSanitizer, private route: ActivatedRoute) {
-    this.dom.bypassSecurityTrustHtml(this.blogText);
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -23,5 +22,4 @@ export class BlogPageComponent implements OnInit {
       this.blogText = result.content;
     });
   }
-
 }
