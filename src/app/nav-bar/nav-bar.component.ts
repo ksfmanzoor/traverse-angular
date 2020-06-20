@@ -12,13 +12,10 @@ export class NavBarComponent implements OnInit {
   isLoggedIn = false;
   isShown: boolean;
 
-  constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService) {
+  constructor(private authenticationService: AuthenticationService, public navBarService: NavBarService) {
   }
 
   ngOnInit(): void {
-    this.navBarService.navBarValue.subscribe(value => {
-      this.isShown = value;
-    });
     this.authenticationService.currentUser.subscribe(data => {
       if (data) {
         this.isLoggedIn = true;

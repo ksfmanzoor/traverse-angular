@@ -1,0 +1,41 @@
+.account-avatar {
+  margin-bottom: 30px;
+  overflow: hidden;
+
+}
+.account-avatar-img {
+  float: left;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.account-avatar-name {
+  font-size: 14px;
+  line-height: 1.2em;
+  margin-top: 4px;
+}
+
+.account-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-nav-list > li {
+  margin-bottom: 15px;
+}
+
+.account-nav-list > li > a {
+  font-size: 15px;
+  color: #7a7a7a;
+  transition: 0.3s;
+  text-decoration: none !important;
+  display: block;
+}
+
+.account-nav-list > li > a > fa-icon {
+  margin-right: 10px;
+}

@@ -5,12 +5,14 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class NavBarService {
-  public navBarSubject: BehaviorSubject<boolean>;
-  public navBarValue: Observable<boolean>;
+  visible: boolean;
 
-  constructor() {
-    this.navBarSubject = new BehaviorSubject<boolean>(false);
-    this.navBarValue = this.navBarSubject.asObservable();
-  }
+  constructor() { this.visible = false; }
+
+  hide() { this.visible = false; }
+
+  show() { this.visible = true; }
+
+  toggle() { this.visible = !this.visible; }
 
 }

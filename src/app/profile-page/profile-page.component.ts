@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
+import {faFacebook} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,7 +8,7 @@ import {AuthenticationService} from '../services/authentication.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-
+  facebookIcon = faFacebook;
   constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {

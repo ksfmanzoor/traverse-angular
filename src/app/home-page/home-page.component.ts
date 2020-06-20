@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
             this.headerData = {tagLine: data[0].tag_line, coverImage: data[0].cover_image};
             this.destinationData = data[1];
             this.blogData = data[2];
-            this.navBarService.navBarSubject.next(true);
+            this.navBarService.show();
             this.loading = false;
         });
     }

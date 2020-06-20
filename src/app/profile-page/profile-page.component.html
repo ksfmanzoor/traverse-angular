@@ -1,4 +1,37 @@
-<p>profile-page works!</p>
-
-<button class="btn btn-dark" routerLink="/add-blog">Add Blog</button>
-<button class="btn btn-dark" (click)="logout()">Logout</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+      <div class="account-avatar">
+        <img class="account-avatar-img" src="assets/header.jpg" alt="text">
+        <p class="account-avatar-name">Welcome,
+          <br>John Doe
+        </p>
+      </div>
+      <div class="account-nav">
+        <ul class="account-nav-list">
+          <li>
+            <a routerLink="your-blogs">
+              <fa-icon [icon]="facebookIcon"></fa-icon>
+              Your Blogs
+            </a>
+          </li>
+          <li>
+            <a routerLink="preferences">
+              <fa-icon [icon]="facebookIcon"></fa-icon>
+              Preferences
+            </a>
+          </li>
+          <li>
+            <a>
+              <fa-icon [icon]="facebookIcon"></fa-icon>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
