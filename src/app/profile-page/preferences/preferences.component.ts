@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 @Component({
   selector: 'app-preferences',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preferences.component.css']
 })
 export class PreferencesComponent implements OnInit {
+  pencilIcon = faPencilAlt;
 
   constructor() { }
 

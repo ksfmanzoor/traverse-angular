@@ -1,3 +1,10 @@
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 16px 110px;
+  }
+}
+
+
 .account-avatar {
   margin-bottom: 30px;
   overflow: hidden;
@@ -35,6 +42,15 @@
   text-decoration: none !important;
   display: block;
 }
+
+.active > a {
+  color: #333333 !important;
+}
+
+.active > a:hover {
+  color: #333333 !important;
+}
+
 
 .account-nav-list > li > a > fa-icon {
   margin-right: 10px;

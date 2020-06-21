@@ -1,0 +1,105 @@
+.account-page-title {
+  margin-top: 0;
+  margin-bottom: 33px;
+  font-weight: 200;
+  font-family: helvetica, Arial, sans-serif;
+  font-size: 42px;
+}
+
+.account-preferences-item {
+  padding: 20px;
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.account-preferences-item-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Roboto', helvetica, Arial, sans-serif;
+  letter-spacing: 0.33px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.account-preferences-item-value {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #727272;
+}
+
+.account-preferences-item-change {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+}
+
+.account-preferences-item-change-description {
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.account-preferences-item-change-form .form-control {
+  border-radius: 3px;
+  box-shadow: none !important;
+}
+
+.account-preferences-item-change-form label {
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+.account-preferences-item-change-actions .btn {
+  margin-right: 5px;
+}
+
+.btn-primary {
+  background: #0093d2;
+  border-color: #0084bd;
+}
+
+.btn-sm {
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
+.btn {
+  border-radius: 2px;
+  font-size: 13px;
+  position: relative;
+  font-weight: 700;
+  font-family: 'Roboto', helvetica, Arial, sans-serif;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.account-preferences-item-change-link {
+  font-size: 13px;
+  opacity: 0.75;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+  filter: alpha(opacity=75);
+  text-decoration: none !important;
+  text-align: right;
+  display: block;
+  transition: 0.3s;
+}
+
+.account-preferences-item-change-link > fa-icon {
+  margin-right: 7px;
+  transition: 0.3s;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+
+.account-preferences-item-change-link:hover > fa-icon, .account-preferences-item-change-link[aria-expanded='true'] > fa-icon {
+  opacity: 1;
+  filter: none;
+}
