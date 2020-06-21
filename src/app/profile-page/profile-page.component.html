@@ -1,37 +1,39 @@
-<div class="container-fluid" style="background-color: #e6e6e6">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-      <div class="account-avatar">
-        <img class="account-avatar-img" src="assets/header.jpg" alt="text">
-        <p class="account-avatar-name">Welcome,
-          <br>John Doe
-        </p>
+<div class="page-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+        <div class="account-avatar">
+          <img class="account-avatar-img" src="assets/header.jpg" alt="text">
+          <p class="account-avatar-name">Welcome,
+            <br>John Doe
+          </p>
+        </div>
+        <div class="account-nav">
+          <ul class="account-nav-list">
+            <li routerLinkActive="active">
+              <a routerLink="your-blogs">
+                <fa-icon [icon]="facebookIcon"></fa-icon>
+                Your Blogs
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="preferences">
+                <fa-icon [icon]="facebookIcon"></fa-icon>
+                Preferences
+              </a>
+            </li>
+            <li>
+              <a>
+                <fa-icon [icon]="facebookIcon"></fa-icon>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="account-nav">
-        <ul class="account-nav-list">
-          <li routerLinkActive="active">
-            <a routerLink="your-blogs">
-              <fa-icon [icon]="facebookIcon"></fa-icon>
-              Your Blogs
-            </a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="preferences">
-              <fa-icon [icon]="facebookIcon"></fa-icon>
-              Preferences
-            </a>
-          </li>
-          <li>
-            <a>
-              <fa-icon [icon]="facebookIcon"></fa-icon>
-              Logout
-            </a>
-          </li>
-        </ul>
+      <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
+        <router-outlet></router-outlet>
       </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
-      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

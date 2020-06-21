@@ -4,6 +4,10 @@
   }
 }
 
+.page-section {
+  background: #e6e6e6;
+  padding: 45px 0;
+}
 
 .account-avatar {
   margin-bottom: 30px;
