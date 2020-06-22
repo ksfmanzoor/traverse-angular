@@ -6,7 +6,7 @@ import {forkJoin, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class AllBlogsService {
-  private headerDataUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=blog';
+  private headerDataUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=blog_post';
   private allBlogsUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=999';
 
   constructor(private httpClient: HttpClient) {
