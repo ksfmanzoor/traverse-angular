@@ -12,3 +12,7 @@
 .blog {
     padding: 20px 0;
 }
+.image > img {
+  width: 100% !important;
+  height: auto !important;
+}
