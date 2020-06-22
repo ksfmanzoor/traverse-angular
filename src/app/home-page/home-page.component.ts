@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HomepageDataService} from '../services/homepage-data.service';
-import {NavBarService} from '../services/nav-bar.service';
-
 
 
 @Component({
@@ -15,7 +13,7 @@ export class HomePageComponent implements OnInit {
     destinationData: any;
     blogData: any;
 
-    constructor(private homepageDataService: HomepageDataService, private navBarService: NavBarService) {
+    constructor(private homepageDataService: HomepageDataService) {
     }
 
     ngOnInit(): void {
@@ -23,7 +21,6 @@ export class HomePageComponent implements OnInit {
             this.headerData = {tagLine: data[0].tag_line, coverImage: data[0].cover_image};
             this.destinationData = data[1];
             this.blogData = data[2];
-            this.navBarService.show();
             this.loading = false;
         });
     }

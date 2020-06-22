@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CustomUploadAdapter} from './custom-upload-adapter';
 import {HttpClient} from '@angular/common/http';
 import {AddBlogService} from '../services/add-blog.service';
 import {Router} from '@angular/router';
+import {NavBarService} from '../services/nav-bar.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
   templateUrl: './add-blog-page.component.html',
   styleUrls: ['./add-blog-page.component.css']
 })
-export class AddBlogPageComponent implements OnInit {
+export class AddBlogPageComponent implements OnInit, OnDestroy {
   blogEditor = ClassicEditor;
   blogForm: FormGroup;
   editorConfig = {
@@ -28,10 +29,12 @@ export class AddBlogPageComponent implements OnInit {
   tagValidator = [this.onlyAlphabets];
   tagValues = [];
 
-  constructor(private httpClient: HttpClient, private addBlogService: AddBlogService, private router: Router) {
+  constructor(private httpClient: HttpClient, private addBlogService: AddBlogService, private router: Router,
+              private navBarService: NavBarService) {
   }
 
   ngOnInit(): void {
+    this.navBarService.changeNavColor.next('#333333');
     this.blogForm = new FormGroup({
       title: new FormControl(null),
       subtitle: new FormControl(null),
@@ -85,6 +88,10 @@ export class AddBlogPageComponent implements OnInit {
         thumbnail: file
       });
     }
+  }
+
+  ngOnDestroy() {
+    this.navBarService.changeNavColor.next('transparent');
   }
 
 }

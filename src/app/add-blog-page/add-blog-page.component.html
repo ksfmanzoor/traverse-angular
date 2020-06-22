@@ -1,48 +1,50 @@
 <div class="container-fluid">
-  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" style="padding-top: 50px">
-    <div class="row p-3">
-      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
-        <h5 class="p-1">Title</h5>
-      </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <div class="form-group input-field"><input type="text" class="form-control"
-                                                   placeholder="Title" formControlName="title"/>
+  <div class="add-blog-form">
+    <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+      <div class="row field-padding">
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+          <h5 class="p-1">Title</h5>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="form-group input-field"><input type="text" class="form-control"
+                                                     placeholder="Title" formControlName="title"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row p-3">
-      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
-        <h5 class="p-1">Subtitle</h5>
-      </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <div class="form-group input-field"><input type="text" class="form-control"
-                                                   placeholder="Subtitle" formControlName="subtitle"/>
+      <div class="row field-padding">
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+          <h5 class="p-1">Subtitle</h5>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="form-group input-field"><input type="text" class="form-control"
+                                                     placeholder="Subtitle" formControlName="subtitle"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row p-3">
-      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
-        <h5 class="p-1">Tags</h5>
+      <div class="row field-padding">
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+          <h5 class="p-1">Tags</h5>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <tag-input formControlName="tags" [errorMessages]="errorMessage"></tag-input>
+        </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <tag-input formControlName="tags" [validators]="tagValidator" [errorMessages]="errorMessage"></tag-input>
+      <div class="row field-padding">
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+          <h5 class="p-1">Thumbnail</h5>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <input type="file" (change)="onFileChange($event)"/>
+        </div>
       </div>
-    </div>
-    <div class="row p-3">
-      <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 heading-display">
-        <h5 class="p-1">Thumbnail</h5>
+      <div class="field-padding">
+        <ckeditor [config]="editorConfig" [editor]="blogEditor" (ready)="onReady($event)" formControlName="blogHtml"
+                  data=""></ckeditor>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <input type="file" (change)="onFileChange($event)"/>
+      <div class="d-flex justify-content-center align-items-center p-2">
+        <button class="btn btn-dark btn-block btn-lg text-uppercase col-4" type="submit">Add</button>
       </div>
-    </div>
-    <div class="editor-padding">
-      <ckeditor [config]="editorConfig" [editor]="blogEditor" (ready)="onReady($event)" formControlName="blogHtml"
-                data=""></ckeditor>
-    </div>
-    <div class="d-flex justify-content-center align-items-center p-2">
-      <button class="btn btn-dark btn-block btn-lg text-uppercase col-4" type="submit">Add</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 

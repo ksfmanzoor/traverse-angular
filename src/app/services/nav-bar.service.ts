@@ -1,18 +1,14 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavBarService {
-  visible: boolean;
+  public changeNavColor: BehaviorSubject<any>;
 
-  constructor() { this.visible = false; }
 
-  hide() { this.visible = false; }
-
-  show() { this.visible = true; }
-
-  toggle() { this.visible = !this.visible; }
-
+  constructor() {
+   this.changeNavColor = new BehaviorSubject('');
+  }
 }

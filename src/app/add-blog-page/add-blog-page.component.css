@@ -1,13 +1,16 @@
-.heading-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 16px 96px;
+  }
+  .add-blog-form {
+    padding: 100px 0 50px;
+  }
 }
-
 
 .input-field {
   margin-bottom: 0;
 }
+
 .input-field > .form-control {
   height: 50px;
   border-radius: 0;
@@ -17,14 +20,8 @@
   border-color: #dedede;
 }
 
-.editor-padding {
-  padding: 30px 50px;
+.field-padding {
+  padding: 16px 0;
 }
-@media (max-width: 768px) {
-  .heading-display {
-    justify-content: start;
-  }
-  .editor-padding {
-    padding: 16px;
-  }
-}
+
+

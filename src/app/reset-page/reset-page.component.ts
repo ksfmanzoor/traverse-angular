@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
 import {NavBarService} from '../services/nav-bar.service';
@@ -8,22 +8,26 @@ import {NavBarService} from '../services/nav-bar.service';
   templateUrl: './reset-page.component.html',
   styleUrls: ['./reset-page.component.css']
 })
-export class ResetPageComponent implements OnInit {
+export class ResetPageComponent implements OnInit, OnDestroy {
 
   isRequest = true;
   resetToken = '';
 
   constructor(private route: ActivatedRoute, private navBarService: NavBarService) {
-    this.navBarService.hide();
   }
 
   ngOnInit(): void {
+    this.navBarService.changeNavColor.next('#333333');
     this.route.params.subscribe(data => {
       if (isNotNullOrUndefined(data.resetToken)) {
         this.resetToken = data.resetToken;
         this.isRequest = false;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.navBarService.changeNavColor.next('transparent');
   }
 
 }
