@@ -1,1 +1,38 @@
-<p>your-blogs works!</p>
+<h1 class="account-page-title">Your Blogs</h1>
+<div class="row">
+  <ng-container *ngFor="let i of [].constructor(5)">
+  <div class="col-md-4">
+    <div class="blog-image-box">
+      <img src="assets/header.jpg" class="img-property">
+      <div class="blog-image-mask">
+        <ul class="blog-image-actions">
+          <li>
+            <a href="#">
+              <fa-icon [icon]="previewIcon"></fa-icon>
+              Preview
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <fa-icon [icon]="editIcon"></fa-icon>
+              Edit
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <fa-icon [icon]="deleteIcon"></fa-icon>
+              Delete
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <div class="col-md-4">
+    <div class="blog-add-card">
+      <a class="blog-add-card-mask-link" href="#"></a>
+      <p class="blog-add-card-new-title">+ Add New Blog</p>
+    </div>
+  </div>
+</div>

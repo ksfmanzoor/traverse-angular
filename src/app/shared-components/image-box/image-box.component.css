@@ -1,4 +1,4 @@
-.image-box {
+.blog-image-box {
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -34,7 +34,7 @@
 
 
 @media not all and (pointer: coarse) {
-  .image-box:hover > .ngx-picture__picture {
+  .blog-image-box:hover > .ngx-picture__picture {
     transform: scale(1.2);
     filter: brightness(0.4);
   }

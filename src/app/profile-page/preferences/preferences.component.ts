@@ -7,7 +7,7 @@ import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
   styleUrls: ['./preferences.component.css']
 })
 export class PreferencesComponent implements OnInit {
-  pencilIcon = faPencilAlt;
+  editIcon = faPencilAlt;
 
   constructor() { }
 
