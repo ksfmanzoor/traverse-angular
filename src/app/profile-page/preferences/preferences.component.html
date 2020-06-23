@@ -7,9 +7,35 @@
           <div class="col-md-3">
             <h5 class="account-preferences-item-title">Email Address</h5>
           </div>
-          <div class="col-md-7 ">
+          <div class="col-md-6">
             <p class="account-preferences-item-value">john_doe772@gmail.com</p>
+            <div class="collapse" id="VerifyEmail">
+              <div class="account-preferences-item-change">
+                <p class="account-preferences-item-change-description">Email verification is required to perform actions
+                </p>
+                <div class="account-preferences-item-change-actions">
+                  <a class="btn btn-sm btn-primary">Verify Email</a>
+                  <a class="btn btn-sm btn-default" href="#VerifyEmail" data-toggle="collapse" aria-expanded="false"
+                     aria-controls="VerifyEmail">Cancel</a>
+                </div>
+              </div>
+            </div>
           </div>
+          <ng-template #elseBlock>
+          <div class="col-md-3" >
+            <a class="account-preferences-item-change-link" href="#VerifyEmail" data-toggle="collapse"
+               aria-expanded="false" aria-controls="VerifyEmail">
+              <fa-icon [icon]="editIcon"></fa-icon>
+              Verify
+            </a>
+          </div>
+          </ng-template>
+            <div class="col-md-3" *ngIf="isVerified; else elseBlock">
+              <a class="account-preferences-item-change-link">
+                <fa-icon [icon]="verifiedIcon"></fa-icon>
+                Verified
+              </a>
+            </div>
         </div>
       </div>
       <div class="account-preferences-item">
@@ -17,27 +43,27 @@
           <div class="col-md-3 ">
             <h5 class="account-preferences-item-title">Password</h5>
           </div>
-          <div class="col-md-7 ">
+          <div class="col-md-6 ">
             <p class="account-preferences-item-value">********</p>
             <div class="collapse" id="ChangePassword">
               <div class="account-preferences-item-change">
                 <p class="account-preferences-item-change-description">It's a good idea to use a strong password
                 </p>
                 <div class="form-group account-preferences-item-change-form">
-                  <label>Current Password</label>
-                  <input class="form-control" type="password">
-                  <label>New Password </label>
-                  <input class="form-control" type="password">
+                  <label for="CurrentPassword">Current Password</label>
+                  <input class="form-control" type="password" id="CurrentPassword">
+                  <label for="NewPassword">New Password </label>
+                  <input class="form-control" type="password" id="NewPassword">
                 </div>
                 <div class="account-preferences-item-change-actions">
-                  <a class="btn btn-sm btn-primary" href="#">Save changes</a>
+                  <a class="btn btn-sm btn-primary">Save changes</a>
                   <a class="btn btn-sm btn-default" href="#ChangePassword" data-toggle="collapse" aria-expanded="false"
                      aria-controls="ChangePassword">Cancel</a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <a class="account-preferences-item-change-link" href="#ChangePassword" data-toggle="collapse"
                aria-expanded="false" aria-controls="ChangePassword">
               <fa-icon [icon]="editIcon"></fa-icon>

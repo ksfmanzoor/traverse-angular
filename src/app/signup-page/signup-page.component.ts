@@ -52,6 +52,7 @@ export class SignupPageComponent implements OnInit {
       };
     }
     this.authenticationService.signUp(this.signUpData).subscribe(user => {
+      console.log(user);
       this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
       this.authenticationService.login(this.loginData);
     }, error => {

@@ -13,6 +13,7 @@ import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
 import {AuthGuard} from './services/auth.guard';
+import {VerifyUserComponent} from "./verify-user/verify-user.component";
 
 
 const routes: Routes = [
@@ -59,6 +60,9 @@ const routes: Routes = [
   },
   {
     path: 'reset/password/:resetToken', component: ResetPageComponent
+  },
+  {
+    path: 'verify-user/:verificationID', component: VerifyUserComponent
   },
   {
     path: 'privacy', component: PrivacyComponent

@@ -2,6 +2,7 @@ export interface User {
     email: string;
     id: string;
     is_social_auth: boolean;
+    is_superuser: boolean;
     name: string;
     phone_number: string;
 }

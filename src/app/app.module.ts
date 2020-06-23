@@ -26,6 +26,7 @@ import {AuthenticationInterceptorService} from './services/authentication-interc
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
+import { VerifyUserComponent } from './verify-user/verify-user.component';
 
 
 const config = new AuthServiceConfig([
@@ -59,6 +60,7 @@ export function provideConfig() {
     ResetPasswordConfirmComponent,
     PrivacyComponent,
     TermsAndConditionsComponent,
+    VerifyUserComponent,
   ],
   imports: [
     BrowserModule,
