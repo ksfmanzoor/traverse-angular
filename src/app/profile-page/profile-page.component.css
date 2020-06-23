@@ -6,7 +6,7 @@
 
 .page-section {
   background: #e6e6e6;
-  padding: 70px 0;
+  padding: 100px 0 70px 0;
 }
 
 .account-avatar {
@@ -59,4 +59,10 @@
 
 .account-nav-list > li > a > fa-icon {
   margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+  .page-section {
+    padding: 50px 0;
+  }
 }
