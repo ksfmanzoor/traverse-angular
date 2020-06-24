@@ -1,1 +1,9 @@
-<p>verify-user works!</p>
+<div class="verified-header">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="verified-title" *ngIf="isVerified; else elseBlock">You Have Been Verified</h1>
+      <ng-template #elseBlock><h1 class="unverified-title">{{errorMessage}}</h1></ng-template>
+      <button class="btn btn-outline-dark btn-properties" (click)="navigateToHome()">To Homepage</button>
+    </div>
+  </div>
+</div>
