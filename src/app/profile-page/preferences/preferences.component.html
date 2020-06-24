@@ -2,13 +2,13 @@
 <div class="row">
   <div class="col-md-9 ">
     <div class="theme-account-preferences">
-      <div class="account-preferences-item">
+      <div class="account-preferences-item" *ngIf="isEmail; else phoneNumberBlock">
         <div class="row">
           <div class="col-md-3">
             <h5 class="account-preferences-item-title">Email Address</h5>
           </div>
           <div class="col-md-6">
-            <p class="account-preferences-item-value">john_doe772@gmail.com</p>
+            <p class="account-preferences-item-value">{{emailAddress}}</p>
             <div class="collapse" id="VerifyEmail">
               <div class="account-preferences-item-change">
                 <p class="account-preferences-item-change-description">Email verification is required to perform actions
@@ -21,23 +21,69 @@
               </div>
             </div>
           </div>
-          <ng-template #elseBlock>
-          <div class="col-md-3" >
-            <a class="account-preferences-item-change-link" href="#VerifyEmail" data-toggle="collapse"
-               aria-expanded="false" aria-controls="VerifyEmail">
-              <fa-icon [icon]="editIcon"></fa-icon>
-              Verify
+          <ng-template #emailVerifiedBlock>
+            <div class="col-md-3">
+              <a class="account-preferences-item-change-link" href="#VerifyEmail" data-toggle="collapse"
+                 aria-expanded="false" aria-controls="VerifyEmail">
+                <fa-icon [icon]="editIcon"></fa-icon>
+                Verify
+              </a>
+            </div>
+          </ng-template>
+          <div class="col-md-3" *ngIf="isVerified; else emailVerifiedBlock">
+            <a class="account-preferences-item-change-link">
+              <fa-icon [icon]="verifiedIcon"></fa-icon>
+              Verified
             </a>
           </div>
-          </ng-template>
-            <div class="col-md-3" *ngIf="isVerified; else elseBlock">
+        </div>
+      </div>
+      <ng-template #phoneNumberBlock>
+        <div class="account-preferences-item">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="account-preferences-item-title">Phone Number</h5>
+            </div>
+            <div class="col-md-6">
+              <p class="account-preferences-item-value">{{phoneNumber}}</p>
+              <div class="collapse" id="VerifyPhoneNumber">
+                <div class="account-preferences-item-change">
+                  <p class="account-preferences-item-change-description">Phone verification is required to perform
+                    actions
+                  </p>
+                  <div class="form-group account-preferences-item-change-form">
+                    <label for="OTPCode">OTP Code</label>
+                    <input class="form-control" type="number" id="OTPCode">
+                  </div>
+                  <p class="account-preferences-item-change-description">Send me a code
+                  </p>
+                  <div class="account-preferences-item-change-actions">
+                    <a class="btn btn-sm btn-primary">Verify Number</a>
+                    <a class="btn btn-sm btn-default" href="#VerifyPhoneNumber" data-toggle="collapse"
+                       aria-expanded="false"
+                       aria-controls="VerifyEmail">Cancel</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #phoneVerifiedBlock>
+              <div class="col-md-3">
+                <a class="account-preferences-item-change-link" href="#VerifyPhoneNumber" data-toggle="collapse"
+                   aria-expanded="false" aria-controls="VerifyPhoneNumber">
+                  <fa-icon [icon]="editIcon"></fa-icon>
+                  Verify
+                </a>
+              </div>
+            </ng-template>
+            <div class="col-md-3" *ngIf="isVerified; else phoneVerifiedBlock">
               <a class="account-preferences-item-change-link">
                 <fa-icon [icon]="verifiedIcon"></fa-icon>
                 Verified
               </a>
             </div>
+          </div>
         </div>
-      </div>
+      </ng-template>
       <div class="account-preferences-item">
         <div class="row">
           <div class="col-md-3 ">

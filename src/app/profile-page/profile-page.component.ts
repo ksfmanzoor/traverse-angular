@@ -13,6 +13,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   blogIcon = faNewspaper;
   preferencesIcon = faCog;
   logoutIcon = faSignOutAlt;
+  isEmail: boolean;
   constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService) { }
 
   ngOnInit(): void {

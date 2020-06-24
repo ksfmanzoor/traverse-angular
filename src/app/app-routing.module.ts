@@ -12,8 +12,9 @@ import {ResetPageComponent} from './reset-page/reset-page.component';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
-import {AuthGuard} from './services/auth.guard';
-import {VerifyUserComponent} from "./verify-user/verify-user.component";
+import {AuthGuard} from './services/guards/auth.guard';
+import {VerifyUserComponent} from './verify-user/verify-user.component';
+import {VerifiedUserGuard} from './services/guards/verified-user-guard.service';
 
 
 const routes: Routes = [
@@ -71,7 +72,7 @@ const routes: Routes = [
     path: 'termsandconditions', component: TermsAndConditionsComponent
   },
   {
-    path: 'add-blog', canActivate: [AuthGuard],
+    path: 'add-blog', canActivate: [VerifiedUserGuard],
     loadChildren: () => import('./add-blog-module/add-blog.module').then(m => m.AddBlogModule),
   },
   {

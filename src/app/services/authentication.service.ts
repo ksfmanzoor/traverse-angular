@@ -18,11 +18,13 @@ export class AuthenticationService {
   private tokenSubject: BehaviorSubject<any>;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<User>;
+  public verifiedUser;
 
   constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
     this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
     this.tokenSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('token')));
+    this.verifiedUser = !!this.currentUserValue ? this.currentUserValue.is_verified : false;
   }
 
   signUp(signUpData) {
@@ -41,9 +43,11 @@ export class AuthenticationService {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
       localStorage.setItem('token', JSON.stringify(tokenObject));
       this.tokenSubject.next(tokenObject);
-    }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe(user => {
+    }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe((user: User ) => {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
+      this.verifiedUser = user.is_verified;
+      console.log(user);
       this.router.navigate(['/']).then();
       return user;
     });

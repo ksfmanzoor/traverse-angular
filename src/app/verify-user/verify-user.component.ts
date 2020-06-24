@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-verify-user',
@@ -8,12 +9,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class VerifyUserComponent implements OnInit {
   verificationID = '';
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(data => {
       this.verificationID = data.verificationID;
-      console.log(this.verificationID);
+    });
+    this.httpClient.post('http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/', {verification_token: this.verificationID}).subscribe(data => {
+      console.log(data);
+    }, error => {
+      alert(error.error.detail);
     });
   }
 
