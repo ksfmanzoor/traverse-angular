@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {AddBlogPageComponent} from '../add-blog-page/add-blog-page.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AddBlogPageComponent} from 'src/app/add-blog-page/add-blog-page.component';
+
 
 
 const routes: Routes = [
@@ -13,4 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AddBlogRoutingModule { }
+export class AddBlogRoutingModule {
+}

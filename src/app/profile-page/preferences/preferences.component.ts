@@ -3,6 +3,8 @@ import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 
+
+
 @Component({
   selector: 'app-preferences',
   templateUrl: './preferences.component.html',
@@ -25,7 +27,7 @@ export class PreferencesComponent implements OnInit {
       this.phoneNumber = user.phone_number;
       this.isVerified = user.is_verified;
       if (user.phone_number === '') {
-        this.isEmail = false;
+        this.isEmail = true;
       }
     });
   }

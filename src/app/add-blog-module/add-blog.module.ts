@@ -1,13 +1,13 @@
-import {Injector, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
-import {AddBlogRoutingModule} from './add-blog-routing.module';
-import {AddBlogPageComponent} from '../add-blog-page/add-blog-page.component';
-import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TagInputModule} from 'ngx-chips';
 
-export let InjectorInstance: Injector;
+
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {TagInputModule} from 'ngx-chips';
+import {AddBlogRoutingModule} from 'src/app/add-blog-module/add-blog-routing.module';
+import {AddBlogPageComponent} from 'src/app/add-blog-page/add-blog-page.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +23,4 @@ export let InjectorInstance: Injector;
   ]
 })
 export class AddBlogModule {
-  constructor(private injector: Injector) {
-    InjectorInstance = this.injector;
-  }
 }
