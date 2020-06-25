@@ -12,9 +12,20 @@ export class YourBlogsComponent implements OnInit {
   previewIcon = faEye;
   editIcon = faPencilAlt;
   deleteIcon = faTimes;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  previewBlog() {
+
+  }
+
+  editBlog() {
+
+  }
+
+  deleteBlog() {}
 
 }

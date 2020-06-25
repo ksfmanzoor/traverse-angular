@@ -1,6 +1,38 @@
 <h1 class="account-page-title">Preferences</h1>
 <div class="row">
   <div class="col-md-9 ">
+    <div class="account-preferences-item">
+      <div class="row">
+        <div class="col-md-3 ">
+          <h5 class="account-preferences-item-title">Name</h5>
+        </div>
+        <div class="col-md-6 ">
+          <p class="account-preferences-item-value">{{name}}</p>
+          <div class="collapse" id="ChangeName">
+            <div class="account-preferences-item-change">
+              <p class="account-preferences-item-change-description">Name help others to identify you
+              </p>
+              <div class="form-group account-preferences-item-change-form">
+                <label for="NewName">New Name</label>
+                <input class="form-control" type="password" id="NewName">
+              </div>
+              <div class="account-preferences-item-change-actions">
+                <a class="btn btn-sm btn-primary">Save changes</a>
+                <a class="btn btn-sm btn-default" href="#ChangeName" data-toggle="collapse" aria-expanded="false"
+                   aria-controls="ChangePassword">Cancel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <a class="account-preferences-item-change-link" href="#ChangeName" data-toggle="collapse"
+             aria-expanded="false" aria-controls="ChangeName">
+            <fa-icon [icon]="editIcon"></fa-icon>
+            Edit
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="theme-account-preferences">
       <div class="account-preferences-item" *ngIf="isEmail; else phoneNumberBlock">
         <div class="row">

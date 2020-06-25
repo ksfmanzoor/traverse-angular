@@ -7,19 +7,19 @@
       <div class="blog-image-mask">
         <ul class="blog-image-actions">
           <li>
-            <a href="#">
+            <a (click)="previewBlog()">
               <fa-icon [icon]="previewIcon"></fa-icon>
               Preview
             </a>
           </li>
           <li>
-            <a href="#">
+            <a (click)="editBlog()">
               <fa-icon [icon]="editIcon"></fa-icon>
               Edit
             </a>
           </li>
           <li>
-            <a href="#">
+            <a (click)="deleteBlog()">
               <fa-icon [icon]="deleteIcon"></fa-icon>
               Delete
             </a>

@@ -5,13 +5,15 @@
   font-family: helvetica, Arial, sans-serif;
   font-size: 42px;
 }
+
 .row > [class^="col-"] {
   padding-bottom: 20px;
 }
+
 .blog-image-box {
   position: relative;
   border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
 
@@ -52,6 +54,7 @@
 .blog-image-actions > li {
   display: inline-block;
   margin: 0 10px;
+  cursor: pointer;
 }
 
 .blog-image-actions > li > a {
@@ -92,7 +95,6 @@
 }
 
 
-
 .blog-add-card {
   background: #fff;
   color: #595959;
@@ -100,7 +102,7 @@
   border-radius: 6px;
   padding: 20px;
   height: 30vh;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .blog-add-card-mask-link {

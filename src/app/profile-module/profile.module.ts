@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfilePageComponent} from '../profile-page/profile-page.component';
@@ -17,7 +18,8 @@ import {PreferencesComponent} from '../profile-page/preferences/preferences.comp
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ]
 })
 export class ProfileModule {
