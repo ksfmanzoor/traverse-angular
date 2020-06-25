@@ -13,8 +13,12 @@
               <div class="account-preferences-item-change">
                 <p class="account-preferences-item-change-description">Email verification is required to perform actions
                 </p>
+                <p class="account-preferences-item-change-description" [ngStyle]="{display: isDisabled ? '': 'none'}">
+                  Resend email in {{timeLeft}}
+                </p>
                 <div class="account-preferences-item-change-actions">
-                  <a class="btn btn-sm btn-primary">Verify Email</a>
+                  <button class="btn btn-sm btn-primary" (click)="sendEmail()" [disabled]="isDisabled">Verify Email
+                  </button>
                   <a class="btn btn-sm btn-default" href="#VerifyEmail" data-toggle="collapse" aria-expanded="false"
                      aria-controls="VerifyEmail">Cancel</a>
                 </div>
@@ -55,10 +59,16 @@
                     <label for="OTPCode">OTP Code</label>
                     <input class="form-control" type="number" id="OTPCode">
                   </div>
-                  <p class="account-preferences-item-change-description">Send me a code
+                  <p class="account-preferences-item-change-description"
+                     [ngStyle]="{display: isDisabled ? 'none': '', cursor: 'pointer'}"
+                     (click)="sendOTP()">
+                    Send me a code
+                  </p>
+                  <p class="account-preferences-item-change-description" [ngStyle]="{display: isDisabled ? '': 'none'}">
+                    Resend code in {{timeLeft}}
                   </p>
                   <div class="account-preferences-item-change-actions">
-                    <a class="btn btn-sm btn-primary">Verify Number</a>
+                    <button class="btn btn-sm btn-primary">Verify OTP</button>
                     <a class="btn btn-sm btn-default" href="#VerifyPhoneNumber" data-toggle="collapse"
                        aria-expanded="false"
                        aria-controls="VerifyEmail">Cancel</a>

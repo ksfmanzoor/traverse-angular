@@ -16,14 +16,15 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private httpClient: HttpClient,
               private navBarService: NavBarService, private router: Router) { }
 
+
   ngOnInit(): void {
     this.navBarService.changeNavColor.next('#333333');
     this.route.params.subscribe(data => {
       this.verificationID = data.verificationID;
     });
     this.httpClient.post('http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/',
-      {verification_token: this.verificationID}).subscribe((data: VerifiedUser) => {
-      this.isVerified = data.status;
+      {verification_token: this.verificationID}).subscribe(data => {
+      this.isVerified = true;
     }, error => {
       if (error.status === 400) {
         this.errorMessage = error.error;
@@ -43,7 +44,3 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
   }
 }
 
-export interface VerifiedUser {
-  message: string;
-  status: boolean;
-}

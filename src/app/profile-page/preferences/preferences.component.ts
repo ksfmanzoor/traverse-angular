@@ -17,6 +17,19 @@ export class PreferencesComponent implements OnInit {
   isEmail: boolean;
   emailAddress: string;
   phoneNumber: string;
+  isDisabled = false;
+
+  timeLeft = 60;
+
+  startTimer() {
+    setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.isDisabled = false;
+      }
+    }, 1000);
+  }
 
   constructor(private authenticationService: AuthenticationService) {
   }
@@ -30,6 +43,16 @@ export class PreferencesComponent implements OnInit {
         this.isEmail = true;
       }
     });
+  }
+
+  sendEmail() {
+    this.isDisabled = true;
+    this.startTimer();
+  }
+
+  sendOTP() {
+    this.isDisabled = true;
+    this.startTimer();
   }
 
 }
