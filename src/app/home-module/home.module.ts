@@ -7,7 +7,7 @@ import {DestinationsComponent} from '../home-page/destinations/destinations.comp
 import {ExperiencesComponent} from '../home-page/experiences/experiences.component';
 import {BestTripsComponent} from '../home-page/best-trips/best-trips.component';
 import {HomePageComponent} from '../home-page/home-page.component';
-import {BlogCarouselComponent} from '../home-page/blog-carousel/blog-carousel.component';
+import {HomeBlogsComponent} from 'src/app/home-page/home-blog/home-blogs.component';
 import {SharedModule} from '../shared-module/shared.module';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 
@@ -16,7 +16,7 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
   declarations: [
     HeaderComponent,
     DestinationsComponent,
-    BlogCarouselComponent,
+    HomeBlogsComponent,
     ExperiencesComponent,
     BestTripsComponent,
     HomePageComponent,

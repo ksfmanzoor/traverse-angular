@@ -1,15 +1,13 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {OwlOptions} from 'ngx-owl-carousel-o';
-import {MinifiedHomeData} from '../../models/minified-home-data';
-import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
+import {MinifiedHomeData} from '../../models/minified-home-data';
 
 @Component({
   selector: 'app-blog-carousel',
-  templateUrl: './blog-carousel.component.html',
-  styleUrls: ['./blog-carousel.component.css']
+  templateUrl: './home-blog.component.html',
+  styleUrls: ['./home-blog.component.css']
 })
-export class BlogCarouselComponent implements OnInit {
+export class HomeBlogsComponent implements OnInit {
   @Input() minifiedBlogs: MinifiedHomeData[];
   isMobile: boolean;
 
