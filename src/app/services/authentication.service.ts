@@ -54,11 +54,12 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('token');
-    this.currentUserSubject.next(null);
-    this.tokenSubject.next(null);
-    this.router.navigate(['/']).then();
+    this.router.navigate(['/']).then(() => {
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('token');
+      this.currentUserSubject.next(null);
+      this.tokenSubject.next(null);
+    });
   }
 
   signInWithGoogle() {

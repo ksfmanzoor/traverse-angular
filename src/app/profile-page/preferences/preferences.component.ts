@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import {AuthenticationService} from 'src/app/services/authentication.service';
@@ -19,6 +20,7 @@ export class PreferencesComponent implements OnInit {
   name: string;
   isDisabled = false;
   timeLeft = 60;
+  changePasswordForm: FormGroup;
 
   private emailSendUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/send/';
 
@@ -27,6 +29,10 @@ export class PreferencesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.changePasswordForm = new FormGroup({
+      currentPassword: new FormControl(null, [Validators.required]),
+      newPassword: new FormControl(null, [Validators.required]),
+    });
     this.authenticationService.currentUser.subscribe(user => {
       this.name = user.name;
       this.emailAddress = user.email;
@@ -44,7 +50,7 @@ export class PreferencesComponent implements OnInit {
     this.httpClient.post(this.emailSendUrl, {}).subscribe(data => {
       alert('Check you email for verification');
     }, error => {
-     alert(error);
+      alert(error);
     });
   }
 
@@ -53,8 +59,21 @@ export class PreferencesComponent implements OnInit {
     this.startTimer();
   }
 
-  updatePassword() {
+  get formControl() {
+    return this.changePasswordForm.controls;
+  }
 
+  updatePassword() {
+    this.httpClient.post('http://traverse.ap-south-1.elasticbeanstalk.com/api/change/password/', {
+      current_password: this.formControl.currentPassword.value,
+      new_password: this.formControl.newPassword.value,
+    }).subscribe(data => {
+      alert(data);
+      this.formControl.currentPassword.setValue(null);
+      this.formControl.newPassword.setValue(null);
+    }, error => {
+      alert(error.error);
+    });
   }
 
   startTimer() {

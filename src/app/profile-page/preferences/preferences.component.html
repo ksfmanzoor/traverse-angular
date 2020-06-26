@@ -138,13 +138,15 @@
                 <p class="account-preferences-item-change-description">It's a good idea to use a strong password
                 </p>
                 <div class="form-group account-preferences-item-change-form">
+                  <form [formGroup]="changePasswordForm">
                   <label for="CurrentPassword">Current Password</label>
-                  <input class="form-control" type="password" id="CurrentPassword">
+                  <input class="form-control" type="password" id="CurrentPassword" formControlName="currentPassword">
                   <label for="NewPassword">New Password </label>
-                  <input class="form-control" type="password" id="NewPassword">
+                  <input class="form-control" type="password" id="NewPassword" formControlName="newPassword">
+                  </form>
                 </div>
                 <div class="account-preferences-item-change-actions">
-                  <button class="btn btn-sm btn-primary">Save changes</button>
+                  <button class="btn btn-sm btn-primary" (click)="updatePassword()">Update Password</button>
                   <a class="btn btn-sm btn-default" href="#ChangePassword" data-toggle="collapse" aria-expanded="false"
                      aria-controls="ChangePassword">Cancel</a>
                 </div>

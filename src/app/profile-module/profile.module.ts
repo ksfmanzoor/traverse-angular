@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfilePageComponent} from '../profile-page/profile-page.component';
@@ -19,7 +19,8 @@ import {PreferencesComponent} from '../profile-page/preferences/preferences.comp
     CommonModule,
     ProfileRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProfileModule {

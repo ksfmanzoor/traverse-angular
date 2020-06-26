@@ -67,9 +67,6 @@
 }
 
 @media (min-width: 768px) {
-  .mobile {
-    display: none;
-  }
 
   .container-fluid {
     padding: 4px 110px;
@@ -91,9 +88,5 @@
 
   .blog-thumbnail {
     height: 40vh;
-  }
-
-  .web {
-    display: none;
   }
 }
