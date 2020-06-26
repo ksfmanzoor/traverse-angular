@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {AuthenticationService} from 'src/app/services/authentication.service';
 import {NavBarService} from 'src/app/services/nav-bar.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
   errorMessage: string;
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient,
-              private navBarService: NavBarService, private router: Router) { }
+              private navBarService: NavBarService, private router: Router, private authenticationService: AuthenticationService) { }
 
 
   ngOnInit(): void {
@@ -25,13 +26,13 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
     this.httpClient.post('http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/',
       {verification_token: this.verificationID}).subscribe(data => {
       this.isVerified = true;
+      this.authenticationService.updateUserVerification();
     }, error => {
       if (error.status === 400) {
         this.errorMessage = error.error;
       } else {
         alert(error.error);
       }
-      console.log(error);
     });
   }
 

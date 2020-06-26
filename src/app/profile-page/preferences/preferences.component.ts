@@ -1,3 +1,4 @@
+import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
@@ -17,20 +18,12 @@ export class PreferencesComponent implements OnInit {
   phoneNumber: string;
   name: string;
   isDisabled = false;
-
   timeLeft = 60;
 
-  startTimer() {
-    setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.isDisabled = false;
-      }
-    }, 1000);
-  }
+  private emailSendUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/send/';
 
-  constructor(private authenticationService: AuthenticationService) {
+
+  constructor(private authenticationService: AuthenticationService, private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -48,6 +41,11 @@ export class PreferencesComponent implements OnInit {
   sendEmail() {
     this.isDisabled = true;
     this.startTimer();
+    this.httpClient.post(this.emailSendUrl, {}).subscribe(data => {
+      alert('Check you email for verification');
+    }, error => {
+     alert(error);
+    });
   }
 
   sendOTP() {
@@ -55,4 +53,17 @@ export class PreferencesComponent implements OnInit {
     this.startTimer();
   }
 
+  updatePassword() {
+
+  }
+
+  startTimer() {
+    setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.isDisabled = false;
+      }
+    }, 1000);
+  }
 }

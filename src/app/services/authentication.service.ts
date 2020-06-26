@@ -117,4 +117,11 @@ export class AuthenticationService {
     return this.httpClient.post(this.baseUrl + 'reset/password/',
       {reset_token: resetToken, password: newPassword});
   }
+
+  updateUserVerification() {
+    const user = JSON.parse(localStorage.getItem('currentUser')) as User;
+    console.log(user);
+    user.is_verified = true;
+    this.currentUserSubject.next(user);
+  }
 }
