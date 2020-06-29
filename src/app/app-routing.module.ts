@@ -1,10 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
-import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {ResetPageComponent} from './reset-page/reset-page.component';
-import {SearchPageComponent} from './search-page/search-page.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
@@ -20,7 +17,7 @@ const routes: Routes = [
     path: '', loadChildren: () => import('./home-module/home.module').then(m => m.HomeModule),
     data: {key: 'home'}
   },
-  {path: 'search', component: SearchPageComponent},
+  {path: 'search', loadChildren: () => import('./search-module/search.module').then(m => m.SearchModule)},
   {
     path: 'destination/:id', loadChildren: () =>
       import('./destination-module/destination.module').then(m => m.DestinationModule),
