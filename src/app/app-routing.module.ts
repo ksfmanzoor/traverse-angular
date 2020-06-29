@@ -48,10 +48,8 @@ const routes: Routes = [
     resolve: {blogs: AllBlogsResolverService}
   },
   {
-    path: 'login', component: LoginPageComponent
-  },
-  {
-    path: 'signup', component: SignupPageComponent
+    path: 'authentication',
+    loadChildren: () => import('./auth-module/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'reset/password', component: ResetPageComponent
