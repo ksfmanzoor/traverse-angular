@@ -6,14 +6,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouteReuseStrategy} from '@angular/router';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
-import {CarouselModule} from 'ngx-owl-carousel-o';
+import {AuthSkeletonComponent} from 'src/app/login-page/auth-skeleton/auth-skeleton.component';
+import {SocialAuthComponent} from 'src/app/login-page/social-auth/social-auth.component';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {LoginPageComponent} from './login-page/login-page.component';
-import {LoginSkeletonComponent} from './login-page/login-skeleton/login-skeleton.component';
-import {SocialLoginComponent} from './login-page/social-login/social-login.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ResetPageComponent} from './reset-page/reset-page.component';
 import {ResetPasswordConfirmComponent} from './reset-page/reset-password-confirm/reset-password-confirm.component';
@@ -43,9 +42,9 @@ export function provideConfig() {
     AppComponent,
     NavBarComponent,
     LoginPageComponent,
-    SocialLoginComponent,
-    LoginSkeletonComponent,
     SignupPageComponent,
+    AuthSkeletonComponent,
+    SocialAuthComponent,
     ResetPageComponent,
     ResetPasswordRequestComponent,
     ResetPasswordConfirmComponent,
@@ -56,7 +55,6 @@ export function provideConfig() {
     BrowserAnimationsModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
-    CarouselModule,
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
