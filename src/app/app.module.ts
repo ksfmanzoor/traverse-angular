@@ -1,32 +1,31 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouteReuseStrategy} from '@angular/router';
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
+import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
+import {CarouselModule} from 'ngx-owl-carousel-o';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SearchPageComponent} from './search-page/search-page.component';
-import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {SharedModule} from './shared-module/shared.module';
-import {CarouselModule} from 'ngx-owl-carousel-o';
-import {RouteReuseStrategy} from '@angular/router';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
-import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
-import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
-import {LoginPageComponent} from './login-page/login-page.component';
-import {SocialLoginComponent} from './login-page/social-login/social-login.component';
-import {LoginSkeletonComponent} from './login-page/login-skeleton/login-skeleton.component';
-import {SignupPageComponent} from './signup-page/signup-page.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ResetPageComponent} from './reset-page/reset-page.component';
-import {ResetPasswordRequestComponent} from './reset-page/reset-password-request/reset-password-request.component';
-import {ResetPasswordConfirmComponent} from './reset-page/reset-password-confirm/reset-password-confirm.component';
-import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
-import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angularx-social-login';
 import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
 import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
-import { VerifyUserComponent } from './verify-user/verify-user.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {LoginSkeletonComponent} from './login-page/login-skeleton/login-skeleton.component';
+import {SocialLoginComponent} from './login-page/social-login/social-login.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {ResetPageComponent} from './reset-page/reset-page.component';
+import {ResetPasswordConfirmComponent} from './reset-page/reset-password-confirm/reset-password-confirm.component';
+import {ResetPasswordRequestComponent} from './reset-page/reset-password-request/reset-password-request.component';
+import {SearchHeaderComponent} from './search-page/search-header/search-header.component';
+import {SearchPageComponent} from './search-page/search-page.component';
+import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
+import {SharedModule} from './shared-module/shared.module';
+import {SignupPageComponent} from './signup-page/signup-page.component';
+import {VerifyUserComponent} from './verify-user/verify-user.component';
 
 
 const config = new AuthServiceConfig([
@@ -50,7 +49,6 @@ export function provideConfig() {
     SearchPageComponent,
     SearchHeaderComponent,
     NavBarComponent,
-    AllBlogPageComponent,
     LoginPageComponent,
     SocialLoginComponent,
     LoginSkeletonComponent,

@@ -1,20 +1,19 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
+import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {ResetPageComponent} from './reset-page/reset-page.component';
 import {SearchPageComponent} from './search-page/search-page.component';
-import {DestinationResolverService} from './services/destination-resolver.service';
-import {BlogResolverService} from './services/blog-resolver.service';
+import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
-import {AllBlogPageComponent} from './all-blog-page/all-blog-page.component';
-import {LoginPageComponent} from './login-page/login-page.component';
-import {SignupPageComponent} from './signup-page/signup-page.component';
-import {ResetPageComponent} from './reset-page/reset-page.component';
-import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
-import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
-import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
+import {BlogResolverService} from './services/blog-resolver.service';
+import {DestinationResolverService} from './services/destination-resolver.service';
 import {AuthGuard} from './services/guards/auth.guard';
-import {VerifyUserComponent} from './verify-user/verify-user.component';
 import {VerifiedUserGuard} from './services/guards/verified-user-guard.service';
+import {SignupPageComponent} from './signup-page/signup-page.component';
+import {VerifyUserComponent} from './verify-user/verify-user.component';
 
 
 const routes: Routes = [
@@ -48,7 +47,9 @@ const routes: Routes = [
     }
   },
   {
-    path: 'blogs', component: AllBlogPageComponent, resolve: {blogs: AllBlogsResolverService}
+    path: 'blogs',
+    loadChildren: () => import('./all-blogs-module/all-blogs.module').then(m => m.AllBlogsModule),
+    resolve: {blogs: AllBlogsResolverService}
   },
   {
     path: 'login', component: LoginPageComponent
@@ -84,7 +85,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'enabled',
-    preloadingStrategy: PreloadAllModules
+    // preloadingStrategy: PreloadAllModules
   }),
   ],
   exports: [RouterModule]

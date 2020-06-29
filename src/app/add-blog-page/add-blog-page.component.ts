@@ -1,11 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import {CustomUploadAdapter} from './custom-upload-adapter';
 import {HttpClient} from '@angular/common/http';
-import {AddBlogService} from '../services/add-blog.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {AddBlogService} from '../services/add-blog.service';
 import {NavBarService} from '../services/nav-bar.service';
+import {CustomUploadAdapter} from './custom-upload-adapter';
 
 
 @Component({
