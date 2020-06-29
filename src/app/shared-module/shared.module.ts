@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 import {FooterComponent} from '../shared-components/footer/footer.component';
 import {DefaultHeaderComponent} from '../shared-components/default-header/default-header.component';
 import {ImageBoxComponent} from '../shared-components/image-box/image-box.component';
@@ -21,7 +22,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     NgxPictureModule.forRoot(ngxPictureConfig),
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   exports: [
     FooterComponent,

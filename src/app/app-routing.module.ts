@@ -67,10 +67,8 @@ const routes: Routes = [
     loadChildren: () => import('./verify-user-module/verify-user.module').then(m => m.VerifyUserModule)
   },
   {
-    path: 'privacy', component: PrivacyComponent
-  },
-  {
-    path: 'termsandconditions', component: TermsAndConditionsComponent
+    path: 'legal',
+    loadChildren: () => import('./legal-module/legal.module').then(m => m.LegalModule)
   },
   {
     path: 'add-blog', canActivate: [VerifiedUserGuard],

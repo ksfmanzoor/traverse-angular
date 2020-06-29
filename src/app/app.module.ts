@@ -11,8 +11,6 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CustomReuseStrategy} from './custom-reuse-strategy';
-import {PrivacyComponent} from './legal-pages/privacy/privacy.component';
-import {TermsAndConditionsComponent} from './legal-pages/terms-and-conditions/terms-and-conditions.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {LoginSkeletonComponent} from './login-page/login-skeleton/login-skeleton.component';
 import {SocialLoginComponent} from './login-page/social-login/social-login.component';
@@ -55,8 +53,6 @@ export function provideConfig() {
     ResetPageComponent,
     ResetPasswordRequestComponent,
     ResetPasswordConfirmComponent,
-    PrivacyComponent,
-    TermsAndConditionsComponent,
   ],
   imports: [
     BrowserModule,
