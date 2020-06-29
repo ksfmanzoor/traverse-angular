@@ -20,7 +20,6 @@ const routes: Routes = [
         path: 'preferences', component: PreferencesComponent,
       }
     ],
-    data: {color: 'red'}
   },
 ];
 

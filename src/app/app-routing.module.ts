@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {LoginPageComponent} from './login-page/login-page.component';
-import {ResetPageComponent} from './reset-page/reset-page.component';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
@@ -9,7 +7,6 @@ import {BlogResolverService} from './services/blog-resolver.service';
 import {DestinationResolverService} from './services/destination-resolver.service';
 import {AuthGuard} from './services/guards/auth.guard';
 import {VerifiedUserGuard} from './services/guards/verified-user-guard.service';
-import {SignupPageComponent} from './signup-page/signup-page.component';
 
 
 const routes: Routes = [
@@ -52,10 +49,8 @@ const routes: Routes = [
     loadChildren: () => import('./auth-module/auth.module').then(m => m.AuthModule),
   },
   {
-    path: 'reset/password', component: ResetPageComponent
-  },
-  {
-    path: 'reset/password/:resetToken', component: ResetPageComponent
+    path: 'reset/password',
+    loadChildren: () => import('./reset-password-module/reset-password.module').then(m => m.ResetPasswordModule)
   },
   {
     path: 'verify-user/:verificationID',
