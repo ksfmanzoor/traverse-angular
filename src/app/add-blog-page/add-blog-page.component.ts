@@ -55,17 +55,17 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // if (this.formControl.tags.value.length) {
-    //   this.formControl.tags.value.map(e => {
-    //     this.tagValues.push(e.value);
-    //   });
-    // }
+    if (this.formControl.tags.value.length) {
+      this.formControl.tags.value.map(e => {
+        this.tagValues.push(e.value);
+      });
+    }
     const formData: FormData = new FormData();
     formData.append('title', this.formControl.title.value);
     formData.append('subtitle', this.formControl.subtitle.value);
+    formData.append('keywords', JSON.stringify(this.tagValues));
     formData.append('thumbnail', this.formControl.thumbnail.value);
     formData.append('content', this.formControl.blogHtml.value);
-    console.log(this.blogForm.value);
     this.addBlogService.addBlog(formData).subscribe(data => {
       this.router.navigate(['/']).then();
     });
