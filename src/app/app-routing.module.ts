@@ -13,7 +13,6 @@ import {DestinationResolverService} from './services/destination-resolver.servic
 import {AuthGuard} from './services/guards/auth.guard';
 import {VerifiedUserGuard} from './services/guards/verified-user-guard.service';
 import {SignupPageComponent} from './signup-page/signup-page.component';
-import {VerifyUserComponent} from './verify-user/verify-user.component';
 
 
 const routes: Routes = [
@@ -64,7 +63,8 @@ const routes: Routes = [
     path: 'reset/password/:resetToken', component: ResetPageComponent
   },
   {
-    path: 'verify-user/:verificationID', component: VerifyUserComponent
+    path: 'verify-user/:verificationID',
+    loadChildren: () => import('./verify-user-module/verify-user.module').then(m => m.VerifyUserModule)
   },
   {
     path: 'privacy', component: PrivacyComponent
@@ -85,7 +85,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'enabled',
-    // preloadingStrategy: PreloadAllModules
+    preloadingStrategy: PreloadAllModules
   }),
   ],
   exports: [RouterModule]

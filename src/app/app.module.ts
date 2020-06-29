@@ -25,7 +25,6 @@ import {SearchPageComponent} from './search-page/search-page.component';
 import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
 import {SharedModule} from './shared-module/shared.module';
 import {SignupPageComponent} from './signup-page/signup-page.component';
-import {VerifyUserComponent} from './verify-user/verify-user.component';
 
 
 const config = new AuthServiceConfig([
@@ -58,7 +57,6 @@ export function provideConfig() {
     ResetPasswordConfirmComponent,
     PrivacyComponent,
     TermsAndConditionsComponent,
-    VerifyUserComponent,
   ],
   imports: [
     BrowserModule,
