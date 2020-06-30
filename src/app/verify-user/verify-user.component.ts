@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {User} from 'src/app/models/user';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {NavBarService} from 'src/app/services/nav-bar.service';
 
@@ -24,9 +25,9 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
       this.verificationID = data.verificationID;
     });
     this.httpClient.post('http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/',
-      {verification_token: this.verificationID}).subscribe(data => {
+      {verification_token: this.verificationID}).subscribe((data: User) => {
       this.isVerified = true;
-      this.authenticationService.updateUserVerification();
+      this.authenticationService.updateUser(data);
     }, error => {
       if (error.status === 400) {
         this.errorMessage = error.error;

@@ -12,4 +12,8 @@ export class AddBlogService {
   addBlog(blogData) {
     return this.httpClient.post(this.url, blogData);
   }
+
+  updateBlog(blogData) {
+    return this.httpClient.patch('', blogData);
+  }
 }

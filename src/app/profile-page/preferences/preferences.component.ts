@@ -44,8 +44,9 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   updateName() {
-    this.preferencesService.updateName(this.user.id, this.changeName).subscribe(data => {
-      console.log(data);
+    this.preferencesService.updateName(this.user.id, this.changeName).subscribe((data: User) => {
+      alert('Name updated successfully');
+      this.authenticationService.updateUser(data);
     });
   }
 

@@ -119,10 +119,8 @@ export class AuthenticationService {
       {reset_token: resetToken, password: newPassword});
   }
 
-  updateUserVerification() {
-    const user = JSON.parse(localStorage.getItem('currentUser')) as User;
-    console.log(user);
-    user.is_verified = true;
+  updateUser(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
 }

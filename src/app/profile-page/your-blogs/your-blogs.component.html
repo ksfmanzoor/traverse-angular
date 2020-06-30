@@ -1,9 +1,9 @@
 <h1 class="account-page-title">Your Blogs</h1>
 <div class="row">
-  <ng-container *ngFor="let i of [].constructor(5)">
+  <ng-container *ngFor="let i of blogsArray">
   <div class="col-md-4">
     <div class="blog-image-box">
-      <img src="assets/header.jpg" class="blog-add-image">
+      <img src="{{i.thumbnail}}" class="blog-add-image">
       <div class="blog-image-mask">
         <ul class="blog-image-actions">
           <li>
@@ -13,7 +13,7 @@
             </a>
           </li>
           <li>
-            <a (click)="editBlog()">
+            <a (click)="editBlog(i)">
               <fa-icon [icon]="editIcon"></fa-icon>
               Edit
             </a>

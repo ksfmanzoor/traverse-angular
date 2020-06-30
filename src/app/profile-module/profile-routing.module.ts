@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {YourBlogsResolverService} from 'src/app/services/your-blogs-resolver.service';
+import {PreferencesComponent} from '../profile-page/preferences/preferences.component';
 import {ProfilePageComponent} from '../profile-page/profile-page.component';
 import {YourBlogsComponent} from '../profile-page/your-blogs/your-blogs.component';
-import {PreferencesComponent} from '../profile-page/preferences/preferences.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'your-blogs', component: YourBlogsComponent,
+        path: 'your-blogs', component: YourBlogsComponent, resolve: {yourBlogs: YourBlogsResolverService}
       },
       {
         path: 'preferences', component: PreferencesComponent,
