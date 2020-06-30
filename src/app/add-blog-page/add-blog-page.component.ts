@@ -72,7 +72,9 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
         this.router.navigate(['/']).then();
       });
     } else {
-      console.log('sd');
+      this.addBlogService.updateBlog(this.initialBlogData.id, formData).subscribe(data => {
+        this.router.navigate(['/']).then();
+      });
     }
   }
 

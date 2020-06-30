@@ -13,7 +13,7 @@ export class AddBlogService {
     return this.httpClient.post(this.url, blogData);
   }
 
-  updateBlog(blogData) {
-    return this.httpClient.patch('', blogData);
+  updateBlog(id , blogData) {
+    return this.httpClient.patch(this.url + id, blogData);
   }
 }
