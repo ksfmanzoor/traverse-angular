@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {MinifiedHomeData} from '../models/minified-home-data';
 import {Observable} from 'rxjs';
+import {MinifiedHomeData} from '../models/minified-home-data';
 import {AllBlogsService} from './all-blogs.service';
 
 @Injectable({

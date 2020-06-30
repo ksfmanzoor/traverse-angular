@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {forkJoin, Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllBlogsService {
-  private headerDataUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=blog_post';
-  private allBlogsUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=999';
+  private headerDataUrl = `${environment.baseUrl}traverse/cover/?type=blog_post`;
+  private allBlogsUrl = `${environment.baseUrl}traverse/blog/post/?minified=true&limit=999`;
 
   constructor(private httpClient: HttpClient) {
   }

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import {Subscription} from 'rxjs';
+import {User} from 'src/app/models/user';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {PreferencesService} from 'src/app/services/preferences.service';
 
@@ -14,15 +15,13 @@ import {PreferencesService} from 'src/app/services/preferences.service';
 export class PreferencesComponent implements OnInit, OnDestroy {
   editIcon = faPencilAlt;
   verifiedIcon = faCheck;
-  isVerified: boolean;
   isEmail: boolean;
-  emailAddress: string;
-  phoneNumber: string;
-  name: string;
+  user: User;
   isDisabled = false;
   timeLeft = 60;
   changePasswordForm: FormGroup;
   subscription: Subscription;
+  changeName;
 
   constructor(private authenticationService: AuthenticationService, private preferencesService: PreferencesService) {
   }
@@ -33,10 +32,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       newPassword: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     });
     this.subscription = this.authenticationService.currentUser.subscribe(user => {
-      this.name = user.name;
-      this.emailAddress = user.email;
-      this.phoneNumber = user.phone_number;
-      this.isVerified = user.is_verified;
+      this.user = user;
       if (user.phone_number === '') {
         this.isEmail = true;
       }
@@ -45,6 +41,12 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
   get formControl() {
     return this.changePasswordForm.controls;
+  }
+
+  updateName() {
+    this.preferencesService.updateName(this.user.id, this.changeName).subscribe(data => {
+      console.log(data);
+    });
   }
 
   sendEmail() {

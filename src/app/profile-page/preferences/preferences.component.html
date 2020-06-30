@@ -7,17 +7,17 @@
           <h5 class="account-preferences-item-title">Name</h5>
         </div>
         <div class="col-md-6 ">
-          <p class="account-preferences-item-value">{{name}}</p>
+          <p class="account-preferences-item-value">{{user.name}}</p>
           <div class="collapse" id="ChangeName">
             <div class="account-preferences-item-change">
               <p class="account-preferences-item-change-description">Name help others to identify you
               </p>
               <div class="form-group account-preferences-item-change-form">
                 <label for="NewName">New Name</label>
-                <input class="form-control" type="password" id="NewName">
+                <input class="form-control" type="text" id="NewName" name="NewName" [(ngModel)]="changeName">
               </div>
               <div class="account-preferences-item-change-actions">
-                <a class="btn btn-sm btn-primary">Save changes</a>
+                <button class="btn btn-sm btn-primary" (click)="updateName()">Save changes</button>
                 <a class="btn btn-sm btn-default" href="#ChangeName" data-toggle="collapse" aria-expanded="false"
                    aria-controls="ChangePassword">Cancel</a>
               </div>
@@ -40,7 +40,7 @@
             <h5 class="account-preferences-item-title">Email Address</h5>
           </div>
           <div class="col-md-6">
-            <p class="account-preferences-item-value">{{emailAddress}}</p>
+            <p class="account-preferences-item-value">{{user.email}}</p>
             <div class="collapse" id="VerifyEmail">
               <div class="account-preferences-item-change">
                 <p class="account-preferences-item-change-description">Email verification is required to perform actions
@@ -66,7 +66,7 @@
               </a>
             </div>
           </ng-template>
-          <div class="col-md-3" *ngIf="isVerified; else emailVerifiedBlock">
+          <div class="col-md-3" *ngIf="user.is_verified; else emailVerifiedBlock">
             <a class="account-preferences-item-change-link">
               <fa-icon [icon]="verifiedIcon"></fa-icon>
               Verified
@@ -81,7 +81,7 @@
               <h5 class="account-preferences-item-title">Phone Number</h5>
             </div>
             <div class="col-md-6">
-              <p class="account-preferences-item-value">{{phoneNumber}}</p>
+              <p class="account-preferences-item-value">{{user.phone_number}}</p>
               <div class="collapse" id="VerifyPhoneNumber">
                 <div class="account-preferences-item-change">
                   <p class="account-preferences-item-change-description">Phone verification is required to perform
@@ -117,7 +117,7 @@
                 </a>
               </div>
             </ng-template>
-            <div class="col-md-3" *ngIf="isVerified; else phoneVerifiedBlock">
+            <div class="col-md-3" *ngIf="user.is_verified; else phoneVerifiedBlock">
               <a class="account-preferences-item-change-link">
                 <fa-icon [icon]="verifiedIcon"></fa-icon>
                 Verified

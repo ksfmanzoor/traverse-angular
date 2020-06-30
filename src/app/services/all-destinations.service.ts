@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {forkJoin, Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllDestinationsService {
-  private headerDataUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=destination';
-  private allDestinationURL = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/?minified=true';
-  private allAttractionURL = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/attraction/';
+  private headerDataUrl = `${environment.baseUrl}traverse/cover/?type=destination`;
+  private allDestinationURL = `${environment.baseUrl}traverse/place/?minified=true`;
+  private allAttractionURL = `${environment.baseUrl}traverse/attraction/`;
   constructor(private httpClient: HttpClient) { }
 
   getAllDestinationData(): Observable<any> {

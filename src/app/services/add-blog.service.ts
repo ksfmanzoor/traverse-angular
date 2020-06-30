@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddBlogService {
-  private url = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/';
+  private url = `${environment.baseUrl}traverse/blog/post/`;
   constructor(private httpClient: HttpClient) { }
 
   addBlog(blogData) {

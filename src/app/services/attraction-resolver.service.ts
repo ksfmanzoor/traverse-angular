@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {Attraction} from '../models/attraction';
 import {Observable} from 'rxjs';
+import {Attraction} from '../models/attraction';
 import {AttractionService} from './attraction.service';
 
 @Injectable({

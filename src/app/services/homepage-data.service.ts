@@ -1,15 +1,16 @@
-import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {forkJoin} from 'rxjs';
+import {environment} from 'src/environments/environment';
 import {MinifiedHomeData} from '../models/minified-home-data';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomepageDataService {
-    private headerDataURl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/cover/?type=home';
-    private minifiedDestinationUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/place/?minified=true&?limit=5';
-    private minifiedBlogUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/blog/post/?minified=true&limit=4';
+    private headerDataURl = `${environment.baseUrl}traverse/cover/?type=home`;
+    private minifiedDestinationUrl = `${environment.baseUrl}traverse/place/?minified=true&?limit=5`;
+    private minifiedBlogUrl = `${environment.baseUrl}traverse/blog/post/?minified=true&limit=4`;
 
     constructor(private httpClient: HttpClient) {
     }

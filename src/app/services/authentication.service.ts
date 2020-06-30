@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, mergeMap} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {User} from '../models/user';
-import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
+import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map, mergeMap} from 'rxjs/operators';
+import {environment} from 'src/environments/environment';
+import {User} from '../models/user';
 
 export interface Token {
   token: string;
@@ -14,7 +15,7 @@ export interface Token {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/';
+  private baseUrl = environment.baseUrl;
   private tokenSubject: BehaviorSubject<any>;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<User>;

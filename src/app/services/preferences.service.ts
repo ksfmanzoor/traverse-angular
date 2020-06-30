@@ -1,13 +1,19 @@
 import {HttpClient} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreferencesService {
-  private emailSendUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/verify/user/send/';
-  private passwordUpdateUrl = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/change/password/';
+  private updateNameUrl = `${environment.baseUrl}user/`;
+  private emailSendUrl = `${environment.baseUrl}verify/user/send/`;
+  private passwordUpdateUrl = `${environment.baseUrl}change/password/`;
   constructor(private httpClient: HttpClient) { }
+
+  updateName(id, newName) {
+    return this.httpClient.patch(this.updateNameUrl + `${id}/`, {name: newName});
+  }
 
   emailRequest() {
     return this.httpClient.post(this.emailSendUrl, {});
