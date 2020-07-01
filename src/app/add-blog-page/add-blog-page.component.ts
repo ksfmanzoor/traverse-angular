@@ -37,9 +37,10 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.navBarService.changeNavColor.next('#333333');
-    if (Object.keys(history.state).length !== 0) {
+    this.initialBlogData = history.state;
+    if (Object.keys(this.initialBlogData).length > 2) {
+      console.log(this.initialBlogData);
       this.isUpdated = true;
-      this.initialBlogData = history.state;
     }
     this.blogForm = new FormGroup({
       title: new FormControl(this.isUpdated ? this.initialBlogData.title : null),
