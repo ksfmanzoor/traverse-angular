@@ -48,7 +48,7 @@ jobs:
       uses: einaregilsson/beanstalk-deploy@v4
       with:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
-        aws_secret_key: ${{secrets.AWS_ACCESS_KEY}}
+        aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
         region: "ap-south-1"
         application_name: "traverse_angular"
         environment_name: "traversepk"
