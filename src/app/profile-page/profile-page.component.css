@@ -22,8 +22,12 @@
   display: block;
   border-radius: 50%;
   margin-right: 15px;
+  cursor: pointer;
 }
 
+.account-avatar-input {
+ display: none;
+}
 .account-avatar-name {
   font-size: 14px;
   line-height: 1.2em;

@@ -3,9 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes';
-import {Subscription} from 'rxjs';
 import {Blog} from 'src/app/models/blog';
-import {User} from 'src/app/models/user';
 
 @Component({
   selector: 'app-your-blogs',
@@ -32,7 +30,6 @@ export class YourBlogsComponent implements OnInit {
   }
 
   editBlog(blog) {
-    console.log(blog);
     this.router.navigate(['/add-blog'], {state: blog}).then();
   }
 

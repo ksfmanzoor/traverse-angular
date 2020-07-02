@@ -6,13 +6,17 @@ import {environment} from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PreferencesService {
-  private updateNameUrl = `${environment.baseUrl}user/`;
+  private updateProfileUrl = `${environment.baseUrl}user/`;
   private emailSendUrl = `${environment.baseUrl}verify/user/send/`;
   private passwordUpdateUrl = `${environment.baseUrl}change/password/`;
   constructor(private httpClient: HttpClient) { }
 
+  updateAvatar(id, imageData) {
+    return this.httpClient.patch(`${this.updateProfileUrl}${id}/`, imageData);
+  }
+
   updateName(id, newName) {
-    return this.httpClient.patch(this.updateNameUrl + `${id}/`, {name: newName});
+    return this.httpClient.patch(`${this.updateProfileUrl}${id}/`, {name: newName});
   }
 
   emailRequest() {

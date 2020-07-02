@@ -1,8 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {AuthenticationService} from '../services/authentication.service';
 import {faNewspaper} from '@fortawesome/free-regular-svg-icons';
 import {faCog, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {Subscription} from 'rxjs';
+import {User} from 'src/app/models/user';
+import {PreferencesService} from 'src/app/services/preferences.service';
+import {AuthenticationService} from '../services/authentication.service';
 import {NavBarService} from '../services/nav-bar.service';
 
 @Component({
@@ -14,15 +16,25 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   blogIcon = faNewspaper;
   preferencesIcon = faCog;
   logoutIcon = faSignOutAlt;
-  userName: string;
+  user: User;
   userSubscription: Subscription;
 
-  constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService) { }
+  constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService, private preferencesService: PreferencesService) { }
 
   ngOnInit(): void {
     this.navBarService.changeNavColor.next('#333333');
     this.userSubscription = this.authenticationService.currentUser.subscribe(user => {
-      this.userName = user.name;
+      this.user = user;
+    });
+  }
+
+  onSelectFile(event) {
+    const formData = new FormData();
+    formData.append('profile_image', event.target.files[0]);
+    this.preferencesService.updateAvatar(this.user.id, formData).subscribe((data: User) => {
+      this.authenticationService.updateUser(data);
+    }, error => {
+      alert(error.error.detail);
     });
   }
 
