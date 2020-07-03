@@ -1,4 +1,4 @@
 <app-small-header [headerInfo]="headerInfo"></app-small-header>
 <app-all-data-display [titleInfo]="blogTitle" [dataList]="allBlogsList" [path]="'/blog'"></app-all-data-display>
-<app-all-data-display [titleInfo]="adminTitle" [path]="'/blog'"></app-all-data-display>
+<app-all-data-display [titleInfo]="adminTitle" [dataList]="adminBlogsList" [path]="'/blog'" *ngIf="isAdmin"></app-all-data-display>
 <app-footer></app-footer>
