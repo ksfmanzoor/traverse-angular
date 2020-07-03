@@ -12,7 +12,7 @@ export class SignupPageComponent implements OnInit {
     heading: 'Sign Up',
     subtitle: 'Create a new account',
     altText: 'Already',
-    route: '/login',
+    route: '/authentication/login',
     keyWord: 'Sign In'
   };
   signUpForm: FormGroup;

@@ -12,7 +12,7 @@ export class LoginPageComponent implements OnInit {
     heading: 'Sign In',
     subtitle: 'Log in to your account',
     altText: 'Don\'t',
-    route: '/signup',
+    route: '/authentication/signup',
     keyWord: 'Sign Up'
   };
   loginForm: FormGroup;

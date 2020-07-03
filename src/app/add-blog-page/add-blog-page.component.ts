@@ -1,4 +1,5 @@
 import {HttpClient} from '@angular/common/http';
+import {hasI18nAttrs} from '@angular/compiler/src/render3/view/i18n/util';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -7,6 +8,7 @@ import {Blog} from 'src/app/models/blog';
 import {AddBlogService} from '../services/add-blog.service';
 import {NavBarService} from '../services/nav-bar.service';
 import {CustomUploadAdapter} from './custom-upload-adapter';
+import has = Reflect.has;
 
 
 @Component({
@@ -30,6 +32,7 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
   tagValidator = [this.onlyAlphabets];
   isUpdated: boolean;
   initialBlogData: Blog;
+  hasImage: boolean;
 
   constructor(private httpClient: HttpClient, private addBlogService: AddBlogService, private router: Router,
               private navBarService: NavBarService) {
@@ -39,8 +42,8 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
     this.navBarService.changeNavColor.next('#333333');
     this.initialBlogData = history.state;
     if (Object.keys(this.initialBlogData).length > 2) {
-      console.log(this.initialBlogData);
       this.isUpdated = true;
+      this.hasImage = !!this.initialBlogData.thumbnail;
     }
     this.blogForm = new FormGroup({
       title: new FormControl(this.isUpdated ? this.initialBlogData.title : null),
@@ -66,13 +69,16 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
     formData.append('title', this.formControl.title.value);
     formData.append('subtitle', this.formControl.subtitle.value);
     formData.append('keywords', JSON.stringify(this.formControl.keywords.value));
-    formData.append('thumbnail', this.formControl.thumbnail.value);
     formData.append('content', this.formControl.blogHtml.value);
     if (!this.isUpdated) {
+      formData.append('thumbnail', this.formControl.thumbnail.value);
       this.addBlogService.addBlog(formData).subscribe(data => {
         this.router.navigate(['/']).then();
       });
     } else {
+      if (!this.hasImage) {
+        formData.append('thumbnail', this.formControl.thumbnail.value);
+      }
       this.addBlogService.updateBlog(this.initialBlogData.id, formData).subscribe(data => {
         this.router.navigate(['/']).then();
       });
@@ -95,6 +101,7 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
       this.blogForm.patchValue({
         thumbnail: file
       });
+      this.hasImage = false;
     }
   }
 
