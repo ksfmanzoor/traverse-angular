@@ -21,9 +21,11 @@ export class AllBlogsService {
     const allBlogsData = this.httpClient.get(this.allBlogsUrl);
     responseArray.push(headerData);
     responseArray.push(allBlogsData);
-    if (this.authenticationService.currentUserValue.is_superuser) {
-      const unpublishedBlogs  = this.httpClient.get(this.unpublishedBlogsUrl);
-      responseArray.push(unpublishedBlogs);
+    if (!!this.authenticationService.currentUserValue) {
+      if (this.authenticationService.currentUserValue.is_superuser) {
+        const unpublishedBlogs = this.httpClient.get(this.unpublishedBlogsUrl);
+        responseArray.push(unpublishedBlogs);
+      }
     }
     return forkJoin(responseArray);
   }

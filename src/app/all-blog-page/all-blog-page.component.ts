@@ -18,7 +18,9 @@ export class AllBlogPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.isAdmin = this.authenticationService.currentUserValue.is_superuser;
+    if (!!this.authenticationService.currentUserValue) {
+      this.isAdmin = this.authenticationService.currentUserValue.is_superuser;
+    }
     this.route.data.subscribe(data => {
       const result = data.blogs;
       this.headerInfo = {title: result[0].tag_line, coverImage: result[0].cover_image};
