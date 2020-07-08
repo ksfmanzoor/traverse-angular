@@ -35,4 +35,7 @@
   .container-fluid {
     padding: 0 80px;
   }
+  #nav-property {
+    padding: .5rem 0;
+  }
 }

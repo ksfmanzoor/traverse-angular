@@ -21,6 +21,7 @@ export class YourBlogsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data) => {
       this.blogsArray = data.yourBlogs;
+      console.log(this.blogsArray);
     });
   }
 
