@@ -39,6 +39,19 @@
   transition: 0.3s;
 }
 
+.blog-status {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blog-status > p {
+  color: white;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
 .blog-image-actions {
   list-style: none;
   position: absolute;

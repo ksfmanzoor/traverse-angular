@@ -46,7 +46,7 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
     this.blogForm = new FormGroup({
       title: new FormControl(this.isUpdated ? this.initialBlogData.title : null),
       subtitle: new FormControl(this.isUpdated ? this.initialBlogData.subtitle : null),
-      keywords: new FormControl(this.isUpdated ? this.initialBlogData.tags : null),
+      keywords: new FormControl(this.isUpdated ? this.initialBlogData.keywords : null),
       thumbnail: new FormControl(this.isUpdated ? this.initialBlogData.thumbnail : null),
       blogHtml: new FormControl(this.isUpdated ? this.initialBlogData.content : null)
     });

@@ -1,33 +1,34 @@
 <h1 class="account-page-title">Your Blogs</h1>
 <div class="row">
   <ng-container *ngFor="let i of blogsArray">
-  <div class="col-md-4">
-    <div class="blog-image-box">
-      <img src="{{i.thumbnail}}" class="blog-add-image" alt="">
-      <div class="blog-image-mask">
-        <ul class="blog-image-actions">
-          <li>
-            <a (click)="previewBlog(i.id)">
-              <fa-icon [icon]="previewIcon"></fa-icon>
-              Preview
-            </a>
-          </li>
-          <li>
-            <a (click)="editBlog(i)">
-              <fa-icon [icon]="editIcon"></fa-icon>
-              Edit
-            </a>
-          </li>
-          <li>
-            <a (click)="deleteBlog()">
-              <fa-icon [icon]="deleteIcon"></fa-icon>
-              Delete
-            </a>
-          </li>
-        </ul>
+    <div class="col-md-4">
+      <div class="blog-image-box">
+        <img src="{{i.thumbnail}}" class="blog-add-image" alt="">
+        <div class="blog-image-mask">
+          <ul class="blog-image-actions">
+            <li>
+              <a (click)="previewBlog(i.id)">
+                <fa-icon [icon]="previewIcon"></fa-icon>
+                Preview
+              </a>
+            </li>
+            <li>
+              <a (click)="editBlog(i)">
+                <fa-icon [icon]="editIcon"></fa-icon>
+                Edit
+              </a>
+            </li>
+            <li>
+              <a (click)="deleteBlog()">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+                Delete
+              </a>
+            </li>
+          </ul>
+          <div class="blog-status"><p>{{i.title}}</p></div>
+        </div>
       </div>
     </div>
-  </div>
   </ng-container>
   <div class="col-md-4">
     <div class="blog-add-card">
