@@ -1,3 +1,55 @@
 <app-default-header [headerInfo]="headerInfo"></app-default-header>
-<div [innerHTML]="blogText | safeHtml" class="blog"></div>
+<!--<div [innerHTML]="blogText | safeHtml" class="blog"></div>-->
+<div class="blog-comments">
+  <div class="user-comment">
+    <div class="account-avatar">
+      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+      >
+    </div>
+    <div class="user-comment-box">
+      <div>
+        <h6>Test User</h6>
+        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+      </div>
+    </div>
+  </div>
+  <div class="user-comment">
+    <div class="account-avatar">
+      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+      >
+    </div>
+    <div class="user-comment-box">
+      <div>
+        <h6>Test User</h6>
+        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+      </div>
+    </div>
+  </div>
+  <div class="user-comment">
+    <div class="account-avatar">
+      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+      >
+    </div>
+    <div class="user-comment-box">
+      <div>
+        <h6>Test User</h6>
+        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+      </div>
+    </div>
+  </div>
+  <div class="add-comment-section">
+    <div class="add-comment-block">
+      <div class="account-avatar">
+        <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+        >
+      </div>
+      <div class="add-comment-box">
+        <textarea placeholder="Add a comment" class="add-comment-input"></textarea>
+      </div>
+    </div>
+    <div class="post-comment-button">
+      <button class="btn btn-dark">Done</button>
+    </div>
+  </div>
+</div>
 <app-footer></app-footer>
