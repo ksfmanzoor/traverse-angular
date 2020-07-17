@@ -1,42 +1,51 @@
 <app-default-header [headerInfo]="headerInfo"></app-default-header>
-<!--<div [innerHTML]="blogText | safeHtml" class="blog"></div>-->
+<div [innerHTML]="blogText | safeHtml" class="blog"></div>
 <div class="blog-comments">
-  <div class="user-comment">
-    <div class="account-avatar">
-      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
-      >
-    </div>
-    <div class="user-comment-box">
-      <div>
-        <h6>Test User</h6>
-        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+  <ng-container *ngFor="let x of [].constructor(5);let i = index">
+    <div>
+      <div class="user-comment">
+        <div class="account-avatar">
+          <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"
+          >
+        </div>
+        <div class="user-comment-box">
+          <div>
+            <h6>Test User</h6>
+            <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+          </div>
+          <button class="btn btn-sm" (click)="reply(i)">Reply</button>
+        </div>
+      </div>
+      <div class="add-reply-block" *ngIf="toReply[i]">
+        <div class="user-comment">
+          <div class="account-avatar">
+            <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"
+            >
+          </div>
+          <div class="user-comment-box">
+            <div>
+              <h6>Test User</h6>
+              <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+            </div>
+          </div>
+        </div>
+        <div class="add-comment-section">
+          <div class="add-comment-block">
+            <div class="account-avatar">
+              <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+              >
+            </div>
+            <div class="add-comment-box">
+              <textarea placeholder="Add a reply" class="add-comment-input"></textarea>
+            </div>
+          </div>
+          <div class="post-comment-button">
+            <button class="btn btn-dark">Done</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="user-comment">
-    <div class="account-avatar">
-      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
-      >
-    </div>
-    <div class="user-comment-box">
-      <div>
-        <h6>Test User</h6>
-        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
-      </div>
-    </div>
-  </div>
-  <div class="user-comment">
-    <div class="account-avatar">
-      <img class="account-avatar-img" src="assets/avatar.png" alt="text"
-      >
-    </div>
-    <div class="user-comment-box">
-      <div>
-        <h6>Test User</h6>
-        <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
-      </div>
-    </div>
-  </div>
+  </ng-container>
   <div class="add-comment-section">
     <div class="add-comment-block">
       <div class="account-avatar">

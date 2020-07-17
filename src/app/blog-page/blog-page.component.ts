@@ -10,6 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class BlogPageComponent implements OnInit {
   headerInfo: { title, subtitle: string, imageUrl: string };
   blogText = '';
+  toReply = [];
   constructor(private route: ActivatedRoute) {
   }
 
@@ -19,5 +20,12 @@ export class BlogPageComponent implements OnInit {
       this.headerInfo = {title: result.title, subtitle: result.subtitle, imageUrl: result.thumbnail};
       this.blogText = result.content;
     });
+    for (let i = 0; i < 5; i++) {
+      this.toReply.push(false);
+    }
+  }
+
+  reply(index) {
+    this.toReply[index] = !this.toReply[index];
   }
 }

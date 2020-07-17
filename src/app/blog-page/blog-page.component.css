@@ -66,10 +66,14 @@
   flex: 1;
 }
 
+.add-reply-block {
+  padding-left: 48px;
+}
 
 .add-comment-section {
   padding: 12px;
 }
+
 
 .add-comment-block {
   display: flex;
