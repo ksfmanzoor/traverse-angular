@@ -1,49 +1,94 @@
 <app-default-header [headerInfo]="headerInfo"></app-default-header>
-<div [innerHTML]="blogText | safeHtml" class="blog"></div>
+<!--<div [innerHTML]="blogText | safeHtml" class="blog"></div>-->
 <div class="blog-comments">
-  <ng-container *ngFor="let x of [].constructor(5);let i = index">
+  <ng-container *ngFor="let x of comments;let i = index">
     <div>
-      <div class="user-comment">
-        <div class="account-avatar">
-          <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"
-          >
-        </div>
-        <div class="user-comment-box">
-          <div>
-            <h6>Test User</h6>
-            <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
-          </div>
-          <button class="btn btn-sm" (click)="reply(i)">Reply</button>
-        </div>
-      </div>
-      <div class="add-reply-block" *ngIf="toReply[i]">
+      <ng-template #elseBlock>
         <div class="user-comment">
           <div class="account-avatar">
-            <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"
+            <img class="account-avatar-img"
+                 src="{{!!x.user.profile_image ? x.user.profile_image : 'assets/avatar.png'}}"
+                 alt="avatar"
             >
           </div>
           <div class="user-comment-box">
-            <div>
-              <h6>Test User</h6>
-              <p>Lorem Ipsum Gysum Lorem Ipsum Gysum</p>
+            <div class="user-comment-field">
+              <div>
+                <h6>{{x.user.name}}</h6>
+                <p class="comment-body">{{x.body}}</p>
+              </div>
+            </div>
+            <div class="comment-actions">
+              <div class="comment-action-icon">
+                <fa-icon [icon]="replyIcon"></fa-icon>
+              </div>
+              <div class="comment-action-icon" (click)="updateEditMode(x.body, x.id)">
+                <fa-icon [icon]="editIcon"></fa-icon>
+              </div>
+              <div class="comment-action-icon" (click)="removeComment(x.id)">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+              </div>
             </div>
           </div>
         </div>
-        <div class="add-comment-section">
-          <div class="add-comment-block">
-            <div class="account-avatar">
-              <img class="account-avatar-img" src="assets/avatar.png" alt="text"
-              >
-            </div>
-            <div class="add-comment-box">
-              <textarea placeholder="Add a reply" class="add-comment-input"></textarea>
-            </div>
+      </ng-template>
+      <div class="add-comment-section" *ngIf="x.id == editCommentId; else elseBlock">
+        <div class="add-comment-block">
+          <div class="account-avatar">
+            <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+            >
           </div>
-          <div class="post-comment-button">
-            <button class="btn btn-dark">Done</button>
+          <div class="add-comment-box">
+        <textarea class="add-comment-input" id="editCommentContent" name="editCommentContent"
+                  [(ngModel)]="editCommentContent"
+        ></textarea>
           </div>
+        </div>
+        <div class="post-comment-button">
+          <button class="btn btn-outline-dark" (click)="updateEditMode(x.body,x.id)">Cancel</button>
+          <div>&nbsp;&nbsp;</div>
+          <button class="btn btn-dark" (click)="updateComment(x.id)">Update</button>
         </div>
       </div>
+      <!--      <div class="add-reply-block">-->
+      <!--        <div class="user-comment">-->
+      <!--          <div class="account-avatar">-->
+      <!--            <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"-->
+      <!--            >-->
+      <!--          </div>-->
+      <!--          <div class="user-comment-box">-->
+      <!--            <div class="user-comment-field">-->
+      <!--              <div>-->
+      <!--                <h6>{{x.user.name}}</h6>-->
+      <!--                <p class="comment-body">{{x.body}}</p>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--            <div class="comment-action-icon">-->
+      <!--              <fa-icon [icon]="replyIcon"></fa-icon>-->
+      <!--            </div>-->
+      <!--            <div class="comment-action-icon">-->
+      <!--              <fa-icon [icon]="editIcon"></fa-icon>-->
+      <!--            </div>-->
+      <!--            <div class="comment-action-icon">-->
+      <!--              <fa-icon [icon]="deleteIcon"></fa-icon>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--        <div class="add-comment-section">-->
+      <!--          <div class="add-comment-block">-->
+      <!--            <div class="account-avatar">-->
+      <!--              <img class="account-avatar-img" src="assets/avatar.png" alt="text"-->
+      <!--              >-->
+      <!--            </div>-->
+      <!--            <div class="add-comment-box">-->
+      <!--              <textarea placeholder="Add a reply" class="add-comment-input"></textarea>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div class="post-comment-button">-->
+      <!--            <button class="btn btn-dark">Done</button>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </ng-container>
   <div class="add-comment-section">
@@ -53,11 +98,13 @@
         >
       </div>
       <div class="add-comment-box">
-        <textarea placeholder="Add a comment" class="add-comment-input"></textarea>
+        <textarea placeholder="Add a comment" class="add-comment-input" id="addCommentContent" name="addCommentContent"
+                  [(ngModel)]="addCommentContent"
+        ></textarea>
       </div>
     </div>
     <div class="post-comment-button">
-      <button class="btn btn-dark">Done</button>
+      <button class="btn btn-dark" (click)="addComment()">Done</button>
     </div>
   </div>
 </div>

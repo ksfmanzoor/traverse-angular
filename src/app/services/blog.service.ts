@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {forkJoin, Observable} from 'rxjs';
 import {environment} from 'src/environments/environment';
 
 @Injectable({
@@ -8,10 +8,13 @@ import {environment} from 'src/environments/environment';
 })
 export class BlogService {
   private blogUrl = `${environment.baseUrl}traverse/blog/post/`;
+  private commentUrl = `${environment.baseUrl}traverse/blog/comment/?blog_post=`;
 
   constructor(private http: HttpClient) { }
 
-  fetchBlog(id): Observable<any> {
-    return this.http.get(this.blogUrl + id);
+  fetchBlogData(id): Observable<any> {
+    const blogData = this.http.get(this.blogUrl + id);
+    const commentsData = this.http.get(this.commentUrl + id);
+    return forkJoin([blogData, commentsData]);
   }
 }

@@ -1,5 +1,10 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {faComment} from '@fortawesome/free-solid-svg-icons/faComment';
+import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
+import {Comment} from 'src/app/models/comment';
+import {CommentService} from 'src/app/services/comment.service';
 
 @Component({
   selector: 'app-blog-page',
@@ -10,22 +15,42 @@ import {ActivatedRoute} from '@angular/router';
 export class BlogPageComponent implements OnInit {
   headerInfo: { title, subtitle: string, imageUrl: string };
   blogText = '';
-  toReply = [];
-  constructor(private route: ActivatedRoute) {
+  comments: Comment[];
+  addCommentContent = '';
+  editCommentContent = '';
+  replyIcon = faComment;
+  editIcon = faPencilAlt;
+  deleteIcon = faTrash;
+  editCommentId = '';
+
+  constructor(private route: ActivatedRoute, private commentService: CommentService) {
   }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       const result = data.blog;
-      this.headerInfo = {title: result.title, subtitle: result.subtitle, imageUrl: result.thumbnail};
-      this.blogText = result.content;
+      const blogData = result[0];
+      this.headerInfo = {title: blogData.title, subtitle: blogData.subtitle, imageUrl: blogData.thumbnail};
+      this.blogText = blogData.content;
+      this.comments = result[1];
     });
-    for (let i = 0; i < 5; i++) {
-      this.toReply.push(false);
-    }
+    console.log(this.comments);
   }
 
-  reply(index) {
-    this.toReply[index] = !this.toReply[index];
+  addComment() {
+    this.commentService.createComment(this.addCommentContent, this.route.snapshot.params.id).subscribe();
+  }
+
+  updateComment(id) {
+    this.commentService.editComment(id, this.editCommentContent).subscribe();
+  }
+
+  removeComment(id) {
+    this.commentService.deleteComment(id).subscribe();
+  }
+
+  updateEditMode(previousComment, commentId) {
+    this.editCommentId === '' ? this.editCommentContent = previousComment : this.editCommentContent = '';
+    this.editCommentId === '' ? this.editCommentId = commentId : this.editCommentId = '';
   }
 }

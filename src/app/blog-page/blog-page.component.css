@@ -32,16 +32,20 @@
   font-size: 18px;
 }
 
-.blog div img {
+.blog > div {
+  text-align: center;
+}
+
+.blog > div > img {
   width: 100% !important;
   height: auto !important;
 }
-
 
 .blog-comments {
   width: 45%;
   margin: auto;
 }
+
 .user-comment {
   display: flex;
   flex-direction: row;
@@ -57,13 +61,37 @@
 }
 
 .user-comment-box {
+  flex: 1;
   transition: all 1000ms ease 0s;
+}
+
+.user-comment-field {
   padding: 12px;
   border-style: solid;
   border-width: 1px;
   border-radius: 6px;
   border-color: #ddd;
-  flex: 1;
+}
+
+.comment-body {
+  margin-bottom: 0;
+}
+
+.comment-actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+}
+
+.comment-action-icon {
+  cursor: pointer;
+  color: grey;
+  padding: 0 8px;
+  transition: 0.3s;
+}
+
+.comment-action-icon:hover {
+ color: black;
 }
 
 .add-reply-block {
@@ -144,6 +172,7 @@
     width: 98%;
     margin: auto;
   }
+
   .blog-comments {
     width: 98%;
     margin: auto;
