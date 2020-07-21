@@ -7,6 +7,7 @@ import {environment} from 'src/environments/environment';
 })
 export class CommentService {
   private commentUrl = `${environment.baseUrl}traverse/blog/comment/`;
+  private replyUrl = `${environment.baseUrl}traverse/blog/reply/`;
   constructor(private httpClient: HttpClient) { }
 
   createComment(comment, blogId) {
@@ -19,5 +20,17 @@ export class CommentService {
 
   deleteComment(commentId) {
     return this.httpClient.delete(this.commentUrl + commentId + '/');
+  }
+
+  createReply(reply, commentId) {
+    return this.httpClient.post(this.replyUrl, {body: reply, blog_comment: commentId});
+  }
+
+  editReply(replyId, newReply) {
+    return this.httpClient.patch(this.replyUrl + replyId + '/', {body: newReply});
+  }
+
+  deleteReply(replyId) {
+    return this.httpClient.delete(this.replyUrl + replyId + '/');
   }
 }
