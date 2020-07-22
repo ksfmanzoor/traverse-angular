@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://traverse.ap-south-1.elasticbeanstalk.com/api/'
+  baseUrl: 'https://api.traversepakistan.com/api/'
 };
 
 /*
