@@ -1,0 +1,137 @@
+<div class="blog-comments">
+  <ng-container *ngFor="let x of comments;let i = index">
+    <div>
+      <ng-template #elseCommentBlock>
+        <div class="user-comment">
+          <div class="account-avatar">
+            <img class="account-avatar-img"
+                 src="{{!!x.user.profile_image ? x.user.profile_image : 'assets/avatar.png'}}"
+                 alt="avatar"
+            >
+          </div>
+          <div class="user-comment-box">
+            <div class="user-comment-field">
+              <div>
+                <h6>{{x.user.name}}</h6>
+                <p class="comment-body">{{x.body}}</p>
+              </div>
+            </div>
+            <div class="comment-actions">
+              <div class="comment-action-icon">
+                <fa-icon [icon]="replyIcon" (click)="enableReplyMode(x.id)"></fa-icon>
+              </div>
+              <ng-container *ngIf="isLoggedIn && x.user.id == user.id">
+                <div class="comment-action-icon" (click)="updateCommentEditMode(x.body, x.id)">
+                  <fa-icon [icon]="editIcon"></fa-icon>
+                </div>
+                <div class="comment-action-icon" (click)="removeComment(x.id)">
+                  <fa-icon [icon]="deleteIcon"></fa-icon>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="add-comment-section" *ngIf="x.id == editCommentId; else elseCommentBlock">
+        <div class="add-comment-block">
+          <div class="account-avatar">
+            <img class="account-avatar-img" src="assets/avatar.png" alt="avatar"
+            >
+          </div>
+          <div class="add-comment-box">
+        <textarea class="add-comment-input" id="editCommentContent" name="editCommentContent"
+                  [(ngModel)]="editCommentContent"
+        ></textarea>
+          </div>
+        </div>
+        <div class="post-comment-button">
+          <button class="btn btn-outline-dark" (click)="updateCommentEditMode(x.body,x.id)">Cancel</button>
+          <button class="btn btn-dark" (click)="updateComment(x.id)">Update</button>
+        </div>
+      </div>
+      <div class="add-reply-block">
+        <ng-container *ngIf="x.blog_replies.length != 0">
+          <ng-container *ngFor="let y of x.blog_replies">
+            <ng-template #elseReplyBlock>
+              <div class="user-comment">
+                <div class="account-avatar">
+                  <img class="account-avatar-img"
+                       src="{{!!y.user.profile_image ? y.user.profile_image : 'assets/avatar.png'}}" alt="avatar"
+                  >
+                </div>
+                <div class="user-comment-box">
+                  <div class="user-comment-field">
+                    <div>
+                      <h6>{{y.user.name}}</h6>
+                      <p class="comment-body">{{y.body}}</p>
+                    </div>
+                  </div>
+                  <div class="comment-actions">
+                    <ng-container *ngIf="y.user.id == user.id">
+                      <div class="comment-action-icon" (click)="updateReplyEditMode(y.body, y.id)">
+                        <fa-icon [icon]="editIcon"></fa-icon>
+                      </div>
+                      <div class="comment-action-icon" (click)="removeReply(y.id)">
+                        <fa-icon [icon]="deleteIcon"></fa-icon>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <div class="add-comment-section" *ngIf="y.id == editReplyId; else elseReplyBlock">
+              <div class="add-comment-block">
+                <div class="account-avatar">
+                  <img class="account-avatar-img"
+                       src="{{!!user.profile_image ? user.profile_image : 'assets/avatar.png'}}" alt="avatar"
+                  >
+                </div>
+                <div class="add-comment-box">
+        <textarea class="add-comment-input" id="editReplyContent" name="editReplyContent"
+                  [(ngModel)]="editReplyContent"
+        ></textarea>
+                </div>
+              </div>
+              <div class="post-comment-button">
+                <button class="btn btn-outline-dark" (click)="updateReplyEditMode(x.body,x.id)">Cancel</button>
+                <button class="btn btn-dark" (click)="updateReply(y.id)">Update</button>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <div class="add-comment-section" *ngIf="x.id == replyCommentId">
+          <div class="add-comment-block">
+            <div class="account-avatar">
+              <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}" alt="text"
+              >
+            </div>
+            <div class="add-comment-box">
+              <textarea placeholder="Add a reply" class="add-comment-input" id="replyCommentContent"
+                        name="replyCommentContent" [(ngModel)]="replyCommentContent"></textarea>
+            </div>
+          </div>
+          <div class="post-comment-button">
+            <button class="btn btn-dark" (click)="replyComment(x.id)">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="add-comment-section">
+    <div class="add-comment-block">
+      <div class="account-avatar">
+        <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}"
+             alt="text"
+        >
+      </div>
+      <div class="add-comment-box">
+        <textarea placeholder="Add a comment" class="add-comment-input" id="addCommentContent" name="addCommentContent"
+                  [(ngModel)]="addCommentContent"
+        ></textarea>
+      </div>
+    </div>
+    <div class="post-comment-button">
+      <button class="btn btn-dark" (click)="addComment()">Done</button>
+    </div>
+  </div>
+</div>

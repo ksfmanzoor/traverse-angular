@@ -7,6 +7,10 @@
   height: auto !important;
 }
 
+.image > figcaption {
+  text-align: center;
+}
+
 .blog h1,
 .blog h2,
 .blog h3,
@@ -32,83 +36,28 @@
   font-size: 18px;
 }
 
-.blog div img {
+.blog > div {
+  text-align: center;
+}
+
+.blog > div > img {
   width: 100% !important;
   height: auto !important;
 }
 
-
-.blog-comments {
+.comments-section {
   width: 45%;
   margin: auto;
-}
-.user-comment {
+  padding: 16px 12px;
   display: flex;
   flex-direction: row;
-  padding: 12px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-.account-avatar-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 15px;
+.share-button {
+  height: fit-content;
 }
-
-.user-comment-box {
-  transition: all 1000ms ease 0s;
-  padding: 12px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 6px;
-  border-color: #ddd;
-  flex: 1;
-}
-
-.add-reply-block {
-  padding-left: 48px;
-}
-
-.add-comment-section {
-  padding: 12px;
-}
-
-
-.add-comment-block {
-  display: flex;
-  flex-direction: row;
-}
-
-.add-comment-box {
-  transition: all 1000ms ease 0s;
-  padding: 12px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 6px;
-  border-color: #ddd;
-  flex: 1;
-}
-
-.add-comment-input {
-  background: transparent;
-  border: 0;
-  display: block;
-  font-size: 16px;
-  outline: 0;
-  overflow-x: hidden;
-  resize: none;
-  white-space: pre-wrap;
-  width: 100%;
-}
-
-.post-comment-button {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 12px;
-}
-
-
 @media (max-width: 992px) {
   .blog h1,
   .blog h2,
@@ -121,10 +70,11 @@
     margin: auto;
   }
 
-  .blog-comments {
+  .comments-section {
     width: 65%;
     margin: auto;
   }
+
 }
 
 @media (min-width: 768px) {
@@ -141,12 +91,15 @@
   .blog h5,
   .blog h6,
   .blog p {
+    width: 95%;
+    margin: auto;
+  }
+
+  .comments-section {
     width: 98%;
     margin: auto;
   }
-  .blog-comments {
-    width: 98%;
-    margin: auto;
-  }
+
+
 }
 

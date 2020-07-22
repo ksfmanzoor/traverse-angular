@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {faFacebook} from '@fortawesome/free-brands-svg-icons/faFacebook';
+import {Comment} from 'src/app/models/comment';
 
 @Component({
   selector: 'app-blog-page',
@@ -10,22 +12,23 @@ import {ActivatedRoute} from '@angular/router';
 export class BlogPageComponent implements OnInit {
   headerInfo: { title, subtitle: string, imageUrl: string };
   blogText = '';
-  toReply = [];
+  comments: Comment[];
+  blogId = '';
+
+  facebookIcon = faFacebook;
+
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       const result = data.blog;
-      this.headerInfo = {title: result.title, subtitle: result.subtitle, imageUrl: result.thumbnail};
-      this.blogText = result.content;
+      const blogData = result[0];
+      this.headerInfo = {title: blogData.title, subtitle: blogData.subtitle, imageUrl: blogData.thumbnail};
+      this.blogText = blogData.content;
+      this.comments = result[1];
+      this.blogId = this.route.snapshot.params.id;
     });
-    for (let i = 0; i < 5; i++) {
-      this.toReply.push(false);
-    }
   }
 
-  reply(index) {
-    this.toReply[index] = !this.toReply[index];
-  }
 }
