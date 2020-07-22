@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {faComment} from '@fortawesome/free-solid-svg-icons/faComment';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
-import {Subscription} from 'rxjs';
 import {Comment} from 'src/app/models/comment';
 import {User} from 'src/app/models/user';
 import {AuthenticationService} from 'src/app/services/authentication.service';
@@ -29,16 +28,24 @@ export class BlogCommentsComponent implements OnInit {
   editReplyId = '';
   editReplyContent = '';
 
+  isLoggedIn: boolean;
   user: User;
 
   constructor(private  commentService: CommentService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.user = this.authenticationService.currentUserValue;
+    this.isLoggedIn = !!this.authenticationService.currentUserValue;
+    if (this.isLoggedIn) {
+      this.user = this.authenticationService.currentUserValue;
+    }
   }
 
   addComment() {
-    this.commentService.createComment(this.addCommentContent, this.blogId).subscribe();
+    if (this.isLoggedIn) {
+      this.commentService.createComment(this.addCommentContent, this.blogId).subscribe();
+    } else {
+      alert('Login is required to add comment');
+    }
   }
 
   updateComment(commentId) {
@@ -59,7 +66,11 @@ export class BlogCommentsComponent implements OnInit {
   }
 
   replyComment(commentId) {
-    this.commentService.createReply(this.replyCommentContent, commentId).subscribe();
+    if (this.isLoggedIn) {
+      this.commentService.createReply(this.replyCommentContent, commentId).subscribe();
+    } else {
+      alert('Login is required to add reply');
+    }
   }
 
   removeReply(replyId) {

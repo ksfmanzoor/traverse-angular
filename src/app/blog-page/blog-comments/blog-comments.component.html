@@ -20,7 +20,7 @@
               <div class="comment-action-icon">
                 <fa-icon [icon]="replyIcon" (click)="enableReplyMode(x.id)"></fa-icon>
               </div>
-              <ng-container *ngIf="x.user.id == user.id">
+              <ng-container *ngIf="isLoggedIn && x.user.id == user.id">
                 <div class="comment-action-icon" (click)="updateCommentEditMode(x.body, x.id)">
                   <fa-icon [icon]="editIcon"></fa-icon>
                 </div>
@@ -102,7 +102,7 @@
         <div class="add-comment-section" *ngIf="x.id == replyCommentId">
           <div class="add-comment-block">
             <div class="account-avatar">
-              <img class="account-avatar-img" src="assets/avatar.png" alt="text"
+              <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}" alt="text"
               >
             </div>
             <div class="add-comment-box">
@@ -120,7 +120,7 @@
   <div class="add-comment-section">
     <div class="add-comment-block">
       <div class="account-avatar">
-        <img class="account-avatar-img" src="{{!!user.profile_image ? user.profile_image : 'assets/avatar.png'}}"
+        <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}"
              alt="text"
         >
       </div>

@@ -1,7 +1,10 @@
 <app-default-header [headerInfo]="headerInfo"></app-default-header>
-<!--<div [innerHTML]="blogText | safeHtml" class="blog"></div>-->
+<div [innerHTML]="blogText | safeHtml" class="blog"></div>
 <div class="comments-section">
   <h3>Comments</h3>
+  <button class="btn btn-sm btn-outline-primary share-button" [socialShare]="'fb'">
+    <fa-icon [icon]="facebookIcon"></fa-icon>
+    Share</button>
 </div>
 <app-blog-comments [comments]="comments" [blogId]="blogId"></app-blog-comments>
 <app-footer></app-footer>

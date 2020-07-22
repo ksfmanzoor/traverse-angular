@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {faFacebook} from '@fortawesome/free-brands-svg-icons/faFacebook';
 import {Comment} from 'src/app/models/comment';
 
 @Component({
@@ -13,6 +14,8 @@ export class BlogPageComponent implements OnInit {
   blogText = '';
   comments: Comment[];
   blogId = '';
+
+  facebookIcon = faFacebook;
 
   constructor(private route: ActivatedRoute) {
   }
