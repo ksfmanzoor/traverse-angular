@@ -102,7 +102,7 @@
         <div class="add-comment-section" *ngIf="x.id == replyCommentId">
           <div class="add-comment-block">
             <div class="account-avatar">
-              <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}" alt="text"
+              <img class="account-avatar-img" src="{{isLoggedIn && !!user.profile_image && !!user.profile_image ? user.profile_image : 'assets/avatar.png'}}" alt="text"
               >
             </div>
             <div class="add-comment-box">

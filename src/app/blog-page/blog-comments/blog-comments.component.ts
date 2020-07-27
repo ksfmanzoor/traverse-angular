@@ -62,7 +62,7 @@ export class BlogCommentsComponent implements OnInit {
   }
 
   enableReplyMode(commentId) {
-    this.replyCommentId === '' ? this.replyCommentId = commentId : this.replyCommentId = '';
+    this.replyCommentId === commentId ? this.replyCommentId = '' : this.replyCommentId = commentId;
   }
 
   replyComment(commentId) {
