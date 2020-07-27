@@ -126,7 +126,7 @@
           </div>
         </div>
       </ng-template>
-      <div class="account-preferences-item">
+      <div class="account-preferences-item" *ngIf="!user.is_social_auth">
         <div class="row">
           <div class="col-md-3 ">
             <h5 class="account-preferences-item-title">Password</h5>
