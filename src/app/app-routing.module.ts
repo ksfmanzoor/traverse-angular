@@ -40,6 +40,10 @@ const routes: Routes = [
     }
   },
   {
+    path: 'trip',
+    loadChildren: () => import('./trip-module/trip.module').then(m => m.TripModule),
+  },
+  {
     path: 'blogs',
     loadChildren: () => import('./all-blogs-module/all-blogs.module').then(m => m.AllBlogsModule),
     resolve: {blogs: AllBlogsResolverService}
@@ -47,6 +51,14 @@ const routes: Routes = [
   {
     path: 'authentication',
     loadChildren: () => import('./auth-module/auth.module').then(m => m.AuthModule),
+  },
+  {
+    path: 'profile', canActivate: [AuthGuard],
+    loadChildren: () => import('./profile-module/profile.module').then(m => m.ProfileModule),
+  },
+  {
+    path: 'add-blog', canActivate: [VerifiedUserGuard],
+    loadChildren: () => import('./add-blog-module/add-blog.module').then(m => m.AddBlogModule),
   },
   {
     path: 'reset/password',
@@ -59,14 +71,6 @@ const routes: Routes = [
   {
     path: 'legal',
     loadChildren: () => import('./legal-module/legal.module').then(m => m.LegalModule)
-  },
-  {
-    path: 'add-blog', canActivate: [VerifiedUserGuard],
-    loadChildren: () => import('./add-blog-module/add-blog.module').then(m => m.AddBlogModule),
-  },
-  {
-    path: 'profile', canActivate: [AuthGuard],
-    loadChildren: () => import('./profile-module/profile.module').then(m => m.ProfileModule),
   },
 ];
 
