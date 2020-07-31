@@ -1,5 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {CarouselModule} from 'ngx-owl-carousel-o';
 import {TripPageComponent} from 'src/app/trip-page/trip-page.component';
 
 import {TripRoutingModule} from './trip-routing.module';
@@ -11,7 +13,9 @@ import {TripRoutingModule} from './trip-routing.module';
   ],
   imports: [
     CommonModule,
-    TripRoutingModule
+    TripRoutingModule,
+    CarouselModule,
+    FontAwesomeModule
   ]
 })
 export class TripModule {

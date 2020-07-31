@@ -1,1 +1,99 @@
-<p>trip-page works!</p>
+<div class="container-fluid">
+  <!--  <div class="attractions">-->
+  <!--    <div class="row no-gutters">-->
+  <!--      <div class="col position-relative">-->
+  <!--        <owl-carousel-o [options]="customOptions" #owl>-->
+  <!--          <ng-template carouselSlide *ngFor="let i of [].constructor(5)">-->
+  <!--            <div class="attraction-block">-->
+  <!--              <img src="assets/header.jpg" class="attraction-image" alt="">-->
+  <!--              <div class="caption text-white">-->
+  <!--                <h6>Attraction Name</h6>-->
+  <!--                <p id="subtitle">Lorem Ipsum Gyspum Sit</p>-->
+  <!--              </div>-->
+  <!--            </div>-->
+  <!--          </ng-template>-->
+  <!--        </owl-carousel-o>-->
+  <!--        <div (click)="owl.next()" id="back-button">-->
+  <!--          <fa-icon [icon]="backButton"></fa-icon>-->
+  <!--        </div>-->
+  <!--        <div (click)="owl.prev()" id="next-button">-->
+  <!--          <fa-icon [icon]="nextButton"></fa-icon>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="">
+        <div>
+          <h5 class="trip-overview">Overview</h5>
+          <div class="trip-desc">
+            <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station. The hotel
+              offers access to the adjacent fitness club which includes a gym and a tour desk with ticket services.</p>
+            <p>Each air-conditioned room at the Hotel Pennsylvania provides cable TV. Guests also have access to a work
+              desk, alarm clock, black-out drapes, iron and hairdryer in every room.</p>
+            <p>The Pennsylvania Hotel includes a 24-hour coffee shop and a restaurant. Guests can make transportation
+              reservations and acquire theater tickets at the hotel. Guests will also have access to a safety deposit
+              desk at the front desk, any time of the day.</p>
+            <p>Times Square and the Museum of Modern Art are less than a 15-minute walk from Hotel Penn. Guests are also
+              one block from Macy's and 2 blocks from the Empire State Building.</p>
+            <p>This is our guests' favourite part of New York, according to independent reviews. This area is also great
+              for shopping, with popular brands nearby: H&amp;M, Nike, Ralph Lauren.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="">
+        <div class="trip-amount-section">
+          <h1 class="trip-amount-per-person">Rs.92 per person</h1>
+          <p class="trip-amount-subtitle">Including taxes</p>
+        </div>
+        <div class="booking-form">
+          <div class="booking-form-fields">
+            <div class="booking-form-fields-info">
+              <fa-icon [icon]="calendarIcon"></fa-icon>
+              <p class="booking-form-fields-label">Date</p></div>
+          </div>
+          <div class="booking-form-fields">
+            <div class="booking-form-fields-info">
+              <fa-icon [icon]="userIcon"></fa-icon>
+              <p class="booking-form-fields-label">Persons</p></div>
+            <ul class="person-quantity-controls">
+              <li class="person-quantity-decrement">
+                <a href="#">-</a>
+              </li>
+              <li class="person-current-quantity">1</li>
+              <li class="person-quantity-increment">
+                <a href="#">+</a>
+              </li>
+            </ul>
+          </div>
+          <div class="booking-summary-price">
+            <a class="booking-summary-expandable" href="#summaryPriceCollapse" data-toggle="collapse"
+               aria-expanded="false" aria-controls="summaryPriceCollapse"><p>Show summary</p>
+              <fa-icon [icon]="expandButton"></fa-icon>
+            </a>
+            <div class="collapse" id="summaryPriceCollapse">
+              <ul class="booking-summary-price-list">
+                <li class="booking-summary-price-item">
+                  <h5 class="booking-summary-price-item-title">10 Persons</h5>
+                  <p class="booking-summary-price-item-price">Rs. 920.0</p>
+                </li>
+                <li class="booking-summary-price-item">
+                  <h5 class="booking-summary-price-item-title">Service fee</h5>
+                  <p class="booking-summary-price-item-price">Rs. 10.0</p>
+                </li>
+              </ul>
+            </div>
+            <div class="booking-summary-price-total"><p>Total</p>
+              <h6>Rs. 930.00</h6>
+            </div>
+          </div>
+          <button class="btn btn-dark btn-block">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
