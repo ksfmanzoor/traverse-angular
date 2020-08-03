@@ -103,3 +103,9 @@
     padding: 60px 0;
   }
 }
+
+@media (min-height: 650px) {
+  .header-bg-wrap {
+    height: 100vh;
+  }
+}

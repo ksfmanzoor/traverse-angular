@@ -6,6 +6,7 @@ import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLog
 import {AuthSkeletonComponent} from 'src/app/auth-module/auth-skeleton/auth-skeleton.component';
 import {SocialAuthComponent} from 'src/app/auth-module/social-auth/social-auth.component';
 import {LoginPageComponent} from 'src/app/login-page/login-page.component';
+import {SharedModule} from 'src/app/shared-module/shared.module';
 import {SignupPageComponent} from 'src/app/signup-page/signup-page.component';
 
 import {AuthRoutingModule} from './auth-routing.module';
@@ -18,13 +19,14 @@ import {AuthRoutingModule} from './auth-routing.module';
     SignupPageComponent,
     LoginPageComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    FontAwesomeModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+	imports: [
+		CommonModule,
+		AuthRoutingModule,
+		FontAwesomeModule,
+		FormsModule,
+		ReactiveFormsModule,
+		SharedModule
+	],
 })
 export class AuthModule {
 }
