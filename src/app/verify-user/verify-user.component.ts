@@ -41,7 +41,7 @@ export class VerifyUserComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']).then();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.navBarService.changeNavColor.next('transparent');
   }
 }

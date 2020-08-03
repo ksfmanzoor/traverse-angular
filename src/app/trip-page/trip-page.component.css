@@ -1,5 +1,5 @@
 .attractions {
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 
 .attraction-image {
@@ -36,10 +36,9 @@
   z-index: 1;
 }
 
-.trip-overview {
+.overview-heading {
   margin-top: 0;
   font-size: 18px;
-  font-weight: normal;
   margin-bottom: 20px;
 }
 
@@ -90,6 +89,11 @@
 
 .booking-form-fields-label {
   padding-left: 25px;
+  margin-bottom: 0;
+}
+
+.booking-date {
+  padding: 0 10px;
   margin-bottom: 0;
 }
 
@@ -200,5 +204,14 @@
 @media (min-width: 768px) {
   .container-fluid {
     padding: 16px 85px;
+  }
+
+  .attractions {
+    padding: 100px 0 0 0;
+  }
+
+  .booking-section {
+    position: sticky;
+    top: 0;
   }
 }
