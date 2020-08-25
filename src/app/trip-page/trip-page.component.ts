@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {faCalendar} from '@fortawesome/free-regular-svg-icons/faCalendar';
-import {faUser} from '@fortawesome/free-regular-svg-icons/faUser';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons/faAngleDown';
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import {faPlaneDeparture} from '@fortawesome/free-solid-svg-icons/faPlaneDeparture';
+import {faUserAlt} from '@fortawesome/free-solid-svg-icons/faUserAlt';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {NavBarService} from 'src/app/services/nav-bar.service';
 
@@ -15,9 +16,10 @@ import {NavBarService} from 'src/app/services/nav-bar.service';
 export class TripPageComponent implements OnInit, OnDestroy {
   backButton = faAngleLeft;
   nextButton = faAngleRight;
+  dropDownButton = faCaretDown;
   expandButton = faAngleDown;
-  userIcon = faUser;
-  calendarIcon = faCalendar;
+  userIcon = faUserAlt;
+  departureIcon = faPlaneDeparture;
 
   customOptions: OwlOptions = {
     loop: true,

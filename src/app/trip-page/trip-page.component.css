@@ -36,12 +36,15 @@
   z-index: 1;
 }
 
-.overview-heading {
+.services-heading {
   margin-top: 0;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
+.services-list-data {
+  padding: 10px 0;
+}
 .item-page-desc > p {
   font-size: 16px;
   line-height: 1.6em;
@@ -50,7 +53,11 @@
   filter: alpha(opacity=64);
 }
 
-.trip-amount-section {
+.trip-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -92,7 +99,11 @@
   margin-bottom: 0;
 }
 
-.booking-date {
+.dropdown-toggle::after {
+  display: none;
+}
+
+.booking-form-field-data {
   padding: 0 10px;
   margin-bottom: 0;
 }
