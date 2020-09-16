@@ -1,4 +1,5 @@
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {environment} from 'src/environments/environment';
 import {BlogEditorImage} from '../models/blog-editor-image';
 
 export class CustomUploadAdapter {
@@ -11,7 +12,7 @@ export class CustomUploadAdapter {
   }
 
   uploadFile(file) {
-    const url = 'http://traverse.ap-south-1.elasticbeanstalk.com/api/traverse/upload/file/';
+    const url = `${environment.baseUrl}traverse/upload/file/`;
     const formData: FormData = new FormData();
     formData.append('file', file);
     return this.httpClient.post(url, formData);
