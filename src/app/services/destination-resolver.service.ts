@@ -5,15 +5,15 @@ import {Destination} from '../models/destination';
 import {DestinationService} from './destination.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class DestinationResolverService implements Resolve<Destination> {
 
-    constructor(private placeService: DestinationService) {
-    }
+  constructor(private placeService: DestinationService) {
+  }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Destination>
-        | Promise<Destination> | Destination {
-        return this.placeService.fetchPlace(route.params.id);
-    }
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Destination>
+    | Promise<Destination> | Destination {
+    return this.placeService.fetchPlace(route.params.id);
+  }
 }
