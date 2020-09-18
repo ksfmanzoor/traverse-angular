@@ -1,27 +1,19 @@
-<div class="header">
-  <div class="header-bg-wrap">
-    <div class="header-bg" [ngStyle]="{'background-image': 'url(' +'assets/header.jpg'+')'}"></div>
-    <div class="header-bg-mask theme-hero-area-mask-strong"></div>
-  </div>
-  <div class="header-body">
-    <div class="header-auth-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-6 offset-md-1 offset-lg-3">
-            <h1 class="heading">{{requiredInfo.heading}}</h1>
-            <p class="subtitle">{{requiredInfo.subtitle}}</p>
-            <div class="card">
-              <div class="form-box">
-                <ng-content></ng-content>
-                <div class="social-separator">or continue with social media</div>
-                <app-social-auth></app-social-auth>
-              </div>
-              <div class="alt-block d-flex justify-content-between">
-                <p>{{requiredInfo.altText}} have an account? <a
-                  routerLink="{{requiredInfo.route}}">{{requiredInfo.keyWord}}</a></p>
-                <p>Forgot password? <a routerLink="/reset/password/">Reset Password</a></p>
-              </div>
-            </div>
+<div class="header" [ngStyle]="{'background-image': 'url(' +'assets/header.jpg'+')'}">
+  <div class="header-overlay">
+    <div class="header-body">
+      <div class="header-auth-section">
+        <h1 class="heading">{{requiredInfo.heading}}</h1>
+        <p class="subtitle">{{requiredInfo.subtitle}}</p>
+        <div class="card">
+          <div class="form-box">
+            <ng-content></ng-content>
+            <div class="social-separator">or continue with social media</div>
+            <app-social-auth></app-social-auth>
+          </div>
+          <div class="alt-block d-flex justify-content-between">
+            <p>{{requiredInfo.altText}} have an account? <a
+              routerLink="{{requiredInfo.route}}">{{requiredInfo.keyWord}}</a></p>
+            <p>Forgot password? <a routerLink="/reset/password/">Reset Password</a></p>
           </div>
         </div>
       </div>
