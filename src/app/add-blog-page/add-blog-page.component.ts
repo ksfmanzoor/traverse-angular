@@ -71,7 +71,6 @@ export class AddBlogPageComponent implements OnInit, OnDestroy {
     if (!this.isUpdated) {
       formData.append('thumbnail', this.formControl.thumbnail.value);
       this.addBlogService.addBlog(formData).subscribe(data => {
-        console.log(data);
         this.router.navigate(['/profile']).then();
       });
     } else {

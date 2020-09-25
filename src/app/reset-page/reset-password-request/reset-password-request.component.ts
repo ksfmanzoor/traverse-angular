@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 
 
@@ -34,13 +34,12 @@ export class ResetPasswordRequestComponent implements OnInit {
         this.hasError = true;
         this.error = 'Something bad happened! Please try again.';
         if (error.error instanceof ErrorEvent) {
-          console.log('An error occurred:', error.error.message);
+          alert(`An error occurred: ${error.error.message}`);
         } else {
           this.hasError = true;
           if (error.error.detail === 'User not found!') {
             this.error = 'No user with that email exists!';
           }
-          console.log(error);
         }
       });
   }

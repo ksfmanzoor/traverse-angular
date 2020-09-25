@@ -1,13 +1,14 @@
 .search-header {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 84px;
   position: sticky;
   top: 0;
   background: white;
-  z-index: 5;
   padding-top: 100px;
 }
+
 
 #logoImg {
   width: 88px;

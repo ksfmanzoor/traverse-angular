@@ -14,7 +14,6 @@ export class DestinationResolverService implements Resolve<Destination> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Destination>
     | Promise<Destination> | Destination {
-    console.log()
     return this.placeService.fetchPlace(route.params.slug);
   }
 }
