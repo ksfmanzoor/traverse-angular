@@ -23,7 +23,6 @@ export class HomeBlogsComponent implements OnInit {
   }
 
   navigate(slug) {
-    console.log(slug);
     this.router.navigate(['/blog', slug]).then();
   }
 
