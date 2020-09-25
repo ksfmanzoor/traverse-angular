@@ -73,7 +73,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "traverse-angular:build:production"
+              "browserTarget": "traverse-angular:build:productzion"
             }
           }
         },

@@ -1,6 +1,7 @@
 export interface MinifiedHomeData {
-    id: string;
-    title: string;
-    subtitle: string;
-    thumbnail: string;
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  thumbnail: string;
 }

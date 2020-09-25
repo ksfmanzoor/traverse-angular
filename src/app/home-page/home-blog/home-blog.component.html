@@ -9,7 +9,7 @@
     <div class="web">
       <div class="container-fluid">
         <div class="row">
-          <div class="col blog-box blog-box-height" (click)="navigate(minifiedBlogs[0].id)">
+          <div class="col blog-box blog-box-height" (click)="navigate(minifiedBlogs[0].slug)">
             <ngx-picture
               src="{{minifiedBlogs[0].thumbnail}}"
               alt=""
@@ -28,7 +28,7 @@
           </div>
           <div class="col d-flex flex-column justify-content-between blog-box-height">
             <div class="row">
-              <div class="col blog-box" (click)="navigate(minifiedBlogs[1].id)">
+              <div class="col blog-box" (click)="navigate(minifiedBlogs[1].slug)">
                 <ngx-picture
                   src="{{minifiedBlogs[1].thumbnail}}"
                   alt=""
@@ -45,7 +45,7 @@
                   </ng-template>
                 </ngx-picture>
               </div>
-              <div class="col blog-box" id="third-blog" (click)="navigate(minifiedBlogs[2].id)">
+              <div class="col blog-box" id="third-blog" (click)="navigate(minifiedBlogs[2].slug)">
                 <ngx-picture
                   src="{{minifiedBlogs[2].thumbnail}}"
                   alt=""
@@ -64,7 +64,7 @@
               </div>
             </div>
             <div class="row spacing">
-              <div class="col blog-box" (click)="navigate(minifiedBlogs[3].id)">
+              <div class="col blog-box" (click)="navigate(minifiedBlogs[3].slug)">
                 <ngx-picture
                   src="{{minifiedBlogs[3].thumbnail}}"
                   alt=""
@@ -92,7 +92,7 @@
     <div class="container">
       <div class="row flex-nowrap">
         <div class="col-11 blog-box" *ngFor="let x of minifiedBlogs; let i =index"
-             (click)="navigate(minifiedBlogs[i].id)">
+             (click)="navigate(minifiedBlogs[i].slug)">
           <ngx-picture
             src="{{minifiedBlogs[i].thumbnail}}"
             alt=""

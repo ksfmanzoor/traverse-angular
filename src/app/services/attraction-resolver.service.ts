@@ -13,6 +13,7 @@ export class AttractionResolverService implements Resolve<Attraction> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Attraction> |
       Promise<Attraction> | Attraction {
-    return this.attractionService.fetchAttraction(route.params.id);
+    console.log(route.params.slug);
+    return this.attractionService.fetchAttraction(route.params.slug);
   }
 }

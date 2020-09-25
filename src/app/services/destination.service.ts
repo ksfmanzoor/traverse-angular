@@ -11,7 +11,7 @@ export class DestinationService {
   private placeUrl = `${environment.baseUrl}traverse/place/`;
   constructor(private  http: HttpClient) { }
 
-  fetchPlace(id): Observable<any> {
-    return this.http.get(this.placeUrl + id);
+  fetchPlace(slug): Observable<any> {
+    return this.http.get(this.placeUrl + slug);
   }
 }

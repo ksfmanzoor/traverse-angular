@@ -16,12 +16,12 @@ const routes: Routes = [
   },
   {path: 'search', loadChildren: () => import('./search-module/search.module').then(m => m.SearchModule)},
   {
-    path: 'destination/:id', loadChildren: () =>
+    path: 'destination/:slug', loadChildren: () =>
       import('./destination-module/destination.module').then(m => m.DestinationModule),
     resolve: {destination: DestinationResolverService},
   },
   {
-    path: 'blog/:id', loadChildren: () =>
+    path: 'blog/:slug', loadChildren: () =>
       import('./blog-module/blog.module').then(m => m.BlogModule),
     resolve: {blog: BlogResolverService}
   },
@@ -32,7 +32,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'attraction/:id',
+    path: 'attraction/:slug',
     loadChildren: () =>
       import('./attraction-module/attraction.module').then(m => m.AttractionModule),
     resolve: {

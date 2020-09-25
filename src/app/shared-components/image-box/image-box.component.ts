@@ -3,27 +3,28 @@ import {LoadingBarService} from '@ngx-loading-bar/core';
 import {Router} from '@angular/router';
 
 @Component({
-    selector: 'app-image-box',
-    templateUrl: './image-box.component.html',
-    styleUrls: ['./image-box.component.css']
+  selector: 'app-image-box',
+  templateUrl: './image-box.component.html',
+  styleUrls: ['./image-box.component.css']
 })
 export class ImageBoxComponent implements OnInit {
-    @Input() path;
-    @Input() minifiedData: {
-        id: string,
-        title: string,
-        subtitle: string,
-        thumbnail: string
-    };
+  @Input() path;
+  @Input() minifiedData: {
+    id: string,
+    slug: string,
+    title: string,
+    subtitle: string,
+    thumbnail: string
+  };
 
-    constructor(private loadingBar: LoadingBarService, private router: Router) {
-    }
+  constructor(private loadingBar: LoadingBarService, private router: Router) {
+  }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    navigate() {
-        this.router.navigate([this.path, this.minifiedData.id]).then();
-    }
+  navigate() {
+    this.router.navigate([this.path, this.minifiedData.slug]).then();
+  }
 }
 

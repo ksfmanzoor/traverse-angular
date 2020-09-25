@@ -22,8 +22,9 @@ export class HomeBlogsComponent implements OnInit {
     this.isMobile = event.target.innerWidth < 768;
   }
 
-  navigate(id) {
-    this.router.navigate(['/blog', id]).then();
+  navigate(slug) {
+    console.log(slug);
+    this.router.navigate(['/blog', slug]).then();
   }
 
 }

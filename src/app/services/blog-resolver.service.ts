@@ -12,6 +12,6 @@ export class BlogResolverService implements Resolve<Blog> {
   constructor(private blogService: BlogService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Blog> | Promise<Blog> | Blog {
-    return this.blogService.fetchBlogData(route.params.id);
+    return this.blogService.fetchBlogData(route.params.slug);
   }
 }

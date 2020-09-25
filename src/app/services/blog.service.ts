@@ -12,9 +12,9 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  fetchBlogData(id): Observable<any> {
-    const blogData = this.http.get(this.blogUrl + id);
-    const commentsData = this.http.get(this.commentUrl + id);
+  fetchBlogData(slug): Observable<any> {
+    const blogData = this.http.get(this.blogUrl + slug);
+    const commentsData = this.http.get(this.commentUrl + slug);
     return forkJoin([blogData, commentsData]);
   }
 }
