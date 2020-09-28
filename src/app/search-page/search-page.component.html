@@ -1,59 +1,32 @@
 <app-search-header></app-search-header>
 <div class="container-fluid">
-    <div class="explore-section">
-        <h3>Explore Lorem</h3>
-        <div class="row">
-            <div class="col-4">
-                <div class="tag-card">
-                    <img src="assets/header.jpg">
-                    <h6 class="title">Stays</h6>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="tag-card">
-                    <img src="assets/header.jpg">
-                    <h6 class="title">Stays</h6>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="tag-card">
-                    <img src="assets/header.jpg">
-                    <h6 class="title">Stays</h6>
-                </div>
-            </div>
+  <div class="explore-section">
+    <h3>Explore Lorem</h3>
+    <div class="row">
+      <div class="col-4">
+        <div class="tag-card">
+          <img src="assets/header.jpg">
+          <h6 class="title">Trips</h6>
         </div>
-    </div>
-    <div class="trips-section">
-        <h4>Lorem Ipsum</h4>
-        <div>
-            <div>
-                <owl-carousel-o [options]="customOptions">
-                    <ng-template carouselSlide>
-                        <div class="search-result">
-                            <img src="assets/header.jpg" style="height: 189px">
-                            <h6>Lorem Ipsum</h6>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="search-result">
-                            <img src="assets/header.jpg" style="height: 189px">
-                            <h6>Lorem Ipsum</h6>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="search-result">
-                            <img src="assets/header.jpg" style="height: 189px">
-                            <h6>Lorem Ipsum</h6>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="search-result">
-                            <img src="assets/header.jpg" style="height: 189px">
-                            <h6>Lorem Ipsum</h6>
-                        </div>
-                    </ng-template>
-                </owl-carousel-o>
-            </div>
+      </div>
+      <div class="col-4">
+        <div class="tag-card">
+          <img src="assets/header.jpg">
+          <h6 class="title">Stays</h6>
         </div>
+      </div>
+      <div class="col-4">
+        <div class="tag-card">
+          <img src="assets/header.jpg">
+          <h6 class="title">Stays</h6>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="trips-section">
+    <h4>Lorem Ipsum</h4>
+    <hr>
+    <app-trip-card></app-trip-card>
+    <app-trip-card></app-trip-card>
+  </div>
 </div>

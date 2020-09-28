@@ -1,0 +1,80 @@
+.trip-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 32px 0;
+}
+
+.trip-info {
+  width: 65%;
+}
+
+.trip-title {
+  font-size: 22px;
+  line-height: 26px;
+  margin-bottom: 8px;
+  margin-top: 6px
+}
+
+.trip-services {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.trip-overview-heading {
+  font-size: 14px;
+  line-height: 20px;
+  color: #222222;
+  margin-right: 8px;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.trip-overview-content {
+  line-height: 20px;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #717171;
+}
+
+.trip-price {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.trip-images {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 30%;
+}
+
+.trip-images-one {
+  overflow: hidden;
+  grid-column: 1;
+  grid-row: 1;
+  border-top-left-radius: 6px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.trip-images-two {
+  grid-column: 1;
+  grid-row: 2;
+  border-bottom-left-radius: 6px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.trip-images-three {
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+  border-radius: 0 6px 6px 0;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
