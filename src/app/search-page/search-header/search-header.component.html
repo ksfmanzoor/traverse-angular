@@ -1,9 +1,9 @@
 <header class="search-header">
-    <div class="search-bar">
-      <fa-icon [icon]="searchIcon"></fa-icon>
-      <input class="form-control border-0" placeholder="Search" size="50">
-    </div>
-    <div>
-        <hr>
-    </div>
+  <div class="search-bar">
+    <fa-icon [icon]="searchIcon"></fa-icon>
+    <input class="form-control border-0" placeholder="Search" size="50" [(ngModel)]="searchText" name="searchText">
+  </div>
+  <div>
+    <hr>
+  </div>
 </header>

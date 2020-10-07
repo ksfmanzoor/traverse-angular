@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @Component({
@@ -7,6 +7,7 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
   styleUrls: ['./search-header.component.css']
 })
 export class SearchHeaderComponent implements OnInit {
+  @Input() searchText = '';
   searchIcon = faSearch;
 
   constructor() { }

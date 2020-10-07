@@ -25,7 +25,7 @@
   border-radius: 12px 0 0 12px;
 }
 
-.title {
+.tag-card-title {
   font-size: 1.2rem;
   margin-bottom: 0;
   padding-left: 24px;
@@ -50,9 +50,9 @@
     border-radius: 12px 12px 0 0;
   }
 
-  .title {
+  .tag-card-title {
     align-self: start;
-    padding: 5px 5px;
+    padding: 10px;
   }
 
   .container-fluid {

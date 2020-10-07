@@ -1,4 +1,4 @@
-<app-search-header></app-search-header>
+<app-search-header [searchText]="searchText"></app-search-header>
 <div class="container-fluid">
   <div class="explore-section">
     <h3>Explore Lorem</h3>
@@ -6,27 +6,28 @@
       <div class="col-4">
         <div class="tag-card">
           <img src="assets/header.jpg">
-          <h6 class="title">Trips</h6>
+          <h6 class="tag-card-title">Trips</h6>
         </div>
       </div>
       <div class="col-4">
         <div class="tag-card">
           <img src="assets/header.jpg">
-          <h6 class="title">Stays</h6>
+          <h6 class="tag-card-title">Stays</h6>
         </div>
       </div>
       <div class="col-4">
         <div class="tag-card">
           <img src="assets/header.jpg">
-          <h6 class="title">Stays</h6>
+          <h6 class="tag-card-title">Stays</h6>
         </div>
       </div>
     </div>
   </div>
   <div class="trips-section">
-    <h4>Lorem Ipsum</h4>
+    <h4>All Trips</h4>
     <hr>
-    <app-trip-card></app-trip-card>
-    <app-trip-card></app-trip-card>
+    <ng-container *ngFor="let x of minifiedTrips">
+      <app-trip-card [minifiedTrip]="x"></app-trip-card>
+    </ng-container>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {SearchResolverService} from 'src/app/services/search-resolver.service';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
@@ -14,7 +15,11 @@ const routes: Routes = [
     path: '', loadChildren: () => import('./home-module/home.module').then(m => m.HomeModule),
     data: {key: 'home'}
   },
-  {path: 'search', loadChildren: () => import('./search-module/search.module').then(m => m.SearchModule)},
+  {
+    path: 'search/:query',
+    loadChildren: () => import('./search-module/search.module').then(m => m.SearchModule),
+    resolve: {search: SearchResolverService}
+  },
   {
     path: 'destination/:slug', loadChildren: () =>
       import('./destination-module/destination.module').then(m => m.DestinationModule),

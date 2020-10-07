@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @Component({
@@ -8,10 +9,19 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 })
 export class HeaderComponent implements OnInit {
   searchIcon = faSearch;
-  @Input()  headerData: {tagLine: string, coverImage: string};
-  constructor() { }
+  searchQuery = '';
+  @Input() headerData: { tagLine: string, coverImage: string };
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    if (this.searchQuery !== '') {
+      this.router.navigate(['search', this.searchQuery]).then();
+    } else {
+      alert('Search field is empty');
+    }
+  }
 }

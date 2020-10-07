@@ -1,25 +1,20 @@
 <div class="trip-card">
   <div class="trip-details">
     <div class="trip-info">
-      <div class="trip-title">Inside Central Park Walking Tour</div>
-      <h6 class="trip-services">Food, Transportation, Dinner</h6>
+      <div class="trip-title">{{minifiedTrip.title}}</div>
+      <ng-container *ngFor="let x of minifiedTrip.services; let last=last">
+        <h6 class="trip-services">{{x}}<span *ngIf="!last">,&nbsp;</span></h6>
+      </ng-container>
       <p class="trip-overview-heading">What we'll do:</p>
-      <p class="trip-overview-content">
-        A fine bottle of Ausone Bordeaux, a sumptuous dinner at Le Bernardin's – some things were
-        meant to be enjoyed at a leisurely pace to truly be appreciated. Central Park, in the heart of Manhattan, is
-        one
-        such experience. At 1.3 square miles, finding that special place in Central Park can be daunting especially
-        out
-        of town visitors to
-        New York City. Fortunately, our experienced walking tour guides at...</p>
-      <h6 class="trip-price">From Rs.1000/person</h6>
+      <p class="trip-overview-content">{{minifiedTrip.overview}}</p>
+      <h6 class="trip-price">From Rs.{{minifiedTrip.price_per_person}}/person</h6>
     </div>
     <div class="trip-images">
-      <div class="trip-images-one" [ngStyle]="{'background-image': 'url(' +'assets/header.jpg'+')'}">
+      <div class="trip-images-one" [ngStyle]="{'background-image': 'url('+ minifiedTrip.gallery_images[0] +')'}">
       </div>
-      <div class="trip-images-two" [ngStyle]="{'background-image': 'url(' +'assets/header.jpg'+')'}">
+      <div class="trip-images-two" [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[0] +')'}">
       </div>
-      <div class="trip-images-three" [ngStyle]="{'background-image': 'url(' +'assets/header.jpg'+')'}">
+      <div class="trip-images-three" [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[0]+')'}">
       </div>
     </div>
   </div>

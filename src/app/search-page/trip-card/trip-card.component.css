@@ -17,6 +17,7 @@
 }
 
 .trip-services {
+  display: inline;
   font-size: 14px;
   line-height: 18px;
 }

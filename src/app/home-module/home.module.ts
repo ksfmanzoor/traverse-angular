@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import {HeaderComponent} from '../home-page/header/header.component';
@@ -21,11 +22,12 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
     BestTripsComponent,
     HomePageComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-    CarouselModule,
-  ]
+	imports: [
+		CommonModule,
+		HomeRoutingModule,
+		SharedModule,
+		CarouselModule,
+		FormsModule,
+	]
 })
 export class HomeModule { }

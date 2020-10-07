@@ -1,5 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {SearchHeaderComponent} from 'src/app/search-page/search-header/search-header.component';
 import {SearchPageComponent} from 'src/app/search-page/search-page.component';
@@ -14,11 +15,12 @@ import {SearchRoutingModule} from './search-routing.module';
     SearchHeaderComponent,
     TripCardComponent,
   ],
-  imports: [
-    CommonModule,
-    SearchRoutingModule,
-    FontAwesomeModule
-  ]
+	imports: [
+		CommonModule,
+		SearchRoutingModule,
+		FontAwesomeModule,
+		FormsModule
+	]
 })
 export class SearchModule {
 }
