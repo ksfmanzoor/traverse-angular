@@ -27,7 +27,7 @@ export class BlogPageComponent implements OnInit {
       this.headerInfo = {title: blogData.title, subtitle: blogData.subtitle, imageUrl: blogData.thumbnail};
       this.blogText = blogData.content;
       this.comments = result[1];
-      this.blogId = this.route.snapshot.params.id;
+      this.blogId = blogData.id;
     });
   }
 
