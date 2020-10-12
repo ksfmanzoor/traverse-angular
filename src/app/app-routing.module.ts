@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {SearchResolverService} from 'src/app/services/search-resolver.service';
+import {TripResolverService} from 'src/app/services/trip-resolver.service';
 import {AllBlogsResolverService} from './services/all-blogs-resolver.service';
 import {AllDestinationsResolverService} from './services/all-destinations-resolver.service';
 import {AttractionResolverService} from './services/attraction-resolver.service';
@@ -45,8 +46,10 @@ const routes: Routes = [
     }
   },
   {
-    path: 'trip',
-    loadChildren: () => import('./trip-module/trip.module').then(m => m.TripModule),
+    path: 'trip/:slug',
+    loadChildren: () => import('./trip-module/trip.module').then(m => m.TripModule), resolve: {
+      trip: TripResolverService
+    }
   },
   {
     path: 'blogs',
