@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Trip} from 'src/app/models/search-result';
 
 @Component({
@@ -9,9 +10,13 @@ import {Trip} from 'src/app/models/search-result';
 export class TripCardComponent implements OnInit {
   @Input() minifiedTrip: Trip;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigate() {
+    this.router.navigate(['/trip', this.minifiedTrip.slug]).then();
   }
 
 }

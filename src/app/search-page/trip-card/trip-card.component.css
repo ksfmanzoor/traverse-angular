@@ -1,3 +1,7 @@
+.trip-card {
+  cursor: pointer;
+}
+
 .trip-details {
   display: flex;
   flex-direction: row;
