@@ -10,11 +10,12 @@
       <h6 class="trip-price">From Rs.{{minifiedTrip.price_per_person}}/person</h6>
     </div>
     <div class="trip-images">
-      <div class="trip-images-one" [ngStyle]="{'background-image': 'url('+ minifiedTrip.gallery_images[0] +')'}">
+      <div class="trip-images-one" [ngStyle]="{'background-image': 'url('+ minifiedTrip.gallery_images[0].image +')'}">
       </div>
-      <div class="trip-images-two" [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[0] +')'}">
+      <div class="trip-images-two" [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[1].image +')'}">
       </div>
-      <div class="trip-images-three" [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[0]+')'}">
+      <div class="trip-images-three"
+           [ngStyle]="{'background-image': 'url(' + minifiedTrip.gallery_images[2].image+')'}">
       </div>
     </div>
   </div>

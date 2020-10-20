@@ -27,7 +27,13 @@ export interface Trip {
   title: string;
   slug: string;
   overview: string;
-  gallery_images: any[];
+  gallery_images: TripCardGalleryImage[];
   price_per_person: number;
   services: string[];
+}
+
+export interface TripCardGalleryImage {
+  id: string;
+  image: string;
+  alt_text: string;
 }
