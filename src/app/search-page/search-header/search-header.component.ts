@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @Component({
@@ -10,9 +11,12 @@ export class SearchHeaderComponent implements OnInit {
   @Input() searchText = '';
   searchIcon = faSearch;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    this.router.navigate(['/search', this.searchText]).then();
+  }
 }

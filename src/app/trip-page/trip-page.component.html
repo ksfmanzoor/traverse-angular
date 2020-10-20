@@ -23,7 +23,8 @@
       <div class="booking-section">
         <div class="trip-info">
           <div class="trip-amount">
-            <h1 class="trip-amount-per-person">Rs.{{pricePerPerson}} per person</h1>
+            <h1 class="trip-amount-per-person">Rs.{{pricePerPersonOfDeparture + pricePerPersonOfPackage}} per
+              person</h1>
             <p class="trip-amount-subtitle">Including taxes</p>
           </div>
           <h6 class="booking-form-field-data">{{departureDate | date }} - {{arrivalDate | date}}</h6></div>
@@ -55,12 +56,12 @@
             <div class="dropdown booking-form-field-data">
               <a class="dropdown-toggle" type="button" id="packageSelection" data-toggle="dropdown" aria-haspopup="true"
                  aria-expanded="false">
-                Standard
+                {{packageName}}
                 <fa-icon [icon]="dropDownButton"></fa-icon>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="packageSelection">
                 <ng-container *ngFor="let x of tripData.packages">
-                  <a class="dropdown-item">{{x.title}}</a>
+                  <a class="dropdown-item" (click)="selectPackage(x.price_per_person)">{{x.title}}</a>
                 </ng-container>
               </div>
             </div>
@@ -88,7 +89,8 @@
               <ul class="booking-summary-price-list">
                 <li class="booking-summary-price-item">
                   <h5 class="booking-summary-price-item-title">{{noOfPersons}} Persons</h5>
-                  <p class="booking-summary-price-item-price">Rs. {{noOfPersons * pricePerPerson}}</p>
+                  <p class="booking-summary-price-item-price">
+                    Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</p>
                 </li>
                 <li class="booking-summary-price-item">
                   <h5 class="booking-summary-price-item-title">Service fee</h5>
@@ -97,7 +99,7 @@
               </ul>
             </div>
             <div class="booking-summary-price-total"><p>Total</p>
-              <h6>Rs. {{noOfPersons * pricePerPerson + 10}}</h6>
+              <h6>Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</h6>
             </div>
           </div>
           <button class="btn btn-dark btn-block">Book Now</button>
@@ -127,11 +129,7 @@
               <li><h6>Day 1</h6>
                 <ul>
                   <li>
-                    <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                      The
-                      hotel
-                      offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                      services.</p></li>
+                    <p>{{tripData.departure_itinerary_days[0].body}}</p></li>
                 </ul>
               </li>
               <li><h6>Day 2</h6>
@@ -235,12 +233,7 @@
       <div class="overview-section">
         <h5 class="overview-heading">Overview</h5>
         <div class="trip-desc">
-          <!--          {{tripData.overview}}-->
-          This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-          The
-          hotel
-          offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-          services.
+          {{tripData.overview}}
         </div>
       </div>
     </div>

@@ -28,7 +28,9 @@ export class TripPageComponent implements OnInit, OnDestroy {
   departureName: string;
   departureDate: Date;
   arrivalDate: Date;
-  pricePerPerson: number;
+  pricePerPersonOfDeparture: number;
+  packageName: string;
+  pricePerPersonOfPackage: number;
   noOfPersons = 1;
 
   customOptions: OwlOptions = {
@@ -65,18 +67,24 @@ export class TripPageComponent implements OnInit, OnDestroy {
       this.tripData = data.trip;
       this.departureId = this.tripData.departures[0].id;
       this.departureName = this.tripData.departures[0].location;
-      this.pricePerPerson = this.tripData.departures[0].price_per_person;
+      this.pricePerPersonOfDeparture = this.tripData.packages[0].price_per_person;
+      this.pricePerPersonOfPackage = this.tripData.packages[0].price_per_person;
       this.departureDate = this.tripData.departures[0].departure_date;
       this.arrivalDate = this.tripData.departures[0].arrival_date;
+      this.packageName = this.tripData.packages[0].title;
     });
   }
 
-  selectDeparture(id, name, price, departureDate, arrivalDate) {
+  selectDeparture(id, name, departurePrice, departureDate, arrivalDate) {
     this.departureId = id;
     this.departureName = name;
-    this.pricePerPerson = price;
+    this.pricePerPersonOfDeparture = departurePrice;
     this.departureDate = departureDate;
     this.arrivalDate = arrivalDate;
+  }
+
+  selectPackage(packagePrice) {
+    this.pricePerPersonOfPackage = packagePrice;
   }
 
   incrementPerson() {

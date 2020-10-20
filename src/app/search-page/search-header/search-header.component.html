@@ -1,7 +1,8 @@
 <header class="search-header">
   <div class="search-bar">
     <fa-icon [icon]="searchIcon"></fa-icon>
-    <input class="form-control border-0" placeholder="Search" size="50" [(ngModel)]="searchText" name="searchText">
+    <input class="form-control border-0" placeholder="Search" size="50" [(ngModel)]="searchText" name="searchText"
+           (keydown.enter)="search()">
   </div>
   <div>
     <hr>

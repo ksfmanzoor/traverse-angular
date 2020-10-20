@@ -28,7 +28,6 @@ export class CustomUploadAdapter {
                 resolve({default: result.file});
               },
               (error) => {
-                console.log(error);
                 reject(data.msg);
               }
             );
@@ -38,7 +37,7 @@ export class CustomUploadAdapter {
   }
 
   abort() {
-    console.log('abort');
+     alert('Abort');
   }
 }
 
