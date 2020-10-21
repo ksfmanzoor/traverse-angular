@@ -210,10 +210,18 @@
 .trip-services-section {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
+.trip-services-section::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .trip-service {
+  flex: 0 0 32%;
   margin-right: 12px;
   margin-bottom: 12px;
   padding: 24px 16px;

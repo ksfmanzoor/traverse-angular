@@ -27,7 +27,7 @@
               person</h1>
             <p class="trip-amount-subtitle">Including taxes</p>
           </div>
-          <h6 class="booking-form-field-data">{{departureDate | date }} - {{arrivalDate | date}}</h6></div>
+          <h6 class="booking-form-field-data">{{departureDate | date}} - {{arrivalDate | date}}</h6></div>
         <div class="booking-form">
           <div class="booking-form-fields">
             <div class="booking-form-fields-info">
@@ -62,7 +62,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="packageSelection">
                 <ng-container *ngFor="let x of tripData.packages">
-                  <a class="dropdown-item" (click)="selectPackage(x.price_per_person)">{{x.title}}</a>
+                  <a class="dropdown-item" (click)="selectPackage(x.title, x.price_per_person)">{{x.title}}</a>
                 </ng-container>
               </div>
             </div>
@@ -89,13 +89,16 @@
             <div class="collapse" id="summaryPriceCollapse">
               <ul class="booking-summary-price-list">
                 <li class="booking-summary-price-item">
+                  <h5 class="booking-summary-price-item-title">Departure Price</h5>
+                  <p class="booking-summary-price-item-price">Rs. {{pricePerPersonOfDeparture}}</p>
+                <li class="booking-summary-price-item">
+                  <h5 class="booking-summary-price-item-title">Package Price</h5>
+                  <p class="booking-summary-price-item-price">Rs. {{pricePerPersonOfPackage}}</p>
+                </li>
+                <li class="booking-summary-price-item">
                   <h5 class="booking-summary-price-item-title">{{noOfPersons}} Persons</h5>
                   <p class="booking-summary-price-item-price">
                     Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</p>
-                </li>
-                <li class="booking-summary-price-item">
-                  <h5 class="booking-summary-price-item-title">Service fee</h5>
-                  <p class="booking-summary-price-item-price">Rs. 10.0</p>
                 </li>
               </ul>
             </div>
@@ -146,13 +149,11 @@
                     {{x.body}}
                   </li>
                   <div class="trip-services-section">
-                    <ng-container *ngFor="let y of x.trip_service_values">
-                      <div class="trip-service">
-                        <img src="favicon.ico" alt="">
-                        <h6>{{y.trip_service.title}}</h6>
-                        <p>{{y.value}}</p>
-                      </div>
-                    </ng-container>
+                    <div class="trip-service" *ngFor="let y of x.trip_service_values">
+                      <img src="favicon.ico" alt="">
+                      <h6>{{y.trip_service.title}}</h6>
+                      <p>{{y.value}}</p>
+                    </div>
                   </div>
                 </ul>
               </li>

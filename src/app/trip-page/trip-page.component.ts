@@ -65,28 +65,37 @@ export class TripPageComponent implements OnInit, OnDestroy {
     this.screenWidth = window.innerWidth;
     this.route.data.subscribe(data => {
       this.tripData = data.trip;
-      this.departureId = this.tripData.departures[0].id;
-      this.departureName = this.tripData.departures[0].location;
-      this.departureMethod = this.tripData.departures[0].via;
-      this.departureDate = this.tripData.departures[0].departure_date;
-      this.pricePerPersonOfDeparture = this.tripData.packages[0].price_per_person;
-      this.pricePerPersonOfPackage = this.tripData.packages[0].price_per_person;
-      this.arrivalDate = this.tripData.departures[0].arrival_date;
-      this.packageName = this.tripData.packages[0].title;
+      for (const i of this.tripData.departures) {
+        if (i.is_standard) {
+          this.departureId = i.id;
+          this.departureName = i.location;
+          this.departureMethod = i.via;
+          this.departureDate = i.departure_date;
+          this.arrivalDate = i.arrival_date;
+          this.pricePerPersonOfDeparture = i.price_per_person;
+        }
+      }
+      for (const i of this.tripData.packages) {
+        if (i.is_standard) {
+          this.packageName = i.title;
+          this.pricePerPersonOfPackage = i.price_per_person;
+        }
+      }
     });
   }
 
-  selectDeparture(id, name, method, departurePrice, departureDate, arrivalDate) {
+  selectDeparture(id, name, method, price, departureDate, arrivalDate) {
     this.departureId = id;
     this.departureName = name;
     this.departureMethod = method;
-    this.pricePerPersonOfDeparture = departurePrice;
+    this.pricePerPersonOfDeparture = price;
     this.departureDate = departureDate;
     this.arrivalDate = arrivalDate;
   }
 
-  selectPackage(packagePrice) {
-    this.pricePerPersonOfPackage = packagePrice;
+  selectPackage(name, price) {
+    this.packageName = name;
+    this.pricePerPersonOfPackage = price;
   }
 
   incrementPerson() {
