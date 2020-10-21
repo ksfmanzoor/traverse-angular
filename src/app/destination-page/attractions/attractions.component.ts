@@ -14,7 +14,6 @@ export class AttractionsComponent implements OnInit {
     backButton = faAngleLeft;
     customOptions: OwlOptions = {
         loop: true,
-        mouseDrag: true,
         touchDrag: true,
         pullDrag: true,
         navSpeed: 700,

@@ -1,15 +1,42 @@
+import {GalleryImage} from 'src/app/models/attraction';
+import {Attraction} from 'src/app/models/destination';
+
 export interface Trip {
   id: string;
   title: string;
   slug: string;
-  itinerary_days: any[];
+  itinerary_days: ItineraryDays[];
   overview: string;
   packages: Package[];
   departures: Departure[];
-  gallery_images: any[];
+  gallery_images: GalleryImage[];
   departure_itinerary_days: DepartureItineraryDay[];
-  attractions: any[];
+  attractions: Attraction[];
 }
+
+export interface ItineraryDays {
+  id: string;
+  date: string;
+  body: string;
+  hotel_type: string;
+  departures: any[];
+  trip_service_values: TripServiceValue[];
+}
+
+export interface TripService {
+  id: string;
+  title: string;
+  description: string;
+  image?: any;
+}
+
+export interface TripServiceValue {
+  id: string;
+  value: string;
+  trip_service: TripService;
+  packages: any[];
+}
+
 
 export interface Package {
   id: string;
@@ -29,18 +56,6 @@ export interface Departure {
   is_standard: boolean;
 }
 
-export interface TripService {
-  id: string;
-  title: string;
-  description: string;
-}
-
-export interface TripServiceValue {
-  id: string;
-  value: string;
-  trip_service: TripService;
-  package: string;
-}
 
 export interface DepartureItineraryDay {
   id: string;

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons/faAngleDown';
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons/faAngleRight';
@@ -26,6 +26,7 @@ export class TripPageComponent implements OnInit, OnDestroy {
   tripData: Trip;
   departureId: string;
   departureName: string;
+  departureMethod: string;
   departureDate: Date;
   arrivalDate: Date;
   pricePerPersonOfDeparture: number;
@@ -41,7 +42,6 @@ export class TripPageComponent implements OnInit, OnDestroy {
     navSpeed: 700,
     dots: false,
     autoplay: true,
-    rtl: true,
     responsive: {
       0: {
         items: 1
@@ -58,7 +58,7 @@ export class TripPageComponent implements OnInit, OnDestroy {
     },
   };
 
-  constructor(private navBarService: NavBarService, private route: ActivatedRoute) { }
+  constructor(private navBarService: NavBarService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.navBarService.changeNavColor.next('#333333');
@@ -67,17 +67,19 @@ export class TripPageComponent implements OnInit, OnDestroy {
       this.tripData = data.trip;
       this.departureId = this.tripData.departures[0].id;
       this.departureName = this.tripData.departures[0].location;
+      this.departureMethod = this.tripData.departures[0].via;
+      this.departureDate = this.tripData.departures[0].departure_date;
       this.pricePerPersonOfDeparture = this.tripData.packages[0].price_per_person;
       this.pricePerPersonOfPackage = this.tripData.packages[0].price_per_person;
-      this.departureDate = this.tripData.departures[0].departure_date;
       this.arrivalDate = this.tripData.departures[0].arrival_date;
       this.packageName = this.tripData.packages[0].title;
     });
   }
 
-  selectDeparture(id, name, departurePrice, departureDate, arrivalDate) {
+  selectDeparture(id, name, method, departurePrice, departureDate, arrivalDate) {
     this.departureId = id;
     this.departureName = name;
+    this.departureMethod = method;
     this.pricePerPersonOfDeparture = departurePrice;
     this.departureDate = departureDate;
     this.arrivalDate = arrivalDate;
@@ -95,6 +97,10 @@ export class TripPageComponent implements OnInit, OnDestroy {
     if (this.noOfPersons !== 1) {
       this.noOfPersons--;
     }
+  }
+
+  navigate(slug) {
+    this.router.navigate(['/attraction', slug]).then();
   }
 
   ngOnDestroy(): void {

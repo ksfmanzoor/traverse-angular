@@ -30,15 +30,6 @@
   z-index: 1;
 }
 
-.services-heading {
-  margin-top: 0;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.services-list-data {
-  padding: 10px 0;
-}
 
 .item-page-desc > p {
   font-size: 16px;
@@ -207,8 +198,42 @@
 .booking-summary-price-total > h6 {
   margin-bottom: 0;
 }
+.trip-itinerary-day {
+  padding: 16px 0 ;
+}
 
+.trip-itinerary-day-details {
+  white-space: pre-line;
+  list-style: none;
+  margin-bottom: 12px;
+}
+.trip-services-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.trip-service {
+  margin-right: 12px;
+  margin-bottom: 12px;
+  padding: 24px 16px;
+  border-radius: 6px;
+  border: 1px solid #DDDDDD;
+}
+
+.trip-service > img {
+  margin-bottom: 16px;
+}
+
+.trip-service > h6 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.trip-service > p {
+  margin-bottom: 0;
+}
 .attractions-section {
   padding: 10px 0;
 }
