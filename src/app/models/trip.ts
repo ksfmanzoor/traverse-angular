@@ -10,7 +10,7 @@ export interface Trip {
   packages: Package[];
   departures: Departure[];
   gallery_images: GalleryImage[];
-  departure_itinerary_days: DepartureItineraryDay[];
+  departure_itinerary_days: DepartureItineraryDays[];
   attractions: Attraction[];
 }
 
@@ -20,6 +20,15 @@ export interface ItineraryDays {
   body: string;
   hotel_type: string;
   departures: any[];
+  trip_service_values: TripServiceValue[];
+}
+
+export interface DepartureItineraryDays {
+  id: string;
+  date: string;
+  body: string;
+  hotel_type: string;
+  departures: string[];
   trip_service_values: TripServiceValue[];
 }
 
@@ -34,7 +43,7 @@ export interface TripServiceValue {
   id: string;
   value: string;
   trip_service: TripService;
-  packages: any[];
+  packages: string[];
 }
 
 

@@ -30,6 +30,7 @@ export class TripPageComponent implements OnInit, OnDestroy {
   departureDate: Date;
   arrivalDate: Date;
   pricePerPersonOfDeparture: number;
+  packageId: string;
   packageName: string;
   pricePerPersonOfPackage: number;
   noOfPersons = 1;
@@ -77,6 +78,7 @@ export class TripPageComponent implements OnInit, OnDestroy {
       }
       for (const i of this.tripData.packages) {
         if (i.is_standard) {
+          this.packageId = i.id;
           this.packageName = i.title;
           this.pricePerPersonOfPackage = i.price_per_person;
         }
@@ -93,7 +95,8 @@ export class TripPageComponent implements OnInit, OnDestroy {
     this.arrivalDate = arrivalDate;
   }
 
-  selectPackage(name, price) {
+  selectPackage(id, name, price) {
+    this.packageId = id;
     this.packageName = name;
     this.pricePerPersonOfPackage = price;
   }

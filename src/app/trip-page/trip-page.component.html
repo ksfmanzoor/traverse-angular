@@ -62,7 +62,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="packageSelection">
                 <ng-container *ngFor="let x of tripData.packages">
-                  <a class="dropdown-item" (click)="selectPackage(x.title, x.price_per_person)">{{x.title}}</a>
+                  <a class="dropdown-item" (click)="selectPackage(x.id, x.title, x.price_per_person)">{{x.title}}</a>
                 </ng-container>
               </div>
             </div>
@@ -115,26 +115,26 @@
         <h5 class="services-heading">Pre-Itinerary</h5>
         <div class="trip-itinerary">
           <ul>
-            <li><h6>Day 1</h6>
-              <ul>
-                <li>
-                  <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                    The
-                    hotel
-                    offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                    services.</p></li>
-              </ul>
-            </li>
-            <li><h6>Day 2</h6>
-              <ul>
-                <li>
-                  <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                    The
-                    hotel
-                    offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                    services.</p></li>
-              </ul>
-            </li>
+            <ng-container *ngFor="let x of tripData.departure_itinerary_days">
+              <ng-container *ngIf="x.departures.includes(departureId)">
+                <li class="trip-itinerary-day"><h6>{{x.date | date}}</h6>
+                  <ul>
+                    <li class="trip-itinerary-day-details">
+                      {{x.body}}
+                    </li>
+                    <div class="trip-services-section">
+                      <ng-container *ngFor="let y of x.trip_service_values">
+                        <div class="trip-service" *ngIf="y.packages.includes(packageId)">
+                          <img src="favicon.ico" alt="">
+                          <h6>{{y.trip_service.title}}</h6>
+                          <p>{{y.value}}</p>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </ul>
+                </li>
+              </ng-container>
+            </ng-container>
           </ul>
         </div>
       </div>
@@ -165,36 +165,6 @@
         <h5 class="services-heading">Post-Itinerary</h5>
         <div class="trip-itinerary">
           <ul>
-            <li><h6>Day 1</h6>
-              <ul>
-                <li>
-                  <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                    The
-                    hotel
-                    offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                    services.</p></li>
-              </ul>
-            </li>
-            <li><h6>Day 2</h6>
-              <ul>
-                <li>
-                  <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                    The
-                    hotel
-                    offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                    services.</p></li>
-              </ul>
-            </li>
-            <li><h6>Day 3</h6>
-              <ul>
-                <li>
-                  <p>This Manhattan hotel is located across the street from Madison Square Garden and Penn Station.
-                    The
-                    hotel
-                    offers access to the adjacent fitness club which includes a gym and a tour desk with ticket
-                    services.</p></li>
-              </ul>
-            </li>
           </ul>
         </div>
       </div>
