@@ -27,6 +27,7 @@ export interface DepartureItineraryDays {
   id: string;
   date: string;
   body: string;
+  status: string;
   hotel_type: string;
   departures: string[];
   trip_service_values: TripServiceValue[];
