@@ -1,36 +1,13 @@
-import {GalleryImage} from 'src/app/models/attraction';
-import {Attraction} from 'src/app/models/destination';
-
 export interface Trip {
   id: string;
   title: string;
   slug: string;
-  itinerary_days: ItineraryDays[];
+  itinerary_days: ItineraryDay[];
   overview: string;
   packages: Package[];
   departures: Departure[];
   gallery_images: GalleryImage[];
-  departure_itinerary_days: DepartureItineraryDays[];
   attractions: Attraction[];
-}
-
-export interface ItineraryDays {
-  id: string;
-  date: string;
-  body: string;
-  hotel_type: string;
-  departures: any[];
-  trip_service_values: TripServiceValue[];
-}
-
-export interface DepartureItineraryDays {
-  id: string;
-  date: string;
-  body: string;
-  status: string;
-  hotel_type: string;
-  departures: string[];
-  trip_service_values: TripServiceValue[];
 }
 
 export interface TripService {
@@ -47,12 +24,33 @@ export interface TripServiceValue {
   packages: string[];
 }
 
+export interface ItineraryDay {
+  id: string;
+  date: string;
+  body: string;
+  departures: string[];
+  trip_service_values: TripServiceValue[];
+  group: string;
+}
 
 export interface Package {
   id: string;
   title: string;
   price_per_person: number;
   is_standard: boolean;
+}
+
+export interface TripAddon {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface TripAddonValue {
+  id: string;
+  price: number;
+  trip_addon: TripAddon;
+  package: string;
 }
 
 export interface Departure {
@@ -62,16 +60,20 @@ export interface Departure {
   price_per_person: number;
   departure_date: Date;
   arrival_date: Date;
-  trip_addon_values: any[];
+  trip_addon_values: TripAddonValue[];
   is_standard: boolean;
 }
 
-
-export interface DepartureItineraryDay {
+export interface GalleryImage {
   id: string;
-  date: string;
-  body: string;
-  hotel_type: string;
-  departure: string;
-  trip_service_values: TripServiceValue[];
+  image: string;
+  alt_text: string;
+}
+
+export interface Attraction {
+  id: string;
+  title: string;
+  subtitle: string;
+  thumbnail: string;
+  slug: string;
 }

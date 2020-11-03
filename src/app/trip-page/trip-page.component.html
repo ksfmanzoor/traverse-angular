@@ -115,8 +115,8 @@
         <h5 class="services-heading">Pre-Itinerary</h5>
         <div class="trip-itinerary">
           <ul>
-            <ng-container *ngFor="let x of tripData.departure_itinerary_days">
-              <ng-container *ngIf="x.status.toLowerCase() == 'pre'">
+            <ng-container *ngFor="let x of tripData.itinerary_days">
+              <ng-container *ngIf="x.group.toLowerCase() == 'pre'">
                 <ng-container *ngIf="x.departures.includes(departureId)">
                   <li class="trip-itinerary-day"><h6>{{x.date | date}}</h6>
                     <ul>
@@ -145,20 +145,41 @@
         <div class="trip-itinerary">
           <ul>
             <ng-container *ngFor="let x of tripData.itinerary_days">
-              <li class="trip-itinerary-day"><h6>{{x.date | date}}</h6>
-                <ul>
-                  <li class="trip-itinerary-day-details">
-                    {{x.body}}
+              <ng-container *ngIf="x.group.toLowerCase() == 'common'">
+                <ng-container *ngIf="x.departures.includes(departureId)">
+                  <li class="trip-itinerary-day"><h6>{{x.date | date}}</h6>
+                    <ul>
+                      <li class="trip-itinerary-day-details">
+                        {{x.body}}
+                      </li>
+                      <div style="position: relative">
+                        <owl-carousel-o [options]="serviceCarouselOptions" #owlServices>
+                          <ng-template carouselSlide *ngFor="let y of x.trip_service_values">
+                            <div class="trip-service">
+                              <img src="favicon.ico" alt="">
+                              <h6>{{y.trip_service.title}}</h6>
+                              <p>{{y.value}}</p>
+                            </div>
+                          </ng-template>
+                        </owl-carousel-o>
+                        <ng-container *ngIf="x.trip_service_values.length > 3">
+                          <div (click)="owlServices.next()" class="service-back-button">
+                            <fa-icon [icon]="backButton"></fa-icon>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <!--                        <ng-container *ngFor="let y of x.trip_service_values">-->
+                      <!--                          <div class="trip-service" *ngIf="y.packages.includes(packageId)">-->
+                      <!--                            <img src="favicon.ico" alt="">-->
+                      <!--                            <h6>{{y.trip_service.title}}</h6>-->
+                      <!--                            <p>{{y.value}}</p>-->
+                      <!--                          </div>-->
+                      <!--                        </ng-container>
+                      -->
+                    </ul>
                   </li>
-                  <div class="trip-services-section">
-                    <div class="trip-service" *ngFor="let y of x.trip_service_values">
-                      <img src="favicon.ico" alt="">
-                      <h6>{{y.trip_service.title}}</h6>
-                      <p>{{y.value}}</p>
-                    </div>
-                  </div>
-                </ul>
-              </li>
+                </ng-container>
+              </ng-container>
             </ng-container>
           </ul>
         </div>
@@ -167,8 +188,8 @@
         <h5 class="services-heading">Post-Itinerary</h5>
         <div class="trip-itinerary">
           <ul>
-            <ng-container *ngFor="let x of tripData.departure_itinerary_days">
-              <ng-container *ngIf="x.status.toLowerCase() == 'post'">
+            <ng-container *ngFor="let x of tripData.itinerary_days">
+              <ng-container *ngIf="x.group.toLowerCase() == 'post'">
                 <ng-container *ngIf="x.departures.includes(departureId)">
                   <li class="trip-itinerary-day"><h6>{{x.date | date}}</h6>
                     <ul>

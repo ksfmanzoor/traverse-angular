@@ -59,6 +59,16 @@ export class TripPageComponent implements OnInit, OnDestroy {
     },
   };
 
+  serviceCarouselOptions: OwlOptions = {
+    stagePadding: 0,
+    loop: false,
+    navSpeed: 700,
+    dots: false,
+    autoplay: true,
+    rewind: true,
+  };
+
+
   constructor(private navBarService: NavBarService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
