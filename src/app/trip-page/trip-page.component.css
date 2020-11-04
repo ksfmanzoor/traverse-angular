@@ -85,6 +85,10 @@
   margin-bottom: 0;
 }
 
+.dropdown-toggle {
+  -webkit-appearance: none;
+}
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -92,10 +96,6 @@
 .booking-form-field-data {
   padding: 0 10px;
   margin-bottom: 0;
-}
-
-.dropdown {
-  -webkit-appearance: none;
 }
 
 .person-quantity-controls {
