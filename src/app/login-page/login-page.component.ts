@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
       this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
 
     }
-    this.authenticationService.login(this.loginData);
+    this.authenticationService.login(this.loginData).subscribe();
   }
 
   onEmailClick() {

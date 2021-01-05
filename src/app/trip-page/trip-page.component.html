@@ -123,12 +123,19 @@
                       <li class="trip-itinerary-day-details">
                         {{x.body}}
                       </li>
-                      <div class="trip-services-section">
-                        <ng-container *ngFor="let y of x.trip_service_values">
-                          <div class="trip-service" *ngIf="y.packages.includes(packageId)">
-                            <img src="favicon.ico" alt="">
-                            <h6>{{y.trip_service.title}}</h6>
-                            <p>{{y.value}}</p>
+                      <div class="position-relative">
+                        <owl-carousel-o [options]="serviceCarouselOptions" #owlServices>
+                          <ng-template carouselSlide *ngFor="let y of x.trip_service_values">
+                            <div class="trip-service" *ngIf="y.packages.includes(packageId)">
+                              <img src="favicon.ico" alt="">
+                              <h6>{{y.trip_service.title}}</h6>
+                              <p>{{y.value}}</p>
+                            </div>
+                          </ng-template>
+                        </owl-carousel-o>
+                        <ng-container *ngIf="x.trip_service_values.length > 3">
+                          <div (click)="owlServices.next()" class="service-back-button">
+                            <fa-icon [icon]="backButton"></fa-icon>
                           </div>
                         </ng-container>
                       </div>
@@ -152,13 +159,49 @@
                       <li class="trip-itinerary-day-details">
                         {{x.body}}
                       </li>
-                      <div style="position: relative">
+                      <div class="position-relative">
                         <owl-carousel-o [options]="serviceCarouselOptions" #owlServices>
-                          <ng-template carouselSlide *ngFor="let y of x.trip_service_values">
+                          <ng-container>
+                            <ng-template carouselSlide>
+                              <div class="trip-service">
+                                <img src="favicon.ico" alt="">
+                                <h6>Test</h6>
+                                <p>Testing</p>
+                              </div>
+                            </ng-template>
+                          </ng-container>
+                          <ng-container>
+                            <ng-template carouselSlide >
+                              <div class="trip-service">
+                                <img src="favicon.ico" alt="">
+                                <h6>Test</h6>
+                                <p>Testing</p>
+                              </div>
+                            </ng-template>
+                          </ng-container>
+                          <ng-container>
+                            <ng-template carouselSlide>
+                              <div class="trip-service">
+                                <img src="favicon.ico" alt="">
+                                <h6>Test</h6>
+                                <p>Testing</p>
+                              </div>
+                            </ng-template>
+                          </ng-container>
+                          <ng-container>
+                            <ng-template carouselSlide>
+                              <div class="trip-service">
+                                <img src="favicon.ico" alt="">
+                                <h6>Test</h6>
+                                <p>Testing</p>
+                              </div>
+                            </ng-template>
+                          </ng-container>
+                          <ng-template carouselSlide>
                             <div class="trip-service">
                               <img src="favicon.ico" alt="">
-                              <h6>{{y.trip_service.title}}</h6>
-                              <p>{{y.value}}</p>
+                              <h6>Test</h6>
+                              <p>Testing</p>
                             </div>
                           </ng-template>
                         </owl-carousel-o>
@@ -168,14 +211,6 @@
                           </div>
                         </ng-container>
                       </div>
-                      <!--                        <ng-container *ngFor="let y of x.trip_service_values">-->
-                      <!--                          <div class="trip-service" *ngIf="y.packages.includes(packageId)">-->
-                      <!--                            <img src="favicon.ico" alt="">-->
-                      <!--                            <h6>{{y.trip_service.title}}</h6>-->
-                      <!--                            <p>{{y.value}}</p>-->
-                      <!--                          </div>-->
-                      <!--                        </ng-container>
-                      -->
                     </ul>
                   </li>
                 </ng-container>
@@ -196,12 +231,21 @@
                       <li class="trip-itinerary-day-details">
                         {{x.body}}
                       </li>
-                      <div class="trip-services-section">
-                        <ng-container *ngFor="let y of x.trip_service_values">
-                          <div class="trip-service" *ngIf="y.packages.includes(packageId)">
-                            <img src="favicon.ico" alt="">
-                            <h6>{{y.trip_service.title}}</h6>
-                            <p>{{y.value}}</p>
+                      <div class="position-relative">
+                        <owl-carousel-o [options]="serviceCarouselOptions" #owlServices>
+                          <ng-container *ngFor="let y of x.trip_service_values">
+                            <ng-template carouselSlide *ngIf="y.packages.includes(packageId)">
+                              <div class="trip-service">
+                                <img src="favicon.ico" alt="">
+                                <h6>{{y.trip_service.title}}</h6>
+                                <p>{{y.value}}</p>
+                              </div>
+                            </ng-template>
+                          </ng-container>
+                        </owl-carousel-o>
+                        <ng-container *ngIf="x.trip_service_values.length > 3">
+                          <div (click)="owlServices.next()" class="service-back-button">
+                            <fa-icon [icon]="backButton"></fa-icon>
                           </div>
                         </ng-container>
                       </div>

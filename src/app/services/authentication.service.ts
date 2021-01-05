@@ -3,13 +3,11 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+import {Token} from 'src/app/models/token';
 import {environment} from 'src/environments/environment';
 import {User} from '../models/user';
 
-export interface Token {
-  token: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +26,7 @@ export class AuthenticationService {
     this.verifiedUser = !!this.currentUserValue ? this.currentUserValue.is_verified : false;
   }
 
-  signUp(signUpData) {
+  signUp(signUpData): Observable<any> {
     return this.httpClient.post(this.baseUrl + 'user/', signUpData);
   }
 
@@ -40,17 +38,18 @@ export class AuthenticationService {
     return this.tokenSubject.value;
   }
 
-  login(loginData) {
+  login(loginData): Observable<any> {
     return this.httpClient.post(this.baseUrl + 'token/', loginData).pipe(map((tokenObject: Token) => {
       localStorage.setItem('token', JSON.stringify(tokenObject));
       this.tokenSubject.next(tokenObject);
-    }), mergeMap(data => this.httpClient.get(this.baseUrl + 'user/'))).subscribe((user: User ) => {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      this.currentUserSubject.next(user);
-      this.verifiedUser = user.is_verified;
-      this.router.navigate(['/']).then();
-      return user;
-    });
+    })).pipe(map(() => {
+      this.httpClient.get(this.baseUrl + 'user/').subscribe((user: User) => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        this.verifiedUser = user.is_verified;
+        this.router.navigate(['/']).then();
+      });
+    }));
   }
 
   logout() {

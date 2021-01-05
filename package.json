@@ -38,7 +38,7 @@
     "jquery": "^3.5.1",
     "ng-loading-bar": "0.0.10",
     "ngx-chips": "^2.1.0",
-    "ngx-owl-carousel-o": "^2.0.3",
+    "ngx-owl-carousel-o": "^2.1.1",
     "ngx-picture": "^2.0.4",
     "ngx-social-share": "^1.0.0",
     "path": "^0.12.7",
