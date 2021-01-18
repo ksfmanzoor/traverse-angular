@@ -46,6 +46,10 @@ const routes: Routes = [
     }
   },
   {
+    path: 'trips',
+    loadChildren: () => import('./all-trips-module/all-trips.module').then(m => m.AllTripsModule)
+  },
+  {
     path: 'trip/:slug',
     loadChildren: () => import('./trip-module/trip.module').then(m => m.TripModule), resolve: {
       trip: TripResolverService

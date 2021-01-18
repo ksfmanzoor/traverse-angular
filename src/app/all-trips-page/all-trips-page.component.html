@@ -1,0 +1,15 @@
+<app-small-header [headerInfo]="headerInfo"></app-small-header>
+<div class="container-fluid">
+  <div class="p-5">
+    <h3 class="text-center">All Trips</h3>
+    <h6 class="text-center text-muted">Lorem Ispum Gypsum</h6>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row row-image" *ngFor="let x of [].constructor(1); let i=index">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-2" *ngFor="let y of [].constructor(3); let j=index">
+      <app-trip-box></app-trip-box>
+    </div>
+  </div>
+</div>
+
