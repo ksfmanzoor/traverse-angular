@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Trip} from 'src/app/models/search-result';
+import {SearchTrip} from 'src/app/models/search-result';
 import {NavBarService} from 'src/app/services/nav-bar.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {NavBarService} from 'src/app/services/nav-bar.service';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit, OnDestroy {
-  minifiedTrips: Trip[];
+  minifiedTrips: SearchTrip[];
   searchText = '';
 
   constructor(private navBarService: NavBarService, private route: ActivatedRoute) { }

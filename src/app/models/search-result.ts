@@ -2,7 +2,7 @@ export interface SearchResult {
   places: Place[];
   attractions: any[];
   blog_posts: BlogPost[];
-  trips: Trip[];
+  trips: SearchTrip[];
 }
 
 
@@ -22,7 +22,7 @@ export interface BlogPost {
   slug: string;
 }
 
-export interface Trip {
+export interface SearchTrip {
   id: string;
   title: string;
   slug: string;

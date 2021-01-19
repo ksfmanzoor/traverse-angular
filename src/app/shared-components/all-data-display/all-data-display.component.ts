@@ -10,11 +10,11 @@ export class AllDataDisplayComponent implements OnInit {
   @Input() titleInfo: {title: string, subtitle: string};
   @Input() dataList: MinifiedHomeData[];
   @Input() path: string;
-  rowNumber: number;
+  totalRows: number;
   constructor() { }
 
   ngOnInit(): void {
-    this.rowNumber = Math.ceil(this.dataList.length / 3);
+    this.totalRows = Math.ceil(this.dataList.length / 3);
   }
 
 }

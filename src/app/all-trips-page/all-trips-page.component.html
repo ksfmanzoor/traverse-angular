@@ -6,9 +6,10 @@
   </div>
 </div>
 <div class="container-fluid">
-  <div class="row row-image" *ngFor="let x of [].constructor(1); let i=index">
-    <div class="col-sm-12 col-md-6 col-lg-4 p-2" *ngFor="let y of [].constructor(3); let j=index">
-      <app-trip-box></app-trip-box>
+  <div class="row row-image" *ngFor="let x of [].constructor(totalRows); let i=index">
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 p-2" *ngFor="let y of [].constructor(3); let j=index">
+      <app-trip-box [minifiedTrip]="minifiedTrips[i*3+j]"
+                    *ngIf="minifiedTrips[i*3+j]!=null"></app-trip-box>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
-<div class="trip-box">
-  <img src="assets/header.jpg" class="img-fluid trip-box-image" alt="Trip Thumbnail">
-  <div class="trip-box-date">27 Aug - 1 Sep</div>
-  <div class="trip-box-title">Fly above Buni</div>
-  <div class="trip-box-price">From 23,000 <span>Rs / person</span></div>
+<div class="trip-box" (click)="navigate()">
+  <img src="{{minifiedTrip.gallery_image.image}}" class="trip-box-image"
+       alt="{{minifiedTrip.gallery_image.alt_text}}">
+  <div class="trip-box-date">{{minifiedTrip.start_date | date}} - {{minifiedTrip.end_date | date}}</div>
+  <div class="trip-box-title">{{minifiedTrip.title}}</div>
+  <div class="trip-box-price">From {{minifiedTrip.price_per_person}} <span>Rs / person</span></div>
 </div>

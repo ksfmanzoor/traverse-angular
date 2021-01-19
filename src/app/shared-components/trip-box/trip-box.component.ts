@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {MinifiedTrip} from 'src/app/models/minified-trip';
 
 @Component({
   selector: 'app-trip-box',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trip-box.component.css']
 })
 export class TripBoxComponent implements OnInit {
+  @Input() minifiedTrip: MinifiedTrip;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigate() {
+    this.router.navigate(['/trip', this.minifiedTrip.slug]).then();
   }
 
 }

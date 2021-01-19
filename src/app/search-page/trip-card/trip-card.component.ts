@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Trip} from 'src/app/models/search-result';
+import {SearchTrip} from 'src/app/models/search-result';
 
 @Component({
   selector: 'app-trip-card',
@@ -8,7 +8,7 @@ import {Trip} from 'src/app/models/search-result';
   styleUrls: ['./trip-card.component.css']
 })
 export class TripCardComponent implements OnInit {
-  @Input() minifiedTrip: Trip;
+  @Input() minifiedTrip: SearchTrip;
 
   constructor(private router: Router) { }
 
