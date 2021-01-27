@@ -2,9 +2,9 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {SearchHeaderComponent} from 'src/app/search-page/search-header/search-header.component';
 import {SearchPageComponent} from 'src/app/search-page/search-page.component';
 import {TripCardComponent} from 'src/app/search-page/trip-card/trip-card.component';
+import {SharedModule} from 'src/app/shared-module/shared.module';
 
 import {SearchRoutingModule} from './search-routing.module';
 
@@ -12,15 +12,15 @@ import {SearchRoutingModule} from './search-routing.module';
 @NgModule({
   declarations: [
     SearchPageComponent,
-    SearchHeaderComponent,
     TripCardComponent,
   ],
-	imports: [
-		CommonModule,
-		SearchRoutingModule,
-		FontAwesomeModule,
-		FormsModule
-	]
+  imports: [
+    CommonModule,
+    SearchRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    SharedModule
+  ]
 })
 export class SearchModule {
 }

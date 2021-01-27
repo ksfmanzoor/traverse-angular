@@ -1,4 +1,3 @@
-
 header {
     position: relative;
     /*background-color: black;*/
@@ -38,36 +37,14 @@ header > .overlay {
     z-index: 1;
 }
 
-.intro-box {
-    text-align: center;
-    padding-top: 80px;
-}
-
-.intro-lead-in {
-    color: white;
-    font-size: 55px;
-    font-family: 'Roboto', helvetica, Arial, sans-serif;
-}
-
-.search-bar {
-    padding: 20px;
+.search-container {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form-control:focus {
     box-shadow: none;
-}
-
-
-@media (max-width: 992px) {
-    /*header {*/
-    /*    background: url('../../../assets/header.jpg') no-repeat center center;*/
-    /*}*/
-    /*header video {*/
-    /*    display: none;*/
-    /*}*/
-
-    .intro-box {
-        padding-top: 0;
-        padding-bottom: 80px;
-    }
 }

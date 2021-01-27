@@ -12,6 +12,9 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.padding-top {
+  padding-top: 100px;
+}
 .intro-text {
     text-align: center;
     color: white;
