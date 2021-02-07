@@ -135,8 +135,18 @@ export class TripPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  navigate(slug) {
+  navigateToAttraction(slug) {
     this.router.navigate(['/attraction', slug]).then();
+  }
+
+  navigateToBooking() {
+    this.router.navigate(['/booking'], {
+      state: {
+        departureId: this.departureId,
+        packageId: this.packageId,
+        trip: this.tripData
+      }
+    }).then();
   }
 
   ngOnDestroy(): void {

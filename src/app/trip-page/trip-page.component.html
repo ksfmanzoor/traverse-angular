@@ -106,7 +106,7 @@
               <h6>Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</h6>
             </div>
           </div>
-          <button class="btn btn-dark btn-block">Book Now</button>
+          <button class="btn btn-dark btn-block" (click)="navigateToBooking()">Book Now</button>
         </div>
       </div>
     </div>
@@ -171,7 +171,7 @@
                             </ng-template>
                           </ng-container>
                           <ng-container>
-                            <ng-template carouselSlide >
+                            <ng-template carouselSlide>
                               <div class="trip-service">
                                 <img src="favicon.ico" alt="">
                                 <h6>Test</h6>
@@ -272,7 +272,7 @@
     <div class="col position-relative" style="cursor: pointer">
       <owl-carousel-o [options]="customOptions" #owlAttractions>
         <ng-template carouselSlide *ngFor="let x of tripData.attractions">
-          <div class="attraction-block" (click)="navigate(x.slug)">
+          <div class="attraction-block" (click)="navigateToAttraction(x.slug)">
             <img src="{{x.thumbnail}}" class="attraction-image" alt="{{x.title}}">
             <div class="caption text-white">
               <h6>{{x.title}}</h6>

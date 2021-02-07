@@ -1,0 +1,149 @@
+.booking-title {
+  font-size: 48px;
+  line-height: 66px;
+  font-weight: 600;
+  padding: 16px 0;
+}
+
+.booking-subtitle {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 600;
+  padding: 16px 0;
+}
+
+.booking-form-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.booking-form-fields-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.person-quantity-controls {
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.person-quantity-calculator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 24px;
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  border-radius: 50%;
+}
+
+.person-quantity-calculator > fa-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.person-current-quantity {
+  font-size: 22px;
+}
+
+.form-control {
+  height: 45px;
+  border-radius: 6px;
+}
+
+.divider {
+  margin: 20px 0;
+  border: 1px solid #C4C4C4;
+}
+
+.booking-trip-details-section {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 32px;
+  padding: 20px;
+}
+
+.booking-trip-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-trip-details-img > img {
+  width: 186px;
+  height: 159px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.booking-trip-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 16px;
+  padding: 16px 0;
+}
+
+.booking-trip-details-info-title {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.booking-trip-details-info-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.booking-trip-details-price-title {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 600;
+  padding: 2px 0;
+}
+
+.booking-trip-details-price-subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.booking-trip-details-price-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 38px;
+  padding-top: 8px;
+}
+
+.booking-trip-details-cancellation-title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.booking-trip-details-cancellation-subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 85px;
+  }
+}

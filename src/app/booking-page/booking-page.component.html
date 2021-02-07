@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="booking-title">Confirm and Pay!</div>
+      <div class="booking-subtitle">Your Trip</div>
+      <div>
+        <div class="booking-subtitle">Date</div>
+        <p
+          class="booking-date">{{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).departure_date | date: 'medium'}}
+          - {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).arrival_date | date:'medium'}}</p>
+      </div>
+      <div class="booking-subtitle">Guests</div>
+      <div class="booking-form-fields">
+        <div class="booking-form-fields-info">Persons</div>
+        <div class="person-quantity-controls">
+          <div class="person-quantity-calculator">
+            <fa-icon [icon]="minusIcon"></fa-icon>
+          </div>
+          <div class="person-current-quantity">2</div>
+          <div class="person-quantity-calculator">
+            <fa-icon [icon]="plusIcon"></fa-icon>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <input type="text" class="form-control mr-2" placeholder="Full Name">
+        <input type="text" class="form-control mr-2" placeholder="Phone Number">
+        <input type="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="divider mt-5"></div>
+      <div class="booking-subtitle">Pay With</div>
+      <div class="booking-form-fields">
+        <div class="booking-form-fields-info">Not Available Now</div>
+      </div>
+      <button class="btn btn-lg btn-block btn-dark" (click)="createTripBooking()">Book Now</button>
+    </div>
+    <div class="offset-1 col-5">
+      <div class="booking-trip-details-section">
+        <div class="booking-trip-details">
+          <div class="booking-trip-details-img">
+            <img src="{{passedTripData.trip.gallery_images[0].image}}" alt="{{passedTripData.trip.gallery_images[0].alt_text}}">
+          </div>
+          <div class="booking-trip-details-info">
+            <div
+              class="booking-trip-details-info-subtitle">{{utilityService.packageFinder(passedTripData.trip.packages, passedTripData.packageId).title}}</div>
+            <div class="booking-trip-details-info-title">{{passedTripData.trip.title}}</div>
+            <div
+              class="booking-trip-details-info-subtitle">{{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).location}}
+              via {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).via}}</div>
+          </div>
+        </div>
+        <div class="divider mt-5"></div>
+        <div class="booking-trip-details-price">
+          <div class="booking-trip-details-price-title">Price Details</div>
+          <div class="booking-trip-details-price-subtitle">
+            <div>23000 x 1 Adult</div>
+            <div>23000</div>
+          </div>
+          <div class="booking-trip-details-price-subtitle">
+            <div>11500 x 1 Children</div>
+            <div>11500</div>
+          </div>
+          <div class="booking-trip-details-price-total">
+            <div>TOTAL(PKR)</div>
+            <div>34500</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-trip-details-cancellation">
+          <div class="booking-trip-details-cancellation-title">CANCELLATION POLICY</div>
+          <div class="booking-trip-details-cancellation-subtitle">
+            <div>Any experience can be canceled and fully refunded within 24 hours of purchase.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

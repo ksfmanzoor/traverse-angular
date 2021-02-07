@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {BookingPageComponent} from 'src/app/booking-page/booking-page.component';
 import {AllTripResolverService} from 'src/app/services/all-trip-resolver.service';
 import {SearchResolverService} from 'src/app/services/search-resolver.service';
 import {TripResolverService} from 'src/app/services/trip-resolver.service';
@@ -57,6 +58,9 @@ const routes: Routes = [
     loadChildren: () => import('./trip-module/trip.module').then(m => m.TripModule), resolve: {
       trip: TripResolverService
     }
+  },
+  {
+    path: 'booking', component: BookingPageComponent
   },
   {
     path: 'blogs',
