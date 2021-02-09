@@ -30,6 +30,23 @@
   padding-left: 20px;
 }
 
+.dropdown-menu {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 6px, rgba(0, 0, 0, 0.07) 0 0 0 1px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.person-quantity-calculator-label {
+  font-size: 16px;
+  line-height: 20px;
+  padding-left: 8px;
+  font-weight: 600;
+}
+
 .person-quantity-controls {
   display: flex;
   flex-direction: row;
@@ -47,6 +64,7 @@
   border: 2px solid rgba(0, 0, 0, 0.54);
   border-radius: 50%;
 }
+
 
 .person-quantity-calculator > fa-icon {
   color: rgba(0, 0, 0, 0.54);

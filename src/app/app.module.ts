@@ -13,14 +13,12 @@ import {CustomReuseStrategy} from './custom-reuse-strategy';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {AuthenticationInterceptorService} from './services/authentication-interceptor.service';
 import {SharedModule} from './shared-module/shared.module';
-import { BookingPageComponent } from './booking-page/booking-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    BookingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +27,7 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
     HttpClientModule,
     LoadingBarHttpClientModule,
     SharedModule,
-    SocialLoginModule
+    SocialLoginModule,
   ],
   providers: [{
     provide: RouteReuseStrategy,

@@ -1,6 +1,6 @@
 import {Trip} from 'src/app/models/trip';
 
-export interface BookedTrip {
+export interface CreateTripBooking {
   id?: string;
   number_of_persons?: number;
   user?: string;

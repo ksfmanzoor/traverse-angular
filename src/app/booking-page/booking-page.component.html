@@ -10,23 +10,45 @@
           - {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).arrival_date | date:'medium'}}</p>
       </div>
       <div class="booking-subtitle">Guests</div>
-      <div class="booking-form-fields">
+      <div class="booking-form-fields" id="dropdownMenuButton" data-toggle="dropdown">
         <div class="booking-form-fields-info">Persons</div>
         <div class="person-quantity-controls">
-          <div class="person-quantity-calculator">
-            <fa-icon [icon]="minusIcon"></fa-icon>
-          </div>
-          <div class="person-current-quantity">2</div>
-          <div class="person-quantity-calculator">
-            <fa-icon [icon]="plusIcon"></fa-icon>
+          <div class="person-current-quantity">{{noOfAdults + noOfChildren}}</div>
+          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+            <div class="d-flex justify-content-between align-items-center p-2">
+              <div class="person-quantity-calculator-label">Adults</div>
+              <div class="d-flex align-items-center">
+                <div class="person-quantity-calculator" (click)="decrementAdults()">
+                  <fa-icon [icon]="minusIcon"></fa-icon>
+                </div>
+                <div class="person-current-quantity">{{noOfAdults}}</div>
+                <div class="person-quantity-calculator" (click)="incrementAdults()">
+                  <fa-icon [icon]="plusIcon"></fa-icon>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center p-2">
+              <div class="person-quantity-calculator-label">Children</div>
+              <div class="d-flex align-items-center">
+                <div class="person-quantity-calculator" (click)="decrementChildren()">
+                  <fa-icon [icon]="minusIcon"></fa-icon>
+                </div>
+                <div class="person-current-quantity">{{noOfChildren}}</div>
+                <div class="person-quantity-calculator" (click)="incrementChildren()">
+                  <fa-icon [icon]="plusIcon"></fa-icon>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="d-flex">
-        <input type="text" class="form-control mr-2" placeholder="Full Name">
-        <input type="text" class="form-control mr-2" placeholder="Phone Number">
-        <input type="email" class="form-control" placeholder="Email">
-      </div>
+      <form [formGroup]="bookingForm">
+        <div class="d-flex">
+          <input type="text" class="form-control mr-2" placeholder="Full Name" formControlName="name">
+          <input type="text" class="form-control mr-2" placeholder="Phone Number" formControlName="phoneNumber">
+          <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        </div>
+      </form>
       <div class="divider mt-5"></div>
       <div class="booking-subtitle">Pay With</div>
       <div class="booking-form-fields">
@@ -38,7 +60,8 @@
       <div class="booking-trip-details-section">
         <div class="booking-trip-details">
           <div class="booking-trip-details-img">
-            <img src="{{passedTripData.trip.gallery_images[0].image}}" alt="{{passedTripData.trip.gallery_images[0].alt_text}}">
+            <img src="{{passedTripData.trip.gallery_images[0].image}}"
+                 alt="{{passedTripData.trip.gallery_images[0].alt_text}}">
           </div>
           <div class="booking-trip-details-info">
             <div
@@ -53,16 +76,16 @@
         <div class="booking-trip-details-price">
           <div class="booking-trip-details-price-title">Price Details</div>
           <div class="booking-trip-details-price-subtitle">
-            <div>23000 x 1 Adult</div>
-            <div>23000</div>
+            <div>{{basePrice}} x {{noOfAdults}} Adult</div>
+            <div>{{basePrice * noOfAdults}}</div>
           </div>
           <div class="booking-trip-details-price-subtitle">
-            <div>11500 x 1 Children</div>
-            <div>11500</div>
+            <div>{{(basePrice / 2)}} x {{noOfChildren}} Children</div>
+            <div>{{(basePrice / 2) * noOfChildren}}</div>
           </div>
           <div class="booking-trip-details-price-total">
             <div>TOTAL(PKR)</div>
-            <div>34500</div>
+            <div>{{totalPrice}}</div>
           </div>
         </div>
         <div class="divider"></div>

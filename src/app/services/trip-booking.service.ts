@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {BookedTrip} from 'src/app/models/booked-trip';
+import {Observable} from 'rxjs';
+import {CreateTripBooking} from 'src/app/models/create-trip-booking';
 import {environment} from 'src/environments/environment';
 
 @Injectable({
@@ -11,7 +12,11 @@ export class TripBookingService {
 
   constructor(private httpClient: HttpClient) { }
 
-  postTripBooking(bookingTrip: BookedTrip) {
+  getTripBooking(id): Observable<any> {
+    return this.httpClient.get(`${this.tripBookingUrl}/${id}`);
+  }
+
+  postTripBooking(bookingTrip: CreateTripBooking) {
     return this.httpClient.post(this.tripBookingUrl, bookingTrip);
   }
 }

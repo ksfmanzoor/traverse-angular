@@ -3,10 +3,12 @@
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
         <div class="account-avatar">
-          <img class="account-avatar-img" src="{{!!user.profile_image ? user.profile_image : 'assets/avatar.png'}}" alt="text"
-          (click)="avatarUpload.click()"
+          <img class="account-avatar-img" src="{{!!user.profile_image ? user.profile_image : 'assets/avatar.png'}}"
+               alt="text"
+               (click)="avatarUpload.click()"
           >
-          <input type='file' (change)="onSelectFile($event)" #avatarUpload style="display: none" class="account-avatar-input">
+          <input type='file' (change)="onSelectFile($event)" #avatarUpload style="display: none"
+                 class="account-avatar-input">
           <p class="account-avatar-name">Welcome,
             <br>{{user.name}}
           </p>
@@ -23,6 +25,12 @@
               <a routerLink="preferences">
                 <fa-icon [icon]="preferencesIcon"></fa-icon>
                 Preferences
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="booking-history">
+                <fa-icon [icon]="historyIcon"></fa-icon>
+                Booking History
               </a>
             </li>
             <li (click)="logout()">

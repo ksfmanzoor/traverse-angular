@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {faNewspaper} from '@fortawesome/free-regular-svg-icons';
 import {faCog, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {faHistory} from '@fortawesome/free-solid-svg-icons/faHistory';
 import {Subscription} from 'rxjs';
 import {User} from 'src/app/models/user';
 import {PreferencesService} from 'src/app/services/preferences.service';
@@ -15,6 +16,7 @@ import {NavBarService} from '../services/nav-bar.service';
 export class ProfilePageComponent implements OnInit, OnDestroy {
   blogIcon = faNewspaper;
   preferencesIcon = faCog;
+  historyIcon = faHistory;
   logoutIcon = faSignOutAlt;
   user: User;
   userSubscription: Subscription;

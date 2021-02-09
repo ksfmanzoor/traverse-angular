@@ -60,7 +60,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'booking', component: BookingPageComponent
+    path: 'booking', loadChildren: () => import('./booking-module/booking.module').then(m => m.BookingModule)
   },
   {
     path: 'blogs',

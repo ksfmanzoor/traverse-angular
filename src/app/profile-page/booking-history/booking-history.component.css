@@ -1,0 +1,33 @@
+.account-page-title {
+  margin-top: 0;
+  margin-bottom: 33px;
+  font-weight: 200;
+  font-family: helvetica, Arial, sans-serif;
+  font-size: 42px;
+}
+
+.account-history table {
+  margin-bottom: 0;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.account-history-type-title {
+  line-height: 1.2em;
+  margin-bottom: 2px;
+}
+
+.account-history-item-name {
+  font-size: 12px;
+  line-height: 1.3em;
+}
+
+.account-history-date {
+  font-size: 12px;
+}
+
+.account-history-item-price {
+  font-weight: bold;
+  margin-bottom: 0;
+}

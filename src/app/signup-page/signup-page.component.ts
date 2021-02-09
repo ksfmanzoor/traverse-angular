@@ -53,7 +53,7 @@ export class SignupPageComponent implements OnInit {
     }
     this.authenticationService.signUp(this.signUpData).subscribe(user => {
       this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
-      this.authenticationService.login(this.loginData);
+      this.authenticationService.login(this.loginData).subscribe();
     }, error => {
       alert(error.error.detail);
     });

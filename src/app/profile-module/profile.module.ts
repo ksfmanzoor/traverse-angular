@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BookingHistoryComponent} from 'src/app/profile-page/booking-history/booking-history.component';
 
 import {ProfileRoutingModule} from './profile-routing.module';
 import {ProfilePageComponent} from '../profile-page/profile-page.component';
@@ -14,6 +15,7 @@ import {PreferencesComponent} from '../profile-page/preferences/preferences.comp
     ProfilePageComponent,
     YourBlogsComponent,
     PreferencesComponent,
+    BookingHistoryComponent
   ],
   imports: [
     CommonModule,
