@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 8px 0;
+  padding: 10px 0;
   border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 16px 32px, rgba(0, 0, 0, 0.1) 0 3px 8px;
 }
@@ -38,13 +38,14 @@
 .divider {
   width: 1px;
   align-self: stretch;
-  border: 1px solid rgba(0, 0, 0, 0.54);
+  border: 1px solid #DDDDDD;
   margin: 5px 0;
 }
 
 .form-control {
   outline: none;
   border: none;
+  height: 1.6em;
 }
 
 .form-control:focus {

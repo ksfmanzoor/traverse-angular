@@ -37,7 +37,11 @@
             <div class="dropdown booking-form-field-data">
               <a class="dropdown-toggle" type="button" id="departureSelection" data-toggle="dropdown"
                  aria-haspopup="true" aria-expanded="false">
-                {{departureName}} via {{departureMethod}}
+                <ng-container *ngIf="(departureName + ' via ' + departureMethod).length < 25; else elseBlock">
+                  {{departureName}} via {{departureMethod}}
+                </ng-container>
+                <ng-template
+                  #elseBlock>{{(departureName + ' via ' + departureMethod).slice(0, 22) + '...'}}</ng-template>
                 <fa-icon [icon]="dropDownButton"></fa-icon>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="departureSelection">
