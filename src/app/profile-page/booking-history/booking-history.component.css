@@ -21,6 +21,8 @@
 .account-history-item-name {
   font-size: 12px;
   line-height: 1.3em;
+  cursor: pointer;
+  color: #007bff;
 }
 
 .account-history-date {

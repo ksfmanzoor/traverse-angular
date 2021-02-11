@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BookingHistoryComponent} from 'src/app/profile-page/booking-history/booking-history.component';
+import {AllTripBookingResolverService} from 'src/app/services/all-trip-booking-resolver.service';
 import {YourBlogsResolverService} from 'src/app/services/your-blogs-resolver.service';
 import {PreferencesComponent} from '../profile-page/preferences/preferences.component';
 import {ProfilePageComponent} from '../profile-page/profile-page.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
         path: 'preferences', component: PreferencesComponent,
       },
       {
-        path: 'booking-history', component: BookingHistoryComponent
+        path: 'booking-history', component: BookingHistoryComponent, resolve: {bookings: AllTripBookingResolverService}
       }
     ],
   },

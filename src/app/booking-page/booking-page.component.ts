@@ -61,9 +61,8 @@ export class BookingPageComponent implements OnInit, OnDestroy {
           number_of_persons: this.noOfAdults,
           number_of_children: this.noOfChildren,
         };
-        this.tripBookingService.postTripBooking(bookingTrip).subscribe(data => {
-          console.log(data);
-          this.router.navigate(['success', this.passedTripData.trip.id], {relativeTo: this.route}).then();
+        this.tripBookingService.postTripBooking(bookingTrip).subscribe((data: CreateTripBooking) => {
+          this.router.navigate(['success', data.id], {relativeTo: this.route}).then();
         });
       } else {
         alert('Phone Number is required');

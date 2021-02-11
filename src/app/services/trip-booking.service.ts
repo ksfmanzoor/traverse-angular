@@ -16,6 +16,10 @@ export class TripBookingService {
     return this.httpClient.get(`${this.tripBookingUrl}/${id}`);
   }
 
+  getAllTripBookings(): Observable<any> {
+    return this.httpClient.get(this.tripBookingUrl);
+  }
+
   postTripBooking(bookingTrip: CreateTripBooking) {
     return this.httpClient.post(this.tripBookingUrl, bookingTrip);
   }

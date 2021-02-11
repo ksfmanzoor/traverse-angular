@@ -7,11 +7,11 @@ import {TripBookingService} from 'src/app/services/trip-booking.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TripBookingResolverService implements Resolve<TripBooking> {
+export class AllTripBookingResolverService implements Resolve<TripBooking[]>{
 
   constructor(private tripBookingService: TripBookingService) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<TripBooking> | Promise<TripBooking> | TripBooking {
-    return this.tripBookingService.getTripBooking(route.params.id);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<TripBooking[]> | Promise<TripBooking[]> | TripBooking[] {
+    return this.tripBookingService.getAllTripBookings();
   }
 }
