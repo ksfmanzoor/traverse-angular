@@ -120,7 +120,7 @@
   <div class="add-comment-section">
     <div class="add-comment-block">
       <div class="account-avatar">
-        <img class="account-avatar-img" src="{{isLoggedIn ? user.profile_image : 'assets/avatar.png'}}"
+        <img class="account-avatar-img" src="{{isLoggedIn && !!user.profile_image ? user.profile_image : 'assets/avatar.png'}}"
              alt="text"
         >
       </div>

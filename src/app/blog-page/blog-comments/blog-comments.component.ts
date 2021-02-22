@@ -35,6 +35,7 @@ export class BlogCommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.authenticationService.currentUserValue;
+    console.log(this.isLoggedIn);
     if (this.isLoggedIn) {
       this.user = this.authenticationService.currentUserValue;
     }
