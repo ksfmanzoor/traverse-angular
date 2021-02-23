@@ -72,28 +72,32 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  incrementAdults() {
+  incrementAdults(event) {
     this.noOfAdults++;
     this.totalPriceUpdate();
+    event.stopPropagation();
   }
 
-  decrementAdults() {
+  decrementAdults(event) {
     if (this.noOfAdults !== 1) {
       this.noOfAdults--;
     }
     this.totalPriceUpdate();
+    event.stopPropagation();
   }
 
-  incrementChildren() {
+  incrementChildren(event) {
     this.noOfChildren++;
     this.totalPriceUpdate();
+    event.stopPropagation();
   }
 
-  decrementChildren() {
+  decrementChildren(event) {
     if (this.noOfChildren !== 0) {
       this.noOfChildren--;
     }
     this.totalPriceUpdate();
+    event.stopPropagation();
   }
 
   totalPriceUpdate() {

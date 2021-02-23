@@ -18,11 +18,11 @@
             <div class="d-flex justify-content-between align-items-center p-2">
               <div class="person-quantity-calculator-label">Adults</div>
               <div class="d-flex align-items-center">
-                <div class="person-quantity-calculator" (click)="decrementAdults()">
+                <div class="person-quantity-calculator" (click)="decrementAdults($event)">
                   <fa-icon [icon]="minusIcon"></fa-icon>
                 </div>
                 <div class="person-current-quantity">{{noOfAdults}}</div>
-                <div class="person-quantity-calculator" (click)="incrementAdults()">
+                <div class="person-quantity-calculator" (click)="incrementAdults($event)">
                   <fa-icon [icon]="plusIcon"></fa-icon>
                 </div>
               </div>
@@ -30,11 +30,11 @@
             <div class="d-flex justify-content-between align-items-center p-2">
               <div class="person-quantity-calculator-label">Children</div>
               <div class="d-flex align-items-center">
-                <div class="person-quantity-calculator" (click)="decrementChildren()">
+                <div class="person-quantity-calculator" (click)="decrementChildren($event)">
                   <fa-icon [icon]="minusIcon"></fa-icon>
                 </div>
                 <div class="person-current-quantity">{{noOfChildren}}</div>
-                <div class="person-quantity-calculator" (click)="incrementChildren()">
+                <div class="person-quantity-calculator" (click)="incrementChildren($event)">
                   <fa-icon [icon]="plusIcon"></fa-icon>
                 </div>
               </div>
