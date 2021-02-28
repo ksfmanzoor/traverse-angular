@@ -11,6 +11,7 @@ export class NavBarComponent implements OnInit {
   name = '';
   isLoggedIn = false;
   color = '';
+  isVisible = true;
   width: number;
 
   constructor(private authenticationService: AuthenticationService, private navBarService: NavBarService) {}
@@ -18,6 +19,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     this.width = window.innerWidth;
     this.navBarService.changeNavColor.subscribe((value => this.color = value));
+    this.navBarService.changeVisibility.subscribe((value => this.isVisible = value));
     this.authenticationService.currentUser.subscribe(data => {
       if (data) {
         this.isLoggedIn = true;

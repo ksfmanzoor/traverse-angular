@@ -1,0 +1,22 @@
+.loading-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-logo {
+  height: 50px;
+  width: 50px;
+  animation: rotation 1s ease-in infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

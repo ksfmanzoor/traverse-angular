@@ -6,9 +6,10 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class NavBarService {
   public changeNavColor: BehaviorSubject<any>;
-
+  public changeVisibility: BehaviorSubject<boolean>;
 
   constructor() {
-   this.changeNavColor = new BehaviorSubject('');
+    this.changeNavColor = new BehaviorSubject('');
+    this.changeVisibility = new BehaviorSubject<boolean>(true);
   }
 }
