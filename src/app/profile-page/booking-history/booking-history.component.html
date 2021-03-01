@@ -18,7 +18,7 @@
         </td>
         <td>
           <p class="account-history-type-title">{{booking.trip.title}}</p>
-          <a class="account-history-item-name" (click)="navigateToTrip(booking.trip.slug)">View Trip</a>
+          <a class="account-history-item-name" (click)="navigateToTrip(booking.trip.slug, $event)">View Trip</a>
         </td>
         <td>
           <p>{{booking.departure.location}} via {{booking.departure.via}}</p>

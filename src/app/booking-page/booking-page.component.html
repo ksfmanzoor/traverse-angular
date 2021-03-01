@@ -44,9 +44,25 @@
       </div>
       <form [formGroup]="bookingForm">
         <div class="d-flex">
-          <input type="text" class="form-control mr-2" placeholder="Full Name" formControlName="name">
-          <input type="text" class="form-control mr-2" placeholder="Phone Number" formControlName="phoneNumber">
-          <input type="email" class="form-control" placeholder="Email" formControlName="email">
+          <div class="mr-2">
+            <input type="text" class="form-control " placeholder="Full Name" formControlName="name"
+                   [ngClass]="{'is-invalid': formControl.name.errors &&  formControl.name.touched}">
+            <div *ngIf="formControl.name.errors &&  formControl.name.touched"
+                 class="invalid-feedback">
+              <div *ngIf="formControl.name.errors.required">Name is required</div>
+            </div>
+          </div>
+          <div class="mr-2">
+            <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber"
+                   [ngClass]="{'is-invalid': formControl.phoneNumber.errors &&  formControl.phoneNumber.touched}">
+            <div *ngIf="formControl.phoneNumber.errors &&  formControl.phoneNumber.touched"
+                 class="invalid-feedback">
+              <div *ngIf="formControl.phoneNumber.errors.required">Phone Number is required</div>
+            </div>
+          </div>
+          <div>
+            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+          </div>
         </div>
       </form>
       <div class="divider mt-5"></div>
@@ -54,7 +70,7 @@
       <div class="booking-form-fields">
         <div class="booking-form-fields-info">Not Available Now</div>
       </div>
-      <button class="btn btn-lg btn-block btn-dark" (click)="createTripBooking()">Book Now</button>
+      <button class="btn btn-lg btn-block btn-dark" (click)="createTripBooking(signupModal)">Book Now</button>
     </div>
     <div class="offset-1 col-5">
       <div class="booking-trip-details-section">
@@ -99,3 +115,32 @@
     </div>
   </div>
 </div>
+
+<modal #signupModal>
+  <ng-template #modalHeader><h4>Sign Up</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="form-box">
+      <app-signup-form></app-signup-form>
+      <div class="social-separator">or continue with social media</div>
+      <app-social-auth></app-social-auth>
+    </div>
+    <div class="alt-block d-flex justify-content-between">
+      <p>{{signUpInfo.altText}} have an account? <a
+        (click)="openSigninModal(signinModal, signupModal)">{{signUpInfo.keyWord}}</a></p>
+    </div>
+  </ng-template>
+</modal>
+<modal #signinModal>
+  <ng-template #modalHeader><h4>Sign In</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="form-box">
+      <app-login-form></app-login-form>
+      <div class="social-separator">or continue with social media</div>
+      <app-social-auth></app-social-auth>
+    </div>
+    <div class="alt-block d-flex justify-content-between">
+      <p>{{signInInfo.altText}} have an account? <a
+        (click)="openSignUpModal(signupModal, signupModal)">{{signInInfo.keyWord}}</a></p>
+    </div>
+  </ng-template>
+</modal>

@@ -7,6 +7,22 @@
   min-height: 50vh !important;
 }
 
+.modal-body {
+  padding: 0 !important;
+}
+
+.modal-footer {
+  display: none !important;
+}
+
+.modal-content {
+  margin-top: 150px !important;
+}
+
+.modal-dialog {
+  width: 100% !important;
+}
+
 /** {*/
 /*  font-family: 'Roboto', helvetica, Arial, sans-serif;*/
 /*}*/

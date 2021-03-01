@@ -33,7 +33,6 @@ export class TripPageComponent implements OnInit, OnDestroy {
   packageId: string;
   packageName: string;
   pricePerPersonOfPackage: number;
-  noOfPersons = 1;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -123,16 +122,6 @@ export class TripPageComponent implements OnInit, OnDestroy {
     this.packageId = id;
     this.packageName = name;
     this.pricePerPersonOfPackage = price;
-  }
-
-  incrementPerson() {
-    this.noOfPersons++;
-  }
-
-  decrementPerson() {
-    if (this.noOfPersons !== 1) {
-      this.noOfPersons--;
-    }
   }
 
   navigateToAttraction(slug) {

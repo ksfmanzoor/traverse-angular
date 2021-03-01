@@ -18,7 +18,9 @@ export class BookingHistoryComponent implements OnInit {
     });
   }
 
-  navigateToTrip(slug) {
+  navigateToTrip(slug, event) {
+    console.log('sdasadas');
+    event.stopPropagation();
     this.router.navigate(['trip', slug]).then();
   }
 

@@ -71,20 +71,6 @@
               </div>
             </div>
           </div>
-          <div class="booking-form-fields">
-            <div class="booking-form-fields-info">
-              <fa-icon [icon]="userIcon"></fa-icon>
-              <p class="booking-form-fields-label">Persons</p></div>
-            <ul class="person-quantity-controls">
-              <li class="person-quantity-decrement">
-                <a (click)="decrementPerson()">-</a>
-              </li>
-              <li class="person-current-quantity">{{noOfPersons}}</li>
-              <li class="person-quantity-increment">
-                <a (click)="incrementPerson()">+</a>
-              </li>
-            </ul>
-          </div>
           <div class="booking-summary-price">
             <a class="booking-summary-expandable" href="#summaryPriceCollapse" data-toggle="collapse"
                aria-expanded="false" aria-controls="summaryPriceCollapse"><p>Show summary</p>
@@ -99,15 +85,10 @@
                   <h5 class="booking-summary-price-item-title">Package Price</h5>
                   <p class="booking-summary-price-item-price">Rs. {{pricePerPersonOfPackage}}</p>
                 </li>
-                <li class="booking-summary-price-item">
-                  <h5 class="booking-summary-price-item-title">{{noOfPersons}} Persons</h5>
-                  <p class="booking-summary-price-item-price">
-                    Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</p>
-                </li>
               </ul>
             </div>
             <div class="booking-summary-price-total"><p>Total</p>
-              <h6>Rs. {{noOfPersons * (pricePerPersonOfDeparture + pricePerPersonOfPackage)}}</h6>
+              <h6>Rs. {{pricePerPersonOfDeparture + pricePerPersonOfPackage}}</h6>
             </div>
           </div>
           <button class="btn btn-dark btn-block" (click)="navigateToBooking()">Book Now</button>

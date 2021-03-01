@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faMinus} from '@fortawesome/free-solid-svg-icons/faMinus';
@@ -6,6 +6,7 @@ import {faPlus} from '@fortawesome/free-solid-svg-icons/faPlus';
 import {CreateTripBooking, PassedTripData} from 'src/app/models/create-trip-booking';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {NavBarService} from 'src/app/services/nav-bar.service';
+import {PopupBookingService} from 'src/app/services/popup-booking.service';
 import {TripBookingService} from 'src/app/services/trip-booking.service';
 import {UtilityService} from 'src/app/services/utility.service';
 
@@ -23,11 +24,26 @@ export class BookingPageComponent implements OnInit, OnDestroy {
   totalPrice = 0;
   passedTripData: PassedTripData = {};
   bookingForm: FormGroup;
+  signUpInfo = {
+    heading: 'Sign Up',
+    subtitle: 'Create a new account',
+    altText: 'Already',
+    route: '/authentication/login',
+    keyWord: 'Sign In'
+  };
+
+  signInInfo = {
+    heading: 'Sign In',
+    subtitle: 'Log in to your account',
+    altText: 'Don\'t',
+    route: '/authentication/signup',
+    keyWord: 'Sign Up'
+  };
 
 
   constructor(private navBarService: NavBarService, public utilityService: UtilityService,
               private tripBookingService: TripBookingService, private authenticationService: AuthenticationService,
-              private router: Router, private route: ActivatedRoute) { }
+              private router: Router, private route: ActivatedRoute, private popupBookingService: PopupBookingService) { }
 
   ngOnInit(): void {
     this.passedTripData = history.state;
@@ -39,7 +55,7 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     this.navBarService.changeNavColor.next('#333333');
     this.bookingForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl(''),
+      phoneNumber: new FormControl('', [Validators.required]),
       email: new FormControl(''),
     });
   }
@@ -48,9 +64,9 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     return this.bookingForm.controls;
   }
 
-  createTripBooking() {
+  createTripBooking(signUpRef) {
     if (this.formControl.name.valid) {
-      if (this.formControl.phoneNumber.value !== '' || !!this.authenticationService.currentUserValue) {
+      if (this.formControl.phoneNumber.valid) {
         const bookingTrip: CreateTripBooking = {
           trip: this.passedTripData.trip.id,
           package: this.passedTripData.packageId,
@@ -61,14 +77,20 @@ export class BookingPageComponent implements OnInit, OnDestroy {
           number_of_persons: this.noOfAdults,
           number_of_children: this.noOfChildren,
         };
-        this.tripBookingService.postTripBooking(bookingTrip).subscribe((data: CreateTripBooking) => {
-          this.router.navigate(['success', data.id], {relativeTo: this.route}).then();
-        });
+        if (!!this.authenticationService.currentUserValue) {
+          this.tripBookingService.postTripBooking(bookingTrip).subscribe((data: CreateTripBooking) => {
+            this.router.navigate(['success', data.id], {relativeTo: this.route}).then();
+          });
+        } else {
+          signUpRef.open();
+          this.popupBookingService.isPopUpMode = true;
+          this.popupBookingService.bookingTrip = bookingTrip;
+        }
       } else {
-        alert('Phone Number is required');
+        this.bookingForm.markAllAsTouched();
       }
     } else {
-      alert('Name is required');
+      this.bookingForm.markAllAsTouched();
     }
   }
 
@@ -104,6 +126,15 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     this.totalPrice = (this.basePrice * this.noOfAdults) + ((Math.ceil(this.basePrice / 2)) * this.noOfChildren);
   }
 
+  openSignUpModal(signUpRef, signInRef) {
+    signInRef.close();
+    signUpRef.open();
+  }
+
+  openSigninModal(signInRef, signUpRef) {
+    signUpRef.close();
+    signInRef.open();
+  }
 
   ngOnDestroy(): void {
     this.navBarService.changeNavColor.next('transparent');

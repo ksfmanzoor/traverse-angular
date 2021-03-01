@@ -5,6 +5,7 @@ import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angularx-
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Token} from 'src/app/models/token';
+import {PopupBookingService} from 'src/app/services/popup-booking.service';
 import {environment} from 'src/environments/environment';
 import {User} from '../models/user';
 
@@ -19,7 +20,8 @@ export class AuthenticationService {
   public currentUser: Observable<User>;
   public verifiedUser;
 
-  constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) {
+  constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router,
+              private popupBookingService: PopupBookingService) {
     this.currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
     this.tokenSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('token')));
@@ -47,7 +49,11 @@ export class AuthenticationService {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         this.verifiedUser = user.is_verified;
-        this.router.navigate(['/']).then();
+        if (this.popupBookingService.isPopUpMode) {
+          this.popupBookingService.createBookingThroughPopup();
+        } else {
+          this.router.navigate(['/']).then();
+        }
       });
     }));
   }
