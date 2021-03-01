@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouteReuseStrategy} from '@angular/router';
 import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 import {AuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {HomeModule} from 'src/app/home-module/home.module';
 import {provideConfig} from 'src/app/social-account-config';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -26,6 +27,7 @@ import {SharedModule} from './shared-module/shared.module';
     BrowserAnimationsModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
+    HomeModule,
     SharedModule,
     SocialLoginModule,
   ],

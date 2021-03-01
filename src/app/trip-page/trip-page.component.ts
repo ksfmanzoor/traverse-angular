@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons/faAngleDown';
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons/faAngleLeft';
@@ -20,7 +20,6 @@ export class TripPageComponent implements OnInit, OnDestroy {
   nextButton = faAngleRight;
   dropDownButton = faCaretDown;
   expandButton = faAngleDown;
-  userIcon = faUserAlt;
   departureIcon = faPlaneDeparture;
   screenWidth: number;
   tripData: Trip;
@@ -33,6 +32,7 @@ export class TripPageComponent implements OnInit, OnDestroy {
   packageId: string;
   packageName: string;
   pricePerPersonOfPackage: number;
+  @ViewChild('widgetsContent') widgetsContent: ElementRef;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -107,6 +107,14 @@ export class TripPageComponent implements OnInit, OnDestroy {
         }
       }
     });
+  }
+
+  scrollLeft() {
+    this.widgetsContent.nativeElement.scrollLeft -= 152;
+  }
+
+  scrollRight() {
+    this.widgetsContent.nativeElement.scrollLeft += 152;
   }
 
   selectDeparture(id, name, method, price, departureDate, arrivalDate) {
