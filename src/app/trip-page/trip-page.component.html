@@ -112,7 +112,7 @@
                            [ngStyle]="{overflow: x.trip_service_values.length > 3 ? 'scroll' : 'hidden'}">
                         <ng-container *ngFor="let y of x.trip_service_values">
                           <div class="trip-service" *ngIf="y.packages.includes(packageId)">
-                            <img src="favicon.ico" alt="">
+                            <img class="trip-service-img" src="{{y.trip_service.image}}" alt="Service Icon">
                             <h6>{{y.trip_service.title}}</h6>
                             <p>{{y.value}}</p>
                           </div>
@@ -142,7 +142,7 @@
                            [ngStyle]="{overflowX: x.trip_service_values.length > 3 ? 'scroll' : 'hidden'}">
                         <ng-container *ngFor="let y of x.trip_service_values">
                           <div class="trip-service" *ngIf="y.packages.includes(packageId)">
-                            <img src="favicon.ico" alt="">
+                            <img class="trip-service-img" src="{{y.trip_service.image}}" alt="Service Icon">
                             <h6>{{y.trip_service.title}}</h6>
                             <p>{{y.value}}</p>
                           </div>
@@ -172,7 +172,7 @@
                            [ngStyle]="{overflow: x.trip_service_values.length > 3 ? 'scroll' : 'hidden'}">
                         <ng-container *ngFor="let y of x.trip_service_values">
                           <div class="trip-service" *ngIf="y.packages.includes(packageId)">
-                            <img src="favicon.ico" alt="">
+                            <img class="trip-service-img" src="{{y.trip_service.image}}" alt="Service Icon">
                             <h6>{{y.trip_service.title}}</h6>
                             <p>{{y.value}}</p>
                           </div>
