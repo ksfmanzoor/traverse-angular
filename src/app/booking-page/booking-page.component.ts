@@ -39,6 +39,7 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     route: '/authentication/signup',
     keyWord: 'Sign Up'
   };
+  isSignUpMode = true;
 
 
   constructor(private navBarService: NavBarService, public utilityService: UtilityService,
@@ -126,14 +127,8 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     this.totalPrice = (this.basePrice * this.noOfAdults) + ((Math.ceil(this.basePrice / 2)) * this.noOfChildren);
   }
 
-  openSignUpModal(signUpRef, signInRef) {
-    signInRef.close();
-    signUpRef.open();
-  }
-
-  openSigninModal(signInRef, signUpRef) {
-    signUpRef.close();
-    signInRef.open();
+  toggleSignUpSignInMode() {
+    this.isSignUpMode = !this.isSignUpMode;
   }
 
   ngOnDestroy(): void {

@@ -117,30 +117,29 @@
 </div>
 
 <modal #signupModal>
-  <ng-template #modalHeader><h4>Sign Up</h4></ng-template>
+  <ng-template #modalHeader><h4>{{isSignUpMode ? 'Sign Up' : 'Sign In'}}</h4></ng-template>
   <ng-template #modalBody>
-    <div class="form-box">
-      <app-signup-form></app-signup-form>
-      <div class="social-separator">or continue with social media</div>
-      <app-social-auth></app-social-auth>
-    </div>
-    <div class="alt-block d-flex justify-content-between">
-      <p>{{signUpInfo.altText}} have an account? <a
-        (click)="openSigninModal(signinModal, signupModal)">{{signUpInfo.keyWord}}</a></p>
-    </div>
-  </ng-template>
-</modal>
-<modal #signinModal>
-  <ng-template #modalHeader><h4>Sign In</h4></ng-template>
-  <ng-template #modalBody>
-    <div class="form-box">
-      <app-login-form></app-login-form>
-      <div class="social-separator">or continue with social media</div>
-      <app-social-auth></app-social-auth>
-    </div>
-    <div class="alt-block d-flex justify-content-between">
-      <p>{{signInInfo.altText}} have an account? <a
-        (click)="openSignUpModal(signupModal, signupModal)">{{signInInfo.keyWord}}</a></p>
-    </div>
+    <ng-container *ngIf="isSignUpMode;else signIn">
+      <div class="form-box">
+        <app-signup-form></app-signup-form>
+        <div class="social-separator">or continue with social media</div>
+        <app-social-auth></app-social-auth>
+      </div>
+      <div class="alt-block d-flex justify-content-between">
+        <p>{{signUpInfo.altText}} have an account? <a
+          (click)="toggleSignUpSignInMode()">{{signUpInfo.keyWord}}</a></p>
+      </div>
+    </ng-container>
+    <ng-template #signIn>
+      <div class="form-box">
+        <app-login-form></app-login-form>
+        <div class="social-separator">or continue with social media</div>
+        <app-social-auth></app-social-auth>
+      </div>
+      <div class="alt-block d-flex justify-content-between">
+        <p>{{signInInfo.altText}} have an account? <a
+          (click)="toggleSignUpSignInMode()">{{signInInfo.keyWord}}</a></p>
+      </div>
+    </ng-template>
   </ng-template>
 </modal>
