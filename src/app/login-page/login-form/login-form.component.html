@@ -27,6 +27,7 @@
       <div *ngIf="formControl.password.errors.minlength">Password must be at least 6 characters</div>
     </div>
   </div>
+  <div class="text-danger p-y-1" *ngIf="isValid">Please provide valid credentials</div>
   <div (click)="onPhoneClick()" class="alt-signup" [ngStyle]="{display: isPhone ? 'none': ''}">Use phone number
     instead?
   </div>

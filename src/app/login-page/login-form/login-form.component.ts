@@ -12,6 +12,7 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   loginData = {};
   isPhone = false;
+  isValid = false;
 
   constructor(private authenticationService: AuthenticationService) {
   }
@@ -38,7 +39,9 @@ export class LoginFormComponent implements OnInit {
       this.loginData = {email: this.formControl.email.value, password: this.formControl.password.value};
 
     }
-    this.authenticationService.login(this.loginData).subscribe();
+    this.authenticationService.login(this.loginData).subscribe(() => {}, error => {
+      this.isValid = true;
+    });
   }
 
   onEmailClick() {

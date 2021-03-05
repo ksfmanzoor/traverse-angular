@@ -212,14 +212,6 @@
   height: 6px;
 }
 
-/*.trip-services-list::-webkit-scrollbar-track-piece:end {*/
-/*  margin-right: 32%;*/
-/*}*/
-
-/*.trip-services-list::-webkit-scrollbar-track-piece:start {*/
-/*  margin-left: 32%;*/
-/*}*/
-
 .scroll-icon {
   position: absolute;
   top: 40%;
