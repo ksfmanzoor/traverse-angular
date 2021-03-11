@@ -1,15 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!isMobile; else mobileView">
   <div class="row">
     <div class="col-6">
       <div class="booking-title">Confirm and Pay!</div>
       <div class="booking-subtitle">Your Trip</div>
       <div>
-        <div class="booking-subtitle">Date</div>
+        <div class="booking-subtitle heading">Date</div>
         <p
           class="booking-date">{{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).departure_date | date: 'medium'}}
           - {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).arrival_date | date:'medium'}}</p>
       </div>
-      <div class="booking-subtitle">Guests</div>
+      <div class="booking-subtitle heading">Guests</div>
       <div class="booking-form-fields" id="dropdownMenuButton" data-toggle="dropdown">
         <div class="booking-form-fields-info">Persons</div>
         <div class="person-quantity-controls">
@@ -67,8 +67,32 @@
       </form>
       <div class="divider mt-5"></div>
       <div class="booking-subtitle">Pay With</div>
-      <div class="booking-form-fields">
-        <div class="booking-form-fields-info">Not Available Now</div>
+      <div>
+        <p class="booking-payment-info">Transfer 30% of Total Amount to our Official Account Number to confirm your
+          reservation.
+        </p>
+        <div class="booking-subtitle heading">Advance Amount</div>
+        <div class="d-flex justify-content-between">
+          <p class="booking-payment-amount-off">30% of PKR 75000</p>
+          <p class="booking-payment-amount">PKR 25000</p>
+        </div>
+        <div class="booking-payment-account-section">
+          <p>Our Official Account Number:</p>
+          <div class="booking-payment-account-info">
+            <p>Bank: <span>Faysal Bank</span></p>
+            <p>Title: <span>TRAVERSE PAKISTAN</span></p>
+            <p>Account number: <span>3182355000000213</span></p>
+          </div>
+        </div>
+        <div>
+          <p class="booking-payment-info">Please send a receipt on our official phone numbers over whatsapp and we will
+            confirm your booking.
+          </p>
+          <div class="d-flex justify-content-between py-2">
+            <p class="booking-payment-numbers">+92 3216650670</p>
+            <p class="booking-payment-numbers">+92 3351589132</p>
+          </div>
+        </div>
       </div>
       <button class="btn btn-lg btn-block btn-dark" (click)="createTripBooking(signupModal)">Book Now</button>
     </div>
@@ -115,6 +139,134 @@
     </div>
   </div>
 </div>
+<ng-template #mobileView>
+  <div class="container-fluid">
+    <div class="d-flex mt-5">
+      <div class="booking-trip-details-img">
+        <img src="{{passedTripData.trip.gallery_images[0].image}}"
+             alt="{{passedTripData.trip.gallery_images[0].alt_text}}">
+      </div>
+      <div class="booking-trip-details-info">
+        <div
+          class="booking-trip-details-info-subtitle">{{utilityService.packageFinder(passedTripData.trip.packages, passedTripData.packageId).title}}</div>
+        <div class="booking-trip-details-info-title">{{passedTripData.trip.title}}</div>
+        <div
+          class="booking-trip-details-info-subtitle">{{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).location}}
+          via {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).via}}</div>
+      </div>
+    </div>
+    <div class="mobile-divider"></div>
+    <div class="booking-subtitle">Your Trip</div>
+    <div>
+      <div class="booking-subtitle heading">Date</div>
+      <p
+        class="booking-date">{{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).departure_date | date: 'medium'}}
+        - {{utilityService.departureFinder(passedTripData.trip.departures, passedTripData.departureId).arrival_date | date:'medium'}}</p>
+    </div>
+    <div class="booking-subtitle heading">Guests</div>
+    <div class="booking-form-fields" id="mobileDropdownMenuButton" data-toggle="dropdown">
+      <div class="booking-form-fields-info">Persons</div>
+      <div class="person-quantity-controls">
+        <div class="person-current-quantity">{{noOfAdults + noOfChildren}}</div>
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="mobileDropdownMenuButton">
+          <div class="d-flex justify-content-between align-items-center p-2">
+            <div class="person-quantity-calculator-label">Adults</div>
+            <div class="d-flex align-items-center">
+              <div class="person-quantity-calculator" (click)="decrementAdults($event)">
+                <fa-icon [icon]="minusIcon"></fa-icon>
+              </div>
+              <div class="person-current-quantity">{{noOfAdults}}</div>
+              <div class="person-quantity-calculator" (click)="incrementAdults($event)">
+                <fa-icon [icon]="plusIcon"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center p-2">
+            <div class="person-quantity-calculator-label">Children</div>
+            <div class="d-flex align-items-center">
+              <div class="person-quantity-calculator" (click)="decrementChildren($event)">
+                <fa-icon [icon]="minusIcon"></fa-icon>
+              </div>
+              <div class="person-current-quantity">{{noOfChildren}}</div>
+              <div class="person-quantity-calculator" (click)="incrementChildren($event)">
+                <fa-icon [icon]="plusIcon"></fa-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="bookingForm">
+      <div class="d-flex flex-column">
+        <div class="mb-3">
+          <input type="text" class="form-control " placeholder="Full Name" formControlName="name"
+                 [ngClass]="{'is-invalid': formControl.name.errors &&  formControl.name.touched}">
+          <div *ngIf="formControl.name.errors &&  formControl.name.touched"
+               class="invalid-feedback">
+            <div *ngIf="formControl.name.errors.required">Name is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber"
+                 [ngClass]="{'is-invalid': formControl.phoneNumber.errors &&  formControl.phoneNumber.touched}">
+          <div *ngIf="formControl.phoneNumber.errors &&  formControl.phoneNumber.touched"
+               class="invalid-feedback">
+            <div *ngIf="formControl.phoneNumber.errors.required">Phone Number is required</div>
+          </div>
+        </div>
+        <div>
+          <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        </div>
+      </div>
+    </form>
+    <div class="mobile-divider"></div>
+    <div class="booking-trip-details-price">
+      <div class="booking-trip-details-price-title">Price Details</div>
+      <div class="booking-trip-details-price-subtitle">
+        <div>{{basePrice}} x {{noOfAdults}} Adult</div>
+        <div>{{basePrice * noOfAdults}}</div>
+      </div>
+      <div class="booking-trip-details-price-subtitle">
+        <div>{{(basePrice / 2)}} x {{noOfChildren}} Children</div>
+        <div>{{(basePrice / 2) * noOfChildren}}</div>
+      </div>
+      <div class="booking-trip-details-price-total">
+        <div>TOTAL(PKR)</div>
+        <div>{{totalPrice}}</div>
+      </div>
+    </div>
+    <div class="mobile-divider"></div>
+    <div class="booking-subtitle">Pay With</div>
+    <div>
+      <p class="booking-payment-info">Transfer 30% of Total Amount to our Official Account Number to confirm your
+        reservation.
+      </p>
+      <div class="booking-subtitle heading">Advance Amount</div>
+      <div class="d-flex justify-content-between">
+        <p class="booking-payment-amount-off">30% of PKR 75000</p>
+        <p class="booking-payment-amount">PKR 25000</p>
+      </div>
+      <div class="booking-payment-account-section">
+        <p>Our Official Account Number:</p>
+        <div class="booking-payment-account-info">
+          <p>Bank: <span>Faysal Bank</span></p>
+          <p>Title: <span>TRAVERSE PAKISTAN</span></p>
+          <p>Account number: <span>3182355000000213</span></p>
+        </div>
+      </div>
+      <div>
+        <p class="booking-payment-info">Please send a receipt on our official phone numbers over whatsapp and we will
+          confirm your booking.
+        </p>
+        <div class="d-flex justify-content-between py-2">
+          <p class="booking-payment-numbers">+92 3216650670</p>
+          <p class="booking-payment-numbers">+92 3351589132</p>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-block btn-dark mb-3" (click)="createTripBooking(signupModal)">Book Now</button>
+  </div>
+</ng-template>
 
 <modal #signupModal>
   <ng-template #modalHeader><h4>{{isSignUpMode ? 'Sign Up' : 'Sign In'}}</h4></ng-template>

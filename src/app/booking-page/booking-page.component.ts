@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faMinus} from '@fortawesome/free-solid-svg-icons/faMinus';
@@ -24,6 +24,7 @@ export class BookingPageComponent implements OnInit, OnDestroy {
   totalPrice = 0;
   passedTripData: PassedTripData = {};
   bookingForm: FormGroup;
+  isMobile: boolean;
   signUpInfo = {
     heading: 'Sign Up',
     subtitle: 'Create a new account',
@@ -47,6 +48,7 @@ export class BookingPageComponent implements OnInit, OnDestroy {
               private router: Router, private route: ActivatedRoute, private popupBookingService: PopupBookingService) { }
 
   ngOnInit(): void {
+    this.isMobile = window.innerWidth < 992;
     this.passedTripData = history.state;
     this.basePrice = (this.utilityService.packageFinder(this.passedTripData.trip.packages,
       this.passedTripData.packageId).price_per_person) +
@@ -63,6 +65,11 @@ export class BookingPageComponent implements OnInit, OnDestroy {
 
   get formControl() {
     return this.bookingForm.controls;
+  }
+
+  @HostListener('window: resize', ['$event'])
+  onResize(event) {
+    this.isMobile = event.target.innerWidth < 992;
   }
 
   createTripBooking(signUpRef) {

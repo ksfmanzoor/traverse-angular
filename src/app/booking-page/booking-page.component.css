@@ -1,15 +1,19 @@
 .booking-title {
-  font-size: 48px;
-  line-height: 66px;
+  font-size: 32px;
+  line-height: 36px;
   font-weight: 600;
   padding: 16px 0;
 }
 
 .booking-subtitle {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 600;
   padding: 16px 0;
+}
+
+.heading {
+  font-size: 16px;
 }
 
 .booking-form-fields {
@@ -124,7 +128,7 @@
 }
 
 .booking-trip-details-price-title {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 38px;
   font-weight: 600;
   padding: 2px 0;
@@ -143,14 +147,14 @@
   flex-direction: row;
   justify-content: space-between;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 38px;
   padding-top: 8px;
 }
 
 .booking-trip-details-cancellation-title {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -202,8 +206,72 @@ a {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+.mobile-divider {
+  border-top-color: rgb(221, 221, 221);
+  border-top-width: 8px;
+  border-top-style: solid;
+  margin: 24px -15px 0;
+}
+
+.booking-payment-info {
+  font-weight: 300;
+  font-size: 14px;
+  color: #828282;
+  margin: 4px 0 0 0;
+}
+
+.booking-payment-amount-off {
+  color: #828282;
+  font-size: 14px;
+}
+
+.booking-payment-account-section {
+  display: flex;
+  flex-direction: column;
+  color: #828282;
+}
+
+.booking-payment-account-info p span {
+  font-weight: 600;
+}
+
+.booking-payment-amount {
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+}
+
+.booking-payment-numbers {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (min-width: 992px) {
   .container-fluid {
     padding: 85px;
+  }
+
+}
+
+@media (min-width: 576px) {
+  .booking-payment-account-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .booking-payment-account-info {
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-trip-details-img img {
+    width: 106px;
+    height: 106px;
+  }
+
+  .booking-trip-details-info {
+    padding: 0;
   }
 }
