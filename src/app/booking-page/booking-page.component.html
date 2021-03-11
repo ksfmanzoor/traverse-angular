@@ -73,8 +73,8 @@
         </p>
         <div class="booking-subtitle heading">Advance Amount</div>
         <div class="d-flex justify-content-between">
-          <p class="booking-payment-amount-off">30% of PKR 75000</p>
-          <p class="booking-payment-amount">PKR 25000</p>
+          <p class="booking-payment-amount-off">30% of PKR {{totalPrice}}</p>
+          <p class="booking-payment-amount">PKR {{(totalPrice * 0.30).toFixed()}}</p>
         </div>
         <div class="booking-payment-account-section">
           <p>Our Official Account Number:</p>
@@ -243,8 +243,8 @@
       </p>
       <div class="booking-subtitle heading">Advance Amount</div>
       <div class="d-flex justify-content-between">
-        <p class="booking-payment-amount-off">30% of PKR 75000</p>
-        <p class="booking-payment-amount">PKR 25000</p>
+        <p class="booking-payment-amount-off">30% of PKR {{totalPrice}}</p>
+        <p class="booking-payment-amount">PKR {{(totalPrice * 0.30).toFixed()}}</p>
       </div>
       <div class="booking-payment-account-section">
         <p>Our Official Account Number:</p>

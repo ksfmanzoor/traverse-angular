@@ -2,24 +2,24 @@
   <div class="col">
     <div class="search-filters" [ngStyle]="{color: filterColor, borderColor: filterColor}">
       <p class="search-filters-highlight">Trips</p>
-<!--      <p>Experiences</p>-->
-<!--      <p>Hotels</p>-->
+      <!--      <p>Experiences</p>-->
+      <!--      <p>Hotels</p>-->
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="offset-3 col-6">
+  <div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-1 col-10">
     <div class="search-bar d-flex">
       <div class="search-bar-control">
-        <h6>Location</h6>
+        <!--        <h6>Location</h6>-->
         <input placeholder="Where are you going?" class="form-control" name="location" [(ngModel)]="searchQuery"
                (keydown.enter)="search()">
       </div>
-      <div class="divider"></div>
-      <div class="search-bar-control">
-        <h6>Date</h6>
-        <input placeholder="When do you want to go?" class="form-control">
-      </div>
+      <!--      <div class="divider"></div>-->
+      <!--      <div class="search-bar-control">-->
+      <!--        <h6>Date</h6>-->
+      <!--        <input placeholder="When do you want to go?" class="form-control">-->
+      <!--      </div>-->
       <fa-icon [icon]="searchIcon" class="search-icon" (click)="search()"></fa-icon>
     </div>
   </div>
