@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faMinus} from '@fortawesome/free-solid-svg-icons/faMinus';
@@ -25,21 +25,6 @@ export class BookingPageComponent implements OnInit, OnDestroy {
   passedTripData: PassedTripData = {};
   bookingForm: FormGroup;
   isMobile: boolean;
-  signUpInfo = {
-    heading: 'Sign Up',
-    subtitle: 'Create a new account',
-    altText: 'Already',
-    route: '/authentication/login',
-    keyWord: 'Sign In'
-  };
-
-  signInInfo = {
-    heading: 'Sign In',
-    subtitle: 'Log in to your account',
-    altText: 'Don\'t',
-    route: '/authentication/signup',
-    keyWord: 'Sign Up'
-  };
   isSignUpMode = true;
 
 
@@ -58,9 +43,12 @@ export class BookingPageComponent implements OnInit, OnDestroy {
     this.navBarService.changeNavColor.next('#333333');
     this.bookingForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.pattern(
+        '(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})'
+      )]),
       email: new FormControl(''),
-    });
+    })
+    ;
   }
 
   get formControl() {
@@ -73,29 +61,25 @@ export class BookingPageComponent implements OnInit, OnDestroy {
   }
 
   createTripBooking(signUpRef) {
-    if (this.formControl.name.valid) {
-      if (this.formControl.phoneNumber.valid) {
-        const bookingTrip: CreateTripBooking = {
-          trip: this.passedTripData.trip.id,
-          package: this.passedTripData.packageId,
-          departure: this.passedTripData.departureId,
-          name: this.formControl.name.value,
-          phone_number: this.formControl.phoneNumber.value,
-          email: this.formControl.email.value,
-          number_of_persons: this.noOfAdults,
-          number_of_children: this.noOfChildren,
-        };
-        if (!!this.authenticationService.currentUserValue) {
-          this.tripBookingService.postTripBooking(bookingTrip).subscribe((data: CreateTripBooking) => {
-            this.router.navigate(['success', data.id], {relativeTo: this.route}).then();
-          });
-        } else {
-          signUpRef.open();
-          this.popupBookingService.isPopUpMode = true;
-          this.popupBookingService.bookingTrip = bookingTrip;
-        }
+    if (this.bookingForm.valid) {
+      const bookingTrip: CreateTripBooking = {
+        trip: this.passedTripData.trip.id,
+        package: this.passedTripData.packageId,
+        departure: this.passedTripData.departureId,
+        name: this.formControl.name.value,
+        phone_number: this.formControl.phoneNumber.value,
+        email: this.formControl.email.value,
+        number_of_persons: this.noOfAdults,
+        number_of_children: this.noOfChildren,
+      };
+      if (!!this.authenticationService.currentUserValue) {
+        this.tripBookingService.postTripBooking(bookingTrip).subscribe((data: CreateTripBooking) => {
+          this.router.navigate(['success', data.id], {relativeTo: this.route}).then();
+        });
       } else {
-        this.bookingForm.markAllAsTouched();
+        signUpRef.open();
+        this.popupBookingService.isPopUpMode = true;
+        this.popupBookingService.bookingTrip = bookingTrip;
       }
     } else {
       this.bookingForm.markAllAsTouched();
