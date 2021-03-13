@@ -77,10 +77,10 @@ export class AuthenticationService {
         is_google_auth: true,
         is_facebook_auth: false
       }).subscribe(user => {
-        this.login({email: data.email, password: data.idToken.substring(0, 30)});
+        this.login({email: data.email, password: data.idToken.substring(0, 30)}).subscribe();
       }, error => {
         if (error.error.detail === 'User with the same credentials already exists!') {
-          this.login({email: data.email, password: data.idToken.substring(0, 30)});
+          this.login({email: data.email, password: data.idToken.substring(0, 30)}).subscribe();
         }
       });
     }).catch(error => {
@@ -98,10 +98,10 @@ export class AuthenticationService {
         is_facebook_auth: true,
         is_google_auth: false
       }).subscribe(user => {
-        this.login({email: data.email, password: data.id});
+        this.login({email: data.email, password: data.id}).subscribe();
       }, error => {
         if (error.error.detail === 'User with the same credentials already exists!') {
-          this.login({email: data.email, password: data.id});
+          this.login({email: data.email, password: data.id}).subscribe();
         }
       });
     }).catch(error => {
